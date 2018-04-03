@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Master branch &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../index.html"/>
+        <link rel="up" title="Development guide" href="index.html"/>
+        <link rel="next" title="Our Team" href="../authors.html"/>
+        <link rel="prev" title="Development guide" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/hottbox_logo_1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">HOTTBOX API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hottbox.core.html#module-hottbox.core.operations">Tensor Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.rank.html">Rank estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/modules.html#module-hottbox">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#advised-git-branching-model">Advised git branching model</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Master branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#develop-branch">Develop branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supporting-branches">Supporting branches</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#feature-branches">Feature branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#release-branches">Release branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hotfix-branches">Hotfix branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hottbox</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Development guide</a> &raquo;</li>
+        
+      <li>Master branch</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development_guide/git_branching_model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="master-branch">
+<h1>Master branch<a class="headerlink" href="#master-branch" title="Permalink to this headline">¶</a></h1>
+<p>We consider <code class="docutils literal notranslate"><span class="pre">origin/master</span></code> to be the main branch where the source code of HEAD
+always reflects a production-ready state.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Don’t forget to add tag whenever you merge to the master branch.</p>
+</div>
+</div>
+<div class="section" id="develop-branch">
+<h1>Develop branch<a class="headerlink" href="#develop-branch" title="Permalink to this headline">¶</a></h1>
+<p>We consider <code class="docutils literal notranslate"><span class="pre">origin/develop</span></code> to be the main branch where the source code of HEAD
+always reflects a state with the latest delivered development changes for the next release.</p>
+<p>When the source code in the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch reaches a stable point and is ready to be released,
+all of the changes should be merged back into <code class="docutils literal notranslate"><span class="pre">master</span></code> somehow and then <strong>tagged</strong> with a release number.</p>
+</div>
+<div class="section" id="supporting-branches">
+<h1>Supporting branches<a class="headerlink" href="#supporting-branches" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="feature-branches">
+<h2>Feature branches<a class="headerlink" href="#feature-branches" title="Permalink to this headline">¶</a></h2>
+<p>Used to develop new features for the upcoming or a distant future release. Therefore you should branch off from
+<code class="docutils literal notranslate"><span class="pre">develop</span></code> (or its child) and merge back to the same branch which you have branched off:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">myfeature</span> <span class="n">develop</span>   <span class="c1"># Create and switch to a new branch</span>
+
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">develop</span>                <span class="c1"># Switch back after you have implemented feature</span>
+
+<span class="o">...</span>
+
+<span class="n">git</span> <span class="n">merge</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">ff</span> <span class="n">myfeature</span>         <span class="c1"># Merge your changes.</span>
+
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">develop</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">In general, the step of merging a feature branch to the development branch should be done through <strong>pull request</strong></p>
+</div>
+</div>
+<div class="section" id="release-branches">
+<h2>Release branches<a class="headerlink" href="#release-branches" title="Permalink to this headline">¶</a></h2>
+<p>Used for preparation of a new production release. This includes minor bug fixes and shaping up the documentation.
+The key moment to branch off a new release branch from <code class="docutils literal notranslate"><span class="pre">develop</span></code> is when develop (almost) reflects the desired
+state of the new release. This means that only targeted features for the upcomming release had been merged to
+the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">release</span><span class="o">-</span><span class="mf">1.2</span> <span class="n">develop</span>
+
+<span class="o">...</span>
+
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;Last minute changes to the version number 1.2&quot;</span>
+
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+
+<span class="n">git</span> <span class="n">merge</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">ff</span> <span class="n">release</span><span class="o">-</span><span class="mf">1.2</span> <span class="c1"># Include summary of new features to the commit message</span>
+
+<span class="n">git</span> <span class="n">tag</span> <span class="o">-</span><span class="n">a</span> <span class="mf">1.2</span>
+
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">develop</span>
+
+<span class="n">git</span> <span class="n">merge</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">ff</span> <span class="n">release</span><span class="o">-</span><span class="mf">1.2</span> <span class="c1"># Include summary of last minute fixes to the commit message</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Release branches must be merged back to <code class="docutils literal notranslate"><span class="pre">master</span></code> <strong>and</strong> <code class="docutils literal notranslate"><span class="pre">develop</span></code></p>
+</div>
+</div>
+<div class="section" id="hotfix-branches">
+<h2>Hotfix branches<a class="headerlink" href="#hotfix-branches" title="Permalink to this headline">¶</a></h2>
+<p>Very much like release branches. However, should only be used when there is the necessity to act immediately
+upon an undesired state (critical bug) of a live production version.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">When a <code class="docutils literal notranslate"><span class="pre">release</span></code> branch currently exists, the hotfix changes need to be merged into that
+<code class="docutils literal notranslate"><span class="pre">release</span></code> branch, instead of <code class="docutils literal notranslate"><span class="pre">develop</span></code>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../authors.html" class="btn btn-neutral float-right" title="Our Team" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Development guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2018, Ilya Kisil.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>hottbox.algorithms.decomposition.base &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/hottbox_logo_1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/modules.html">HOTTBOX API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.core.html#module-hottbox.core.operations">Tensor Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.rank.html">Rank estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/modules.html#module-hottbox">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#feature-branches">Feature branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#release-branches">Release branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#hotfix-branches">Hotfix branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">hottbox</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>hottbox.algorithms.decomposition.base</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for hottbox.algorithms.decomposition.base</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse.linalg</span>
+
+
+<div class="viewcode-block" id="Decomposition"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition">[docs]</a><span class="k">class</span> <span class="nc">Decomposition</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is general interface for all classes that describe tensor decompositions and provides a brief summary of</span>
+<span class="sd">    the general attributes and properties</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<div class="viewcode-block" id="Decomposition.copy"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Name of the decomposition</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
+
+<div class="viewcode-block" id="Decomposition.decompose"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.decompose">[docs]</a>    <span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (Decomposition) class&#39;</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">converged</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (Decomposition) class&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_init_fmat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (Decomposition) class&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Decomposition.plot"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (Decomposition) class&#39;</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="svd"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.svd">[docs]</a><span class="k">def</span> <span class="nf">svd</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Computes SVD on matrix</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    matrix : np.ndarray</span>
+<span class="sd">    rank : int</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    U : np.ndarray</span>
+<span class="sd">    S : np.ndarray</span>
+<span class="sd">    V : np.ndarray</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">matrix</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Input should be a two-dimensional array. matrix.ndim is </span><span class="si">{}</span><span class="s1"> != 2&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
+    <span class="n">dim_1</span><span class="p">,</span> <span class="n">dim_2</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">shape</span>
+    <span class="k">if</span> <span class="n">dim_1</span> <span class="o">&lt;=</span> <span class="n">dim_2</span><span class="p">:</span>
+        <span class="n">min_dim</span> <span class="o">=</span> <span class="n">dim_1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">min_dim</span> <span class="o">=</span> <span class="n">dim_2</span>
+
+    <span class="k">if</span> <span class="n">rank</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">rank</span> <span class="o">&gt;=</span> <span class="n">min_dim</span><span class="p">:</span>
+        <span class="c1"># Default on standard SVD</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">U</span><span class="p">[:,</span> <span class="p">:</span><span class="n">rank</span><span class="p">],</span> <span class="n">S</span><span class="p">[:</span><span class="n">rank</span><span class="p">],</span> <span class="n">V</span><span class="p">[:</span><span class="n">rank</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="k">return</span> <span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">V</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># We can perform a partial SVD</span>
+        <span class="c1"># First choose whether to use X * X.T or X.T *X</span>
+        <span class="k">if</span> <span class="n">dim_1</span> <span class="o">&lt;</span> <span class="n">dim_2</span><span class="p">:</span>
+            <span class="n">S</span><span class="p">,</span> <span class="n">U</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigsh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">matrix</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="n">rank</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;LM&#39;</span><span class="p">)</span>
+            <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+            <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">S</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">S</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigsh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">matrix</span><span class="p">),</span> <span class="n">k</span><span class="o">=</span><span class="n">rank</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;LM&#39;</span><span class="p">)</span>
+            <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+            <span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">S</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]</span>
+
+        <span class="c1"># WARNING: here, V is still the transpose of what it should be</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">V</span> <span class="o">=</span> <span class="n">U</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">S</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">V</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">U</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2018, Ilya Kisil.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

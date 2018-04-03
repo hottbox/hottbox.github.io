@@ -1,0 +1,462 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>hottbox.algorithms.decomposition.cpd &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../../../../index.html"/>
+        <link rel="up" title="Module code" href="../../../index.html"/> 
+
+  
+  <script src="../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/hottbox_logo_1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/modules.html">HOTTBOX API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.core.html#module-hottbox.core.operations">Tensor Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.rank.html">Rank estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/modules.html#module-hottbox">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#feature-branches">Feature branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#release-branches">Release branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#hotfix-branches">Hotfix branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">hottbox</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>hottbox.algorithms.decomposition.cpd</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for hottbox.algorithms.decomposition.cpd</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">Decomposition</span><span class="p">,</span> <span class="n">svd</span>
+<span class="kn">from</span> <span class="nn">...core.structures</span> <span class="k">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">TensorCPD</span><span class="p">,</span> <span class="n">residual_tensor</span>
+<span class="kn">from</span> <span class="nn">...core.operations</span> <span class="k">import</span> <span class="n">khatri_rao</span><span class="p">,</span> <span class="n">hadamard</span>
+
+
+<span class="c1"># TODO: Need to add option of sorting vectors in the factor matrices and making them sign invariant</span>
+<span class="k">class</span> <span class="nc">BaseCPD</span><span class="p">(</span><span class="n">Decomposition</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span> <span class="n">epsilon</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">random_state</span><span class="p">,</span> <span class="n">mode_description</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">BaseCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="o">=</span> <span class="n">init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span> <span class="o">=</span> <span class="n">max_iter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span> <span class="o">=</span> <span class="n">epsilon</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mode_description</span> <span class="o">=</span> <span class="n">mode_description</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
+
+    <span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseCPD) class&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">converged</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Checks convergence</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>  <span class="c1"># This insures that the cost has been computed at least twice without checking number of iterations</span>
+            <span class="n">is_converged</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">is_converged</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">is_converged</span>
+
+    <span class="k">def</span> <span class="nf">_init_fmat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Initialisation of factor matrices</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tensor : Tensor</span>
+<span class="sd">            Multidimensional data to be decomposed</span>
+<span class="sd">        rank : tuple</span>
+<span class="sd">            Should be of shape (R,1), where R is the desired tensor rank. It should be passed as tuple for consistency.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fmat : list[np.ndarray]</span>
+<span class="sd">            List of factor matrices</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Reset cost every time when method decompose is called</span>
+        <span class="n">t_rank</span> <span class="o">=</span> <span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])]</span> <span class="o">*</span> <span class="n">tensor</span><span class="o">.</span><span class="n">order</span>
+        <span class="c1"># Check if all dimensions are greater then kryskal rank</span>
+        <span class="n">dim_check</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">t_rank</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="n">tensor</span><span class="o">.</span><span class="n">order</span>
+        <span class="k">if</span> <span class="n">dim_check</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="ow">is</span> <span class="s1">&#39;svd&#39;</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">order</span><span class="p">):</span>
+                    <span class="c1"># TODO: don&#39;t really like this implementation</span>
+                    <span class="n">fmat</span><span class="p">[</span><span class="n">mode</span><span class="p">],</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">t_rank</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="ow">is</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span>
+                <span class="n">fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">mode_size</span><span class="p">,</span> <span class="n">t_rank</span><span class="p">)</span> <span class="k">for</span> <span class="n">mode_size</span> <span class="ow">in</span> <span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;The given initialization is not avaliable&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">mode_size</span><span class="p">,</span> <span class="n">t_rank</span><span class="p">)</span> <span class="k">for</span> <span class="n">mode_size</span> <span class="ow">in</span> <span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">]</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s2">&quot;Specified rank value is greater then one of the dimensions of a tensor (</span><span class="si">{}</span><span class="s2"> &gt; </span><span class="si">{}</span><span class="s2">).</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="s2">&quot;Factor matrices have been initialized randomly.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">t_rank</span><span class="p">,</span> <span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="ne">RuntimeWarning</span>
+                <span class="p">)</span>
+        <span class="k">return</span> <span class="n">fmat</span>
+
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseCPD) class&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="CPD"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD">[docs]</a><span class="k">class</span> <span class="nc">CPD</span><span class="p">(</span><span class="n">BaseCPD</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Canonical Polyadic Decomposition.</span>
+
+<span class="sd">    Computed via alternating least squares (ALS)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    init : str</span>
+<span class="sd">        Type of factor matrix initialisation. Available options are `svd` and `random`</span>
+<span class="sd">    max_iter : int</span>
+<span class="sd">        Maximum number of iteration</span>
+<span class="sd">    epsilon : float</span>
+<span class="sd">        Threshold for the relative error of approximation.</span>
+<span class="sd">    tol : float</span>
+<span class="sd">        Threshold for convergence of factor matrices</span>
+<span class="sd">    random_state : int</span>
+<span class="sd">    mode_description : str</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">        If True, enable verbose output</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cost : list</span>
+<span class="sd">        A list of relative approximation errors at each iteration of the algorithm.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s1">&#39;svd&#39;</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">10e-3</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">10e-5</span><span class="p">,</span>
+                 <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode_description</span><span class="o">=</span><span class="s1">&#39;mode_cpd&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">CPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+                                  <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
+                                  <span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span><span class="p">,</span>
+                                  <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span>
+                                  <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
+                                  <span class="n">mode_description</span><span class="o">=</span><span class="n">mode_description</span><span class="p">,</span>
+                                  <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="CPD.decompose"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.decompose">[docs]</a>    <span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">kr_reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Performs CPD-ALS on the `tensor` with respect to the specified `rank`</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tensor : Tensor</span>
+<span class="sd">            Multidimensional data to be decomposed</span>
+<span class="sd">        rank : tuple</span>
+<span class="sd">            Desired Kryskal rank for the given `tensor`. Should contain only one value.</span>
+<span class="sd">            If it is greater then any of dimensions then random initialisation is used</span>
+<span class="sd">        kr_reverse : bool</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tensor_cpd : TensorCPD</span>
+<span class="sd">            CP representation of the `tensor`</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        khatri-rao product should be of matrices in reversed order. But this will duplicate original data (e.g. images)</span>
+
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tensor_cpd</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">fmat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_fmat</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+        <span class="n">core_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]),</span> <span class="n">rank</span><span class="p">)</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">frob_norm</span>
+        <span class="k">for</span> <span class="n">n_iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">):</span>
+
+            <span class="c1"># Update factor matrices</span>
+            <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">order</span><span class="p">):</span>
+                <span class="n">kr_result</span> <span class="o">=</span> <span class="n">khatri_rao</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="n">skip_matrix</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="n">kr_reverse</span><span class="p">)</span>
+                <span class="n">hadamard_result</span> <span class="o">=</span> <span class="n">hadamard</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fmat</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">mode</span><span class="p">])</span>
+                <span class="c1"># Do consecutive multiplication of np.ndarray</span>
+                <span class="n">update</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">,</span> <span class="p">[</span><span class="n">tensor</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+                                                   <span class="n">kr_result</span><span class="p">,</span>
+                                                   <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">hadamard_result</span><span class="p">)])</span>
+                <span class="n">fmat</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">update</span>
+
+            <span class="c1"># Update cost</span>
+            <span class="n">tensor_cpd</span> <span class="o">=</span> <span class="n">TensorCPD</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
+            <span class="n">residual</span> <span class="o">=</span> <span class="n">residual_tensor</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">tensor_cpd</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">residual</span><span class="o">.</span><span class="n">frob_norm</span> <span class="o">/</span> <span class="n">norm</span><span class="p">))</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Iter </span><span class="si">{}</span><span class="s1">: relative error of approximation = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_iter</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+            <span class="c1"># Check termination conditions</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Relative error of approximation has reached the acceptable level: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">converged</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Converged in </span><span class="si">{}</span><span class="s1"> iteration(s)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">)))</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">converged</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maximum number of iterations (</span><span class="si">{}</span><span class="s1">) has been reached. &#39;</span>
+                  <span class="s1">&#39;Variation = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span>
+        <span class="k">return</span> <span class="n">tensor_cpd</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">converged</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Checks convergence of the CPD-ALS algorithm.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">is_converged</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">converged</span>
+        <span class="k">return</span> <span class="n">is_converged</span>
+
+    <span class="k">def</span> <span class="nf">_init_fmat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
+        <span class="n">fmat</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_init_fmat</span><span class="p">(</span><span class="n">tensor</span><span class="o">=</span><span class="n">tensor</span><span class="p">,</span>
+                                           <span class="n">rank</span><span class="o">=</span><span class="n">rank</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fmat</span>
+
+<div class="viewcode-block" id="CPD.plot"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.plot">[docs]</a>    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;At the moment, `plot()` is not implemented for the </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2018, Ilya Kisil.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../../',
+            VERSION:'0.1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>hottbox.rank.rank_estimation &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/hottbox_logo_1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">HOTTBOX API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.operations">Tensor Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.rank.html">Rank estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/modules.html#module-hottbox">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#feature-branches">Feature branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#release-branches">Release branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#hotfix-branches">Hotfix branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">hottbox</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>hottbox.rank.rank_estimation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for hottbox.rank.rank_estimation</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">..core.structures</span> <span class="k">import</span> <span class="n">Tensor</span>
+<span class="kn">from</span> <span class="nn">..algorithms.decomposition.cpd</span> <span class="k">import</span> <span class="n">CPD</span>
+
+
+<div class="viewcode-block" id="rankest"><a class="viewcode-back" href="../../../api/hottbox.rank.html#hottbox.rank.rank_estimation.rankest">[docs]</a><span class="k">def</span> <span class="nf">rankest</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">rank_range</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">10e-3</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Estimate the optimal Kryskal rank of a tensor</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tensor : Tensor</span>
+<span class="sd">        Multidimensional data which Kryskal rank is to be estimated</span>
+<span class="sd">    rank_range : list[int]</span>
+<span class="sd">        List of rank values to be tested</span>
+<span class="sd">    epsilon : float</span>
+<span class="sd">        Threshold for the relative error of approximation.</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">        Enable verbose output</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    optimal_rank : tuple</span>
+<span class="sd">        Optimal kryskal rank. For consistency, the type of the returned value is tuple</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cpd</span> <span class="o">=</span> <span class="n">CPD</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">rel_error</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="n">rank_range</span><span class="p">:</span>
+        <span class="n">cpd</span><span class="o">.</span><span class="n">decompose</span><span class="p">(</span><span class="n">tensor</span><span class="o">=</span><span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="p">(</span><span class="n">rank</span><span class="p">,))</span>
+        <span class="n">rel_error</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cpd</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Rank = </span><span class="si">{}</span><span class="s1">, Approximation error = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">rank</span><span class="p">,),</span> <span class="n">cpd</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="n">rel_error</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">epsilon</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="c1"># Reset cost value for cpd. Should work even without it</span>
+        <span class="n">cpd</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">optimal_value</span> <span class="o">=</span> <span class="n">rank_range</span><span class="p">[</span><span class="n">rel_error</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">rel_error</span><span class="p">))]</span>
+    <span class="n">optimal_rank</span> <span class="o">=</span> <span class="p">(</span><span class="n">optimal_value</span><span class="p">,)</span>
+    <span class="k">return</span> <span class="n">optimal_rank</span></div>
+
+
+<div class="viewcode-block" id="mlrank"><a class="viewcode-back" href="../../../api/hottbox.rank.html#hottbox.rank.rank_estimation.mlrank">[docs]</a><span class="k">def</span> <span class="nf">mlrank</span><span class="p">(</span><span class="n">tensor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Calculate the multilinear rank of a tensor</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tensor : Tensor</span>
+<span class="sd">        Multidimensional data which multilinear rank is to be computed</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ml_rank : tuple</span>
+<span class="sd">        Multilinear rank</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO: implement setting a threshold for singular values</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">order</span>
+    <span class="n">ml_rank</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">)]</span>
+    <span class="n">ml_rank</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">ml_rank</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ml_rank</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2018, Ilya Kisil.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

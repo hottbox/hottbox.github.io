@@ -1,0 +1,663 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tensor Decompositions &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../index.html"/>
+        <link rel="up" title="Algorithms" href="hottbox.algorithms.html"/>
+        <link rel="next" title="Metrics" href="hottbox.metrics.html"/>
+        <link rel="prev" title="Algorithms" href="hottbox.algorithms.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/hottbox_logo_1.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">HOTTBOX API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.operations">Tensor Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="hottbox.algorithms.html">Algorithms</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tensor Decompositions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.rank.html">Rank estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html#module-hottbox">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/index.html#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/index.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#feature-branches">Feature branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#release-branches">Release branches</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#hotfix-branches">Hotfix branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/index.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/index.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/index.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hottbox</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">HOTTBOX API</a> &raquo;</li>
+        
+          <li><a href="hottbox.algorithms.html">Algorithms</a> &raquo;</li>
+        
+      <li>Tensor Decompositions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/hottbox.algorithms.decomposition.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tensor-decompositions">
+<h1>Tensor Decompositions<a class="headerlink" href="#tensor-decompositions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-hottbox.algorithms.decomposition">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hottbox.algorithms.decomposition" title="Permalink to this headline">¶</a></h2>
+<p>Module for various algorithms of tensor decompositions</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#module-hottbox.algorithms.decomposition" title="hottbox.algorithms.decomposition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.algorithms.decomposition</span></code></a></td>
+<td>Module for various algorithms of tensor decompositions</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">CPD</span></code>([init,&nbsp;max_iter,&nbsp;epsilon,&nbsp;tol,&nbsp;…])</td>
+<td>Canonical Polyadic Decomposition.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">HOSVD</span></code>([process,&nbsp;mode_description,&nbsp;verbose])</td>
+<td>Higher Order Singular Value Decomposition.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">HOOI</span></code>([init,&nbsp;max_iter,&nbsp;epsilon,&nbsp;tol,&nbsp;…])</td>
+<td>Higher Order Orthogonal Iteration Decomposition.</td>
+</tr>
+<tr class="row-odd"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTSVD</span></code>([verbose,&nbsp;mode_description])</td>
+<td>Tensor Train Decomposition.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-hottbox.algorithms.decomposition.cpd">
+<span id="canonical-polyadic-decomposition-cpd"></span><h2>Canonical Polyadic Decomposition (CPD)<a class="headerlink" href="#module-hottbox.algorithms.decomposition.cpd" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hottbox.algorithms.decomposition.cpd.CPD">
+<em class="property">class </em><code class="descname">CPD</code><span class="sig-paren">(</span><em>init='svd'</em>, <em>max_iter=50</em>, <em>epsilon=0.01</em>, <em>tol=0.0001</em>, <em>random_state=None</em>, <em>mode_description='mode_cpd'</em>, <em>verbose=False</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/cpd.html#CPD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.cpd.CPD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.algorithms.decomposition.cpd.BaseCPD</span></code></p>
+<p>Canonical Polyadic Decomposition.</p>
+<p>Computed via alternating least squares (ALS)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>init</strong> (<em>str</em>) – Type of factor matrix initialisation. Available options are <cite>svd</cite> and <cite>random</cite></li>
+<li><strong>max_iter</strong> (<em>int</em>) – Maximum number of iteration</li>
+<li><strong>epsilon</strong> (<em>float</em>) – Threshold for the relative error of approximation.</li>
+<li><strong>tol</strong> (<em>float</em>) – Threshold for convergence of factor matrices</li>
+<li><strong>random_state</strong> (<em>int</em>) – </li>
+<li><strong>mode_description</strong> (<em>str</em>) – </li>
+<li><strong>verbose</strong> (<em>bool</em>) – If True, enable verbose output</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="hottbox.algorithms.decomposition.cpd.CPD.cost">
+<code class="descname">cost</code><a class="headerlink" href="#hottbox.algorithms.decomposition.cpd.CPD.cost" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list</em> – A list of relative approximation errors at each iteration of the algorithm.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.algorithms.decomposition.cpd.CPD.converged">
+<code class="descname">converged</code><a class="headerlink" href="#hottbox.algorithms.decomposition.cpd.CPD.converged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks convergence of the CPD-ALS algorithm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.cpd.CPD.decompose">
+<code class="descname">decompose</code><span class="sig-paren">(</span><em>tensor</em>, <em>rank</em>, <em>kr_reverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/cpd.html#CPD.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.cpd.CPD.decompose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs CPD-ALS on the <cite>tensor</cite> with respect to the specified <cite>rank</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Multidimensional data to be decomposed</li>
+<li><strong>rank</strong> (<em>tuple</em>) – Desired Kryskal rank for the given <cite>tensor</cite>. Should contain only one value.
+If it is greater then any of dimensions then random initialisation is used</li>
+<li><strong>kr_reverse</strong> (<em>bool</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>tensor_cpd</strong> – CP representation of the <cite>tensor</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD">TensorCPD</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>khatri-rao product should be of matrices in reversed order. But this will duplicate original data (e.g. images)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.cpd.CPD.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/cpd.html#CPD.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.cpd.CPD.plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-hottbox.algorithms.decomposition.tucker">
+<span id="tucker-decomposition"></span><h2>Tucker Decomposition<a class="headerlink" href="#module-hottbox.algorithms.decomposition.tucker" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hottbox.algorithms.decomposition.tucker.HOSVD">
+<em class="property">class </em><code class="descname">HOSVD</code><span class="sig-paren">(</span><em>process=()</em>, <em>mode_description='mode_hosvd'</em>, <em>verbose=False</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/tucker.html#HOSVD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.tucker.HOSVD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.algorithms.decomposition.tucker.BaseTucker</span></code></p>
+<p>Higher Order Singular Value Decomposition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>process</strong> (<em>tuple</em>) – Specifies the order of modes to be processed. The factor matrices for the missing modes will be set to identity.
+If empty, then all modes are processed in the consecutive ascending order.</li>
+<li><strong>mode_description</strong> (<em>str</em>) – </li>
+<li><strong>verbose</strong> (<em>bool</em>) – If True, enable verbose output</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="hottbox.algorithms.decomposition.tucker.HOSVD.converged">
+<code class="descname">converged</code><a class="headerlink" href="#hottbox.algorithms.decomposition.tucker.HOSVD.converged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.tucker.HOSVD.decompose">
+<code class="descname">decompose</code><span class="sig-paren">(</span><em>tensor</em>, <em>rank</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/tucker.html#HOSVD.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.tucker.HOSVD.decompose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs tucker decomposition via Higher Order Singular Value Decomposition (HOSVD)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Multidimensional data to be decomposed</li>
+<li><strong>rank</strong> (<em>tuple</em>) – Desired multilinear rank for the given <cite>tensor</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>tensor_tkd</strong> – Tucker representation of the <cite>tensor</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD">TensorTKD</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.tucker.HOSVD.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/tucker.html#HOSVD.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.tucker.HOSVD.plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hottbox.algorithms.decomposition.tucker.HOOI">
+<em class="property">class </em><code class="descname">HOOI</code><span class="sig-paren">(</span><em>init='hosvd'</em>, <em>max_iter=50</em>, <em>epsilon=0.01</em>, <em>tol=0.0001</em>, <em>random_state=None</em>, <em>process=()</em>, <em>mode_description='mode_hooi'</em>, <em>verbose=False</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/tucker.html#HOOI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.tucker.HOOI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.algorithms.decomposition.tucker.BaseTucker</span></code></p>
+<p>Higher Order Orthogonal Iteration Decomposition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>init</strong> (<em>str</em>) – Type of factor matrix initialisation. Available options are <cite>hosvd</cite>.</li>
+<li><strong>process</strong> (<em>tuple</em>) – Specifies the order of modes to be processed. The factor matrices for the missing modes will be set to identity.
+If empty, then all modes are processed in the consecutive ascending order.
+Note, initialisation of a factor matrix that corresponds to the mode at the first position is skipped.</li>
+<li><strong>max_iter</strong> (<em>int</em>) – Maximum number of iteration</li>
+<li><strong>epsilon</strong> (<em>float</em>) – Threshold for the relative error of approximation.</li>
+<li><strong>tol</strong> (<em>float</em>) – Threshold for convergence of factor matrices</li>
+<li><strong>random_state</strong> (<em>int</em>) – </li>
+<li><strong>mode_description</strong> (<em>str</em>) – </li>
+<li><strong>verbose</strong> (<em>bool</em>) – If True, enable verbose output</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="hottbox.algorithms.decomposition.tucker.HOOI.cost">
+<code class="descname">cost</code><a class="headerlink" href="#hottbox.algorithms.decomposition.tucker.HOOI.cost" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list</em> – A list of relative approximation errors at each iteration of the algorithms.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.algorithms.decomposition.tucker.HOOI.converged">
+<code class="descname">converged</code><a class="headerlink" href="#hottbox.algorithms.decomposition.tucker.HOOI.converged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks convergence of the HOOI algorithm.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.tucker.HOOI.decompose">
+<code class="descname">decompose</code><span class="sig-paren">(</span><em>tensor</em>, <em>rank</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/tucker.html#HOOI.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.tucker.HOOI.decompose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs tucker decomposition via Higher Order Orthogonal Iteration (HOOI)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Multidimensional data to be decomposed</li>
+<li><strong>rank</strong> (<em>tuple</em>) – Desired multilinear rank for the given <cite>tensor</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>tensor_tkd</strong> – Tucker representation of the <cite>tensor</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD">TensorTKD</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.tucker.HOOI.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/tucker.html#HOOI.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.tucker.HOOI.plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-hottbox.algorithms.decomposition.tensor_train">
+<span id="tensor-train-decomposition-tt"></span><h2>Tensor Train Decomposition (TT)<a class="headerlink" href="#module-hottbox.algorithms.decomposition.tensor_train" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hottbox.algorithms.decomposition.tensor_train.TTSVD">
+<em class="property">class </em><code class="descname">TTSVD</code><span class="sig-paren">(</span><em>verbose=False</em>, <em>mode_description='mode_tt_svd'</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.tensor_train.TTSVD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.algorithms.decomposition.tensor_train.BaseTensorTrain</span></code></p>
+<p>Tensor Train Decomposition.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mode_description</strong> (<em>str</em>) – </li>
+<li><strong>verbose</strong> (<em>bool</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="hottbox.algorithms.decomposition.tensor_train.TTSVD.converged">
+<code class="descname">converged</code><a class="headerlink" href="#hottbox.algorithms.decomposition.tensor_train.TTSVD.converged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.tensor_train.TTSVD.decompose">
+<code class="descname">decompose</code><span class="sig-paren">(</span><em>tensor</em>, <em>rank</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.tensor_train.TTSVD.decompose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs TT-SVD on the <cite>tensor</cite> with respect to the specified <cite>rank</cite></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Multidimensional data to be decomposed</li>
+<li><strong>rank</strong> (<em>tuple</em>) – Desired tt-rank for the given <cite>tensor</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>tensor_tt</strong> – Tensor train representation of the <cite>tensor</cite></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorTT" title="hottbox.core.structures.TensorTT">TensorTT</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Reshaping of the data is performed with respect to the FORTRAN ordering. This makes it easy to compare results
+with the MATLAB implementation by Oseledets. This doesn’t really matter, as long as we do exactly the opposite
+for the reconstruction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.tensor_train.TTSVD.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.tensor_train.TTSVD.plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-hottbox.algorithms.decomposition.base">
+<span id="base-interface-for-development"></span><h2>Base Interface (For Development)<a class="headerlink" href="#module-hottbox.algorithms.decomposition.base" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hottbox.algorithms.decomposition.base.Decomposition">
+<em class="property">class </em><code class="descname">Decomposition</code><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/base.html#Decomposition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.base.Decomposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is general interface for all classes that describe tensor decompositions and provides a brief summary of
+the general attributes and properties</p>
+<dl class="attribute">
+<dt id="hottbox.algorithms.decomposition.base.Decomposition.converged">
+<code class="descname">converged</code><a class="headerlink" href="#hottbox.algorithms.decomposition.base.Decomposition.converged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.base.Decomposition.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/base.html#Decomposition.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.base.Decomposition.copy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.base.Decomposition.decompose">
+<code class="descname">decompose</code><span class="sig-paren">(</span><em>tensor</em>, <em>rank</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/base.html#Decomposition.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.base.Decomposition.decompose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.algorithms.decomposition.base.Decomposition.name">
+<code class="descname">name</code><a class="headerlink" href="#hottbox.algorithms.decomposition.base.Decomposition.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the decomposition</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.base.Decomposition.plot">
+<code class="descname">plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/base.html#Decomposition.plot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.base.Decomposition.plot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="hottbox.algorithms.decomposition.base.svd">
+<code class="descname">svd</code><span class="sig-paren">(</span><em>matrix</em>, <em>rank=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/decomposition/base.html#svd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.base.svd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes SVD on matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>matrix</strong> (<em>np.ndarray</em>) – </li>
+<li><strong>rank</strong> (<em>int</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>U</strong> (<em>np.ndarray</em>)</li>
+<li><strong>S</strong> (<em>np.ndarray</em>)</li>
+<li><strong>V</strong> (<em>np.ndarray</em>)</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hottbox.metrics.html" class="btn btn-neutral float-right" title="Metrics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hottbox.algorithms.html" class="btn btn-neutral" title="Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2018, Ilya Kisil.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
