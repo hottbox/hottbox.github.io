@@ -36,9 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../index.html"/>
-        <link rel="up" title="Development guide" href="index.html"/>
-        <link rel="next" title="Our Team" href="../authors.html"/>
-        <link rel="prev" title="Development guide" href="index.html"/> 
+        <link rel="up" title="General guidelines and advices" href="general_guidelines_and_workflow.html"/>
+        <link rel="next" title="HOTTBOX Tutorials" href="../tutorials.html"/>
+        <link rel="prev" title="General guidelines and advices" href="general_guidelines_and_workflow.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -96,7 +96,10 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../api/modules.html">HOTTBOX API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/hottbox.core.html">Core Structures and Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../api/hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
@@ -120,23 +123,31 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Development guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="index.html#how-to-contribute">How to contribute</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html#advised-git-branching-model">Advised git branching model</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Master branch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#develop-branch">Develop branch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#supporting-branches">Supporting branches</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#feature-branches">Feature branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-branches">Release branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#hotfix-branches">Hotfix branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="before_pull_request.html#document-your-code">Document your code</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="general_guidelines_and_workflow.html">General guidelines and advices</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#supporting-branches">Supporting branches</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#coding-guidelines">Coding guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="index.html#documentation">Documentation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Our Team</a></li>
 </ul>
 
@@ -183,6 +194,8 @@
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
           <li><a href="index.html">Development guide</a> &raquo;</li>
+        
+          <li><a href="general_guidelines_and_workflow.html">General guidelines and advices</a> &raquo;</li>
         
       <li>Master branch</li>
     
@@ -291,10 +304,10 @@ upon an undesired state (critical bug) of a live production version.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../authors.html" class="btn btn-neutral float-right" title="Our Team" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../tutorials.html" class="btn btn-neutral float-right" title="HOTTBOX Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Development guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="general_guidelines_and_workflow.html" class="btn btn-neutral" title="General guidelines and advices" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -325,7 +338,7 @@ upon an undesired state (critical bug) of a live production version.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.1.1',
+            VERSION:'0.1.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Development guide &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  <title>How to contribute &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
   
 
   
@@ -36,8 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../index.html"/>
-        <link rel="next" title="How to contribute" href="how_to_contribute.html"/>
-        <link rel="prev" title="Rank estimation" href="../api/hottbox.rank.html"/> 
+        <link rel="up" title="Development guide" href="index.html"/>
+        <link rel="next" title="Before pull request" href="before_pull_request.html"/>
+        <link rel="prev" title="Development guide" href="index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -121,10 +122,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/modules.html#module-hottbox">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Development guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="how_to_contribute.html">How to contribute</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
-<li class="toctree-l3"><a class="reference internal" href="how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="before_pull_request.html">Before pull request</a><ul>
@@ -192,13 +193,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Development guide</li>
+          <li><a href="index.html">Development guide</a> &raquo;</li>
+        
+      <li>How to contribute</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/development_guide/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/development_guide/how_to_contribute.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -211,31 +214,98 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="development-guide">
-<h1>Development guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h1>
-<p>We appreciate any contributions to the <code class="docutils literal notranslate"><span class="pre">hottbox</span></code>.
-If you have suggestions for improvements, features or patches, please send us your pull requests (PR)!
-You can find specific instructions on how to issue a PR on github <a class="reference external" href="https://help.github.com/articles/about-pull-requests/">here</a>.
-Feel free to open an issue if you find a bug or directly come chat with us on our <a class="reference external" href="http://www.example.com/">gitter channel</a>.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="how_to_contribute.html">How to contribute</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
-</ul>
+  <div class="section" id="how-to-contribute">
+<h1>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="initial-setup-for-your-development">
+<h2>Initial setup for your development<a class="headerlink" href="#initial-setup-for-your-development" title="Permalink to this headline">¶</a></h2>
+<p>The preferred way to contribute to <code class="docutils literal notranslate"><span class="pre">hottbox</span></code> is to fork the main repository on GitHub,
+work on your feature and then submit a PR. The outline of this process should be as follows:</p>
+<ol class="arabic">
+<li><p class="first">Fork the <a class="reference external" href="https://github.com/hottbox/hottbox">project repository</a> by clicking on the <strong>Fork</strong> button near the top of the page.
+This creates a copy of the code under your account on the GitHub server.
+For more details on how to fork a repository see <a class="reference external" href="https://help.github.com/articles/fork-a-repo/">this guide</a>.</p>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="before_pull_request.html">Before pull request</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
-<li class="toctree-l2"><a class="reference internal" href="before_pull_request.html#document-your-code">Document your code</a></li>
-</ul>
+<li><p class="first">Clone this copy to your local disk</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:YourGitHubLogin/hottbox.git
+$ cd hottbox
+</pre></div>
+</div>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a></li>
-</ul>
+<li><p class="first">Most likely you would need (want) to install <code class="docutils literal notranslate"><span class="pre">hottbox</span></code> package into you environment in editable mode</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install --editable .
+</pre></div>
+</div>
+<p>This basically builds the extension in place and creates a link to the development directory</p>
 </li>
-</ul>
+</ol>
+<ol class="arabic" start="3">
+<li><p class="first">Next, create a branch to hold your changes. It is a good practice not to work on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout -b my-feature
+</pre></div>
+</div>
+</li>
+<li><p class="first">Work on this copy, on your computer, using Git to do the version control. In order to record your changes in Git, do</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add modified_files
+$ git commit -m &quot;**Concise but meaningful description**&quot;
+</pre></div>
+</div>
+<p>When you’re done with changes, then push them to GitHub with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push -u origin my-feature
+</pre></div>
+</div>
+</li>
+<li><p class="first">Finally, follow <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/">these</a> instructions to create a pull request from your fork.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When you decide which branch you’d like to merge your changes into (step 4 of PR guide above),
+you should almost always select <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch from the <em>base branch</em> drop-down menu.</p>
+</div>
+</div>
+<div class="section" id="getting-up-to-date-with-the-main-project">
+<h2>Getting up to date with the main project<a class="headerlink" href="#getting-up-to-date-with-the-main-project" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Add a remote that points to the the Git repo (<a class="reference external" href="https://github.com/hottbox/hottbox">main hottbox repo</a>) from which you want to get the latest changes.
+Conventionally it is referred to as <strong>upstream</strong>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add upstream https://github.com/hottbox/hottbox.git
+</pre></div>
+</div>
+<p>Verify new remote by executing this command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+
+...
+upstream  https://github.com/hottbox/hottbox.git (fetch)  # &lt;--- should see this
+upstream  https://github.com/hottbox/hottbox.git (push)   # &lt;--- should see this
+...
+</pre></div>
+</div>
+</li>
+<li><p class="first">Next, you need to bring the latest commits from this upstream and merge them
+in order to be in sync with the upstream:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># bring the latest commits
+$ git fetch upstream
+
+# sync your master and develop branches
+$ git checkout master
+
+$ git merge upstream/master
+
+$ git checkout develop
+
+$ git merge upstream/develop
+</pre></div>
+</div>
+</li>
+<li><p class="first">Finally, your can update your own GitHub repo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
+</pre></div>
+</div>
+</li>
+</ol>
+<p>More details can be found in GitHub’s official document on <a class="reference external" href="https://help.github.com/articles/syncing-a-fork/">syncing a fork</a>
+and in relevant <a class="reference external" href="https://stackoverflow.com/questions/7244321/how-do-i-update-a-github-forked-repository">discussion</a>
+on stackoverflow.</p>
 </div>
 </div>
 
@@ -249,10 +319,10 @@ Feel free to open an issue if you find a bug or directly come chat with us on ou
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="how_to_contribute.html" class="btn btn-neutral float-right" title="How to contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="before_pull_request.html" class="btn btn-neutral float-right" title="Before pull request" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../api/hottbox.rank.html" class="btn btn-neutral" title="Rank estimation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Development guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

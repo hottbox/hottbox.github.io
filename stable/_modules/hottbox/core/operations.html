@@ -94,7 +94,10 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">HOTTBOX API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
@@ -118,23 +121,31 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../development_guide/index.html">Development guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#how-to-contribute">How to contribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#advised-git-branching-model">Advised git branching model</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/git_branching_model.html">Master branch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#feature-branches">Feature branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#release-branches">Release branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#hotfix-branches">Hotfix branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#coding-guidelines">Coding guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#documentation">Documentation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Our Team</a></li>
 </ul>
 
@@ -367,7 +378,9 @@
 <span class="sd">        The result of the mode-n product of a `tensor` with a `matrix` along specified `mode`.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Implement mode-n product with a vector</span>
-    <span class="c1"># TODO: Add dimensionality check</span>
+    <span class="k">if</span> <span class="n">matrix</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Mode-n product can only be performed with the 2D array, &quot;</span>
+                         <span class="s2">&quot;whereas an array of order </span><span class="si">{}</span><span class="s2"> was provided&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">matrix</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
     <span class="n">orig_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">new_shape</span> <span class="o">=</span> <span class="n">orig_shape</span>
     <span class="n">new_shape</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -409,7 +422,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.1.1',
+            VERSION:'0.1.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

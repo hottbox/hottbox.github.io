@@ -96,7 +96,10 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">HOTTBOX API</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Core Structures and Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-hottbox.core.structures">Tensor Structures</a></li>
@@ -120,23 +123,31 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../development_guide/index.html#how-to-contribute">How to contribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development_guide/index.html#advised-git-branching-model">Advised git branching model</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../development_guide/git_branching_model.html">Master branch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#feature-branches">Feature branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#release-branches">Release branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#hotfix-branches">Hotfix branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../development_guide/index.html#coding-guidelines">Coding guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development_guide/index.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../development_guide/index.html#documentation">Documentation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Our Team</a></li>
 </ul>
 
@@ -216,22 +227,22 @@ classes for the tensors represented through various tensor decompositions</p>
 <tr class="row-odd"><td><a class="reference internal" href="#module-hottbox.core.structures" title="hottbox.core.structures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.core.structures</span></code></a></td>
 <td>Classes for different tensor representations</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></a>(array)</td>
+<tr class="row-even"><td><a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tensor</span></code></a>(array[,&nbsp;mode_names,&nbsp;ft_shape])</td>
 <td>This class describes multidimensional data.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorCPD</span></code></a>(fmat,&nbsp;core_values)</td>
 <td>Representation of a tensor in the CPD form.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorTKD</span></code></a>(fmat,&nbsp;core)</td>
+<tr class="row-even"><td><a class="reference internal" href="#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorTKD</span></code></a>(fmat,&nbsp;core_values)</td>
 <td>Representation of a tensor in the Tucker form.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#hottbox.core.structures.TensorTT" title="hottbox.core.structures.TensorTT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorTT</span></code></a>(cores,&nbsp;full_shape)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#hottbox.core.structures.TensorTT" title="hottbox.core.structures.TensorTT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TensorTT</span></code></a>(core_values,&nbsp;ft_shape)</td>
 <td>Representation of a tensor in the TT form.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#hottbox.core.structures.super_diag_tensor" title="hottbox.core.structures.super_diag_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">super_diag_tensor</span></code></a>(order[,&nbsp;values])</td>
+<tr class="row-even"><td><a class="reference internal" href="#hottbox.core.structures.super_diag_tensor" title="hottbox.core.structures.super_diag_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">super_diag_tensor</span></code></a>(shape[,&nbsp;values])</td>
 <td>Super-diagonal tensor of the specified <cite>order</cite>.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#hottbox.core.structures.residual_tensor" title="hottbox.core.structures.residual_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">residual_tensor</span></code></a>(tensor_A,&nbsp;tensor_B)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#hottbox.core.structures.residual_tensor" title="hottbox.core.structures.residual_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">residual_tensor</span></code></a>(tensor_orig,&nbsp;tensor_approx)</td>
 <td>Residual tensor</td>
 </tr>
 </tbody>
@@ -270,37 +281,68 @@ classes for the tensors represented through various tensor decompositions</p>
 <p>Classes for different tensor representations</p>
 <dl class="class">
 <dt id="hottbox.core.structures.Tensor">
-<em class="property">class </em><code class="descname">Tensor</code><span class="sig-paren">(</span><em>array</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/hottbox/core/structures.html#Tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.Tensor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descname">Tensor</code><span class="sig-paren">(</span><em>array</em>, <em>mode_names=None</em>, <em>ft_shape=None</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="../_modules/hottbox/core/structures.html#Tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.Tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>This class describes multidimensional data.</p>
 <p>All its methods implement all common operation on a tensor alone</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>data</strong> (<em>np.ndarray</em>) – N-dimensional array</li>
-<li><strong>_orig_shape</strong> (<em>tuple</em>) – Original shape of a tensor. Defined at the object creation for convenience during unfolding and folding.
-Can potentially cause a lot of problems in a future.</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
+<dl class="attribute">
+<dt id="hottbox.core.structures.Tensor._data">
+<code class="descname">_data</code><a class="headerlink" href="#hottbox.core.structures.Tensor._data" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray</em> – N-dimensional array</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.Tensor._ft_shape">
+<code class="descname">_ft_shape</code><a class="headerlink" href="#hottbox.core.structures.Tensor._ft_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – Shape of a tensor object in normal format (without being in unfolded or folded state)
+Can potentially cause a lot of problems in a future.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.Tensor._mode_names">
+<code class="descname">_mode_names</code><a class="headerlink" href="#hottbox.core.structures.Tensor._mode_names" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>OrderedDict</em> – Description of the tensor modes</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="hottbox.core.structures.Tensor.copy">
 <code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#Tensor.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.Tensor.copy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Produces a copy of itself</p>
+<dd><p>Produces a copy of itself as a new object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>new_object</strong> – New object of Tensor class with attributes having the same values, but no memory space is shared</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor">Tensor</a></td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Notes</p>
+<p>Attribute <cite>_ft_shape</cite> is assigned during object creation based on the shape of data array.
+In order to preserve the original values without sharing memory space, need to redefine them manually.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.Tensor.data">
+<code class="descname">data</code><a class="headerlink" href="#hottbox.core.structures.Tensor.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>N-dimensional array with data values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>array</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.structures.Tensor.describe">
+<code class="descname">describe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#Tensor.describe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.Tensor.describe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Provides general information about this instance.</p>
 </dd></dl>
 
 <dl class="method">
@@ -314,12 +356,14 @@ Can potentially cause a lot of problems in a future.</li>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>inplace</strong> (<em>bool</em>) – If True, then modifies itself.
 If False, then creates new object (copy)</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>tensor</strong> – Tensor of original shape (self._orig_shape)</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>tensor</strong> – Tensor of original shape (self._ft_shape)</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor">Tensor</a></td>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Notes</p>
+<p>Folding operation does not change <cite>_ft_shape</cite> attribute</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -338,9 +382,25 @@ If False, then creates new object (copy)</td>
 </table>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="hottbox.core.structures.Tensor.ft_shape">
+<code class="descname">ft_shape</code><a class="headerlink" href="#hottbox.core.structures.Tensor.ft_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape of the a tensor in normal format (without being in unfolded or folded state)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>shape</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="hottbox.core.structures.Tensor.mode_n_product">
-<code class="descname">mode_n_product</code><span class="sig-paren">(</span><em>matrix</em>, <em>mode</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#Tensor.mode_n_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.Tensor.mode_n_product" title="Permalink to this definition">¶</a></dt>
+<code class="descname">mode_n_product</code><span class="sig-paren">(</span><em>matrix</em>, <em>mode</em>, <em>inplace=True</em>, <em>new_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#Tensor.mode_n_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.Tensor.mode_n_product" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mode-n product of a tensor with a matrix</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -351,6 +411,8 @@ If False, then creates new object (copy)</td>
 <li><strong>mode</strong> (<em>int</em>) – Specifies mode along which a tensor is multiplied by a <cite>matrix</cite></li>
 <li><strong>inplace</strong> (<em>bool</em>) – If True, then modifies itself.
 If False, then creates new object (copy)</li>
+<li><strong>new_name</strong> (<em>str</em>) – New name for the corresponding <cite>mode</cite> after computing this product.
+See Notes-3 for more info</li>
 </ul>
 </td>
 </tr>
@@ -363,8 +425,30 @@ If False, then creates new object (copy)</li>
 </tbody>
 </table>
 <p class="rubric">Notes</p>
-<p>Remember that mode_n product changes the shape of the tensor. Presumably, it also changes the interpretation
-of that mode</p>
+<ol class="arabic simple">
+<li>Mode-n product operation changes the <cite>_ft_shape</cite> attribute</li>
+<li>Remember that mode-n product changes the shape of the tensor. Presumably, it also changes
+the interpretation of that mode depending on the matrix</li>
+<li>If <cite>matrix</cite> is an object of <cite>Tensor</cite> class then you shouldn’t specify <cite>new_name</cite>, since
+it will be changed to <cite>matrix.mode_names[0]</cite></li>
+<li>If <cite>matrix.mode_names[0] == “mode-0”</cite> then no changes to <cite>tensor.mode_names</cite> will be made</li>
+</ol>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.Tensor.mode_names">
+<code class="descname">mode_names</code><a class="headerlink" href="#hottbox.core.structures.Tensor.mode_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of the tensor modes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>names</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">OrderedDict</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="attribute">
@@ -381,6 +465,28 @@ of that mode</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.structures.Tensor.rename_modes">
+<code class="descname">rename_modes</code><span class="sig-paren">(</span><em>new_mode_names</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#Tensor.rename_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.Tensor.rename_modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename modes of a tensor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>new_mode_names</strong> (<em>dict</em>) – New names for the tensor modes in form of a dictionary
+The name of the mode defined by the Key of the dict will be renamed to the corresponding Value</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>self</strong> – Return self so that methods could be chained (Especially for reconstruction in TensorCPD etc.)</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor">Tensor</a></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p><cite>new_mode_name</cite> does not have be OrderedDict since <cite>mode_names</cite> attribute is created at the
+Tensor object creation</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -438,6 +544,8 @@ If False, then creates new object (copy)</li>
 </tr>
 </tbody>
 </table>
+<p class="rubric">Notes</p>
+<p>Unfolding operation does not change <cite>_ft_shape</cite> attribute</p>
 </dd></dl>
 
 </dd></dl>
@@ -447,18 +555,34 @@ If False, then creates new object (copy)</li>
 <em class="property">class </em><code class="descname">TensorCPD</code><span class="sig-paren">(</span><em>fmat</em>, <em>core_values</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#TensorCPD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.TensorCPD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.core.structures.BaseTensorTD</span></code></p>
 <p>Representation of a tensor in the CPD form.</p>
+<dl class="attribute">
+<dt id="hottbox.core.structures.TensorCPD._fmat">
+<code class="descname">_fmat</code><a class="headerlink" href="#hottbox.core.structures.TensorCPD._fmat" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list[np.ndarray]</em> – Placeholder for a list of factor matrices for the CP representation of a tensor</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.TensorCPD._core_values">
+<code class="descname">_core_values</code><a class="headerlink" href="#hottbox.core.structures.TensorCPD._core_values" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray</em> – Placeholder for an array of coefficients on the super-diagonal of a core for the CP representation of a tensor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.structures.TensorCPD.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#TensorCPD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.TensorCPD.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces a copy of itself as a new object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fmat</strong> (<em>list</em><em>[</em><em>np.ndarray</em><em>]</em>) – List of factor matrices for the CP representation of a tensor</li>
-<li><strong>core_values</strong> (<em>np.ndarray</em>) – Array of coefficients on the super-diagonal of a core for the CP representation of a tensor</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>new_object</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD">TensorCPD</a></td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="hottbox.core.structures.TensorCPD.core">
 <code class="descname">core</code><a class="headerlink" href="#hottbox.core.structures.TensorCPD.core" title="Permalink to this definition">¶</a></dt>
@@ -470,6 +594,22 @@ If False, then creates new object (copy)</li>
 <tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>core_tensor</strong></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor">Tensor</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.TensorCPD.fmat">
+<code class="descname">fmat</code><a class="headerlink" href="#hottbox.core.structures.TensorCPD.fmat" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of factor matrices for the CP representation of a tensor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>factor_matrices</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list[np.ndarray]</td>
 </tr>
 </tbody>
 </table>
@@ -529,21 +669,69 @@ If False, then creates new object (copy)</li>
 
 <dl class="class">
 <dt id="hottbox.core.structures.TensorTKD">
-<em class="property">class </em><code class="descname">TensorTKD</code><span class="sig-paren">(</span><em>fmat</em>, <em>core</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#TensorTKD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.TensorTKD" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descname">TensorTKD</code><span class="sig-paren">(</span><em>fmat</em>, <em>core_values</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#TensorTKD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.TensorTKD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.core.structures.BaseTensorTD</span></code></p>
 <p>Representation of a tensor in the Tucker form.</p>
+<dl class="attribute">
+<dt id="hottbox.core.structures.TensorTKD._fmat">
+<code class="descname">_fmat</code><a class="headerlink" href="#hottbox.core.structures.TensorTKD._fmat" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list[np.ndarray]</em> – Placeholder for a list of factor matrices for the Tucker representation of a tensor</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.TensorTKD._core_values">
+<code class="descname">_core_values</code><a class="headerlink" href="#hottbox.core.structures.TensorTKD._core_values" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>np.ndarray</em> – Placeholder for a core of the Tucker representation of a tensor</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.structures.TensorTKD.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#TensorTKD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.TensorTKD.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces a copy of itself as a new object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>fmat</strong> (<em>list</em><em>[</em><em>np.ndarray</em><em>]</em>) – List of factor matrices for the Tucker representation of a tensor</li>
-<li><strong>core</strong> (<a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Core of the Tucker representation of a tensor</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>new_object</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD">TensorTKD</a></td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.TensorTKD.core">
+<code class="descname">core</code><a class="headerlink" href="#hottbox.core.structures.TensorTKD.core" title="Permalink to this definition">¶</a></dt>
+<dd><p>Core tensor of the CP representation of a tensor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>core_tensor</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor">Tensor</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.TensorTKD.fmat">
+<code class="descname">fmat</code><a class="headerlink" href="#hottbox.core.structures.TensorTKD.fmat" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of factor matrices for the Tucker representation of a tensor</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>factor_matrices</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list[np.ndarray]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="hottbox.core.structures.TensorTKD.order">
 <code class="descname">order</code><a class="headerlink" href="#hottbox.core.structures.TensorTKD.order" title="Permalink to this definition">¶</a></dt>
@@ -598,21 +786,72 @@ If False, then creates new object (copy)</li>
 
 <dl class="class">
 <dt id="hottbox.core.structures.TensorTT">
-<em class="property">class </em><code class="descname">TensorTT</code><span class="sig-paren">(</span><em>cores</em>, <em>full_shape</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#TensorTT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.TensorTT" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descname">TensorTT</code><span class="sig-paren">(</span><em>core_values</em>, <em>ft_shape</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#TensorTT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.TensorTT" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.core.structures.BaseTensorTD</span></code></p>
 <p>Representation of a tensor in the TT form.</p>
+<dl class="attribute">
+<dt id="hottbox.core.structures.TensorTT._core_values">
+<code class="descname">_core_values</code><a class="headerlink" href="#hottbox.core.structures.TensorTT._core_values" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>list[np.ndarray]</em> – Placeholder for a list of cores for the Tensor Train representation of a tensor.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.TensorTT._ft_shape">
+<code class="descname">_ft_shape</code><a class="headerlink" href="#hottbox.core.structures.TensorTT._ft_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>tuple</em> – Placeholder for a shape of the full tensor (<code class="docutils literal notranslate"><span class="pre">TensorTT.reconstruct.shape</span></code>).
+Makes the reconstruction process easier.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.structures.TensorTT.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#TensorTT.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.TensorTT.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces a copy of itself as a new object</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cores</strong> (<em>list</em><em>[</em><a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a><em>]</em>) – List of core Tensors for the Tensor Train representation of a tensor.</li>
-<li><strong>full_shape</strong> (<em>tuple</em>) – Shape of the full tensor (<code class="docutils literal notranslate"><span class="pre">TensorTT.reconstruct.shape</span></code>). Makes the reconstruction process easier.</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>new_object</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hottbox.core.structures.TensorTT" title="hottbox.core.structures.TensorTT">TensorTT</a></td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.structures.TensorTT.core">
+<code class="descname">core</code><span class="sig-paren">(</span><em>i</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#TensorTT.core"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.TensorTT.core" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specific core of the TensorTT representation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>i</strong> (<em>int</em>) – Should not exceed the order of <code class="docutils literal notranslate"><span class="pre">TensorTT.order</span></code> representation</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>core_tensor</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor">Tensor</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.structures.TensorTT.cores">
+<code class="descname">cores</code><a class="headerlink" href="#hottbox.core.structures.TensorTT.cores" title="Permalink to this definition">¶</a></dt>
+<dd><p>All cores of the TensorTT representation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>core_list</strong></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list[<a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor">Tensor</a>]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="hottbox.core.structures.TensorTT.order">
 <code class="descname">order</code><a class="headerlink" href="#hottbox.core.structures.TensorTT.order" title="Permalink to this definition">¶</a></dt>
@@ -647,9 +886,9 @@ If False, then creates new object (copy)</li>
 <p>Most often referred to as the TT rank</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="attribute">
 <dt id="hottbox.core.structures.TensorTT.reconstruct">
-<code class="descname">reconstruct</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#TensorTT.reconstruct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.TensorTT.reconstruct" title="Permalink to this definition">¶</a></dt>
+<code class="descname">reconstruct</code><a class="headerlink" href="#hottbox.core.structures.TensorTT.reconstruct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts the TT representation of a tensor into a full tensor</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -667,16 +906,17 @@ If False, then creates new object (copy)</li>
 
 <dl class="function">
 <dt id="hottbox.core.structures.super_diag_tensor">
-<code class="descname">super_diag_tensor</code><span class="sig-paren">(</span><em>order</em>, <em>values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#super_diag_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.super_diag_tensor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">super_diag_tensor</code><span class="sig-paren">(</span><em>shape</em>, <em>values=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#super_diag_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.super_diag_tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Super-diagonal tensor of the specified <cite>order</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>order</strong> (<em>int</em>) – Desired order of the tensor</li>
+<li><strong>shape</strong> (<em>tuple</em>) – Desired shape of the tensor.
+len(shape) defines the order of the tensor, whereas its values specify sizes of dimensions of the tensor.</li>
 <li><strong>values</strong> (<em>np.ndarray</em>) – Array of values on the super-diagonal of a tensor. By default contains only ones.
-Length of this vector defines the Kryskal rank of a tensor.</li>
+Length of this vector defines Kryskal rank which is equal to <cite>shape[0]</cite>.</li>
 </ul>
 </td>
 </tr>
@@ -692,15 +932,15 @@ Length of this vector defines the Kryskal rank of a tensor.</li>
 
 <dl class="function">
 <dt id="hottbox.core.structures.residual_tensor">
-<code class="descname">residual_tensor</code><span class="sig-paren">(</span><em>tensor_A</em>, <em>tensor_B</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#residual_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.residual_tensor" title="Permalink to this definition">¶</a></dt>
+<code class="descname">residual_tensor</code><span class="sig-paren">(</span><em>tensor_orig</em>, <em>tensor_approx</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/core/structures.html#residual_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.structures.residual_tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Residual tensor</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>tensor_A</strong> (<a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – </li>
-<li><strong>tensor_B</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a><em>, </em><em>TensorTKD}</em>) – </li>
+<li><strong>tensor_orig</strong> (<a class="reference internal" href="#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – </li>
+<li><strong>tensor_approx</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a><em>, </em><a class="reference internal" href="#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD"><em>TensorTKD</em></a><em>, </em><em>TensorTT}</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -919,7 +1159,7 @@ should be equal to the number of columns of the <cite>matrix</cite>. That is: <c
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.1.1',
+            VERSION:'0.1.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

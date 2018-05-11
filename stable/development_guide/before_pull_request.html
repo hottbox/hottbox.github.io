@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Development guide &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  <title>Before pull request &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
   
 
   
@@ -36,8 +36,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../index.html"/>
-        <link rel="next" title="How to contribute" href="how_to_contribute.html"/>
-        <link rel="prev" title="Rank estimation" href="../api/hottbox.rank.html"/> 
+        <link rel="up" title="Development guide" href="index.html"/>
+        <link rel="next" title="General guidelines and advices" href="general_guidelines_and_workflow.html"/>
+        <link rel="prev" title="How to contribute" href="how_to_contribute.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -121,15 +122,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/modules.html#module-hottbox">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Development guide</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="how_to_contribute.html">How to contribute</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
 <li class="toctree-l3"><a class="reference internal" href="how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="before_pull_request.html">Before pull request</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
-<li class="toctree-l3"><a class="reference internal" href="before_pull_request.html#document-your-code">Document your code</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#document-your-code">Document your code</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
@@ -192,13 +193,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Development guide</li>
+          <li><a href="index.html">Development guide</a> &raquo;</li>
+        
+      <li>Before pull request</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/development_guide/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/development_guide/before_pull_request.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -211,31 +214,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="development-guide">
-<h1>Development guide<a class="headerlink" href="#development-guide" title="Permalink to this headline">¶</a></h1>
-<p>We appreciate any contributions to the <code class="docutils literal notranslate"><span class="pre">hottbox</span></code>.
-If you have suggestions for improvements, features or patches, please send us your pull requests (PR)!
-You can find specific instructions on how to issue a PR on github <a class="reference external" href="https://help.github.com/articles/about-pull-requests/">here</a>.
-Feel free to open an issue if you find a bug or directly come chat with us on our <a class="reference external" href="http://www.example.com/">gitter channel</a>.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="how_to_contribute.html">How to contribute</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
-<li class="toctree-l2"><a class="reference internal" href="how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="before_pull_request.html">Before pull request</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
-<li class="toctree-l2"><a class="reference internal" href="before_pull_request.html#document-your-code">Document your code</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="before-pull-request">
+<h1>Before pull request<a class="headerlink" href="#before-pull-request" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="if-it-isnt-tested-its-broken">
+<h2>If it isn’t tested, it’s broken<a class="headerlink" href="#if-it-isnt-tested-its-broken" title="Permalink to this headline">¶</a></h2>
+<p>Unit tests are crucial part of this library.
+Before submitting a pull request, make sure that all new functions and classes come with tests that completely
+cover new features. We use tools provided by the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> package to verify that all statements perform as expected.</p>
+<p>First, you will need to install some additional software:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install pytest pytest-cov
+</pre></div>
+</div>
+<p>To run test, simply execute inside the directory(ies) with your changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pytest -v --cov . --cov-branch --cov-report term-missing
+</pre></div>
+</div>
+<p>Here is a <a class="reference external" href="https://www.youtube.com/watch?v=ixqeebhUa-w&amp;t=831s">youtube video</a> that could help you
+if you have never been dealing with this side of software development.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>When submitting the pull request you should see that all tests have been <strong>passed</strong>
+and <strong>100%</strong> as total coverage when you execute the following statement from the root directory:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span>$ pytest -v --cov hottbox --cov-branch --cov-report term-missing
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="document-your-code">
+<h2>Document your code<a class="headerlink" href="#document-your-code" title="Permalink to this headline">¶</a></h2>
+<p>Documentation is a crucial part of this library.
+All functions and classes should come with useful docstrings.
+For these, we use the <strong>numpy style</strong> docstrings.
+Detailed guidelines can be found <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">here1</a>
+and <a class="reference external" href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">here2</a>.
+Also you can have a look at the <a class="reference external" href="http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html">examples</a>.
+Can be useful to read introduction to structuring documentation of your module <a class="reference external" href="https://pythonhosted.org/an_example_pypi_project/sphinx.html">using Sphinx</a>.</p>
+<p>It is advised to check you documentation after you have edited the source code.
+You can edit the documentation using any text editor and then generate the HTML output by typing <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>
+from the docs/ directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd docs
+$ make clean
+$ make html
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>Building the documentation requires the <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> and <code class="docutils literal notranslate"><span class="pre">sphinx_rtd_theme</span></code>:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install sphinx numpydoc sphinx_rtd_theme
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<a class="last reference internal image-reference" href="../_images/docs_comparison.png"><img alt="../_images/docs_comparison.png" class="align-center" src="../_images/docs_comparison.png" style="width: 586.5px; height: 120.75px;" /></a>
+</div>
 </div>
 </div>
 
@@ -249,10 +281,10 @@ Feel free to open an issue if you find a bug or directly come chat with us on ou
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="how_to_contribute.html" class="btn btn-neutral float-right" title="How to contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="general_guidelines_and_workflow.html" class="btn btn-neutral float-right" title="General guidelines and advices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../api/hottbox.rank.html" class="btn btn-neutral" title="Rank estimation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="how_to_contribute.html" class="btn btn-neutral" title="How to contribute" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

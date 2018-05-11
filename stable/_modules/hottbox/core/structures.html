@@ -94,7 +94,10 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">HOTTBOX API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
@@ -118,23 +121,31 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../development_guide/index.html">Development guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#how-to-contribute">How to contribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#advised-git-branching-model">Advised git branching model</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/git_branching_model.html">Master branch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#feature-branches">Feature branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#release-branches">Release branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#hotfix-branches">Hotfix branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#coding-guidelines">Coding guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/index.html#documentation">Documentation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Our Team</a></li>
 </ul>
 
@@ -205,6 +216,8 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">reduce</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
 <span class="kn">from</span> <span class="nn">.operations</span> <span class="k">import</span> <span class="n">unfold</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">mode_n_product</span>
 
 
@@ -213,40 +226,148 @@
 
 <span class="sd">    All its methods implement all common operation on a tensor alone</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    data : np.ndarray</span>
+<span class="sd">    _data : np.ndarray</span>
 <span class="sd">        N-dimensional array</span>
-<span class="sd">    _orig_shape : tuple</span>
-<span class="sd">        Original shape of a tensor. Defined at the object creation for convenience during unfolding and folding.</span>
+<span class="sd">    _ft_shape : tuple</span>
+<span class="sd">        Shape of a tensor object in normal format (without being in unfolded or folded state)</span>
 <span class="sd">        Can potentially cause a lot of problems in a future.</span>
+<span class="sd">    _mode_names : OrderedDict</span>
+<span class="sd">        Description of the tensor modes</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># TODO: add description for the tensor and the factor matrices/modes etc. (Through pandas integration???)</span>
-    <span class="c1"># TODO: implement unfolding and folding to tensors of an arbitrary order</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ft_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; Create object of ``Tensor`` class</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        array : {np.ndarray, Tensor}</span>
+<span class="sd">        array : np.ndarray</span>
+<span class="sd">            N-dimensional array</span>
+<span class="sd">        mode_names : OrderedDict</span>
+<span class="sd">            Description of the tensor modes.</span>
+<span class="sd">            If nothing is specified then all modes of the created ``Tensor``</span>
+<span class="sd">            get generic names {0:&#39;mode-0&#39;, 1:&#39;mode-1&#39;, ...}</span>
+<span class="sd">        ft_shape : tuple</span>
+<span class="sd">            Shape of the a tensor in normal format (without being in unfolded or folded state)</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            In most cases use the default settings for `ft_shape`, because it affects folding, unfolding etc.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO: covert data to a specific data type (int, float etc)</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">data</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_orig_shape</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">_orig_shape</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">array</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_orig_shape</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Input data should be a numpy array&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mode_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_assign_names</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ft_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_assign_ft_shape</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">,</span> <span class="n">ft_shape</span><span class="o">=</span><span class="n">ft_shape</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Tensor.copy"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Produces a copy of itself</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_assign_names</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Generate list of names for the modes of a tensor</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        array : np.ndarray</span>
+<span class="sd">            N-dimensional array</span>
+<span class="sd">        mode_names : OrderedDict</span>
+<span class="sd">            Description of the tensor modes in form of a dictionary where Keys and Values</span>
+<span class="sd">            correspond to mode number and description respectively</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        Tensor</span>
+<span class="sd">        names : OrderedDict</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">Tensor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="n">mode_names</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">names</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="n">mode</span><span class="p">,</span> <span class="s2">&quot;mode-</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">))</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">ndim</span><span class="p">)])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mode_names</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;You should use OrderDict for mode_names!&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect number of names for the modes of a tensor: </span><span class="si">{0}</span><span class="s2"> != </span><span class="si">{1}</span><span class="s2"> &quot;</span>
+                                 <span class="s2">&quot;(&#39;array.ndim != len(mode_names.keys())&#39;)!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span>
+                                                                                      <span class="nb">len</span><span class="p">(</span><span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+                                                                                      <span class="p">)</span>
+                                 <span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The dict of mode names should contain only integer keys!&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&lt;</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified modes should not exceed the order of the tensor!&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified values for modes should be non-negative!&quot;</span><span class="p">)</span>
+
+            <span class="n">names</span> <span class="o">=</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">names</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_assign_ft_shape</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">ft_shape</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Generate shape for a normal format of a tensor (without being in unfolded or folded state)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        array : np.ndarray</span>
+<span class="sd">            N-dimensional array</span>
+<span class="sd">        ft_shape : tuple</span>
+<span class="sd">            Shape for a normal format of a tensor</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        shape : tuple</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ft_shape</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">mode_size</span> <span class="k">for</span> <span class="n">mode_size</span> <span class="ow">in</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ft_shape</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Incorrect type of the parameter `ft_shape`!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                <span class="s2">&quot;It should be tuple&quot;</span><span class="p">)</span>
+
+            <span class="n">size</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">ft_shape</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="n">size</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Values of `ft_shape` are inconsistent with the provided data array (</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2">)!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                 <span class="s2">&quot;reduce(lambda x, y: x * y, ft_shape) != array.size&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+
+            <span class="n">shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">mode_size</span> <span class="k">for</span> <span class="n">mode_size</span> <span class="ow">in</span> <span class="n">ft_shape</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">shape</span>
+
+<div class="viewcode-block" id="Tensor.copy"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Produces a copy of itself as a new object</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        new_object : Tensor</span>
+<span class="sd">            New object of Tensor class with attributes having the same values, but no memory space is shared</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            Attribute `_ft_shape` is assigned during object creation based on the shape of data array.</span>
+<span class="sd">            In order to preserve the original values without sharing memory space, need to redefine them manually.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">mode_names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode_names</span>
+        <span class="n">ft_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span>
+        <span class="n">new_object</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">,</span> <span class="n">ft_shape</span><span class="o">=</span><span class="n">ft_shape</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_object</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; N-dimensional array with data values </span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        array : np.ndarray</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
+        <span class="k">return</span> <span class="n">array</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">ft_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Shape of the a tensor in normal format (without being in unfolded or folded state)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        shape : tuple</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ft_shape</span>
+        <span class="k">return</span> <span class="n">shape</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">frob_norm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -289,6 +410,55 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mode_names</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Description of the tensor modes</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        names : OrderedDict</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode_names</span>
+        <span class="k">return</span> <span class="n">names</span>
+
+<div class="viewcode-block" id="Tensor.rename_modes"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.rename_modes">[docs]</a>    <span class="k">def</span> <span class="nf">rename_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_mode_names</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Rename modes of a tensor</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------        </span>
+<span class="sd">        new_mode_names : dict</span>
+<span class="sd">            New names for the tensor modes in form of a dictionary</span>
+<span class="sd">            The name of the mode defined by the Key of the dict will be renamed to the corresponding Value</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self : Tensor</span>
+<span class="sd">            Return self so that methods could be chained (Especially for reconstruction in TensorCPD etc.)</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            `new_mode_name` does not have be OrderedDict since `mode_names` attribute is created at the</span>
+<span class="sd">            Tensor object creation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Too many mode names have been specified&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">new_mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The dict of `new_mode_names` should contain only integer keys!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">new_mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified mode values should not exceed the order of the tensor!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">new_mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified mode keys should be non-negative!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mode_names</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new_mode_names</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="Tensor.describe"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.describe">[docs]</a>    <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Provides general information about this instance.&quot;&quot;&quot;</span>
+        <span class="n">mode_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode_names</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This tensor is of order </span><span class="si">{}</span><span class="s2">, consists of </span><span class="si">{}</span><span class="s2"> elements and its Frobenious norm = </span><span class="si">{:.2f}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
+              <span class="s2">&quot;Sizes and names of its modes are </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2"> respectively.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frob_norm</span><span class="p">,</span>
+                                                                                <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">))</span></div>
+
 <div class="viewcode-block" id="Tensor.unfold"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.unfold">[docs]</a>    <span class="k">def</span> <span class="nf">unfold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Perform mode-n unfolding to a matrix</span>
 
@@ -304,12 +474,25 @@
 <span class="sd">        ----------</span>
 <span class="sd">        tensor : Tensor</span>
 <span class="sd">            Unfolded version of a tensor</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            Unfolding operation does not change `_ft_shape` attribute</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
             <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">tensor</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">unfold</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+        <span class="n">tensor</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">unfold</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+
+        <span class="n">new_mode_names</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="n">mode</span><span class="p">,</span> <span class="n">tensor</span><span class="o">.</span><span class="n">mode_names</span><span class="p">[</span><span class="n">mode</span><span class="p">])]),</span>
+                          <span class="mi">1</span><span class="p">:</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="n">orig_mode</span><span class="p">,</span> <span class="n">tensor</span><span class="o">.</span><span class="n">mode_names</span><span class="p">[</span><span class="n">orig_mode</span><span class="p">])</span> <span class="k">for</span> <span class="n">orig_mode</span> <span class="ow">in</span> <span class="n">tensor</span><span class="o">.</span><span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">orig_mode</span> <span class="o">!=</span> <span class="n">mode</span><span class="p">])</span>
+                          <span class="p">}</span>
+        <span class="c1"># remove mode names due to collapsed dimensions</span>
+        <span class="k">for</span> <span class="n">mode_to_remove</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())):</span>
+            <span class="k">del</span> <span class="n">tensor</span><span class="o">.</span><span class="n">_mode_names</span><span class="p">[</span><span class="n">mode_to_remove</span><span class="p">]</span>
+
+        <span class="n">tensor</span><span class="o">.</span><span class="n">rename_modes</span><span class="p">(</span><span class="n">new_mode_names</span><span class="o">=</span><span class="n">new_mode_names</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">tensor</span></div>
 
 <div class="viewcode-block" id="Tensor.fold"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.fold">[docs]</a>    <span class="k">def</span> <span class="nf">fold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -324,17 +507,50 @@
 <span class="sd">        Returns</span>
 <span class="sd">        ----------</span>
 <span class="sd">        tensor : Tensor</span>
-<span class="sd">            Tensor of original shape (self._orig_shape)</span>
+<span class="sd">            Tensor of original shape (self._ft_shape)</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            Folding operation does not change `_ft_shape` attribute</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
             <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">mode</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">_orig_shape</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">tensor</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">fold</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_orig_shape</span><span class="p">)</span>
+
+        <span class="c1"># Do not do anything if the tensor is in the normal form (hadn&#39;t been unfolded before)</span>
+        <span class="k">if</span> <span class="n">tensor</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">tensor</span><span class="o">.</span><span class="n">_ft_shape</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">tensor</span>
+
+        <span class="c1"># --------------- UNFOLD DATA</span>
+        <span class="c1"># Infer along which mode this instance has been previously unfolded</span>
+        <span class="n">mode_0</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">mode_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">mode_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">mode_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">folding_mode</span> <span class="o">=</span> <span class="n">mode_0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Infer shape of the folded version</span>
+        <span class="n">new_shape</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mode_0</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_1</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="n">mode_0</span> <span class="o">+</span> <span class="n">mode_1</span><span class="p">):</span>
+            <span class="n">new_shape</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">_ft_shape</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="c1"># Update data</span>
+        <span class="n">tensor</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">fold</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">folding_mode</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">new_shape</span><span class="p">)</span>
+
+        <span class="c1"># --------------- UNFOLD DESCRIPTION</span>
+        <span class="c1"># Create dict with new names</span>
+        <span class="n">new_mode_names</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">tensor</span><span class="o">.</span><span class="n">mode_names</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">**</span><span class="n">tensor</span><span class="o">.</span><span class="n">mode_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span>
+
+        <span class="c1"># Sequentially add default description for missing modes in order to accommodate new info</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">stop</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">):</span>
+            <span class="n">tensor</span><span class="o">.</span><span class="n">_mode_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;mode-</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+        <span class="c1"># Update description</span>
+        <span class="n">tensor</span><span class="o">.</span><span class="n">rename_modes</span><span class="p">(</span><span class="n">new_mode_names</span><span class="o">=</span><span class="n">new_mode_names</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">tensor</span></div>
 
-<div class="viewcode-block" id="Tensor.mode_n_product"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.mode_n_product">[docs]</a>    <span class="k">def</span> <span class="nf">mode_n_product</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.mode_n_product"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.mode_n_product">[docs]</a>    <span class="k">def</span> <span class="nf">mode_n_product</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">new_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Mode-n product of a tensor with a matrix</span>
 
 <span class="sd">        Parameters</span>
@@ -346,6 +562,9 @@
 <span class="sd">        inplace : bool</span>
 <span class="sd">            If True, then modifies itself.</span>
 <span class="sd">            If False, then creates new object (copy)</span>
+<span class="sd">        new_name : str</span>
+<span class="sd">            New name for the corresponding `mode` after computing this product.</span>
+<span class="sd">            See Notes-3 for more info</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -354,18 +573,39 @@
 
 <span class="sd">        Notes</span>
 <span class="sd">        -------</span>
-<span class="sd">        Remember that mode_n product changes the shape of the tensor. Presumably, it also changes the interpretation</span>
-<span class="sd">        of that mode</span>
+<span class="sd">            1. Mode-n product operation changes the `_ft_shape` attribute</span>
+<span class="sd">            2. Remember that mode-n product changes the shape of the tensor. Presumably, it also changes</span>
+<span class="sd">               the interpretation of that mode depending on the matrix</span>
+<span class="sd">            3. If `matrix` is an object of `Tensor` class then you shouldn&#39;t specify `new_name`, since</span>
+<span class="sd">               it will be changed to `matrix.mode_names[0]`</span>
+<span class="sd">            4. If `matrix.mode_names[0] == &quot;mode-0&quot;` then no changes to `tensor.mode_names` will be made</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO: Think about the way to change mode_description</span>
+        <span class="c1"># TODO: need to rethink this if statements so it would be easier to follow</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">)</span> <span class="ow">and</span> <span class="n">new_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Oops... Don&#39;t know which name for the mode description to use!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;Either use the default value for `new_name=None` or pass numpy array for `matrix.`&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">new_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The parameter `new_name` should be of sting type!&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Convert to Tensor class, in order to have consistent interface</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
             <span class="n">matrix</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">new_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">new_name</span> <span class="o">=</span> <span class="n">matrix</span><span class="o">.</span><span class="n">mode_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
         <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
             <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">tensor</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">mode_n_product</span><span class="p">(</span><span class="n">tensor</span><span class="o">=</span><span class="n">tensor</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">matrix</span><span class="o">=</span><span class="n">matrix</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
-        <span class="n">tensor</span><span class="o">.</span><span class="n">_orig_shape</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">tensor</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">mode_n_product</span><span class="p">(</span><span class="n">tensor</span><span class="o">=</span><span class="n">tensor</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">matrix</span><span class="o">=</span><span class="n">matrix</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
+        <span class="n">tensor</span><span class="o">.</span><span class="n">_ft_shape</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">shape</span>
+
+        <span class="c1"># The only one case when mode name won&#39;t be changed</span>
+        <span class="k">if</span> <span class="n">new_name</span> <span class="o">!=</span> <span class="s2">&quot;mode-0&quot;</span><span class="p">:</span>            
+            <span class="n">new_mode_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">mode</span><span class="p">:</span> <span class="n">new_name</span><span class="p">}</span>
+            <span class="n">tensor</span><span class="o">.</span><span class="n">rename_modes</span><span class="p">(</span><span class="n">new_mode_names</span><span class="o">=</span><span class="n">new_mode_names</span><span class="p">)</span>
+
         <span class="k">return</span> <span class="n">tensor</span></div></div>
 
 
@@ -376,16 +616,32 @@
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
 
+    <span class="k">def</span> <span class="nf">_validate_init_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Validate data for the constructor of a new object &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseTensorTD) class&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Produces a copy of itself as a new object &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseTensorTD) class&#39;</span><span class="p">)</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Order of a tensor in full form &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseTensorTD) class&#39;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">rank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Rank of an efficient representation &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseTensorTD) class&#39;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Number of elements for efficient representation &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseTensorTD) class&#39;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Convert to the full tensor as an object of Tensor class &quot;&quot;&quot;</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseTensorTD) class&#39;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
@@ -401,25 +657,91 @@
     <span class="k">def</span> <span class="nf">mode_n_product</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseTensorTD) class&#39;</span><span class="p">)</span>
 
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseTensorTD) class&#39;</span><span class="p">)</span>
-
 
 <div class="viewcode-block" id="TensorCPD"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorCPD">[docs]</a><span class="k">class</span> <span class="nc">TensorCPD</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Representation of a tensor in the CPD form.</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    fmat : list[np.ndarray]</span>
-<span class="sd">        List of factor matrices for the CP representation of a tensor</span>
-<span class="sd">    core_values : np.ndarray</span>
-<span class="sd">        Array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
+<span class="sd">    _fmat : list[np.ndarray]</span>
+<span class="sd">        Placeholder for a list of factor matrices for the CP representation of a tensor</span>
+<span class="sd">    _core_values : np.ndarray</span>
+<span class="sd">        Placeholder for an array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        fmat : list[np.ndarray]</span>
+<span class="sd">            List of factor matrices for the CP representation of a tensor</span>
+<span class="sd">        core_values : np.ndarray</span>
+<span class="sd">            Array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fmat</span> <span class="o">=</span> <span class="n">fmat</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">core_values</span> <span class="o">=</span> <span class="n">core_values</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span> <span class="o">=</span> <span class="n">core_values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_validate_init_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Validate data for the TensorCPD constructor</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        fmat : list[np.ndarray]</span>
+<span class="sd">            List of factor matrices for the CP representation of a tensor</span>
+<span class="sd">        core_values : np.ndarray</span>
+<span class="sd">            Array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">core_values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Core values (`core_values`) should be a numpy array&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;All factor matrices (`fmat`) should be passed as a list!&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Each of the factor matrices should be a numpy array!&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Each of the factor matrices should a 2-dimensional numpy array!&quot;</span><span class="p">)</span>
+
+        <span class="n">kryskal_rank</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_values</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">kryskal_rank</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;Number of columns of all factor matrices should be the same and equal to len(core_values)!&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TensorCPD.copy"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorCPD.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Produces a copy of itself as a new object</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        new_object : TensorCPD</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fmat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span>
+        <span class="n">core_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span>
+        <span class="n">new_object</span> <span class="o">=</span> <span class="n">TensorCPD</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_object</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Core tensor of the CP representation of a tensor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        core_tensor : Tensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">core_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span>
+        <span class="n">core_tensor</span> <span class="o">=</span> <span class="n">super_diag_tensor</span><span class="p">(</span><span class="n">core_shape</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">core_tensor</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fmat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; List of factor matrices for the CP representation of a tensor</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        factor_matrices : list[np.ndarray]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">factor_matrices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span>
+        <span class="k">return</span> <span class="n">factor_matrices</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -449,17 +771,6 @@
         <span class="k">return</span> <span class="n">rank</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Core tensor of the CP representation of a tensor</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        core_tensor : Tensor</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">core_tensor</span> <span class="o">=</span> <span class="n">super_diag_tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">core_values</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">core_tensor</span>
-
-    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Converts the CP representation of a tensor into a full tensor</span>
 
@@ -476,17 +787,93 @@
 <div class="viewcode-block" id="TensorTKD"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTKD">[docs]</a><span class="k">class</span> <span class="nc">TensorTKD</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Tucker form.</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    fmat : list[np.ndarray]</span>
-<span class="sd">        List of factor matrices for the Tucker representation of a tensor</span>
-<span class="sd">    core : Tensor</span>
-<span class="sd">        Core of the Tucker representation of a tensor</span>
+<span class="sd">    _fmat : list[np.ndarray]</span>
+<span class="sd">        Placeholder for a list of factor matrices for the Tucker representation of a tensor</span>
+<span class="sd">    _core_values : np.ndarray</span>
+<span class="sd">        Placeholder for a core of the Tucker representation of a tensor</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        fmat : list[np.ndarray]</span>
+<span class="sd">            List of factor matrices for the Tucker representation of a tensor</span>
+<span class="sd">        core_values : np.ndarray</span>
+<span class="sd">            Core of the Tucker representation of a tensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTKD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fmat</span> <span class="o">=</span> <span class="n">fmat</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="o">=</span> <span class="n">core</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span> <span class="o">=</span> <span class="n">core_values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_validate_init_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Validate data for the TensorTKD constructor</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        fmat : list[np.ndarray]</span>
+<span class="sd">            List of factor matrices for the Tucker representation of a tensor</span>
+<span class="sd">        core_values : np.ndarray</span>
+<span class="sd">            Core of the Tucker representation of a tensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">core_values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Core values (`core_values`) should be a numpy array&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;All factor matrices (`fmat`) should be passed as a list!&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Each of the factor matrices should be a numpy array!&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Each of the factor matrices should a 2-dimensional numpy array!&quot;</span><span class="p">)</span>
+
+        <span class="n">ml_rank</span> <span class="o">=</span> <span class="n">core_values</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="n">core_values</span><span class="o">.</span><span class="n">ndim</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmat</span><span class="p">)</span> <span class="o">!=</span> <span class="n">order</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not enough or too many factor matrices for the specified core tensor!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">!=</span><span class="si">{}</span><span class="s2"> (`len(fmat) != core_values.ndim`)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fmat</span><span class="p">),</span> <span class="n">order</span><span class="p">))</span>
+        <span class="n">mat_shapes</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">])</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">mat_shapes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">ml_rank</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">)]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch between the factor matrices and the core tensor!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;The number of columns of a factor matrix should match the corresponding &quot;</span>
+                             <span class="s2">&quot;dimension size of the core tensor:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2"> (fmat[i].shape[1] != core_values.shape)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mat_shapes</span><span class="p">,</span> <span class="n">ml_rank</span><span class="p">))</span>
+
+<div class="viewcode-block" id="TensorTKD.copy"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTKD.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Produces a copy of itself as a new object</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        new_object : TensorTKD</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">fmat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span>
+        <span class="n">core_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span>
+        <span class="n">new_object</span> <span class="o">=</span> <span class="n">TensorTKD</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_object</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Core tensor of the CP representation of a tensor</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        core_tensor : Tensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">core_tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">core_tensor</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">fmat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; List of factor matrices for the Tucker representation of a tensor</span>
+<span class="sd">        </span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        factor_matrices : list[np.ndarray]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">factor_matrices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span>
+        <span class="k">return</span> <span class="n">factor_matrices</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -531,17 +918,122 @@
 <div class="viewcode-block" id="TensorTT"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT">[docs]</a><span class="k">class</span> <span class="nc">TensorTT</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Representation of a tensor in the TT form.</span>
 
-<span class="sd">    Parameters</span>
+<span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
-<span class="sd">    cores : list[Tensor]</span>
-<span class="sd">        List of core Tensors for the Tensor Train representation of a tensor.</span>
-<span class="sd">    full_shape : tuple</span>
-<span class="sd">        Shape of the full tensor (``TensorTT.reconstruct.shape``). Makes the reconstruction process easier.</span>
+<span class="sd">    _core_values : list[np.ndarray]</span>
+<span class="sd">        Placeholder for a list of cores for the Tensor Train representation of a tensor.</span>
+<span class="sd">    _ft_shape : tuple</span>
+<span class="sd">        Placeholder for a shape of the full tensor (``TensorTT.reconstruct.shape``).</span>
+<span class="sd">        Makes the reconstruction process easier.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cores</span><span class="p">,</span> <span class="n">full_shape</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">ft_shape</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        core_values : list[np.ndarray]</span>
+<span class="sd">            List of cores for the Tensor Train representation of a tensor.</span>
+<span class="sd">        ft_shape : tuple</span>
+<span class="sd">            Shape of the full tensor (``TensorTT.reconstruct.shape``). Makes the reconstruction process easier.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cores</span> <span class="o">=</span> <span class="n">cores</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">full_shape</span> <span class="o">=</span> <span class="n">full_shape</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">,</span> <span class="n">ft_shape</span><span class="o">=</span><span class="n">ft_shape</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="n">core_values</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ft_shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">mode_size</span> <span class="k">for</span> <span class="n">mode_size</span> <span class="ow">in</span> <span class="n">ft_shape</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">_validate_init_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">ft_shape</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Validate data for the TensorTT constructor</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        core_values : list[np.ndarray]</span>
+<span class="sd">            List of cores for the Tensor Train representation of a tensor.</span>
+<span class="sd">        ft_shape : tuple</span>
+<span class="sd">            Shape of the full tensor (``TensorTT.reconstruct.shape``). Makes the reconstruction process easier.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># validate types of the input data</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ft_shape</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The parameter `ft_shape` should be passed as tuple!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">core_values</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The parameter `core_values` should be passed as list!&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="n">core_values</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">core</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Each element from `core_values` should be a numpy array!&quot;</span><span class="p">)</span>
+
+        <span class="c1"># validate the shape of the tensor in full format</span>
+        <span class="c1"># TODO: remove this validation when `self._ft_shape` will be removed</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_values</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ft_shape</span><span class="p">):</span>
+            <span class="c1"># raise ValueError(&quot;Inconsistent shape of the tensor in full form!&quot;)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not enough or too many cores for the specified shape of the tensor in full form:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2"> (len(core_values) != len(ft_shape))&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">core_values</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">ft_shape</span><span class="p">)))</span>
+
+        <span class="c1"># validate sizes of the cores</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">core_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">core_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The first and the last elements of the `core_values` &quot;</span>
+                             <span class="s2">&quot;should be 2-dimensional numpy arrays!&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_values</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">core_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All but first and the last elements of the `core_values` &quot;</span>
+                                 <span class="s2">&quot;should be 3-dimensional numpy arrays!&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">core_values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">core_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">core_values</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch for the specified cores:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                 <span class="s2">&quot;Last dimension of core_values[</span><span class="si">{}</span><span class="s2">] should be the same as the &quot;</span>
+                                 <span class="s2">&quot;first dimension of core_values[</span><span class="si">{}</span><span class="s2">]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># validate the shape of the tensor in full format</span>
+        <span class="c1"># TODO: remove this validation when `self._ft_shape` will be removed</span>
+        <span class="n">extracted_full_shape</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_values</span><span class="p">)</span>
+        <span class="n">extracted_full_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">core_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">extracted_full_shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">core_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">extracted_full_shape</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">core_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">extracted_full_shape</span><span class="p">)</span> <span class="o">!=</span> <span class="n">ft_shape</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Inconsistent shape of the tensor in full form:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2"> (extracted_full_shape != ft_shape)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">extracted_full_shape</span><span class="p">,</span> <span class="n">ft_shape</span><span class="p">))</span>
+
+<div class="viewcode-block" id="TensorTT.copy"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Produces a copy of itself as a new object</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        new_object : TensorTT</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">core_values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span>
+        <span class="n">ft_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ft_shape</span>
+        <span class="n">new_object</span> <span class="o">=</span> <span class="n">TensorTT</span><span class="p">(</span><span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">,</span> <span class="n">ft_shape</span><span class="o">=</span><span class="n">ft_shape</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_object</span></div>
+
+<div class="viewcode-block" id="TensorTT.core"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.core">[docs]</a>    <span class="k">def</span> <span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Specific core of the TensorTT representation</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        i : int</span>
+<span class="sd">            Should not exceed the order of ``TensorTT.order`` representation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        core_tensor : Tensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;List index out of range!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;Index for the core of interest cannot exceed the order of TT representation: &quot;</span>
+                             <span class="s2">&quot;abs(</span><span class="si">{}</span><span class="s2">) &gt;= </span><span class="si">{}</span><span class="s2"> (abs(i) &gt;= self.order)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">))</span>
+        <span class="n">core_tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">core_tensor</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">cores</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; All cores of the TensorTT representation</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        core_list : list[Tensor]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">core_list</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">core</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span><span class="p">))]</span>
+        <span class="k">return</span> <span class="n">core_list</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">order</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -551,7 +1043,7 @@
 <span class="sd">        -------</span>
 <span class="sd">        order : int</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">rank</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -565,9 +1057,10 @@
 <span class="sd">        -----</span>
 <span class="sd">        Most often referred to as the TT rank</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">core</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">core_values</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">core_values</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
 
-<div class="viewcode-block" id="TensorTT.reconstruct"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.reconstruct">[docs]</a>    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Converts the TT representation of a tensor into a full tensor</span>
 
 <span class="sd">        Returns</span>
@@ -575,60 +1068,85 @@
 <span class="sd">        tensor : Tensor</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">rank</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">core</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">data</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">core</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cores</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
-            <span class="n">shape_2d</span> <span class="o">=</span> <span class="p">[</span><span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">full_shape</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span>
+            <span class="n">shape_2d</span> <span class="o">=</span> <span class="p">[</span><span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ft_shape</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span>
             <span class="n">core_flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">core</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">shape_2d</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">rank</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">core_flat</span><span class="p">)</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">full_shape</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ft_shape</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;F&#39;</span><span class="p">)</span>
         <span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">tensor</span></div></div>
+        <span class="k">return</span> <span class="n">tensor</span></div>
 
 
-<div class="viewcode-block" id="super_diag_tensor"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.super_diag_tensor">[docs]</a><span class="k">def</span> <span class="nf">super_diag_tensor</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="super_diag_tensor"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.super_diag_tensor">[docs]</a><span class="k">def</span> <span class="nf">super_diag_tensor</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Super-diagonal tensor of the specified `order`.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    order : int</span>
-<span class="sd">        Desired order of the tensor</span>
+<span class="sd">    shape : tuple</span>
+<span class="sd">        Desired shape of the tensor.</span>
+<span class="sd">        len(shape) defines the order of the tensor, whereas its values specify sizes of dimensions of the tensor.</span>
 <span class="sd">    values : np.ndarray</span>
 <span class="sd">        Array of values on the super-diagonal of a tensor. By default contains only ones.</span>
-<span class="sd">        Length of this vector defines the Kryskal rank of a tensor.</span>
+<span class="sd">        Length of this vector defines Kryskal rank which is equal to `shape[0]`.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    tensor : Tensor</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">rank</span> <span class="o">=</span> <span class="n">values</span><span class="o">.</span><span class="n">size</span>
-    <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">rank</span><span class="p">,)</span> <span class="o">*</span> <span class="n">order</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `shape` should be passed as a tuple!&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode_size</span> <span class="o">==</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">mode_size</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All values in `shape` should have the same value!&quot;</span><span class="p">)</span>
+
+    <span class="n">order</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">rank</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span>  <span class="c1"># set default values</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The `values` should be 1-dimensional numpy array!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="n">rank</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch! Not enough or too many `values` for the specified `shape`:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2"> (values.size != shape[0])&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">rank</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The `values` should be passed as a numpy array!&quot;</span><span class="p">)</span>
+
     <span class="n">core</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">core</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">diag_indices</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">order</span><span class="p">)]</span> <span class="o">=</span> <span class="n">values</span>
     <span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">core</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">tensor</span></div>
 
 
-<div class="viewcode-block" id="residual_tensor"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.residual_tensor">[docs]</a><span class="k">def</span> <span class="nf">residual_tensor</span><span class="p">(</span><span class="n">tensor_A</span><span class="p">,</span> <span class="n">tensor_B</span><span class="p">):</span>
+<div class="viewcode-block" id="residual_tensor"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.residual_tensor">[docs]</a><span class="k">def</span> <span class="nf">residual_tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="p">,</span> <span class="n">tensor_approx</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Residual tensor</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    tensor_A : Tensor</span>
-<span class="sd">    tensor_B : {Tensor, TensorCPD, TensorTKD}</span>
+<span class="sd">    tensor_orig : Tensor</span>
+<span class="sd">    tensor_approx : {Tensor, TensorCPD, TensorTKD, TensorTT}</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    residual : Tensor</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_B</span><span class="p">,</span> <span class="n">TensorCPD</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_B</span><span class="p">,</span> <span class="n">TensorTKD</span><span class="p">):</span>
-        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_A</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_B</span><span class="o">.</span><span class="n">reconstruct</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_B</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
-        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_A</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_B</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_orig</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unknown data type of original tensor.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                        <span class="s2">&quot;The available type for `tensor_A` is `Tensor`&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">TensorCPD</span><span class="p">):</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">reconstruct</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">TensorTKD</span><span class="p">):</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">reconstruct</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">TensorTT</span><span class="p">):</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">reconstruct</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Unknown data type of the approximation&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unknown data type of the approximation tensor!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                        <span class="s2">&quot;The available types for `tensor_B` are `Tensor`,  `TensorCPD`,  `TensorTKD`,  `TensorTT`&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">residual</span></div>
 </pre></div>
 
@@ -666,7 +1184,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.1.1',
+            VERSION:'0.1.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

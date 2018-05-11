@@ -94,7 +94,10 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../api/modules.html">HOTTBOX API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
@@ -118,23 +121,31 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../development_guide/index.html">Development guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#how-to-contribute">How to contribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#advised-git-branching-model">Advised git branching model</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/git_branching_model.html">Master branch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#feature-branches">Feature branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#release-branches">Release branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#hotfix-branches">Hotfix branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#coding-guidelines">Coding guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/index.html#documentation">Documentation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../authors.html">Our Team</a></li>
 </ul>
 
@@ -215,6 +226,22 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">mode_description</span> <span class="o">=</span> <span class="n">mode_description</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
 
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Copy of the Decomposition as a new object &quot;&quot;&quot;</span>
+        <span class="n">new_object</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">BaseTucker</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">new_object</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Name of the decomposition</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        decomposition_name : str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">decomposition_name</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">BaseTucker</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">return</span> <span class="n">decomposition_name</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">converged</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in base (BaseTucker) class&#39;</span><span class="p">)</span>
@@ -247,6 +274,22 @@
                                     <span class="n">mode_description</span><span class="o">=</span><span class="n">mode_description</span><span class="p">,</span>
                                     <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
 
+<div class="viewcode-block" id="HOSVD.copy"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Copy of the HOSVD algorithm as a new object &quot;&quot;&quot;</span>
+        <span class="n">new_object</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">HOSVD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">new_object</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Name of the decomposition</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        decomposition_name : str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">decomposition_name</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">HOSVD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">return</span> <span class="n">decomposition_name</span>
+
 <div class="viewcode-block" id="HOSVD.decompose"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.decompose">[docs]</a>    <span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Performs tucker decomposition via Higher Order Singular Value Decomposition (HOSVD)</span>
 
@@ -262,6 +305,13 @@
 <span class="sd">        tensor_tkd : TensorTKD</span>
 <span class="sd">            Tucker representation of the `tensor`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `tensor` should be an object of `Tensor` class!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `rank` should be passed as a tuple!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tensor</span><span class="o">.</span><span class="n">order</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rank</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Parameter `rank` should be tuple of the same length as the order of a tensor:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2"> (tensor.order != len(rank))&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">order</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rank</span><span class="p">)))</span>
         <span class="n">fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])]</span> <span class="o">*</span> <span class="n">tensor</span><span class="o">.</span><span class="n">order</span>
         <span class="n">core</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="c1"># TODO: can add check for self.process here</span>
@@ -269,13 +319,13 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">process</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">order</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">order</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">mode</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">:</span>
-                <span class="n">fmat</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="n">mode</span><span class="p">])</span>
+                <span class="n">fmat</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">mode</span><span class="p">])</span>
                 <span class="k">continue</span>
             <span class="n">tensor_unfolded</span> <span class="o">=</span> <span class="n">unfold</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
             <span class="n">U</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">tensor_unfolded</span><span class="p">,</span> <span class="n">rank</span><span class="p">[</span><span class="n">mode</span><span class="p">])</span>
             <span class="n">fmat</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">U</span>
             <span class="n">core</span><span class="o">.</span><span class="n">mode_n_product</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
-        <span class="n">tensor_tkd</span> <span class="o">=</span> <span class="n">TensorTKD</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="n">core</span><span class="p">)</span>
+        <span class="n">tensor_tkd</span> <span class="o">=</span> <span class="n">TensorTKD</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
             <span class="n">residual</span> <span class="o">=</span> <span class="n">residual_tensor</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">tensor_tkd</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Relative error of approximation = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">residual</span><span class="o">.</span><span class="n">frob_norm</span> <span class="o">/</span> <span class="n">tensor</span><span class="o">.</span><span class="n">frob_norm</span><span class="p">)))</span>
@@ -337,6 +387,23 @@
         <span class="c1"># Initialise attributes</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>
 
+<div class="viewcode-block" id="HOOI.copy"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Copy of the HOSVD algorithm as a new object &quot;&quot;&quot;</span>
+        <span class="n">new_object</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">HOOI</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">new_object</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="n">new_object</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Name of the decomposition</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        decomposition_name : str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">decomposition_name</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">HOOI</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">return</span> <span class="n">decomposition_name</span>
+
 <div class="viewcode-block" id="HOOI.decompose"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.decompose">[docs]</a>    <span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Performs tucker decomposition via Higher Order Orthogonal Iteration (HOOI)</span>
 
@@ -352,6 +419,13 @@
 <span class="sd">        tensor_tkd : TensorTKD</span>
 <span class="sd">            Tucker representation of the `tensor`</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `tensor` should be an object of `Tensor` class!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `rank` should be passed as a tuple!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">tensor</span><span class="o">.</span><span class="n">order</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rank</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Parameter `rank` should be tuple of the same length as the order of a tensor:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2"> (tensor.order != len(rank))&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">order</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rank</span><span class="p">)))</span>
         <span class="n">tensor_tkd</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">fmat_hooi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_fmat</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
         <span class="n">norm</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">frob_norm</span>
@@ -374,7 +448,7 @@
                 <span class="n">core</span><span class="o">.</span><span class="n">mode_n_product</span><span class="p">(</span><span class="n">fmat</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
 
             <span class="c1"># Update cost</span>
-            <span class="n">tensor_tkd</span> <span class="o">=</span> <span class="n">TensorTKD</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat_hooi</span><span class="p">,</span> <span class="n">core</span><span class="o">=</span><span class="n">core</span><span class="p">)</span>
+            <span class="n">tensor_tkd</span> <span class="o">=</span> <span class="n">TensorTKD</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat_hooi</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
             <span class="n">residual</span> <span class="o">=</span> <span class="n">residual_tensor</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">tensor_tkd</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">residual</span><span class="o">.</span><span class="n">frob_norm</span> <span class="o">/</span> <span class="n">norm</span><span class="p">))</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
@@ -470,7 +544,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../../',
-            VERSION:'0.1.1',
+            VERSION:'0.1.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
