@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../index.html"/>
         <link rel="up" title="HOTTBOX API" href="modules.html"/>
-        <link rel="next" title="Rank estimation" href="hottbox.rank.html"/>
-        <link rel="prev" title="Tensor Decompositions" href="hottbox.algorithms.decomposition.html"/> 
+        <link rel="next" title="Rank Estimation" href="hottbox.rank.html"/>
+        <link rel="prev" title="Utility Functions" href="hottbox.utils.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -62,7 +62,7 @@
 
           
             
-            <img src="../_static/hottbox_logo_1.png" class="logo" />
+            <img src="../_static/hottbox_logo_2.png" class="logo" />
           
           </a>
 
@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                0.1
+                0.1.3
               </div>
             
           
@@ -102,8 +102,8 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">HOTTBOX API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="hottbox.core.html">Core Structures and Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.operations">Tensor Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="hottbox.algorithms.html">Algorithms</a><ul>
@@ -117,11 +117,14 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.utils.html">Utility Functions</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.rank.html">Rank estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modules.html#module-hottbox">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.rank.html">Rank Estimation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development_guide/how_to_contribute.html">How to contribute</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
@@ -146,8 +149,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">HOTTBOX Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../authors.html">Our Team</a></li>
 </ul>
 
@@ -254,7 +255,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>tensor_true</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – </li>
-<li><strong>tensor_pred</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a><em>, </em><em>TensorTKD}</em>) – </li>
+<li><strong>tensor_pred</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD"><em>TensorTKD</em></a><em>, </em><em>TensorTT}</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -278,7 +279,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>tensor_true</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – </li>
-<li><strong>tensor_pred</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a><em>, </em><em>TensorTKD}</em>) – </li>
+<li><strong>tensor_pred</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD"><em>TensorTKD</em></a><em>, </em><em>TensorTT}</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -302,7 +303,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>tensor_true</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – </li>
-<li><strong>tensor_pred</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a><em>, </em><em>TensorTKD}</em>) – </li>
+<li><strong>tensor_pred</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD"><em>TensorTKD</em></a><em>, </em><em>TensorTT}</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -326,7 +327,7 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
 <li><strong>tensor_true</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – </li>
-<li><strong>tensor_pred</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a><em>, </em><em>TensorTKD}</em>) – </li>
+<li><strong>tensor_pred</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a><em>, </em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD"><em>TensorTKD</em></a><em>, </em><em>TensorTT}</em>) – </li>
 </ul>
 </td>
 </tr>
@@ -352,10 +353,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hottbox.rank.html" class="btn btn-neutral float-right" title="Rank estimation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hottbox.rank.html" class="btn btn-neutral float-right" title="Rank Estimation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hottbox.algorithms.decomposition.html" class="btn btn-neutral" title="Tensor Decompositions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="hottbox.utils.html" class="btn btn-neutral" title="Utility Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -386,7 +387,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'0.1.2',
+            VERSION:'0.1.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>hottbox.pdtools.utils &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/hottbox_logo_2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">HOTTBOX API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.utils.html">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.rank.html">Rank Estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">hottbox</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>hottbox.pdtools.utils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for hottbox.pdtools.utils</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">..core.structures</span> <span class="k">import</span> <span class="n">Tensor</span>
+
+
+<div class="viewcode-block" id="pd_to_tensor"><a class="viewcode-back" href="../../../api/hottbox.pdtools.html#hottbox.pdtools.utils.pd_to_tensor">[docs]</a><span class="k">def</span> <span class="nf">pd_to_tensor</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">keep_index</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Represent multi-index pandas dataframe as a tensor</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        Multi-index dataframe with only one column of data</span>
+<span class="sd">    keep_index : bool</span>
+<span class="sd">        Keep level values of dataframe multi-index</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tensor : Tensor</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.pdtools import pd_to_tensor</span>
+<span class="sd">    &gt;&gt;&gt; data = {&#39;Year&#39;: [2005, 2005, 2005, 2005, 2010, 2010, 2010, 2010],</span>
+<span class="sd">    ...         &#39;Month&#39;: [&#39;Jan&#39;, &#39;Jan&#39;, &#39;Feb&#39;, &#39;Feb&#39;, &#39;Jan&#39;, &#39;Jan&#39;, &#39;Feb&#39;, &#39;Feb&#39;],</span>
+<span class="sd">    ...         &#39;Day&#39;: [&#39;Mon&#39;, &#39;Wed&#39;, &#39;Mon&#39;, &#39;Wed&#39;, &#39;Mon&#39;, &#39;Wed&#39;, &#39;Mon&#39;, &#39;Wed&#39;],</span>
+<span class="sd">    ...         &#39;Population&#39;: np.arange(8)</span>
+<span class="sd">    ...         }</span>
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame.from_dict(data)</span>
+<span class="sd">    &gt;&gt;&gt; df.set_index([&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;], inplace=True)</span>
+<span class="sd">    &gt;&gt;&gt; print(df)</span>
+<span class="sd">                        Population</span>
+<span class="sd">        Year Month Day</span>
+<span class="sd">        2005 Jan   Mon           0</span>
+<span class="sd">                   Wed           1</span>
+<span class="sd">             Feb   Mon           2</span>
+<span class="sd">                   Wed           3</span>
+<span class="sd">        2010 Jan   Mon           4</span>
+<span class="sd">                   Wed           5</span>
+<span class="sd">             Feb   Mon           6</span>
+<span class="sd">                   Wed           7</span>
+<span class="sd">    &gt;&gt;&gt; tensor = pd_to_tensor(df)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor.data)</span>
+<span class="sd">        [[[0 1]</span>
+<span class="sd">          [2 3]]</span>
+<span class="sd">         [[4 5]</span>
+<span class="sd">          [6 7]]]</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor)</span>
+<span class="sd">        This tensor is of order 3 and consists of 8 elements.</span>
+<span class="sd">        Sizes and names of its modes are (2, 2, 2) and [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;] respectively.</span>
+<span class="sd">    &gt;&gt;&gt; tensor.modes</span>
+<span class="sd">        [Mode(name=&#39;Year&#39;, index=[2005, 2010]),</span>
+<span class="sd">         Mode(name=&#39;Month&#39;, index=[&#39;Jan&#39;, &#39;Feb&#39;]),</span>
+<span class="sd">         Mode(name=&#39;Day&#39;, index=[&#39;Mon&#39;, &#39;Wed&#39;])]</span>
+<span class="sd">    &gt;&gt;&gt; tensor = pd_to_tensor(df, keep_index=False)</span>
+<span class="sd">    &gt;&gt;&gt; tensor.modes</span>
+<span class="sd">        [Mode(name=&#39;Year&#39;, index=None),</span>
+<span class="sd">         Mode(name=&#39;Month&#39;, index=None),</span>
+<span class="sd">         Mode(name=&#39;Day&#39;, index=None)]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># TODO: need to think what should we do when multi-index dataframe is composed of several columns</span>
+
+    <span class="c1"># Reshape values into multi-dimensional array</span>
+    <span class="n">dims</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="k">for</span> <span class="n">level</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">levels</span><span class="p">])</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">dims</span><span class="p">)</span>
+
+    <span class="c1"># Get mode names</span>
+    <span class="n">mode_names</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span>
+
+    <span class="c1"># Create tensor</span>
+    <span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">)</span>
+
+    <span class="c1"># Set index for each tensor mode</span>
+    <span class="k">if</span> <span class="n">keep_index</span><span class="p">:</span>
+        <span class="n">multi_index</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dims</span><span class="p">)):</span>
+            <span class="n">level_index</span> <span class="o">=</span> <span class="n">multi_index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">level_index_names</span> <span class="o">=</span> <span class="n">level_index</span><span class="o">.</span><span class="n">get_values</span><span class="p">()</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">level_index_names</span><span class="p">,</span> <span class="n">return_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="n">level_index_names</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">idx</span><span class="p">)]</span>
+            <span class="n">mode_index</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">index</span><span class="p">}</span>
+            <span class="n">tensor</span><span class="o">.</span><span class="n">set_mode_index</span><span class="p">(</span><span class="n">mode_index</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tensor</span></div>
+
+
+<div class="viewcode-block" id="tensor_to_pd"><a class="viewcode-back" href="../../../api/hottbox.pdtools.html#hottbox.pdtools.utils.tensor_to_pd">[docs]</a><span class="k">def</span> <span class="nf">tensor_to_pd</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">col_name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Represent tensor as a multi-index pandas dataframe</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tensor : Tensor</span>
+<span class="sd">        Tensor to be represented as a multi-index dataframe</span>
+<span class="sd">    col_name : str</span>
+<span class="sd">        Column label to use for resulting dataframe</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : pd.DataFrame</span>
+<span class="sd">        Multi-index data frame</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+
+<span class="sd">    1) Conversion of a tensor with default meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import Tensor</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.pdtools import tensor_to_pd</span>
+<span class="sd">    &gt;&gt;&gt; data = np.arange(8).reshape(2, 2, 2)</span>
+<span class="sd">    &gt;&gt;&gt; tensor = Tensor(data)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor.data)</span>
+<span class="sd">        [[[0 1]</span>
+<span class="sd">          [2 3]]</span>
+<span class="sd">         [[4 5]</span>
+<span class="sd">          [6 7]]]</span>
+<span class="sd">    &gt;&gt;&gt; tensor.modes</span>
+<span class="sd">        [Mode(name=&#39;mode-0&#39;, index=None),</span>
+<span class="sd">         Mode(name=&#39;mode-1&#39;, index=None),</span>
+<span class="sd">         Mode(name=&#39;mode-2&#39;, index=None)]</span>
+<span class="sd">    &gt;&gt;&gt; df = tensor_to_pd(tensor)</span>
+<span class="sd">    &gt;&gt;&gt; print(df)</span>
+<span class="sd">                                  Values</span>
+<span class="sd">        mode-0 mode-1 mode-2</span>
+<span class="sd">        0      0      0            0</span>
+<span class="sd">                      1            1</span>
+<span class="sd">               1      0            2</span>
+<span class="sd">                      1            3</span>
+<span class="sd">        1      0      0            4</span>
+<span class="sd">                      1            5</span>
+<span class="sd">               1      0            6</span>
+<span class="sd">                      1            7</span>
+
+<span class="sd">    2) Conversion of a tensor with specified mode names</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import Tensor</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.pdtools import tensor_to_pd</span>
+<span class="sd">    &gt;&gt;&gt; data = np.arange(8).reshape(2, 2, 2)</span>
+<span class="sd">    &gt;&gt;&gt; tensor = Tensor(data, mode_names=[&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;])</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor.data)</span>
+<span class="sd">        [[[0 1]</span>
+<span class="sd">          [2 3]]</span>
+<span class="sd">         [[4 5]</span>
+<span class="sd">          [6 7]]]</span>
+<span class="sd">    &gt;&gt;&gt; tensor.modes</span>
+<span class="sd">        [Mode(name=&#39;Year&#39;, index=None),</span>
+<span class="sd">         Mode(name=&#39;Month&#39;, index=None),</span>
+<span class="sd">         Mode(name=&#39;Day&#39;, index=None)]</span>
+<span class="sd">    &gt;&gt;&gt; df = tensor_to_pd(tensor)</span>
+<span class="sd">    &gt;&gt;&gt; print(df)</span>
+<span class="sd">                            Values</span>
+<span class="sd">        Year Month Day</span>
+<span class="sd">        0    0     0         0</span>
+<span class="sd">                   1         1</span>
+<span class="sd">             1     0         2</span>
+<span class="sd">                   1         3</span>
+<span class="sd">        1    0     0         4</span>
+<span class="sd">                   1         5</span>
+<span class="sd">             1     0         6</span>
+<span class="sd">                   1         7</span>
+
+<span class="sd">    3) Conversion of a tensor with specified mode names and mode index</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import Tensor</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.pdtools import tensor_to_pd</span>
+<span class="sd">    &gt;&gt;&gt; data = np.arange(8).reshape(2, 2, 2)</span>
+<span class="sd">    &gt;&gt;&gt; mode_index = {0: [2005, 2010],</span>
+<span class="sd">    ...               1: [&quot;Jan&quot;, &quot;Feb&quot;],</span>
+<span class="sd">    ...               2: [&quot;Mon&quot;, &quot;Wed&quot;],</span>
+<span class="sd">    ...              }</span>
+<span class="sd">    &gt;&gt;&gt; tensor = Tensor(data, mode_names=[&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;])</span>
+<span class="sd">    &gt;&gt;&gt; tensor.set_mode_index(mode_index)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor.data)</span>
+<span class="sd">        [[[0 1]</span>
+<span class="sd">          [2 3]]</span>
+<span class="sd">         [[4 5]</span>
+<span class="sd">          [6 7]]]</span>
+<span class="sd">    &gt;&gt;&gt; tensor.modes</span>
+<span class="sd">        [Mode(name=&#39;Year&#39;, index=[2005, 2010]),</span>
+<span class="sd">         Mode(name=&#39;Month&#39;, index=[&#39;Jan&#39;, &#39;Feb&#39;]),</span>
+<span class="sd">         Mode(name=&#39;Day&#39;, index=[&#39;Mon&#39;, &#39;Wed&#39;])]</span>
+<span class="sd">    &gt;&gt;&gt; df = tensor_to_pd(tensor)</span>
+<span class="sd">    &gt;&gt;&gt; print(df)</span>
+<span class="sd">                          Values</span>
+<span class="sd">        Year Month Day</span>
+<span class="sd">        2005 Jan   Mon       0</span>
+<span class="sd">                   Wed       1</span>
+<span class="sd">             Feb   Mon       2</span>
+<span class="sd">                   Wed       3</span>
+<span class="sd">        2010 Jan   Mon       4</span>
+<span class="sd">                   Wed       5</span>
+<span class="sd">             Feb   Mon       6</span>
+<span class="sd">                   Wed       7</span>
+<span class="sd">    &gt;&gt;&gt; df = tensor_to_pd(tensor, col_name=&quot;Population&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; print(df)</span>
+<span class="sd">                            Population</span>
+<span class="sd">        Year Month Day</span>
+<span class="sd">        2005 Jan   Mon           0</span>
+<span class="sd">                   Wed           1</span>
+<span class="sd">             Feb   Mon           2</span>
+<span class="sd">                   Wed           3</span>
+<span class="sd">        2010 Jan   Mon           4</span>
+<span class="sd">                   Wed           5</span>
+<span class="sd">             Feb   Mon           6</span>
+<span class="sd">                   Wed           7</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">tensor</span><span class="o">.</span><span class="n">in_normal_state</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;`tensor` should be in normal state prior this conversion&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Create multidimensional index</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">mode_names</span>
+    <span class="n">all_indices</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">tensor</span><span class="o">.</span><span class="n">order</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">modes</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">mode</span><span class="o">.</span><span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">all_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">all_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">mode</span><span class="o">.</span><span class="n">index</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">(</span><span class="n">all_indices</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+
+    <span class="c1"># Vectorise values (!!! keep in mind, tensor should not be modified in anyway !!!)</span>
+    <span class="c1"># data = tensor.unfold(mode=0, inplace=False).data.ravel()</span>
+    <span class="c1"># data = tensor.data.ravel()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">vectorise</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+
+    <span class="c1"># Create dataframe</span>
+    <span class="k">if</span> <span class="n">col_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">col_name</span> <span class="o">=</span> <span class="s2">&quot;Values&quot;</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">col_name</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">df</span></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2018, Ilya Kisil.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'0.1.3',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

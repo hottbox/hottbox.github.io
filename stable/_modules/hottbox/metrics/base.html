@@ -60,7 +60,7 @@
 
           
             
-            <img src="../../../_static/hottbox_logo_1.png" class="logo" />
+            <img src="../../../_static/hottbox_logo_2.png" class="logo" />
           
           </a>
 
@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                0.1
+                0.1.3
               </div>
             
           
@@ -100,8 +100,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">HOTTBOX API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Structures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.operations">Tensor Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.algorithms.html">Algorithms</a><ul>
@@ -115,11 +115,14 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.utils.html">Utility Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.rank.html">Rank estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/modules.html#module-hottbox">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.rank.html">Rank Estimation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../development_guide/index.html">Development guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../development_guide/how_to_contribute.html">How to contribute</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
@@ -144,8 +147,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">HOTTBOX Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Our Team</a></li>
 </ul>
 
@@ -213,7 +214,7 @@
   <h1>Source code for hottbox.metrics.base</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">sqrt</span>
-<span class="kn">from</span> <span class="nn">..core.structures</span> <span class="k">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">TensorCPD</span><span class="p">,</span> <span class="n">TensorTKD</span><span class="p">,</span> <span class="n">residual_tensor</span>
+<span class="kn">from</span> <span class="nn">..core.structures</span> <span class="k">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">TensorCPD</span><span class="p">,</span> <span class="n">TensorTKD</span><span class="p">,</span> <span class="n">TensorTT</span><span class="p">,</span> <span class="n">residual_tensor</span>
 
 
 <div class="viewcode-block" id="mse"><a class="viewcode-back" href="../../../api/hottbox.metrics.html#hottbox.metrics.base.mse">[docs]</a><span class="k">def</span> <span class="nf">mse</span><span class="p">(</span><span class="n">tensor_true</span><span class="p">,</span> <span class="n">tensor_pred</span><span class="p">):</span>
@@ -222,7 +223,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    tensor_true : Tensor</span>
-<span class="sd">    tensor_pred : {Tensor, TensorCPD, TensorTKD}</span>
+<span class="sd">    tensor_pred : {Tensor, TensorCPD, TensorTKD, TensorTT}</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -238,7 +239,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    tensor_true : Tensor</span>
-<span class="sd">    tensor_pred : {Tensor, TensorCPD, TensorTKD}</span>
+<span class="sd">    tensor_pred : {Tensor, TensorCPD, TensorTKD, TensorTT}</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -253,7 +254,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    tensor_true : Tensor</span>
-<span class="sd">    tensor_pred : {Tensor, TensorCPD, TensorTKD}</span>
+<span class="sd">    tensor_pred : {Tensor, TensorCPD, TensorTKD, TensorTT}</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -270,7 +271,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    tensor_true : Tensor</span>
-<span class="sd">    tensor_pred : {Tensor, TensorCPD, TensorTKD}</span>
+<span class="sd">    tensor_pred : {Tensor, TensorCPD, TensorTKD, TensorTT}</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -314,7 +315,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../../',
-            VERSION:'0.1.2',
+            VERSION:'0.1.3',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
