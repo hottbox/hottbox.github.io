@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>General guidelines and advices &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Master branch" href="git_branching_model.html" />
+    <link rel="prev" title="Before pull request" href="before_pull_request.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">HOTTBOX API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.utils.html">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.rank.html">Rank Estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="before_pull_request.html#document-your-code">Document your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="before_pull_request.html#docker-validation">Docker validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git_branching_model.html#supporting-branches">Supporting branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hottbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Development guide</a> &raquo;</li>
+        
+      <li>General guidelines and advices</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development_guide/general_guidelines_and_workflow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="general-guidelines-and-advices">
+<h1>General guidelines and advices<a class="headerlink" href="#general-guidelines-and-advices" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="coding-guidelines">
+<h2>Coding guidelines<a class="headerlink" href="#coding-guidelines" title="Permalink to this headline">¶</a></h2>
+<p>Can be found on the official <a class="reference external" href="http://scikit-learn.org/dev/developers/contributing.html#coding-guidelines">website</a>
+of <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code></p>
+</div>
+<div class="section" id="apis-of-hottbox-objects">
+<h2>APIs of hottbox objects<a class="headerlink" href="#apis-of-hottbox-objects" title="Permalink to this headline">¶</a></h2>
+<p>We should also adhere <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> <a class="reference external" href="http://scikit-learn.org/dev/developers/contributing.html#apis-of-scikit-learn-objects">type of API</a>
+for objects of our classes</p>
+</div>
+<div class="section" id="advised-git-branching-model">
+<h2>Advised git branching model<a class="headerlink" href="#advised-git-branching-model" title="Permalink to this headline">¶</a></h2>
+<p>We are following git branching model <a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/">described here</a>
+with some amendments. Key points:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">master</span></code> branch: only stable version of the library</li>
+<li><code class="docutils literal notranslate"><span class="pre">develop</span></code> branch: only stable features that will be included in the next release</li>
+<li><code class="docutils literal notranslate"><span class="pre">feature</span></code> branches: for developing features, create a tag when stable</li>
+<li><code class="docutils literal notranslate"><span class="pre">release</span></code> branches: for shaping up the documentation and fixing minor bugs</li>
+<li><code class="docutils literal notranslate"><span class="pre">hotfix</span></code> branches: for fixing critical bugs that exist on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch</li>
+</ol>
+<p>More details and conventions for each type of branches:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="git_branching_model.html">Master branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_branching_model.html#supporting-branches">Supporting branches</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="git_branching_model.html#feature-branches">Feature branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_branching_model.html#release-branches">Release branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="git_branching_model.html#hotfix-branches">Hotfix branches</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="git_branching_model.html" class="btn btn-neutral float-right" title="Master branch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="before_pull_request.html" class="btn btn-neutral" title="Before pull request" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2018, Ilya Kisil
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

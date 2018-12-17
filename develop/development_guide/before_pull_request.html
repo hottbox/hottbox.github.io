@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Before pull request &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="General guidelines and advices" href="general_guidelines_and_workflow.html" />
+    <link rel="prev" title="How to contribute" href="how_to_contribute.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">HOTTBOX API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.utils.html">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/hottbox.rank.html">Rank Estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Development guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#document-your-code">Document your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-validation">Docker validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="git_branching_model.html#supporting-branches">Supporting branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hottbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Development guide</a> &raquo;</li>
+        
+      <li>Before pull request</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development_guide/before_pull_request.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="before-pull-request">
+<h1>Before pull request<a class="headerlink" href="#before-pull-request" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="if-it-isnt-tested-its-broken">
+<h2>If it isn’t tested, it’s broken<a class="headerlink" href="#if-it-isnt-tested-its-broken" title="Permalink to this headline">¶</a></h2>
+<p>Unit tests are crucial part of this library.
+Before submitting a pull request, make sure that all new functions and classes come with tests that completely
+cover new features. We use tools provided by the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> package to verify that all statements perform as expected.</p>
+<p>First, you will need to install some additional software:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -e &#39;.[tests]&#39;
+</pre></div>
+</div>
+<p>To run test, simply execute inside the directory(ies) with your changes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pytest -v --cov . --cov-branch --cov-report term-missing
+</pre></div>
+</div>
+<p>Here is a <a class="reference external" href="https://www.youtube.com/watch?v=ixqeebhUa-w&amp;t=831s">youtube video</a> that could help you
+if you have never been dealing with this side of software development.</p>
+</div>
+<div class="section" id="document-your-code">
+<h2>Document your code<a class="headerlink" href="#document-your-code" title="Permalink to this headline">¶</a></h2>
+<p>Documentation is a crucial part of this library.
+All functions and classes should come with useful docstrings.
+For these, we use the <strong>numpy style</strong> docstrings.
+Detailed guidelines can be found <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">here1</a>
+and <a class="reference external" href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt">here2</a>.
+Also you can have a look at the <a class="reference external" href="http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html">examples</a>.
+Can be useful to read introduction to structuring documentation of your module <a class="reference external" href="https://pythonhosted.org/an_example_pypi_project/sphinx.html">using Sphinx</a>.</p>
+<p>It is advised to check you documentation after you have edited the source code.
+You can edit the documentation using any text editor and then generate the HTML output by typing <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>
+from the docs/ directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd docs
+$ make clean
+$ make html
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p>Building the documentation requires the <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> and <code class="docutils literal notranslate"><span class="pre">sphinx_rtd_theme</span></code>:</p>
+<div class="last highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -e &#39;.[docs]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="docker-validation">
+<h2>Docker validation<a class="headerlink" href="#docker-validation" title="Permalink to this headline">¶</a></h2>
+<p>Optionally, you can use <a class="reference external" href="https://youtube.com/watch?v=JprTjTViaEA">Docker</a> and corresponding
+utilities from the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>, in order to ensure that there are no local dependecies.
+Specificaitons for the Docker image can be found in corresponding under <code class="docutils literal notranslate"><span class="pre">docker/</span></code> directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Create docker image with installation of local state of &#39;hottbox&#39;
+$ make dev-image  # Size 850MB; built on top of conda/miniconda3
+
+# Start docker container of the image from previous step
+$ make dev-container
+
+# Inside docker container; Should finish without errors
+$ make test-cov     # performs unit tests with coverage
+$ make html         # builds documentation
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<a class="last reference internal image-reference" href="../_images/docs_comparison.png"><img alt="../_images/docs_comparison.png" class="align-center" src="../_images/docs_comparison.png" style="width: 273.7px; height: 56.349999999999994px;" /></a>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="general_guidelines_and_workflow.html" class="btn btn-neutral float-right" title="General guidelines and advices" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="how_to_contribute.html" class="btn btn-neutral" title="How to contribute" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2018, Ilya Kisil
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,751 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Index &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">HOTTBOX API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.utils.html">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.rank.html">Rank Estimation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development_guide/before_pull_request.html#docker-validation">Docker validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hottbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Index</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#_"><strong>_</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#K"><strong>K</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ 
+</div>
+<h2 id="_">_</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD._core_values">_core_values (TensorCPD attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD._core_values">(TensorTKD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT._core_values">(TensorTT attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor._data">_data (Tensor attribute)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD._fmat">_fmat (TensorCPD attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD._fmat">(TensorTKD attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor._modes">_modes (Tensor attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD._modes">(TensorCPD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD._modes">(TensorTKD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT._modes">(TensorTT attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor._state">_state (Tensor attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.converged">converged (CPD attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.converged">(Decomposition attribute)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.converged">(HOOI attribute)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.converged">(HOSVD attribute)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.converged">(TTSVD attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.copy">copy() (CPD method)</a>
+
+      <ul>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.copy">(Decomposition method)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.copy">(HOOI method)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.copy">(HOSVD method)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.copy">(TTSVD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.copy">(Tensor method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.copy">(TensorCPD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.copy">(TensorTKD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.copy">(TensorTT method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.copy_modes">copy_modes() (Tensor method)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.copy_modes">(TensorCPD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.copy_modes">(TensorTKD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.copy_modes">(TensorTT method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.core">core (TensorCPD attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.core">(TensorTKD attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.core">core() (TensorTT method)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.cores">cores (TensorTT attribute)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.cost">cost (CPD attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.cost">(HOOI attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD">CPD (class in hottbox.algorithms.decomposition.cpd)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.data">data (Tensor attribute)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.decompose">decompose() (CPD method)</a>
+
+      <ul>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.decompose">(Decomposition method)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.decompose">(HOOI method)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.decompose">(HOSVD method)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.decompose">(TTSVD method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition">Decomposition (class in hottbox.algorithms.decomposition.base)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.describe">describe() (Tensor method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.fmat">fmat (TensorCPD attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.fmat">(TensorTKD attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.core.html#hottbox.core.operations.fold">fold() (in module hottbox.core.operations)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.fold">(Tensor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.frob_norm">frob_norm (Tensor attribute)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.ft_shape">ft_shape (Tensor attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.ft_shape">(TensorCPD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.ft_shape">(TensorTKD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.ft_shape">(TensorTT attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.operations.hadamard">hadamard() (in module hottbox.core.operations)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI">HOOI (class in hottbox.algorithms.decomposition.tucker)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD">HOSVD (class in hottbox.algorithms.decomposition.tucker)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.html#module-hottbox.algorithms">hottbox.algorithms (module)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">hottbox.algorithms.decomposition (module)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">hottbox.algorithms.decomposition.base (module)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">hottbox.algorithms.decomposition.cpd (module)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">hottbox.algorithms.decomposition.tensor_train (module)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">hottbox.algorithms.decomposition.tucker (module)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#module-hottbox.core">hottbox.core (module)</a>
+</li>
+      <li><a href="api/hottbox.core.html#module-hottbox.core.operations">hottbox.core.operations (module)</a>
+</li>
+      <li><a href="api/hottbox.core.html#module-hottbox.core.structures">hottbox.core.structures (module)</a>
+</li>
+      <li><a href="api/hottbox.metrics.html#module-hottbox.metrics">hottbox.metrics (module)</a>
+</li>
+      <li><a href="api/hottbox.metrics.html#module-hottbox.metrics.base">hottbox.metrics.base (module)</a>
+</li>
+      <li><a href="api/hottbox.pdtools.html#module-hottbox.pdtools">hottbox.pdtools (module)</a>
+</li>
+      <li><a href="api/hottbox.pdtools.html#module-hottbox.pdtools.utils">hottbox.pdtools.utils (module)</a>
+</li>
+      <li><a href="api/hottbox.rank.html#module-hottbox.rank">hottbox.rank (module)</a>
+</li>
+      <li><a href="api/hottbox.rank.html#module-hottbox.rank.rank_estimation">hottbox.rank.rank_estimation (module)</a>
+</li>
+      <li><a href="api/hottbox.utils.html#module-hottbox.utils">hottbox.utils (module)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.in_normal_state">in_normal_state (Tensor attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="K">K</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.operations.khatri_rao">khatri_rao() (in module hottbox.core.operations)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.operations.kolda_fold">kolda_fold() (in module hottbox.core.operations)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.operations.kolda_unfold">kolda_unfold() (in module hottbox.core.operations)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.operations.kronecker">kronecker() (in module hottbox.core.operations)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.metrics.html#hottbox.metrics.base.mape">mape() (in module hottbox.metrics.base)</a>
+</li>
+      <li><a href="api/hottbox.rank.html#hottbox.rank.rank_estimation.mlrank">mlrank() (in module hottbox.rank.rank_estimation)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.operations.mode_n_product">mode_n_product() (in module hottbox.core.operations)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.mode_n_product">(Tensor method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.mode_names">mode_names (Tensor attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.mode_names">(TensorCPD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.mode_names">(TensorTKD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.mode_names">(TensorTT attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.modes">modes (Tensor attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.modes">(TensorCPD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.modes">(TensorTKD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.modes">(TensorTT attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.metrics.html#hottbox.metrics.base.mse">mse() (in module hottbox.metrics.base)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.name">name (CPD attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.name">(Decomposition attribute)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.name">(HOOI attribute)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.name">(HOSVD attribute)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.name">(TTSVD attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.order">order (Tensor attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.order">(TensorCPD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.order">(TensorTKD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.order">(TensorTT attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.pdtools.html#hottbox.pdtools.utils.pd_to_tensor">pd_to_tensor() (in module hottbox.pdtools.utils)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.plot">plot() (CPD method)</a>
+
+      <ul>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.plot">(Decomposition method)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.plot">(HOOI method)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.plot">(HOSVD method)</a>
+</li>
+        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.plot">(TTSVD method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.utils.html#hottbox.utils.quick_tensor">quick_tensor() (in module hottbox.utils)</a>
+</li>
+      <li><a href="api/hottbox.utils.html#hottbox.utils.quick_tensorcpd">quick_tensorcpd() (in module hottbox.utils)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.utils.html#hottbox.utils.quick_tensortkd">quick_tensortkd() (in module hottbox.utils)</a>
+</li>
+      <li><a href="api/hottbox.utils.html#hottbox.utils.quick_tensortt">quick_tensortt() (in module hottbox.utils)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.rank">rank (TensorCPD attribute)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.rank">(TensorTKD attribute)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.rank">(TensorTT attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.rank.html#hottbox.rank.rank_estimation.rankest">rankest() (in module hottbox.rank.rank_estimation)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.reconstruct">reconstruct() (TensorCPD method)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.reconstruct">(TensorTKD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.reconstruct">(TensorTT method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.reset_meta">reset_meta() (Tensor method)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.reset_mode_index">reset_mode_index() (Tensor method)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.reset_mode_index">(TensorCPD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.reset_mode_index">(TensorTKD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.reset_mode_index">(TensorTT method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.reset_mode_name">reset_mode_name() (Tensor method)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.reset_mode_name">(TensorCPD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.reset_mode_name">(TensorTKD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.reset_mode_name">(TensorTT method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.metrics.html#hottbox.metrics.base.residual_rel_error">residual_rel_error() (in module hottbox.metrics.base)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.residual_tensor">residual_tensor() (in module hottbox.core.structures)</a>
+</li>
+      <li><a href="api/hottbox.metrics.html#hottbox.metrics.base.rmse">rmse() (in module hottbox.metrics.base)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.set_mode_index">set_mode_index() (Tensor method)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.set_mode_index">(TensorCPD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.set_mode_index">(TensorTKD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.set_mode_index">(TensorTT method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.set_mode_names">set_mode_names() (Tensor method)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.set_mode_names">(TensorCPD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.set_mode_names">(TensorTKD method)</a>
+</li>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.set_mode_names">(TensorTT method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.shape">shape (Tensor attribute)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.show_state">show_state() (Tensor method)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.size">size (Tensor attribute)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.super_diag_tensor">super_diag_tensor() (in module hottbox.core.structures)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor">Tensor (class in hottbox.core.structures)</a>
+</li>
+      <li><a href="api/hottbox.pdtools.html#hottbox.pdtools.utils.tensor_to_pd">tensor_to_pd() (in module hottbox.pdtools.utils)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD">TensorCPD (class in hottbox.core.structures)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD">TensorTKD (class in hottbox.core.structures)</a>
+</li>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT">TensorTT (class in hottbox.core.structures)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD">TTSVD (class in hottbox.algorithms.decomposition.tensor_train)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.operations.unfold">unfold() (in module hottbox.core.operations)</a>
+
+      <ul>
+        <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.unfold">(Tensor method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.vectorise">vectorise() (Tensor method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2018, Ilya Kisil
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
