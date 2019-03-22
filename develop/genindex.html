@@ -18,32 +18,34 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -60,7 +62,7 @@
             
             
               <div class="version">
-                0.1.4
+                0.2.1
               </div>
             
           
@@ -97,12 +99,16 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/hottbox.algorithms.html">Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
 </ul>
 </li>
 </ul>
@@ -111,6 +117,10 @@
 <li class="toctree-l2"><a class="reference internal" href="api/hottbox.utils.html">Utility Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/hottbox.metrics.html">Metrics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/hottbox.rank.html">Rank Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.contrib.html">Experimental features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.contrib.html#visualisation">Visualisation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">HOTTBOX Tutorials</a></li>
@@ -208,12 +218,17 @@
 
 <div class="genindex-jumpbox">
  <a href="#_"><strong>_</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
  | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#K"><strong>K</strong></a>
+ | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
@@ -224,6 +239,7 @@
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
  
 </div>
 <h2 id="_">_</h2>
@@ -262,14 +278,38 @@
   </ul></td>
 </tr></table>
 
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.available_plots">available_plots (BaseComponentPlot attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot">BaseComponentPlot (class in hottbox.contrib.visualisation)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.bias_">bias_ (LSSTM attribute)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.bias_history_">bias_history_ (LSSTM attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.ComponentPlotCPD">ComponentPlotCPD (class in hottbox.contrib.visualisation)</a>
+</li>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.ComponentPlotTKD">ComponentPlotTKD (class in hottbox.contrib.visualisation)</a>
+</li>
       <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.converged">converged (CPD attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.converged">(Decomposition attribute)</a>
-</li>
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.converged">(HOOI attribute)</a>
 </li>
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.converged">(HOSVD attribute)</a>
@@ -280,8 +320,6 @@
       <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.copy">copy() (CPD method)</a>
 
       <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.copy">(Decomposition method)</a>
-</li>
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.copy">(HOOI method)</a>
 </li>
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.copy">(HOSVD method)</a>
@@ -333,13 +371,13 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.dashboard">dashboard (BaseComponentPlot attribute)</a>
+</li>
       <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.data">data (Tensor attribute)</a>
 </li>
       <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.decompose">decompose() (CPD method)</a>
 
       <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.decompose">(Decomposition method)</a>
-</li>
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.decompose">(HOOI method)</a>
 </li>
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.decompose">(HOSVD method)</a>
@@ -349,9 +387,21 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition">Decomposition (class in hottbox.algorithms.decomposition.base)</a>
-</li>
       <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.describe">describe() (Tensor method)</a>
+</li>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.dropdown">dropdown (BaseComponentPlot attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.eta_history_">eta_history_ (LSSTM attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots">extend_available_plots() (BaseComponentPlot method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -359,6 +409,8 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.fit">fit() (LSSTM method)</a>
+</li>
       <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.fmat">fmat (TensorCPD attribute)</a>
 
       <ul>
@@ -388,6 +440,20 @@
   </ul></td>
 </tr></table>
 
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.gen_test_data">gen_test_data() (in module hottbox.contrib.visualisation)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.gen_test_tensor_cpd">gen_test_tensor_cpd() (in module hottbox.contrib.visualisation)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.get_params">get_params() (LSSTM method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -399,9 +465,11 @@
 </li>
       <li><a href="api/hottbox.algorithms.html#module-hottbox.algorithms">hottbox.algorithms (module)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">hottbox.algorithms.decomposition (module)</a>
+      <li><a href="api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">hottbox.algorithms.classification (module)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">hottbox.algorithms.decomposition.base (module)</a>
+      <li><a href="api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">hottbox.algorithms.classification.stm (module)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">hottbox.algorithms.decomposition (module)</a>
 </li>
       <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">hottbox.algorithms.decomposition.cpd (module)</a>
 </li>
@@ -411,6 +479,8 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.contrib.html#module-hottbox.contrib.visualisation">hottbox.contrib.visualisation (module)</a>
+</li>
       <li><a href="api/hottbox.core.html#module-hottbox.core">hottbox.core (module)</a>
 </li>
       <li><a href="api/hottbox.core.html#module-hottbox.core.operations">hottbox.core.operations (module)</a>
@@ -454,6 +524,14 @@
       <li><a href="api/hottbox.core.html#hottbox.core.operations.kolda_unfold">kolda_unfold() (in module hottbox.core.operations)</a>
 </li>
       <li><a href="api/hottbox.core.html#hottbox.core.operations.kronecker">kronecker() (in module hottbox.core.operations)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM">LSSTM (class in hottbox.algorithms.classification.stm)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -504,8 +582,6 @@
       <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.name">name (CPD attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.name">(Decomposition attribute)</a>
-</li>
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.name">(HOOI attribute)</a>
 </li>
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.name">(HOSVD attribute)</a>
@@ -530,6 +606,10 @@
 </li>
       </ul></li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.out">out (BaseComponentPlot attribute)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="P">P</h2>
@@ -540,8 +620,6 @@
       <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.plot">plot() (CPD method)</a>
 
       <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.base.Decomposition.plot">(Decomposition method)</a>
-</li>
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.plot">(HOOI method)</a>
 </li>
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.plot">(HOSVD method)</a>
@@ -549,6 +627,12 @@
         <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.plot">(TTSVD method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.predict">predict() (LSSTM method)</a>
+</li>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.predict_proba">predict_proba() (LSSTM method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -625,6 +709,8 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.score">score() (LSSTM method)</a>
+</li>
       <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.set_mode_index">set_mode_index() (Tensor method)</a>
 
       <ul>
@@ -647,11 +733,15 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.set_params">set_params() (LSSTM method)</a>
+</li>
       <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.shape">shape (Tensor attribute)</a>
 </li>
       <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.show_state">show_state() (Tensor method)</a>
 </li>
       <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.size">size (Tensor attribute)</a>
+</li>
+      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.sliders">sliders (BaseComponentPlot attribute)</a>
 </li>
       <li><a href="api/hottbox.core.html#hottbox.core.structures.super_diag_tensor">super_diag_tensor() (in module hottbox.core.structures)</a>
 </li>
@@ -698,6 +788,14 @@
   </ul></td>
 </tr></table>
 
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.weights_">weights_ (LSSTM attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 
 
            </div>
@@ -710,7 +808,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017 - 2018, Ilya Kisil
+        &copy; Copyright 2017 - 2019, Ilya Kisil
 
     </p>
   </div>
@@ -727,25 +825,16 @@
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

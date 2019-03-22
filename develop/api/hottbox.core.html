@@ -17,34 +17,36 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Algorithms" href="hottbox.algorithms.html" />
     <link rel="prev" title="HOTTBOX API" href="modules.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -61,7 +63,7 @@
             
             
               <div class="version">
-                0.1.4
+                0.2.1
               </div>
             
           
@@ -98,12 +100,16 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="hottbox.algorithms.html">Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
 </ul>
 </li>
 </ul>
@@ -112,6 +118,10 @@
 <li class="toctree-l2"><a class="reference internal" href="hottbox.utils.html">Utility Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hottbox.metrics.html">Metrics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hottbox.rank.html">Rank Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.contrib.html">Experimental features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.contrib.html#visualisation">Visualisation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials.html">HOTTBOX Tutorials</a></li>
@@ -2159,7 +2169,7 @@ and <code class="docutils literal notranslate"><span class="pre">prod(n_columns)
         <a href="hottbox.algorithms.html" class="btn btn-neutral float-right" title="Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="modules.html" class="btn btn-neutral" title="HOTTBOX API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="HOTTBOX API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -2168,7 +2178,7 @@ and <code class="docutils literal notranslate"><span class="pre">prod(n_columns)
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017 - 2018, Ilya Kisil
+        &copy; Copyright 2017 - 2019, Ilya Kisil
 
     </p>
   </div>
@@ -2185,25 +2195,16 @@ and <code class="docutils literal notranslate"><span class="pre">prod(n_columns)
   
 
 
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../_static/js/theme.js"></script>
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

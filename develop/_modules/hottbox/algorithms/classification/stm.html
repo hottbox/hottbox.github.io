@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>hottbox.algorithms.classification.stm &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html">
+          
+
+          
+            
+            <img src="../../../../_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/modules.html">HOTTBOX API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.utils.html">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.rank.html">Rank Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../api/hottbox.contrib.html">Experimental features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.contrib.html#visualisation">Visualisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/before_pull_request.html#docker-validation">Docker validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">hottbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>hottbox.algorithms.classification.stm</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for hottbox.algorithms.classification.stm</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">...core</span> <span class="k">import</span> <span class="n">Tensor</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">Classifier</span>
+
+
+<div class="viewcode-block" id="LSSTM"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM">[docs]</a><span class="k">class</span> <span class="nc">LSSTM</span><span class="p">(</span><span class="n">Classifier</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Least Squares Support Tensor Machine (LS-STM) for binary classification.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    C : float</span>
+<span class="sd">        Penalty parameter of the error term.</span>
+<span class="sd">    tol : float</span>
+<span class="sd">        Tolerance for stopping criterion.</span>
+<span class="sd">    max_iter : int</span>
+<span class="sd">        Hard limit on iterations within solver.</span>
+<span class="sd">    probability : bool</span>
+<span class="sd">        Whether to enable probability estimates. This must be enabled prior</span>
+<span class="sd">        to calling ``fit``, and will slow down that method.</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">        Enable verbose output.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    weights_ : list[np.ndarray]</span>
+<span class="sd">        List of weights for each mode of the training data.</span>
+<span class="sd">    bias_ : np.float64</span>
+<span class="sd">    eta_history_ : np.ndarray</span>
+<span class="sd">    bias_history_ : np.ndarray</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    1)  Cichocki, Andrzej, et al. &quot;Tensor networks for dimensionality reduction and large-scale optimization:</span>
+<span class="sd">        Part 2 applications and future perspectives.&quot; Foundations and Trends in Machine Learning 9.6 (2017): 431-673.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">LSSTM</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="n">probability</span><span class="p">,</span>
+                                    <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="n">C</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tol</span> <span class="o">=</span> <span class="n">tol</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span> <span class="o">=</span> <span class="n">max_iter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias_</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eta_history_</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias_history_</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_orig_labels</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="LSSTM.fit"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Fit the LS-STM model according to the given data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : list[Tensor]</span>
+<span class="sd">            List of training samples of the same order and size.</span>
+<span class="sd">        y : np.ndarray</span>
+<span class="sd">            Target values relative to X for classification.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        self</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assert_train_data</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="c1"># Convert binary labels to -1 and 1 (provides better results then 1 and 0)</span>
+        <span class="c1"># This also allows to pass labels as stings</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_orig_labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_orig_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">else</span> <span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">])</span>
+
+        <span class="c1"># Initialise weights</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">]</span>
+
+        <span class="n">eta_history</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">bias_history</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">n_iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">):</span>
+            <span class="n">eta_iter</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">bias</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># no need to track bias for different modes</span>
+            <span class="k">for</span> <span class="n">mode_n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">order</span><span class="p">):</span>
+                <span class="n">X_m</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_X_m</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">skip_mode</span><span class="o">=</span><span class="n">mode_n</span><span class="p">)</span>
+                <span class="n">eta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_eta</span><span class="p">(</span><span class="n">skip_mode</span><span class="o">=</span><span class="n">mode_n</span><span class="p">)</span>
+                <span class="n">eta_iter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eta</span><span class="p">)</span>
+
+                <span class="c1"># Update LS-STM model weights on the fly</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">[</span><span class="n">mode_n</span><span class="p">],</span> <span class="n">bias</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ls_optimizer</span><span class="p">(</span><span class="n">X_m</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+            <span class="c1"># Extend history for and check for convergence</span>
+            <span class="n">eta_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">eta_iter</span><span class="p">)</span>
+            <span class="n">bias_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bias</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">n_iter</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+                <span class="n">err1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">eta_history</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">err2</span> <span class="o">=</span> <span class="n">bias_history</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">bias_history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">err1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="n">err2</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias_</span> <span class="o">=</span> <span class="n">bias_history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias_history_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bias_history</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eta_history_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">eta_history</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+<div class="viewcode-block" id="LSSTM.predict"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.predict">[docs]</a>    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Predict the class labels for the provided data.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : list[Tensor]</span>
+<span class="sd">            List of test samples.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y_pred : np.ndarray</span>
+<span class="sd">            Class labels for samples in X.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assert_test_data</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">test_sample</span> <span class="ow">in</span> <span class="n">X</span><span class="p">:</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">test_sample</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">mode_n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">order</span><span class="p">):</span>
+                <span class="c1"># TODO: this could be simplified when &#39;hottbox&#39; will support mode-n product with a vector</span>
+                <span class="n">temp</span><span class="o">.</span><span class="n">mode_n_product</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">[</span><span class="n">mode_n</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode_n</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">y_pred</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias_</span><span class="p">))</span>
+
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_orig_labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_orig_labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y_pred</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">y_pred</span></div>
+
+<div class="viewcode-block" id="LSSTM.predict_proba"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.predict_proba">[docs]</a>    <span class="k">def</span> <span class="nf">predict_proba</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Compute probabilities of possible outcomes for samples in the provided data. &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assert_test_data</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">LSSTM</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LSSTM.score"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.score">[docs]</a>    <span class="k">def</span> <span class="nf">score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Returns the mean accuracy on the given test data and labels.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : list[Tensor]</span>
+<span class="sd">            List of test samples.</span>
+<span class="sd">        y : np.ndarray</span>
+<span class="sd">            True labels for test samples.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        acc : np.float64</span>
+<span class="sd">            Mean accuracy of ``self.predict(X)`` with respect to ``y``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assert_test_data</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_orig_labels</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Provided set of labels is inconsistent with the those this </span><span class="si">{}</span><span class="s2"> instance was trained on!!!&quot;</span>
+                             <span class="s2">&quot;Got </span><span class="si">{}</span><span class="s2">, whereas </span><span class="si">{}</span><span class="s2"> expected&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                                                 <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+                                                                 <span class="bp">self</span><span class="o">.</span><span class="n">_orig_labels</span><span class="p">)</span>
+                             <span class="p">)</span>
+
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span>
+        <span class="k">return</span> <span class="n">acc</span></div>
+
+<div class="viewcode-block" id="LSSTM.set_params"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.set_params">[docs]</a>    <span class="k">def</span> <span class="nf">set_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">LSSTM</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">set_params</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="LSSTM.get_params"><a class="viewcode-back" href="../../../../api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.get_params">[docs]</a>    <span class="k">def</span> <span class="nf">get_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">LSSTM</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_params</span><span class="p">()</span></div>
+
+    <span class="c1"># TODO: Implementation of data input validation should be generalised.</span>
+    <span class="c1">#  Data/model is validated twice when `score` method is called since it</span>
+    <span class="c1">#  is based on `predict` method.</span>
+    <span class="k">def</span> <span class="nf">_assert_train_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Validate train data</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : list[Tensor]</span>
+<span class="sd">            List of multi-dimensional training samples.</span>
+<span class="sd">        y : np.ndarray</span>
+<span class="sd">            List of corresponding labels.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assert_data_samples</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assert_samples_vs_labels</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assert_data_labels</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_assert_test_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Validate test data</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : list[Tensor]</span>
+<span class="sd">            List of multi-dimensional test samples.</span>
+<span class="sd">        y : np.ndarray</span>
+<span class="sd">            True labels for test samples.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This </span><span class="si">{}</span><span class="s2"> instance is not fitted yet. Call &#39;fit&#39; with &quot;</span>
+                             <span class="s2">&quot;appropriate arguments before using this method.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_assert_data_samples</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_assert_samples_vs_labels</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_assert_data_labels</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="c1"># Check that all samples in &#39;X&#39; are of the same shape as during training.</span>
+        <span class="c1"># By this point we have already made sure that samples in &#39;X&#39; are of the same shape.</span>
+        <span class="n">weights_shape</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">weights_shape</span> <span class="o">!=</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This </span><span class="si">{}</span><span class="s2"> instance has been trained of data of different shape. &quot;</span>
+                             <span class="s2">&quot;Got </span><span class="si">{}</span><span class="s2">, whereas </span><span class="si">{}</span><span class="s2"> is expected.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                                                                      <span class="n">weights_shape</span><span class="p">,</span>
+                                                                      <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+                                                                      <span class="p">)</span>
+                             <span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_assert_data_samples</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Checks if all samples have same shape and order.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : list[Tensor]</span>
+<span class="sd">            List of multi-dimensional data samples.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;All data samples should be passed as a list&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">)</span> <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;All data samples should be of `Tensor` class&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">sample</span><span class="o">.</span><span class="n">order</span> <span class="o">==</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">order</span> <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All data samples should be of the same order&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">sample</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">sample</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All data samples should be of the same shape&quot;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_assert_data_labels</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Checks if labels form a binary set.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        y : np.ndarray</span>
+<span class="sd">            List of labels for training data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This is a binary classifier. Provided labels do not form a binary set&quot;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_assert_samples_vs_labels</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number of provided labels should be equal to a number of data samples.&quot;</span>
+                             <span class="s2">&quot;Got </span><span class="si">{}</span><span class="s2"> labels, whereas </span><span class="si">{}</span><span class="s2"> is expected&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+                                                                            <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+                                                                            <span class="p">)</span>
+                             <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_compute_eta</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">skip_mode</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Compute an upper bound of margin errors.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        skip_mode : int</span>
+<span class="sd">            The mode for which LS-STM optimisation problem needs to be solved.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        eta : np.float64</span>
+<span class="sd">            An upper bound of margin errors.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="n">skip_mode</span><span class="p">:</span>
+                <span class="n">eta</span> <span class="o">*=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">[</span><span class="n">mode</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">eta</span>
+
+    <span class="k">def</span> <span class="nf">_compute_X_m</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">skip_mode</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Contract multi-dimensional data samples with weights.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X : list[Tensor]</span>
+<span class="sd">            List of all multi-dimensional data samples.</span>
+<span class="sd">        skip_mode : int</span>
+<span class="sd">            The mode for which contraction is skipped.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        X_m : np.ndarray</span>
+<span class="sd">            Matrix of contracted samples with weights along all modes except the ``skip_mode``.</span>
+<span class="sd">            Has a shape ``(M, N)`` where ``M = len(X)`` and ``N = X[0].shape[skip_mode]``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">X_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">skip_mode</span><span class="p">]))</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tensor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">order</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="n">skip_mode</span><span class="p">:</span>
+                    <span class="c1"># TODO: this could be simplified when &#39;hottbox&#39; will support mode-n product with a vector</span>
+                    <span class="n">temp</span><span class="o">.</span><span class="n">mode_n_product</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights_</span><span class="p">[</span><span class="n">mode</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">X_m</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">X_m</span>
+
+    <span class="c1"># TODO: potentially can be put in a separate module in order to be reused</span>
+    <span class="k">def</span> <span class="nf">_ls_optimizer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_m</span><span class="p">,</span> <span class="n">eta</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Solves LS-STM optimization problem for mode-n.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X_m : np.ndarray</span>
+<span class="sd">            Matrix of contracted tensor-samples with weights along all</span>
+<span class="sd">            modes except the current one.</span>
+<span class="sd">        eta : np.float64</span>
+<span class="sd">            An upper bound of margin errors.</span>
+<span class="sd">        labels : np.ndarray</span>
+<span class="sd">            The labels of the training data.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        weights : np.ndarray</span>
+<span class="sd">            Weights assigned to the features with respect to mode-n.</span>
+<span class="sd">        bias : np.float64</span>
+<span class="sd">            Constant in decision function.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Formulation of LS-STM for mode-n is equivalent to formulation of Least Squares</span>
+<span class="sd">        Support Vector Machine.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">X_m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">ones_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+        <span class="n">ones_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">ones_row</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">identity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+
+        <span class="c1"># Kernel matrix (Linear for now)</span>
+        <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X_m</span><span class="p">,</span> <span class="n">X_m</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+
+        <span class="c1"># We flip this around to simplify expression for matrix construction</span>
+        <span class="n">gamma</span> <span class="o">=</span> <span class="n">eta</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span>
+
+        <span class="c1"># Constructing a linear system (LHS x [bias, weights]^T = RHS)</span>
+        <span class="n">top</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">ones_row</span><span class="p">])</span>
+        <span class="n">bottom</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">ones_col</span><span class="p">,</span> <span class="n">omega</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">identity</span><span class="p">])</span>
+        <span class="n">left_hand_side</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">top</span><span class="p">,</span> <span class="n">bottom</span><span class="p">])</span>
+
+        <span class="n">right_hand_side</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">labels</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Obtain Lagrange multipliers</span>
+        <span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">left_hand_side</span><span class="p">),</span> <span class="n">right_hand_side</span><span class="p">)</span>
+
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">alphas</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">*</span> <span class="n">X_m</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">bias</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">weights</span><span class="p">,</span> <span class="n">bias</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2019, Ilya Kisil
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

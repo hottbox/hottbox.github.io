@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multi-linear Classification Algorithms &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pandas Integration Tools" href="hottbox.pdtools.html" />
+    <link rel="prev" title="Tensor Decomposition Algorithms" href="hottbox.algorithms.decomposition.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">HOTTBOX API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="hottbox.algorithms.html">Algorithms</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-hottbox.algorithms.classification">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.utils.html">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.rank.html">Rank Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.contrib.html">Experimental features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.contrib.html#visualisation">Visualisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/before_pull_request.html#docker-validation">Docker validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hottbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">HOTTBOX API</a> &raquo;</li>
+        
+          <li><a href="hottbox.algorithms.html">Algorithms</a> &raquo;</li>
+        
+      <li>Multi-linear Classification Algorithms</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/hottbox.algorithms.classification.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="multi-linear-classification-algorithms">
+<h1>Multi-linear Classification Algorithms<a class="headerlink" href="#multi-linear-classification-algorithms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-hottbox.algorithms.classification">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hottbox.algorithms.classification" title="Permalink to this headline">¶</a></h2>
+<p>This module contains various models for classification</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#module-hottbox.algorithms.classification" title="hottbox.algorithms.classification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.algorithms.classification</span></code></a></td>
+<td>This module contains various models for classification</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">LSSTM</span></code>([C,&nbsp;tol,&nbsp;max_iter,&nbsp;probability,&nbsp;verbose])</td>
+<td>Least Squares Support Tensor Machine (LS-STM) for binary classification.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-hottbox.algorithms.classification.stm">
+<span id="support-tensor-machine-stm"></span><h2>Support Tensor Machine (STM)<a class="headerlink" href="#module-hottbox.algorithms.classification.stm" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="hottbox.algorithms.classification.stm.LSSTM">
+<em class="property">class </em><code class="descname">LSSTM</code><span class="sig-paren">(</span><em>C=1</em>, <em>tol=0.001</em>, <em>max_iter=100</em>, <em>probability=False</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.algorithms.classification.base.Classifier</span></code></p>
+<p>Least Squares Support Tensor Machine (LS-STM) for binary classification.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>C</strong> (<em>float</em>) – Penalty parameter of the error term.</li>
+<li><strong>tol</strong> (<em>float</em>) – Tolerance for stopping criterion.</li>
+<li><strong>max_iter</strong> (<em>int</em>) – Hard limit on iterations within solver.</li>
+<li><strong>probability</strong> (<em>bool</em>) – Whether to enable probability estimates. This must be enabled prior
+to calling <code class="docutils literal notranslate"><span class="pre">fit</span></code>, and will slow down that method.</li>
+<li><strong>verbose</strong> (<em>bool</em>) – Enable verbose output.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="hottbox.algorithms.classification.stm.LSSTM.weights_">
+<code class="descname">weights_</code><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.weights_" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of weights for each mode of the training data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list[np.ndarray]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.algorithms.classification.stm.LSSTM.bias_">
+<code class="descname">bias_</code><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.bias_" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.float64</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.algorithms.classification.stm.LSSTM.eta_history_">
+<code class="descname">eta_history_</code><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.eta_history_" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.algorithms.classification.stm.LSSTM.bias_history_">
+<code class="descname">bias_history_</code><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.bias_history_" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p class="rubric">References</p>
+<ol class="arabic simple">
+<li>Cichocki, Andrzej, et al. “Tensor networks for dimensionality reduction and large-scale optimization:
+Part 2 applications and future perspectives.” Foundations and Trends in Machine Learning 9.6 (2017): 431-673.</li>
+</ol>
+<dl class="method">
+<dt id="hottbox.algorithms.classification.stm.LSSTM.fit">
+<code class="descname">fit</code><span class="sig-paren">(</span><em>X</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit the LS-STM model according to the given data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a><em>]</em>) – List of training samples of the same order and size.</li>
+<li><strong>y</strong> (<em>np.ndarray</em>) – Target values relative to X for classification.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">self</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.classification.stm.LSSTM.get_params">
+<code class="descname">get_params</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.get_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.get_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get parameters for this estimator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>params</strong> – Dictionary of parameter names mapped to their values.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.classification.stm.LSSTM.predict">
+<code class="descname">predict</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.predict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predict the class labels for the provided data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a><em>]</em>) – List of test samples.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>y_pred</strong> – Class labels for samples in X.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.classification.stm.LSSTM.predict_proba">
+<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.predict_proba" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute probabilities of possible outcomes for samples in the provided data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.classification.stm.LSSTM.score">
+<code class="descname">score</code><span class="sig-paren">(</span><em>X</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the mean accuracy on the given test data and labels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a><em>]</em>) – List of test samples.</li>
+<li><strong>y</strong> (<em>np.ndarray</em>) – True labels for test samples.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>acc</strong> – Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> with respect to <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.float64</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.classification.stm.LSSTM.set_params">
+<code class="descname">set_params</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.set_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.set_params" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the parameters of this estimator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">self</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hottbox.pdtools.html" class="btn btn-neutral float-right" title="Pandas Integration Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hottbox.algorithms.decomposition.html" class="btn btn-neutral float-left" title="Tensor Decomposition Algorithms" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2019, Ilya Kisil
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
