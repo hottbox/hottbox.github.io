@@ -225,23 +225,22 @@
 <p>The preferred way to contribute to <code class="docutils literal notranslate"><span class="pre">hottbox</span></code> is to fork the main repository on GitHub,
 work on your feature and then submit a PR. The outline of this process should be as follows:</p>
 <ol class="arabic">
-<li><p class="first">Fork the <a class="reference external" href="https://github.com/hottbox/hottbox">project repository</a> by clicking on the <strong>Fork</strong> button near the top of the page.
+<li><p>Fork the <a class="reference external" href="https://github.com/hottbox/hottbox">project repository</a> by clicking on the <strong>Fork</strong> button near the top of the page.
 This creates a copy of the code under your account on the GitHub server.
-For more details on how to fork a repository see <a class="reference external" href="https://help.github.com/articles/fork-a-repo/">this guide</a>.</p>
-</li>
-<li><p class="first">Clone this copy to your local disk</p>
+For more details on how to fork a repository see <a class="reference external" href="https://help.github.com/articles/fork-a-repo/">this guide</a>.</p></li>
+<li><p>Clone this copy to your local disk</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:__YourGitHubLogin__/hottbox.git
 $ cd hottbox
 </pre></div>
 </div>
 </li>
-<li><p class="first">Install <code class="docutils literal notranslate"><span class="pre">hottbox</span></code> package (in editable mode) and additional development tools</p>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">hottbox</span></code> package (in editable mode) and additional development tools</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -e &#39;.[tests, docs]&#39;
 </pre></div>
 </div>
 <p>This basically builds the extension in place and creates a link to the development directory</p>
 </li>
-<li><p class="first">It is a good practice not to work on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch as it should contain only production
+<li><p>It is a good practice not to work on the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch as it should contain only production
 ready state of the code. In case of <code class="docutils literal notranslate"><span class="pre">hottbox</span></code>, this corresponds to the version available on
 <a class="reference external" href="https://pypi.org/project/hottbox/">pypi.org</a>. Therefore, all development is taking place on
 <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch and for each new feature we advise to create a new branch that stems from <code class="docutils literal notranslate"><span class="pre">develop</span></code>.</p>
@@ -250,7 +249,7 @@ $ git checkout -b my-feature
 </pre></div>
 </div>
 </li>
-<li><p class="first">Work on this copy, on your computer, using Git to do the version control. In order to record your changes in Git, do</p>
+<li><p>Work on this copy, on your computer, using Git to do the version control. In order to record your changes in Git, do</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add modified_files
 $ git commit -m &quot;**Concise but meaningful description**&quot;
 </pre></div>
@@ -260,19 +259,18 @@ $ git commit -m &quot;**Concise but meaningful description**&quot;
 </pre></div>
 </div>
 </li>
-<li><p class="first">Finally, follow <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/">these</a> instructions to create a pull request from your fork.</p>
-</li>
+<li><p>Finally, follow <a class="reference external" href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/">these</a> instructions to create a pull request from your fork.</p></li>
 </ol>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">When you decide which branch you’d like to merge your changes into (step 4 of PR guide above),
+<p class="admonition-title">Note</p>
+<p>When you decide which branch you’d like to merge your changes into (step 4 of PR guide above),
 you should almost always select <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch from the <em>base branch</em> drop-down menu.</p>
 </div>
 </div>
 <div class="section" id="getting-up-to-date-with-the-main-project">
 <h2>Getting up to date with the main project<a class="headerlink" href="#getting-up-to-date-with-the-main-project" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p class="first">Add a remote that points to the the Git repo (<a class="reference external" href="https://github.com/hottbox/hottbox">main hottbox repo</a>) from which you want to get the latest changes.
+<li><p>Add a remote that points to the the Git repo (<a class="reference external" href="https://github.com/hottbox/hottbox">main hottbox repo</a>) from which you want to get the latest changes.
 Conventionally it is referred to as <strong>upstream</strong>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add upstream https://github.com/hottbox/hottbox.git
 </pre></div>
@@ -287,7 +285,7 @@ upstream  https://github.com/hottbox/hottbox.git (push)   # &lt;--- should see t
 </pre></div>
 </div>
 </li>
-<li><p class="first">Next, you need to bring the latest commits from this upstream and merge them
+<li><p>Next, you need to bring the latest commits from this upstream and merge them
 in order to be in sync with the upstream:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span># bring the latest commits
 $ git fetch upstream
@@ -303,7 +301,7 @@ $ git merge upstream/develop
 </pre></div>
 </div>
 </li>
-<li><p class="first">Finally, your can update your own GitHub repo:</p>
+<li><p>Finally, your can update your own GitHub repo:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
 </pre></div>
 </div>

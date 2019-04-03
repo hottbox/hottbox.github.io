@@ -225,17 +225,17 @@
 <div class="section" id="module-hottbox.algorithms.classification">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-hottbox.algorithms.classification" title="Permalink to this headline">¶</a></h2>
 <p>This module contains various models for classification</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-center">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#module-hottbox.algorithms.classification" title="hottbox.algorithms.classification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.algorithms.classification</span></code></a></td>
-<td>This module contains various models for classification</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-hottbox.algorithms.classification" title="hottbox.algorithms.classification"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.algorithms.classification</span></code></a></p></td>
+<td><p>This module contains various models for classification</p></td>
 </tr>
-<tr class="row-even"><td><code class="xref py py-obj docutils literal notranslate"><span class="pre">LSSTM</span></code>([C,&nbsp;tol,&nbsp;max_iter,&nbsp;probability,&nbsp;verbose])</td>
-<td>Least Squares Support Tensor Machine (LS-STM) for binary classification.</td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">LSSTM</span></code>([C, tol, max_iter, probability, verbose])</p></td>
+<td><p>Least Squares Support Tensor Machine (LS-STM) for binary classification.</p></td>
 </tr>
 </tbody>
 </table>
@@ -247,136 +247,113 @@
 <em class="property">class </em><code class="descname">LSSTM</code><span class="sig-paren">(</span><em>C=1</em>, <em>tol=0.001</em>, <em>max_iter=100</em>, <em>probability=False</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.algorithms.classification.base.Classifier</span></code></p>
 <p>Least Squares Support Tensor Machine (LS-STM) for binary classification.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>C</strong> (<em>float</em>) – Penalty parameter of the error term.</li>
-<li><strong>tol</strong> (<em>float</em>) – Tolerance for stopping criterion.</li>
-<li><strong>max_iter</strong> (<em>int</em>) – Hard limit on iterations within solver.</li>
-<li><strong>probability</strong> (<em>bool</em>) – Whether to enable probability estimates. This must be enabled prior
-to calling <code class="docutils literal notranslate"><span class="pre">fit</span></code>, and will slow down that method.</li>
-<li><strong>verbose</strong> (<em>bool</em>) – Enable verbose output.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>C</strong> (<em>float</em>) – Penalty parameter of the error term.</p></li>
+<li><p><strong>tol</strong> (<em>float</em>) – Tolerance for stopping criterion.</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em>) – Hard limit on iterations within solver.</p></li>
+<li><p><strong>probability</strong> (<em>bool</em>) – Whether to enable probability estimates. This must be enabled prior
+to calling <code class="docutils literal notranslate"><span class="pre">fit</span></code>, and will slow down that method.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – Enable verbose output.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <dl class="attribute">
 <dt id="hottbox.algorithms.classification.stm.LSSTM.weights_">
 <code class="descname">weights_</code><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.weights_" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of weights for each mode of the training data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list[np.ndarray]</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list[np.ndarray]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="hottbox.algorithms.classification.stm.LSSTM.bias_">
 <code class="descname">bias_</code><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.bias_" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.float64</td>
-</tr>
-</tbody>
-</table>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>np.float64</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="hottbox.algorithms.classification.stm.LSSTM.eta_history_">
 <code class="descname">eta_history_</code><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.eta_history_" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.ndarray</td>
-</tr>
-</tbody>
-</table>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="hottbox.algorithms.classification.stm.LSSTM.bias_history_">
 <code class="descname">bias_history_</code><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.bias_history_" title="Permalink to this definition">¶</a></dt>
-<dd><table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">np.ndarray</td>
-</tr>
-</tbody>
-</table>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p class="rubric">References</p>
 <ol class="arabic simple">
-<li>Cichocki, Andrzej, et al. “Tensor networks for dimensionality reduction and large-scale optimization:
-Part 2 applications and future perspectives.” Foundations and Trends in Machine Learning 9.6 (2017): 431-673.</li>
+<li><p>Cichocki, Andrzej, et al. “Tensor networks for dimensionality reduction and large-scale optimization:
+Part 2 applications and future perspectives.” Foundations and Trends in Machine Learning 9.6 (2017): 431-673.</p></li>
 </ol>
 <dl class="method">
 <dt id="hottbox.algorithms.classification.stm.LSSTM.fit">
 <code class="descname">fit</code><span class="sig-paren">(</span><em>X</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit the LS-STM model according to the given data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a><em>]</em>) – List of training samples of the same order and size.</li>
-<li><strong>y</strong> (<em>np.ndarray</em>) – Target values relative to X for classification.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a><em>]</em>) – List of training samples of the same order and size.</p></li>
+<li><p><strong>y</strong> (<em>np.ndarray</em>) – Target values relative to X for classification.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">self</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>self</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.stm.LSSTM.get_params">
 <code class="descname">get_params</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.get_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>params</strong> – Dictionary of parameter names mapped to their values.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>params</strong> – Dictionary of parameter names mapped to their values.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.stm.LSSTM.predict">
 <code class="descname">predict</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predict the class labels for the provided data.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a><em>]</em>) – List of test samples.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>y_pred</strong> – Class labels for samples in X.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a><em>]</em>) – List of test samples.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>y_pred</strong> – Class labels for samples in X.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -389,40 +366,34 @@ Part 2 applications and future perspectives.” Foundations and Trends in Machin
 <dt id="hottbox.algorithms.classification.stm.LSSTM.score">
 <code class="descname">score</code><span class="sig-paren">(</span><em>X</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the mean accuracy on the given test data and labels.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a><em>]</em>) – List of test samples.</li>
-<li><strong>y</strong> (<em>np.ndarray</em>) – True labels for test samples.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a><em>]</em>) – List of test samples.</p></li>
+<li><p><strong>y</strong> (<em>np.ndarray</em>) – True labels for test samples.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>acc</strong> – Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> with respect to <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.float64</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>acc</strong> – Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> with respect to <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.float64</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.stm.LSSTM.set_params">
 <code class="descname">set_params</code><span class="sig-paren">(</span><em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/algorithms/classification/stm.html#LSSTM.set_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.stm.LSSTM.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">self</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>self</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

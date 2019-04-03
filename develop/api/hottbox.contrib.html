@@ -222,17 +222,17 @@
 <h1>Experimental features<a class="headerlink" href="#experimental-features" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="visualisation">
 <h2>Visualisation<a class="headerlink" href="#visualisation" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-center">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#module-hottbox.contrib.visualisation" title="hottbox.contrib.visualisation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.contrib.visualisation</span></code></a></td>
-<td>This module is for EDA through interactive visualisation of the core structures: <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> etc.</td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-hottbox.contrib.visualisation" title="hottbox.contrib.visualisation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.contrib.visualisation</span></code></a></p></td>
+<td><p>This module is for EDA through interactive visualisation of the core structures: <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> etc.</p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#hottbox.contrib.visualisation.gen_test_data" title="hottbox.contrib.visualisation.gen_test_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_test_data</span></code></a>([plot])</td>
-<td>Generate factor matrices which components will be easy to differentiate from one another</td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.contrib.visualisation.gen_test_data" title="hottbox.contrib.visualisation.gen_test_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_test_data</span></code></a>([plot])</p></td>
+<td><p>Generate factor matrices which components will be easy to differentiate from one another</p></td>
 </tr>
 </tbody>
 </table>
@@ -240,44 +240,40 @@
 <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> etc.</p>
 <p>All its functionality should be used inside Jupyter Lab/ Jupyter Notebook.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
-<p class="last">The API provided by this module is experimental and requires additional
+<p class="admonition-title">Important</p>
+<p>The API provided by this module is experimental and requires additional
 dependencies to be installed.</p>
 </div>
 <dl class="function">
 <dt id="hottbox.contrib.visualisation.gen_test_data">
 <code class="descname">gen_test_data</code><span class="sig-paren">(</span><em>plot=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#gen_test_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.gen_test_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate factor matrices which components will be easy to differentiate from one another</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plot</strong> (<em>bool</em>) – </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
-<li><strong>fmat</strong> (<em>list[np.ndarray]</em>)</li>
-<li><strong>core_values</strong> (<em>np.ndarray</em>)</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>plot</strong> (<em>bool</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>fmat</strong> (<em>list[np.ndarray]</em>)</p></li>
+<li><p><strong>core_values</strong> (<em>np.ndarray</em>)</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="hottbox.contrib.visualisation.gen_test_tensor_cpd">
 <code class="descname">gen_test_tensor_cpd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#gen_test_tensor_cpd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.gen_test_tensor_cpd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code> object for testing purposes</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD">TensorCPD</a></td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD">TensorCPD</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="class">
@@ -289,42 +285,33 @@ dependencies to be installed.</p>
 <dt id="hottbox.contrib.visualisation.BaseComponentPlot.available_plots">
 <code class="descname">available_plots</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.available_plots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ordered dictionary with all available plot functions for the factor vectors</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">dict[str, callable]</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>dict[str, callable]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="hottbox.contrib.visualisation.BaseComponentPlot.out">
 <code class="descname">out</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.out" title="Permalink to this definition">¶</a></dt>
 <dd><p>Widget used as a context manager to display output.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Output</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Output</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
 <dt id="hottbox.contrib.visualisation.BaseComponentPlot.sliders">
 <code class="descname">sliders</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.sliders" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of slider widgets each of which allows to select factor vector to be plotted.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list[IntSlider]</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list[IntSlider]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
@@ -332,14 +319,11 @@ dependencies to be installed.</p>
 <code class="descname">dropdown</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.dropdown" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of dropdown widgets each of which allows to select type of plot
 for the factor vector selected by the corresponding slider.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list[Dropdown]</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list[Dropdown]</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
@@ -347,25 +331,19 @@ for the factor vector selected by the corresponding slider.</p>
 <code class="descname">dashboard</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.dashboard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dashboard with visualisations of the factor vectors and widgets for selection
 of how and what is going to be displayed.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">VBox</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>VBox</p>
+</dd>
+</dl>
 </dd></dl>
 
 <p>Constructor of the interactive dashboard</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tensor_rep</strong> (<em>{TensorCPD</em><em>, </em><em>TensorTKD}</em>) – </td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tensor_rep</strong> (<em>{TensorCPD</em><em>, </em><em>TensorTKD}</em>) – </p>
+</dd>
+</dl>
 <dl class="method">
 <dt id="hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots">
 <code class="descname">extend_available_plots</code><span class="sig-paren">(</span><em>custom_plots</em>, <em>modes=()</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#BaseComponentPlot.extend_available_plots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots" title="Permalink to this definition">¶</a></dt>
@@ -374,32 +352,26 @@ of how and what is going to be displayed.</p>
 factor vectors or changing ones that have already been defined.
 Despite of chosen option there are two main steps. First the internal dictionary
 with plots (<cite>self.available_plots</cite>) is updated, then dropdown menus.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>custom_plots</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>callable</em><em>]</em>) – Dictionary with plot functions
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>custom_plots</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>callable</em><em>]</em>) – Dictionary with plot functions
 Keys will be displayed in the dropdown menu.
 Values will be used as plotting functions for factor vector
-when the corresponding option from the dropdown menu is selected.</li>
-<li><strong>modes</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – List of modes for which keys of <cite>custom_plots</cite> will be available in the dropdown.
-If not specified then they will be available for all modes.</li>
+when the corresponding option from the dropdown menu is selected.</p></li>
+<li><p><strong>modes</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – List of modes for which keys of <cite>custom_plots</cite> will be available in the dropdown.
+If not specified then they will be available for all modes.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 <p class="rubric">Notes</p>
 <ol class="arabic">
-<li><p class="first">If key from <cite>custom_plots</cite> is already in <code class="docutils literal notranslate"><span class="pre">self.available_plots.keys()</span></code>,
-then the corresponding value will be updated anyway.</p>
-</li>
-<li><p class="first">When the options of dropdown menu are updated, then index of that dropdown
+<li><p>If key from <cite>custom_plots</cite> is already in <code class="docutils literal notranslate"><span class="pre">self.available_plots.keys()</span></code>,
+then the corresponding value will be updated anyway.</p></li>
+<li><p>When the options of dropdown menu are updated, then index of that dropdown
 menu is also getting changed. Looks like it is always set to zero which could
-change the value that is selected in the dropdown menu.</p>
-</li>
-<li><p class="first">Signature of plotting functions should contain two variables: <cite>ax</cite> and <cite>data</cite></p>
+change the value that is selected in the dropdown menu.</p></li>
+<li><p>Signature of plotting functions should contain two variables: <cite>ax</cite> and <cite>data</cite></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_line_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
 </pre></div>
@@ -415,19 +387,16 @@ change the value that is selected in the dropdown menu.</p>
 <em class="property">class </em><code class="descname">ComponentPlotCPD</code><span class="sig-paren">(</span><em>tensor_rep</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#ComponentPlotCPD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.ComponentPlotCPD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hottbox.contrib.visualisation.BaseComponentPlot" title="hottbox.contrib.visualisation.BaseComponentPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.contrib.visualisation.BaseComponentPlot</span></code></a></p>
 <p>Constructor of the interactive dashboard for the <cite>TensorCPD</cite> objects</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tensor_rep</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a>) – Tensor represented in the kruskal form.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tensor_rep</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a>) – Tensor represented in the kruskal form.</p>
+</dd>
+</dl>
 <p class="rubric">Notes</p>
 <ol class="arabic simple">
-<li>There is only one slider for selecting which factor vectors to plot.
+<li><p>There is only one slider for selecting which factor vectors to plot.
 This is due to the nature of the kruskal representation, i.e. one to
-one relation between the factor vectors from factor matrices of different modes.</li>
+one relation between the factor vectors from factor matrices of different modes.</p></li>
 </ol>
 </dd></dl>
 
@@ -436,19 +405,16 @@ one relation between the factor vectors from factor matrices of different modes.
 <em class="property">class </em><code class="descname">ComponentPlotTKD</code><span class="sig-paren">(</span><em>tensor_rep</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#ComponentPlotTKD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.ComponentPlotTKD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#hottbox.contrib.visualisation.BaseComponentPlot" title="hottbox.contrib.visualisation.BaseComponentPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.contrib.visualisation.BaseComponentPlot</span></code></a></p>
 <p>Constructor of the interactive dashboard for the <cite>TensorTKD</cite> objects</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tensor_rep</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD"><em>TensorTKD</em></a>) – Tensor represented in the tucker form.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tensor_rep</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD"><em>TensorTKD</em></a>) – Tensor represented in the tucker form.</p>
+</dd>
+</dl>
 <p class="rubric">Notes</p>
 <ol class="arabic simple">
-<li>There is one slider per mode for selecting which factor vector to plot.
+<li><p>There is one slider per mode for selecting which factor vector to plot.
 This is due to the nature of the tucker representation, i.e. each factor
-from one mode vector is related all factor vectors from all other modes.</li>
+from one mode vector is related all factor vectors from all other modes.</p></li>
 </ol>
 </dd></dl>
 

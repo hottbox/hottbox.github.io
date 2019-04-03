@@ -221,20 +221,20 @@
   <div class="section" id="module-hottbox.pdtools">
 <span id="pandas-integration-tools"></span><h1>Pandas Integration Tools<a class="headerlink" href="#module-hottbox.pdtools" title="Permalink to this headline">¶</a></h1>
 <p>This module contains functions for integration with the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> package</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-center">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#module-hottbox.pdtools.utils" title="hottbox.pdtools.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.pdtools.utils</span></code></a></td>
-<td></td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-hottbox.pdtools.utils" title="hottbox.pdtools.utils"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.pdtools.utils</span></code></a></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#hottbox.pdtools.utils.pd_to_tensor" title="hottbox.pdtools.utils.pd_to_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pd_to_tensor</span></code></a>(df[,&nbsp;keep_index])</td>
-<td>Represent multi-index pandas dataframe as a tensor</td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.pdtools.utils.pd_to_tensor" title="hottbox.pdtools.utils.pd_to_tensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pd_to_tensor</span></code></a>(df[, keep_index])</p></td>
+<td><p>Represent multi-index pandas dataframe as a tensor</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#hottbox.pdtools.utils.tensor_to_pd" title="hottbox.pdtools.utils.tensor_to_pd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tensor_to_pd</span></code></a>(tensor[,&nbsp;col_name])</td>
-<td>Represent tensor as a multi-index pandas dataframe</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.pdtools.utils.tensor_to_pd" title="hottbox.pdtools.utils.tensor_to_pd"><code class="xref py py-obj docutils literal notranslate"><span class="pre">tensor_to_pd</span></code></a>(tensor[, col_name])</p></td>
+<td><p>Represent tensor as a multi-index pandas dataframe</p></td>
 </tr>
 </tbody>
 </table>
@@ -242,24 +242,20 @@
 <dt id="hottbox.pdtools.utils.pd_to_tensor">
 <code class="descname">pd_to_tensor</code><span class="sig-paren">(</span><em>df</em>, <em>keep_index=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/pdtools/utils.html#pd_to_tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.pdtools.utils.pd_to_tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represent multi-index pandas dataframe as a tensor</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>df</strong> (<em>pd.DataFrame</em>) – Multi-index dataframe with only one column of data</li>
-<li><strong>keep_index</strong> (<em>bool</em>) – Keep level values of dataframe multi-index</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – Multi-index dataframe with only one column of data</p></li>
+<li><p><strong>keep_index</strong> (<em>bool</em>) – Keep level values of dataframe multi-index</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>tensor</strong></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor">Tensor</a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tensor</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor">Tensor</a></p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -308,30 +304,26 @@
 <dt id="hottbox.pdtools.utils.tensor_to_pd">
 <code class="descname">tensor_to_pd</code><span class="sig-paren">(</span><em>tensor</em>, <em>col_name=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/pdtools/utils.html#tensor_to_pd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.pdtools.utils.tensor_to_pd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represent tensor as a multi-index pandas dataframe</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Tensor to be represented as a multi-index dataframe</li>
-<li><strong>col_name</strong> (<em>str</em>) – Column label to use for resulting dataframe</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Tensor to be represented as a multi-index dataframe</p></li>
+<li><p><strong>col_name</strong> (<em>str</em>) – Column label to use for resulting dataframe</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>df</strong> – Multi-index data frame</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">pd.DataFrame</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal notranslate"><span class="pre">TensorStateError</span></code> – If <code class="docutils literal notranslate"><span class="pre">tensor</span></code> is not in normal state: <code class="docutils literal notranslate"><span class="pre">tensor.in_normal_state</span> <span class="pre">is</span> <span class="pre">False</span></code>.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>df</strong> – Multi-index data frame</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TensorStateError</strong> – If <code class="docutils literal notranslate"><span class="pre">tensor</span></code> is not in normal state: <code class="docutils literal notranslate"><span class="pre">tensor.in_normal_state</span> <span class="pre">is</span> <span class="pre">False</span></code>.</p>
+</dd>
+</dl>
 <p class="rubric">Examples</p>
 <ol class="arabic simple">
-<li>Conversion of a tensor with default meta information</li>
+<li><p>Conversion of a tensor with default meta information</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">Tensor</span>
@@ -362,7 +354,7 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li>Conversion of a tensor with specified mode names</li>
+<li><p>Conversion of a tensor with specified mode names</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">Tensor</span>
@@ -393,7 +385,7 @@
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
-<li>Conversion of a tensor with specified mode names and mode index</li>
+<li><p>Conversion of a tensor with specified mode names and mode index</p></li>
 </ol>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">Tensor</span>

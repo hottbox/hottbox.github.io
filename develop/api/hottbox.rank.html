@@ -221,20 +221,20 @@
   <div class="section" id="module-hottbox.rank">
 <span id="rank-estimation"></span><h1>Rank Estimation<a class="headerlink" href="#module-hottbox.rank" title="Permalink to this headline">¶</a></h1>
 <p>Module for rank estimation of N-dimensional arrays.</p>
-<table border="1" class="longtable docutils">
+<table class="longtable docutils align-center">
 <colgroup>
-<col width="10%" />
-<col width="90%" />
+<col style="width: 10%" />
+<col style="width: 90%" />
 </colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#module-hottbox.rank.rank_estimation" title="hottbox.rank.rank_estimation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.rank.rank_estimation</span></code></a></td>
-<td></td>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-hottbox.rank.rank_estimation" title="hottbox.rank.rank_estimation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.rank.rank_estimation</span></code></a></p></td>
+<td><p></p></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#hottbox.rank.rank_estimation.mlrank" title="hottbox.rank.rank_estimation.mlrank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mlrank</span></code></a>(tensor)</td>
-<td>Calculate the multilinear rank of a tensor</td>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.rank.rank_estimation.mlrank" title="hottbox.rank.rank_estimation.mlrank"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mlrank</span></code></a>(tensor)</p></td>
+<td><p>Calculate the multilinear rank of a tensor</p></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#hottbox.rank.rank_estimation.rankest" title="hottbox.rank.rank_estimation.rankest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rankest</span></code></a>(tensor,&nbsp;rank_range[,&nbsp;epsilon,&nbsp;verbose])</td>
-<td>Estimate the optimal Kryskal rank of a tensor</td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.rank.rank_estimation.rankest" title="hottbox.rank.rank_estimation.rankest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rankest</span></code></a>(tensor, rank_range[, epsilon, verbose])</p></td>
+<td><p>Estimate the optimal Kryskal rank of a tensor</p></td>
 </tr>
 </tbody>
 </table>
@@ -242,44 +242,39 @@
 <dt id="hottbox.rank.rank_estimation.mlrank">
 <code class="descname">mlrank</code><span class="sig-paren">(</span><em>tensor</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/rank/rank_estimation.html#mlrank"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.rank.rank_estimation.mlrank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the multilinear rank of a tensor</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Multidimensional data which multilinear rank is to be computed</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>ml_rank</strong> – Multilinear rank</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Multidimensional data which multilinear rank is to be computed</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ml_rank</strong> – Multilinear rank</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="hottbox.rank.rank_estimation.rankest">
 <code class="descname">rankest</code><span class="sig-paren">(</span><em>tensor</em>, <em>rank_range</em>, <em>epsilon=0.01</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/rank/rank_estimation.html#rankest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.rank.rank_estimation.rankest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimate the optimal Kryskal rank of a tensor</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Multidimensional data which Kryskal rank is to be estimated</li>
-<li><strong>rank_range</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – List of rank values to be tested</li>
-<li><strong>epsilon</strong> (<em>float</em>) – Threshold for the relative error of approximation.</li>
-<li><strong>verbose</strong> (<em>bool</em>) – Enable verbose output</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.Tensor" title="hottbox.core.structures.Tensor"><em>Tensor</em></a>) – Multidimensional data which Kryskal rank is to be estimated</p></li>
+<li><p><strong>rank_range</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – List of rank values to be tested</p></li>
+<li><p><strong>epsilon</strong> (<em>float</em>) – Threshold for the relative error of approximation.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – Enable verbose output</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>optimal_rank</strong> – Optimal kryskal rank. For consistency, the type of the returned value is tuple</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>optimal_rank</strong> – Optimal kryskal rank. For consistency, the type of the returned value is tuple</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
