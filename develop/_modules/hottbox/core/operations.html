@@ -459,6 +459,57 @@
     <span class="n">indices</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ndim</span><span class="p">))</span>
     <span class="n">element</span> <span class="o">=</span> <span class="n">indices</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
     <span class="k">return</span> <span class="p">([</span><span class="n">element</span><span class="p">]</span> <span class="o">+</span> <span class="n">indices</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+
+
+<span class="k">def</span> <span class="nf">sampled_khatri_rao</span><span class="p">(</span><span class="n">matrices</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skip_matrix</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Sampled Khatri-Rao product of a list of matrices.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    matrices : list[np.ndarray]</span>
+<span class="sd">        List of matrices. Each matrix should have the same number of columns</span>
+<span class="sd">    skip_matrix : int</span>
+<span class="sd">        Index of a matrix (from the `matrices`) to be skipped. By default none are skipped</span>
+<span class="sd">    reverse : bool</span>
+<span class="sd">        If True, perform khatri-rao product on the list of matrices in the reversed order</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    result : np.ndarray</span>
+<span class="sd">        The result of the Khatri-Rao product of the sampled matrices</span>
+<span class="sd">    indices : tuple list</span>
+<span class="sd">        list of indices for all modes</span>
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Battaglino, C., Ballard, G., &amp; Kolda, T. G. (2018). A Practical Randomized CP Tensor</span>
+<span class="sd">    Decomposition. SIAM Journal on Matrix Analysis and Applications, 39(2), 876–901.</span>
+<span class="sd">    http://doi.org/10.1137/17m1112303</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">matrices</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;khatri_roa product requires a list of at least 2 matrices, &#39;</span>
+                         <span class="s1">&#39;but </span><span class="si">{}</span><span class="s1"> given.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrices</span><span class="p">)))</span>
+
+    <span class="n">n_cols</span> <span class="o">=</span> <span class="n">matrices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">skip_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">matrices</span> <span class="o">=</span> <span class="p">[</span><span class="n">matrices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrices</span><span class="p">))</span> <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">skip_matrix</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">sample_size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">sample_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">*</span><span class="n">n_cols</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n_cols</span><span class="p">))</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">sample_size</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">))</span>
+    <span class="n">idxlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">sample_size</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">matrices</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">mat</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">idxlist</span><span class="p">,</span> <span class="n">matrices</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">n_cols</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;All matrices must have the same number of columns.&#39;</span><span class="o">+</span>\
+                    <span class="s1">&#39;Got </span><span class="si">{}</span><span class="s1"> and </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">n_cols</span><span class="p">))</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">hadamard</span><span class="p">([</span><span class="n">result</span><span class="p">,</span> <span class="n">mat</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]])</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">idxlist</span>
 </pre></div>
 
            </div>
