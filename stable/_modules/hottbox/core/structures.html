@@ -24,26 +24,17 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../../genindex.html"/>
-        <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="top" title="HOTTBOX: Higher Order Tensors ToolBox" href="../../../index.html"/>
-        <link rel="up" title="Module code" href="../../index.html"/> 
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 
   
   <script src="../../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -60,7 +51,7 @@
 
           
             
-            <img src="../../../_static/hottbox_logo_2.png" class="logo" />
+            <img src="../../../_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -68,7 +59,7 @@
             
             
               <div class="version">
-                0.1.3
+                0.2.1
               </div>
             
           
@@ -105,12 +96,16 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.algorithms.html">Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html">Tensor Decompositions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.base">Base Interface (For Development)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
 </ul>
 </li>
 </ul>
@@ -119,6 +114,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.utils.html">Utility Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.metrics.html">Metrics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.rank.html">Rank Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.contrib.html">Experimental features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.contrib.html#visualisation">Visualisation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">HOTTBOX Tutorials</a></li>
@@ -132,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../development_guide/before_pull_request.html">Before pull request</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#docker-validation">Docker validation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
@@ -159,7 +159,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">hottbox</a>
@@ -167,9 +167,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -199,8 +200,6 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
-        
       </li>
     
   </ul>
@@ -220,6 +219,7 @@
 <span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">reduce</span>
 <span class="kn">from</span> <span class="nn">.operations</span> <span class="k">import</span> <span class="n">unfold</span><span class="p">,</span> <span class="n">kolda_unfold</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">kolda_fold</span><span class="p">,</span> <span class="n">mode_n_product</span>
 <span class="kn">from</span> <span class="nn">._meta</span> <span class="k">import</span> <span class="n">Mode</span><span class="p">,</span> <span class="n">State</span>
+<span class="kn">from</span> <span class="nn">..errors</span> <span class="k">import</span> <span class="n">TensorModeError</span><span class="p">,</span> <span class="n">TensorShapeError</span><span class="p">,</span> <span class="n">TensorStateError</span><span class="p">,</span> <span class="n">TensorTopologyError</span><span class="p">,</span> <span class="n">ModeError</span><span class="p">,</span> <span class="n">StateError</span>
 
 
 <div class="viewcode-block" id="Tensor"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor">[docs]</a><span class="k">class</span> <span class="nc">Tensor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -256,6 +256,17 @@
 <span class="sd">            Description of the tensor modes.</span>
 <span class="sd">            If nothing is specified then all modes of the created ``Tensor``</span>
 <span class="sd">            get generic names &#39;mode-0&#39;, &#39;mode-1&#39; etc.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TypeError</span>
+<span class="sd">            If parameter ``array`` is not of ``np.ndarray`` type.</span>
+<span class="sd">        StateError</span>
+<span class="sd">            If parameter ``custom_state`` is inconsistent with provided ``array``</span>
+<span class="sd">            or does not meet requirements for creating ``State`` of the tensor.</span>
+<span class="sd">        ModeError</span>
+<span class="sd">            If parameter ``mode_names`` is inconsistent with provided ``array`` and ``custom_state``</span>
+<span class="sd">            or does not meet requirements for creating list of ``Mode`` of the tensor.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -299,6 +310,7 @@
 <span class="sd">            This tensor is of order 2 and consists of 24 elements.</span>
 <span class="sd">            Sizes and names of its modes are (2, 12) and [&#39;mode-0&#39;, &#39;mode-1_mode-2&#39;] respectively.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># TODO: provide more details for raises section?</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">,</span> <span class="n">custom_state</span><span class="o">=</span><span class="n">custom_state</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_modes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_meta</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">,</span>
@@ -351,11 +363,11 @@
                             <span class="s2">&quot;with an object of </span><span class="si">{}</span><span class="s2"> class!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                                                                  <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">in_normal_state</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">in_normal_state</span><span class="p">]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both tensors should be in normal state!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">TensorStateError</span><span class="p">(</span><span class="s2">&quot;Both tensors should be in normal state!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both tensors should have the same shape!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">TensorShapeError</span><span class="p">(</span><span class="s2">&quot;Both tensors should have the same shape!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">)]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both tensors should have the same indices!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">TensorModeError</span><span class="p">(</span><span class="s2">&quot;Both tensors should have the same indices!&quot;</span><span class="p">)</span>
         <span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">data</span>
         <span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">)</span><span class="o">.</span><span class="n">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode_names</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">mode_names</span><span class="p">:</span>
@@ -389,71 +401,73 @@
         <span class="c1"># validate custom_state if provided</span>
         <span class="k">if</span> <span class="n">custom_state</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">custom_state</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Incorrect type of the parameter `custom_state`!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                                <span class="s2">&quot;It should be `dict`&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">StateError</span><span class="p">(</span><span class="s2">&quot;Incorrect type of the parameter `custom_state`!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                 <span class="s2">&quot;It should be `dict`&quot;</span><span class="p">)</span>
 
             <span class="n">keys_required</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mode_order&#39;</span><span class="p">,</span> <span class="s1">&#39;normal_shape&#39;</span><span class="p">,</span> <span class="s1">&#39;rtype&#39;</span><span class="p">]</span>
+            <span class="n">keys_required</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
             <span class="n">keys_presented</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">custom_state</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
             <span class="n">keys_presented</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">keys_presented</span> <span class="o">!=</span> <span class="n">keys_required</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Some keys missing or extra keys have been provided!!!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="n">StateError</span><span class="p">(</span><span class="s2">&quot;Some keys missing or extra keys have been provided!!!</span><span class="se">\n</span><span class="s2">&quot;</span>
                                  <span class="s2">&quot;`custom_state` should have only </span><span class="si">{}</span><span class="s2"> keys&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">keys_required</span><span class="p">)</span>
                                  <span class="p">)</span>
 
             <span class="c1"># ------------------------------</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">custom_state</span><span class="p">[</span><span class="s1">&#39;normal_shape&#39;</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Incorrect type of the parameter `custom_state[&#39;normal_shape&#39;]`!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                                <span class="s2">&quot;It should be `tuple`&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">StateError</span><span class="p">(</span><span class="s2">&quot;Incorrect type of the parameter `custom_state[&#39;normal_shape&#39;]`!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                 <span class="s2">&quot;It should be `tuple`&quot;</span><span class="p">)</span>
 
             <span class="n">normal_shape</span> <span class="o">=</span> <span class="n">custom_state</span><span class="p">[</span><span class="s1">&#39;normal_shape&#39;</span><span class="p">]</span>
             <span class="n">size</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">normal_shape</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">size</span> <span class="o">!=</span> <span class="n">array</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Values of `normal_shape` are inconsistent with the provided data array (</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2">)!&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">StateError</span><span class="p">(</span><span class="s2">&quot;Values of `normal_shape` are inconsistent &quot;</span>
+                                 <span class="s2">&quot;with the provided data array (</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2">)!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
 
             <span class="c1"># ------------------------------</span>
             <span class="n">mode_order_</span> <span class="o">=</span> <span class="n">custom_state</span><span class="p">[</span><span class="s1">&#39;mode_order&#39;</span><span class="p">]</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mode_order_</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Incorrect type of the parameter `custom_state[&#39;mode_order&#39;]`!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                                <span class="s2">&quot;It should be `tuple` of lists&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">StateError</span><span class="p">(</span><span class="s2">&quot;Incorrect type of the parameter `custom_state[&#39;mode_order&#39;]`!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                 <span class="s2">&quot;It should be `tuple` of lists&quot;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">mode_seq</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">for</span> <span class="n">mode_seq</span> <span class="ow">in</span> <span class="n">mode_order_</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Incorrect type of the parameter `mode_order[i]`!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                                <span class="s2">&quot;It should be `list` of `int`&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">StateError</span><span class="p">(</span><span class="s2">&quot;Incorrect type of the parameter `mode_order[i]`!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                 <span class="s2">&quot;It should be `list` of `int`&quot;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_order_</span><span class="p">)</span> <span class="o">!=</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Provided `custom_state` does not correspond to the shape of provided data array!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                                 <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">!=</span><span class="si">{}</span><span class="s2"> (len(custom_state[&#39;mode_order&#39;]) != array.ndim)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode_order_</span><span class="p">,</span>
+                <span class="k">raise</span> <span class="n">StateError</span><span class="p">(</span><span class="s2">&quot;Provided `custom_state` does not correspond to the shape of provided data array!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                 <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">!=</span><span class="si">{}</span><span class="s2"> (len(custom_state[&#39;mode_order&#39;]) != array.ndim)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mode_order_</span><span class="p">),</span>
                                                                                                  <span class="n">array</span><span class="o">.</span><span class="n">ndim</span><span class="p">))</span>
 
             <span class="n">modes_specified</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">mode_order_</span><span class="p">))</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">modes_specified</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">normal_shape</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Number of provided modes is inconsistent with the provided length `normal_shape`!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="k">raise</span> <span class="n">StateError</span><span class="p">(</span><span class="s2">&quot;Number of provided modes is inconsistent with the provided length `normal_shape`!</span><span class="se">\n</span><span class="s2">&quot;</span>
                                  <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">modes_specified</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">normal_shape</span><span class="p">))</span>
                                  <span class="p">)</span>
 
         <span class="c1"># validate mode_names if provided</span>
         <span class="k">if</span> <span class="n">mode_names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mode_names</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;You should use list for mode_names!&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;You should use list for `mode_names`!&quot;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="p">):</span>
-                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The list of mode names should contain only strings!&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;The list of mode names should contain only strings!&quot;</span><span class="p">)</span>
 
             <span class="k">if</span> <span class="n">custom_state</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">array</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_names</span><span class="p">):</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect number of names for the modes of a tensor: </span><span class="si">{0}</span><span class="s2"> != </span><span class="si">{1}</span><span class="s2"> &quot;</span>
-                                     <span class="s2">&quot;(&#39;array.ndim != len(mode_names)&#39;)!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span>
-                                                                                   <span class="nb">len</span><span class="p">(</span><span class="n">mode_names</span><span class="p">)</span>
-                                                                                   <span class="p">)</span>
-                                     <span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Incorrect number of names for the modes of a tensor: </span><span class="si">{0}</span><span class="s2"> != </span><span class="si">{1}</span><span class="s2"> &quot;</span>
+                                    <span class="s2">&quot;(&#39;array.ndim != len(mode_names)&#39;)!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span>
+                                                                                  <span class="nb">len</span><span class="p">(</span><span class="n">mode_names</span><span class="p">)</span>
+                                                                                  <span class="p">)</span>
+                                    <span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">normal_shape</span> <span class="o">=</span> <span class="n">custom_state</span><span class="p">[</span><span class="s1">&#39;normal_shape&#39;</span><span class="p">]</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">normal_shape</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_names</span><span class="p">):</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Incorrect number of names for the modes of a tensor: </span><span class="si">{0}</span><span class="s2"> != </span><span class="si">{1}</span><span class="s2"> &quot;</span>
-                                     <span class="s2">&quot;(&#39;len(normal_shape) != len(mode_names)&#39;)!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">normal_shape</span><span class="p">),</span>
-                                                                                          <span class="nb">len</span><span class="p">(</span><span class="n">mode_names</span><span class="p">)</span>
-                                                                                          <span class="p">)</span>
-                                     <span class="p">)</span>
+                    <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Incorrect number of names for the modes of a tensor: </span><span class="si">{0}</span><span class="s2"> != </span><span class="si">{1}</span><span class="s2"> &quot;</span>
+                                    <span class="s2">&quot;(&#39;len(normal_shape) != len(mode_names)&#39;)!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">normal_shape</span><span class="p">),</span>
+                                                                                         <span class="nb">len</span><span class="p">(</span><span class="n">mode_names</span><span class="p">)</span>
+                                                                                         <span class="p">)</span>
+                                    <span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_create_meta</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">custom_state</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
@@ -485,7 +499,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; N-dimensional array with data values </span>
+        <span class="sd">&quot;&quot;&quot; N-dimensional array with data values</span>
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -560,7 +574,6 @@
 <span class="sd">        -------</span>
 <span class="sd">        float</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># return np.sqrt(np.sum(self.data ** 2))</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
     <span class="nd">@property</span>
@@ -609,7 +622,6 @@
         <span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_normal_state</span><span class="p">:</span>
             <span class="n">new_object</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">)</span>
-
         <span class="k">else</span><span class="p">:</span>
             <span class="n">custom_state</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">normal_shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="o">.</span><span class="n">normal_shape</span><span class="p">,</span>
                                 <span class="n">rtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="o">.</span><span class="n">rtype</span><span class="p">,</span>
@@ -650,7 +662,7 @@
         <span class="sd">&quot;&quot;&quot; Rename modes of a tensor</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
-<span class="sd">        ----------        </span>
+<span class="sd">        ----------</span>
 <span class="sd">        mode_names : dict</span>
 <span class="sd">            New names for the tensor modes in form of a dictionary</span>
 <span class="sd">            The name of the mode defined by the Key of the dict will be renamed to the corresponding Value</span>
@@ -659,15 +671,20 @@
 <span class="sd">        -------</span>
 <span class="sd">        self : Tensor</span>
 <span class="sd">            Return self so that methods could be chained</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ModeError</span>
+<span class="sd">            If parameter ``mode_names`` is inconsistent with ``self.modes``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Too many mode names have been specified&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Too many mode names have been specified&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The dict of `mode_names` should contain only integer keys!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;The dict of `mode_names` should contain only integer keys!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified mode values should not exceed the order of the tensor!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;All specified mode values should not exceed the order of the tensor!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified mode keys should be non-negative!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;All specified mode keys should be non-negative!&quot;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
@@ -709,17 +726,22 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        self : Tensor</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ModeError</span>
+<span class="sd">            If parameter ``mode_index`` is inconsistent with ``self.modes``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_index</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Too many sets of indices have been specified&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Too many sets of indices have been specified&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The dict of `mode_index` should contain only integer keys!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;The dict of `mode_index` should contain only integer keys!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified mode values should not exceed the order of the tensor!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;All specified mode values should not exceed the order of the tensor!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified mode keys should be non-negative!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;All specified mode keys should be non-negative!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="k">for</span> <span class="n">mode</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">items</span><span class="p">()]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not enough of too many indices for the specified mode&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Not enough of too many indices for the specified mode&quot;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
@@ -767,9 +789,16 @@
 <span class="sd">        ----------</span>
 <span class="sd">        tensor : Tensor</span>
 <span class="sd">            Unfolded version of a tensor</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TensorStateError</span>
+<span class="sd">            If tensor is not in normal state: ``self.in_normal_state is False``.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If parameter ``rtype`` is not one of {&#39;T&#39;, &#39;K&#39;}.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_normal_state</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The tensor is not in the original form&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">TensorStateError</span><span class="p">(</span><span class="s2">&quot;The tensor is not in the original form&quot;</span><span class="p">)</span>
 
         <span class="c1"># Unfold data</span>
         <span class="k">if</span> <span class="n">rtype</span> <span class="ow">is</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span>
@@ -804,9 +833,16 @@
 <span class="sd">        ----------</span>
 <span class="sd">        tensor : Tensor</span>
 <span class="sd">            Vectorised version of a tensor</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TensorStateError</span>
+<span class="sd">            If tensor is not in normal state: ``self.in_normal_state is False``.</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If parameter ``rtype`` is not one of {&#39;T&#39;, &#39;K&#39;}.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_normal_state</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The tensor is not in the original form&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">TensorStateError</span><span class="p">(</span><span class="s2">&quot;The tensor is not in the original form&quot;</span><span class="p">)</span>
 
         <span class="c1"># Unfold data</span>
         <span class="k">if</span> <span class="n">rtype</span> <span class="ow">is</span> <span class="s2">&quot;T&quot;</span><span class="p">:</span>
@@ -840,13 +876,18 @@
 <span class="sd">        tensor : Tensor</span>
 <span class="sd">            Tensor of original shape (``self.ft_shape``)</span>
 
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TensorStateError</span>
+<span class="sd">            If tensor is in normal state: ``self.in_normal_state is True``.</span>
+
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        Basically, this method can be called in order to undo both ``self.unfold`` and ``self.vectorise``</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Do not do anything if the tensor is in the normal form (hadn&#39;t been unfolded before)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_normal_state</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The tensor hadn&#39;t bee unfolded before&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">TensorStateError</span><span class="p">(</span><span class="s2">&quot;The tensor hadn&#39;t bee unfolded before&quot;</span><span class="p">)</span>
 
         <span class="c1"># Fold data</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="o">.</span><span class="n">mode_order</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -896,6 +937,13 @@
 <span class="sd">        tensor : Tensor</span>
 <span class="sd">            The result of the mode-n product of a tensor with a `matrix` along specified `mode`.</span>
 
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TensorStateError</span>
+<span class="sd">            If tensor is not in normal state: ``self.in_normal_state is False``.</span>
+<span class="sd">        ModeError</span>
+<span class="sd">            If there is uncertainty with assigning new name for the ``tensor.modes[mode]``.</span>
+
 <span class="sd">        Notes</span>
 <span class="sd">        -------</span>
 <span class="sd">            1. Mode-n product operation changes the ``self._state._normal_shape`` attribute</span>
@@ -906,14 +954,14 @@
 <span class="sd">            4. If ``matrix.mode_names[0] == &quot;mode-0&quot;`` then no changes to ``tensor.mode_names`` will be made</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_normal_state</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The tensor is not in the original form&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">TensorStateError</span><span class="p">(</span><span class="s2">&quot;The tensor is not in the original form&quot;</span><span class="p">)</span>
 
         <span class="c1"># TODO: need to rethink this if statements so it would be easier to follow</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">)</span> <span class="ow">and</span> <span class="n">new_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Oops... Don&#39;t know which name for the mode description to use!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                             <span class="s2">&quot;Either use the default value for `new_name=None` or pass numpy array for `matrix.`&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Oops... Don&#39;t know which name for the mode description to use!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                            <span class="s2">&quot;Either use the default value for `new_name=None` or pass numpy array for `matrix.`&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">new_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The parameter `new_name` should be of sting type!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;The parameter `new_name` should be of sting type!&quot;</span><span class="p">)</span>
 
         <span class="c1"># Convert to Tensor class, in order to have consistent interface</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">matrix</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
@@ -933,13 +981,13 @@
         <span class="n">tensor</span><span class="o">.</span><span class="n">reset_mode_index</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
 
         <span class="c1"># The only one case when mode name won&#39;t be changed</span>
-        <span class="k">if</span> <span class="n">new_name</span> <span class="o">!=</span> <span class="s2">&quot;mode-0&quot;</span><span class="p">:</span>            
+        <span class="k">if</span> <span class="n">new_name</span> <span class="o">!=</span> <span class="s2">&quot;mode-0&quot;</span><span class="p">:</span>
             <span class="n">new_mode_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">mode</span><span class="p">:</span> <span class="n">new_name</span><span class="p">}</span>
             <span class="n">tensor</span><span class="o">.</span><span class="n">set_mode_names</span><span class="p">(</span><span class="n">mode_names</span><span class="o">=</span><span class="n">new_mode_names</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">tensor</span></div></div>
 
-
+<span class="c1"># TODO: add validation of `mode_names`</span>
 <span class="k">class</span> <span class="nc">BaseTensorTD</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class provides a general interface for a tensor represented through a tensor decomposition.</span>
@@ -1045,15 +1093,20 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        self</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ModeError</span>
+<span class="sd">            If parameter ``mode_names`` is inconsistent with ``self.modes``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Too many mode names have been specified&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Too many mode names have been specified&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The dict of `mode_names` should contain only integer keys!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;The dict of `mode_names` should contain only integer keys!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified mode values should not exceed the order of the tensor!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;All specified mode values should not exceed the order of the tensor!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified mode keys should be non-negative!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;All specified mode keys should be non-negative!&quot;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">mode_names</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -1095,21 +1148,26 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        self</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ModeError</span>
+<span class="sd">            If parameter ``mode_index`` is inconsistent with ``self.modes``.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mode_index</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Too many sets of indices have been specified&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Too many sets of indices have been specified&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The dict of `mode_index` should contain only integer keys!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;The dict of `mode_index` should contain only integer keys!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified mode values should not exceed the order of the tensor!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;All specified mode values should not exceed the order of the tensor!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All specified mode keys should be non-negative!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;All specified mode keys should be non-negative!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">TensorTT</span><span class="p">):</span>
             <span class="n">index_long_enough</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="k">for</span> <span class="n">mode</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">index_long_enough</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmat</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">mode</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">index_long_enough</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not enough of too many indices for the specified mode&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Not enough of too many indices for the specified mode&quot;</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">mode_index</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
@@ -1160,6 +1218,11 @@
 <span class="sd">            Array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
 <span class="sd">        mode_names : list[str]</span>
 <span class="sd">            List of names for the factor matrices</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TensorTopologyError</span>
+<span class="sd">            If there is inconsistency in shapes of factor matrices and core values</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -1243,11 +1306,11 @@
                             <span class="s2">&quot;with an object of </span><span class="si">{}</span><span class="s2"> class!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                                                                  <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both objects should have the same topology!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">!=</span><span class="si">{}</span><span class="s2"> (`self.ft_shape != other.ft_shape`)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">,</span>
-                                                                                 <span class="n">other</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="n">TensorTopologyError</span><span class="p">(</span><span class="s2">&quot;Both objects should have the same topology!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                      <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">!=</span><span class="si">{}</span><span class="s2"> (`self.ft_shape != other.ft_shape`)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">,</span>
+                                                                                          <span class="n">other</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">))</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">)]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both tensors should have the same indices!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Both tensors should have the same indices!&quot;</span><span class="p">)</span>
 
         <span class="n">core_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">_core_values</span><span class="p">))</span>
         <span class="n">fmat_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">fmat</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">fmat</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fmat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmat</span><span class="p">)]</span>
@@ -1287,12 +1350,12 @@
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Each of the factor matrices should be a numpy array!&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Each of the factor matrices should a 2-dimensional numpy array!&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">TensorTopologyError</span><span class="p">(</span><span class="s2">&quot;Each of the factor matrices should be a 2-dimensional numpy array!&quot;</span><span class="p">)</span>
 
         <span class="n">kryskal_rank</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_values</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">kryskal_rank</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                             <span class="s2">&quot;Number of columns of all factor matrices should be the same and equal to len(core_values)!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">TensorTopologyError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch! Number of columns of all &quot;</span>
+                                      <span class="s2">&quot;factor matrices should be the same and equal to len(core_values)!&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_create_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Create meta data for each factor matrix</span>
@@ -1541,6 +1604,11 @@
 <span class="sd">        mode_names : list[str]</span>
 <span class="sd">            List of names for the factor matrices</span>
 
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TensorTopologyError</span>
+<span class="sd">            If there is inconsistency in shapes of factor matrices and core values</span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        1) Create tucker representation of a tensor with default meta information</span>
@@ -1634,11 +1702,11 @@
                             <span class="s2">&quot;with an object of </span><span class="si">{}</span><span class="s2"> class!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
                                                                  <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both objects should have the same topology!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">!=</span><span class="si">{}</span><span class="s2"> (`self.ft_shape != other.ft_shape`)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">,</span>
-                                                                                 <span class="n">other</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="n">TensorTopologyError</span><span class="p">(</span><span class="s2">&quot;Both objects should have the same topology!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                      <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">!=</span><span class="si">{}</span><span class="s2"> (`self.ft_shape != other.ft_shape`)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">,</span>
+                                                                                          <span class="n">other</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">))</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">index</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">)]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Both tensors should have the same indices!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ModeError</span><span class="p">(</span><span class="s2">&quot;Both tensors should have the same indices!&quot;</span><span class="p">)</span>
 
         <span class="c1"># Stack core tensors along main diagonal.</span>
         <span class="c1"># Block-wise assignment of values from the core tensors</span>
@@ -1690,19 +1758,19 @@
             <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Each of the factor matrices should be a numpy array!&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">mat</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Each of the factor matrices should a 2-dimensional numpy array!&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">TensorTopologyError</span><span class="p">(</span><span class="s2">&quot;Each of the factor matrices should a 2-dimensional numpy array!&quot;</span><span class="p">)</span>
 
         <span class="n">ml_rank</span> <span class="o">=</span> <span class="n">core_values</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">order</span> <span class="o">=</span> <span class="n">core_values</span><span class="o">.</span><span class="n">ndim</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">fmat</span><span class="p">)</span> <span class="o">!=</span> <span class="n">order</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Not enough or too many factor matrices for the specified core tensor!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">!=</span><span class="si">{}</span><span class="s2"> (`len(fmat) != core_values.ndim`)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fmat</span><span class="p">),</span> <span class="n">order</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="n">TensorTopologyError</span><span class="p">(</span><span class="s2">&quot;Not enough or too many factor matrices for the specified core tensor!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                      <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">!=</span><span class="si">{}</span><span class="s2"> (`len(fmat) != core_values.ndim`)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fmat</span><span class="p">),</span> <span class="n">order</span><span class="p">))</span>
         <span class="n">mat_shapes</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">([</span><span class="n">mat_shapes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">ml_rank</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">order</span><span class="p">)]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch between the factor matrices and the core tensor!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                             <span class="s2">&quot;The number of columns of a factor matrix should match the corresponding &quot;</span>
-                             <span class="s2">&quot;dimension size of the core tensor:</span><span class="se">\n</span><span class="s2">&quot;</span>
-                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2"> (fmat[i].shape[1] != core_values.shape)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mat_shapes</span><span class="p">,</span> <span class="n">ml_rank</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="n">TensorTopologyError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch between the factor matrices and the core tensor!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                      <span class="s2">&quot;The number of columns of a factor matrix should match the corresponding &quot;</span>
+                                      <span class="s2">&quot;dimension size of the core tensor:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                      <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2"> (fmat[i].shape[1] != core_values.shape)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mat_shapes</span><span class="p">,</span> <span class="n">ml_rank</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">_create_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Create meta data for each factor matrix</span>
@@ -1932,14 +2000,23 @@
 <span class="sd">    ----------</span>
 <span class="sd">    _core_values : list[np.ndarray]</span>
 <span class="sd">        Placeholder for a list of cores for the Tensor Train representation of a tensor.</span>
+<span class="sd">    _modes : list[Mode]</span>
+<span class="sd">        Description of the physical modes</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot; Create object of ``TensorTT`` class</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        core_values : list[np.ndarray]</span>
 <span class="sd">            List of cores for the Tensor Train representation of a tensor.</span>
+<span class="sd">        mode_names : list[str]</span>
+<span class="sd">            List of names for the physical modes</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TensorTopologyError</span>
+<span class="sd">            If there is inconsistency in shapes of core values</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -2032,17 +2109,17 @@
 
         <span class="c1"># validate sizes of the cores</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">core_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">core_values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The first and the last elements of the `core_values` &quot;</span>
-                             <span class="s2">&quot;should be 2-dimensional numpy arrays!&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">TensorTopologyError</span><span class="p">(</span><span class="s2">&quot;The first and the last elements of the `core_values` &quot;</span>
+                                      <span class="s2">&quot;should be 2-dimensional numpy arrays!&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_values</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">core_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All but first and the last elements of the `core_values` &quot;</span>
-                                 <span class="s2">&quot;should be 3-dimensional numpy arrays!&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">TensorTopologyError</span><span class="p">(</span><span class="s2">&quot;All but first and the last elements of the `core_values` &quot;</span>
+                                          <span class="s2">&quot;should be 3-dimensional numpy arrays!&quot;</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">core_values</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">core_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">core_values</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch for the specified cores:</span><span class="se">\n</span><span class="s2">&quot;</span>
-                                 <span class="s2">&quot;Last dimension of core_values[</span><span class="si">{}</span><span class="s2">] should be the same as the &quot;</span>
-                                 <span class="s2">&quot;first dimension of core_values[</span><span class="si">{}</span><span class="s2">]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+                <span class="k">raise</span> <span class="n">TensorTopologyError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch for the specified cores:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                                          <span class="s2">&quot;Last dimension of core_values[</span><span class="si">{}</span><span class="s2">] should be the same as the &quot;</span>
+                                          <span class="s2">&quot;first dimension of core_values[</span><span class="si">{}</span><span class="s2">]&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">_create_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Create meta data for each factor matrix</span>
@@ -2337,14 +2414,10 @@
     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_orig</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unknown data type of original tensor.</span><span class="se">\n</span><span class="s2">&quot;</span>
                         <span class="s2">&quot;The available type for `tensor_A` is `Tensor`&quot;</span><span class="p">)</span>
-
+    <span class="c1"># TODO: make use of direct subtraction of tensors</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
         <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">TensorCPD</span><span class="p">):</span>
-        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">TensorTKD</span><span class="p">):</span>
-        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">TensorTT</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">BaseTensorTD</span><span class="p">):</span>
         <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unknown data type of the approximation tensor!</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -2353,9 +2426,7 @@
 </pre></div>
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -2364,11 +2435,11 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017 - 2018, Ilya Kisil.
+        &copy; Copyright 2017 - 2019, Ilya Kisil
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -2383,35 +2454,23 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../../',
-            VERSION:'0.1.3',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

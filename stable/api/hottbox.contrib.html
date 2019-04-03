@@ -1,0 +1,514 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Experimental features &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="HOTTBOX Tutorials" href="../tutorials.html" />
+    <link rel="prev" title="Rank Estimation" href="hottbox.rank.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">HOTTBOX API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.utils.html">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.rank.html">Rank Estimation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Experimental features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#visualisation">Visualisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/before_pull_request.html#docker-validation">Docker validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hottbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">HOTTBOX API</a> &raquo;</li>
+        
+      <li>Experimental features</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/hottbox.contrib.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="experimental-features">
+<h1>Experimental features<a class="headerlink" href="#experimental-features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="visualisation">
+<h2>Visualisation<a class="headerlink" href="#visualisation" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#module-hottbox.contrib.visualisation" title="hottbox.contrib.visualisation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">hottbox.contrib.visualisation</span></code></a></td>
+<td>This module is for EDA through interactive visualisation of the core structures: <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> etc.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#hottbox.contrib.visualisation.gen_test_data" title="hottbox.contrib.visualisation.gen_test_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gen_test_data</span></code></a>([plot])</td>
+<td>Generate factor matrices which components will be easy to differentiate from one another</td>
+</tr>
+</tbody>
+</table>
+<span class="target" id="module-hottbox.contrib.visualisation"></span><p>This module is for EDA through interactive visualisation of the core structures:
+<code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> etc.</p>
+<p>All its functionality should be used inside Jupyter Lab/ Jupyter Notebook.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The API provided by this module is experimental and requires additional
+dependencies to be installed.</p>
+</div>
+<dl class="function">
+<dt id="hottbox.contrib.visualisation.gen_test_data">
+<code class="descname">gen_test_data</code><span class="sig-paren">(</span><em>plot=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#gen_test_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.gen_test_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate factor matrices which components will be easy to differentiate from one another</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>plot</strong> (<em>bool</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li><strong>fmat</strong> (<em>list[np.ndarray]</em>)</li>
+<li><strong>core_values</strong> (<em>np.ndarray</em>)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="hottbox.contrib.visualisation.gen_test_tensor_cpd">
+<code class="descname">gen_test_tensor_cpd</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#gen_test_tensor_cpd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.gen_test_tensor_cpd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code> object for testing purposes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD">TensorCPD</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="hottbox.contrib.visualisation.BaseComponentPlot">
+<em class="property">class </em><code class="descname">BaseComponentPlot</code><span class="sig-paren">(</span><em>tensor_rep</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#BaseComponentPlot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Dashboard for interactive visualisation of the factor vectors</p>
+<dl class="attribute">
+<dt id="hottbox.contrib.visualisation.BaseComponentPlot.available_plots">
+<code class="descname">available_plots</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.available_plots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ordered dictionary with all available plot functions for the factor vectors</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">dict[str, callable]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.contrib.visualisation.BaseComponentPlot.out">
+<code class="descname">out</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.out" title="Permalink to this definition">¶</a></dt>
+<dd><p>Widget used as a context manager to display output.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Output</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.contrib.visualisation.BaseComponentPlot.sliders">
+<code class="descname">sliders</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.sliders" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of slider widgets each of which allows to select factor vector to be plotted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list[IntSlider]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.contrib.visualisation.BaseComponentPlot.dropdown">
+<code class="descname">dropdown</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.dropdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of dropdown widgets each of which allows to select type of plot
+for the factor vector selected by the corresponding slider.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">list[Dropdown]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.contrib.visualisation.BaseComponentPlot.dashboard">
+<code class="descname">dashboard</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.dashboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dashboard with visualisations of the factor vectors and widgets for selection
+of how and what is going to be displayed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">VBox</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>Constructor of the interactive dashboard</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tensor_rep</strong> (<em>{TensorCPD</em><em>, </em><em>TensorTKD}</em>) – </td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots">
+<code class="descname">extend_available_plots</code><span class="sig-paren">(</span><em>custom_plots</em>, <em>modes=()</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#BaseComponentPlot.extend_available_plots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add custom plot functions available for representing factor vectors</p>
+<p>This method can be used either for adding new ways of plotting of the
+factor vectors or changing ones that have already been defined.
+Despite of chosen option there are two main steps. First the internal dictionary
+with plots (<cite>self.available_plots</cite>) is updated, then dropdown menus.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>custom_plots</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>callable</em><em>]</em>) – Dictionary with plot functions
+Keys will be displayed in the dropdown menu.
+Values will be used as plotting functions for factor vector
+when the corresponding option from the dropdown menu is selected.</li>
+<li><strong>modes</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – List of modes for which keys of <cite>custom_plots</cite> will be available in the dropdown.
+If not specified then they will be available for all modes.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<ol class="arabic">
+<li><p class="first">If key from <cite>custom_plots</cite> is already in <code class="docutils literal notranslate"><span class="pre">self.available_plots.keys()</span></code>,
+then the corresponding value will be updated anyway.</p>
+</li>
+<li><p class="first">When the options of dropdown menu are updated, then index of that dropdown
+menu is also getting changed. Looks like it is always set to zero which could
+change the value that is selected in the dropdown menu.</p>
+</li>
+<li><p class="first">Signature of plotting functions should contain two variables: <cite>ax</cite> and <cite>data</cite></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_line_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="hottbox.contrib.visualisation.ComponentPlotCPD">
+<em class="property">class </em><code class="descname">ComponentPlotCPD</code><span class="sig-paren">(</span><em>tensor_rep</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#ComponentPlotCPD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.ComponentPlotCPD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hottbox.contrib.visualisation.BaseComponentPlot" title="hottbox.contrib.visualisation.BaseComponentPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.contrib.visualisation.BaseComponentPlot</span></code></a></p>
+<p>Constructor of the interactive dashboard for the <cite>TensorCPD</cite> objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tensor_rep</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorCPD" title="hottbox.core.structures.TensorCPD"><em>TensorCPD</em></a>) – Tensor represented in the kruskal form.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<ol class="arabic simple">
+<li>There is only one slider for selecting which factor vectors to plot.
+This is due to the nature of the kruskal representation, i.e. one to
+one relation between the factor vectors from factor matrices of different modes.</li>
+</ol>
+</dd></dl>
+
+<dl class="class">
+<dt id="hottbox.contrib.visualisation.ComponentPlotTKD">
+<em class="property">class </em><code class="descname">ComponentPlotTKD</code><span class="sig-paren">(</span><em>tensor_rep</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/hottbox/contrib/visualisation.html#ComponentPlotTKD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.ComponentPlotTKD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#hottbox.contrib.visualisation.BaseComponentPlot" title="hottbox.contrib.visualisation.BaseComponentPlot"><code class="xref py py-class docutils literal notranslate"><span class="pre">hottbox.contrib.visualisation.BaseComponentPlot</span></code></a></p>
+<p>Constructor of the interactive dashboard for the <cite>TensorTKD</cite> objects</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tensor_rep</strong> (<a class="reference internal" href="hottbox.core.html#hottbox.core.structures.TensorTKD" title="hottbox.core.structures.TensorTKD"><em>TensorTKD</em></a>) – Tensor represented in the tucker form.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<ol class="arabic simple">
+<li>There is one slider per mode for selecting which factor vector to plot.
+This is due to the nature of the tucker representation, i.e. each factor
+from one mode vector is related all factor vectors from all other modes.</li>
+</ol>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../tutorials.html" class="btn btn-neutral float-right" title="HOTTBOX Tutorials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="hottbox.rank.html" class="btn btn-neutral" title="Rank Estimation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2019, Ilya Kisil
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

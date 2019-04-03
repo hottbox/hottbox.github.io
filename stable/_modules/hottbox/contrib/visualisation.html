@@ -1,0 +1,633 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>hottbox.contrib.visualisation &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html">
+          
+
+          
+            
+            <img src="../../../_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">HOTTBOX API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.utils.html">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.rank.html">Rank Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.contrib.html">Experimental features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.contrib.html#visualisation">Visualisation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#docker-validation">Docker validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">hottbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>hottbox.contrib.visualisation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for hottbox.contrib.visualisation</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This module is for EDA through interactive visualisation of the core structures:</span>
+<span class="sd">``TensorCPD``, ``TensorTKD`` etc.</span>
+
+<span class="sd">All its functionality should be used inside Jupyter Lab/ Jupyter Notebook.</span>
+
+<span class="sd">.. important::</span>
+
+<span class="sd">    The API provided by this module is experimental and requires additional</span>
+<span class="sd">    dependencies to be installed.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">signal</span>  <span class="c1"># for generating testing data and can be removed</span>
+<span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">TensorCPD</span><span class="p">,</span> <span class="n">TensorTKD</span>  <span class="c1"># for type hinting</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">Dropdown</span><span class="p">,</span> <span class="n">Output</span>
+    <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+<span class="k">except</span> <span class="n">ModuleNotFoundError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">extra_required</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;ipywidgets&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;IPython&quot;</span>
+                      <span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span><span class="o">*</span><span class="mi">50</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">This is experimental module that depends on additional libraries &quot;</span>
+          <span class="s2">&quot;that are not included in the list of main dependencies. &quot;</span>
+          <span class="s2">&quot;Please, make sure that you have install </span><span class="si">{}</span><span class="s2"> if you want to &quot;</span>
+          <span class="s2">&quot;try out this module.</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">extra_required</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="gen_test_data"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.gen_test_data">[docs]</a><span class="k">def</span> <span class="nf">gen_test_data</span><span class="p">(</span><span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generate factor matrices which components will be easy to differentiate from one another</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    plot : bool</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    fmat : list[np.ndarray]</span>
+<span class="sd">    core_values : np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">t_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">t_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">t_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">w_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">w_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">w_A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">w_C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span>         <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t_A</span> <span class="o">*</span> <span class="n">w_A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">square</span>  <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t_B</span> <span class="o">*</span> <span class="n">w_B</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">C</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">gausspulse</span><span class="p">(</span><span class="n">t_C</span> <span class="o">*</span> <span class="n">w_C</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">retquad</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">retenv</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">C</span><span class="p">]</span>
+    <span class="n">core_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">mode</span><span class="p">,</span> <span class="n">factor</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fmat</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mode-</span><span class="si">{}</span><span class="s2"> factor matrix shape = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">factor</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+                                 <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+                                 <span class="p">)</span>
+        <span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_A</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+        <span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Factor matrix A&quot;</span><span class="p">)</span>
+        <span class="n">axis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_B</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+        <span class="n">axis</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Factor matrix B&quot;</span><span class="p">)</span>
+        <span class="n">axis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_C</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+        <span class="n">axis</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Factor matrix C&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span></div>
+
+
+<div class="viewcode-block" id="gen_test_tensor_cpd"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.gen_test_tensor_cpd">[docs]</a><span class="k">def</span> <span class="nf">gen_test_tensor_cpd</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Generate ``TensorCPD`` object for testing purposes</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TensorCPD</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">TensorCPD</span><span class="p">(</span><span class="o">*</span><span class="n">gen_test_data</span><span class="p">())</span></div>
+
+
+<span class="k">def</span> <span class="nf">_line_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Base function for representing factor vector as line plot</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ax : matplotlib.axes.Axes</span>
+<span class="sd">        Axis object which is used to illustrate `data`</span>
+<span class="sd">    data : np.ndarray</span>
+<span class="sd">        Array of data to be plotted. Shape of such array is ``(N, 1)``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_bar_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Base function for representing factor vector as bar plot</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ax : matplotlib.axes.Axes</span>
+<span class="sd">        Axis object which is used to illustrate `data`</span>
+<span class="sd">    data : np.ndarray</span>
+<span class="sd">        Array of data to be plotted. Shape of such array is ``(N, 1)``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">height</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="n">_DEFAULT_1D_PLOTS</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">_line_plot</span><span class="p">),</span>
+                                 <span class="p">(</span><span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="n">_bar_plot</span><span class="p">)</span>
+                                 <span class="p">])</span>
+
+
+<div class="viewcode-block" id="BaseComponentPlot"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot">[docs]</a><span class="k">class</span> <span class="nc">BaseComponentPlot</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Dashboard for interactive visualisation of the factor vectors</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    available_plots : dict[str, callable]</span>
+<span class="sd">        Ordered dictionary with all available plot functions for the factor vectors</span>
+<span class="sd">    out : Output</span>
+<span class="sd">        Widget used as a context manager to display output.</span>
+<span class="sd">    sliders : list[IntSlider]</span>
+<span class="sd">        List of slider widgets each of which allows to select factor vector to be plotted.</span>
+<span class="sd">    dropdown : list[Dropdown]</span>
+<span class="sd">        List of dropdown widgets each of which allows to select type of plot</span>
+<span class="sd">        for the factor vector selected by the corresponding slider.</span>
+<span class="sd">    dashboard : VBox</span>
+<span class="sd">        Dashboard with visualisations of the factor vectors and widgets for selection</span>
+<span class="sd">        of how and what is going to be displayed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Constructor of the interactive dashboard</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tensor_rep : {TensorCPD, TensorTKD}</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tensor_rep</span> <span class="o">=</span> <span class="n">tensor_rep</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_plots</span> <span class="o">=</span> <span class="n">_DEFAULT_1D_PLOTS</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">out</span> <span class="o">=</span> <span class="n">Output</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sliders</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_fmat_sliders</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropdown</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_fmat_dropdown</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dashboard</span> <span class="o">=</span> <span class="n">VBox</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">out</span><span class="p">,</span>
+                               <span class="n">HBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sliders</span><span class="p">),</span>
+                               <span class="n">HBox</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dropdown</span><span class="p">)</span>
+                               <span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_start_interacting</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_create_fmat_sliders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Create slider widgets for selecting factor vectors</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        slider_list : list[IntSlider]</span>
+<span class="sd">            List of slider widgets for selecting factor vector to be plotted</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            This is a dummy slider</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">default_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                              <span class="nb">max</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                              <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                              <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span>
+                              <span class="p">)</span>
+        <span class="n">slider_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">IntSlider</span><span class="p">(</span><span class="o">**</span><span class="n">default_params</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">slider_list</span>
+
+    <span class="k">def</span> <span class="nf">_create_fmat_dropdown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Create dropdown widgets for selecting plotting functions</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        dropdown_list : list[Dropdown]</span>
+<span class="sd">            List of dropdown widgets for selecting type of plot for the factor matrix</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">options_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">available_plots</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">default_value</span> <span class="o">=</span> <span class="n">options_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># default_value = &quot;line&quot;</span>
+        <span class="n">dropdown_default_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">options_list</span><span class="p">,</span>
+                                       <span class="n">value</span><span class="o">=</span><span class="n">default_value</span><span class="p">,</span>
+                                       <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Plot type:&#39;</span><span class="p">,</span>
+                                       <span class="n">disabled</span><span class="o">=</span><span class="kc">False</span>
+                                       <span class="p">)</span>
+        <span class="n">dropdown_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">Dropdown</span><span class="p">(</span><span class="o">**</span><span class="n">dropdown_default_params</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensor_rep</span><span class="o">.</span><span class="n">fmat</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">dropdown_list</span>
+
+    <span class="k">def</span> <span class="nf">_start_interacting</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Display the dashboard and setup callbacks for its widgets &quot;&quot;&quot;</span>
+        <span class="p">[</span><span class="n">slider</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_general_callback</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">slider</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sliders</span><span class="p">]</span>
+        <span class="p">[</span><span class="n">dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_general_callback</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">dropdown</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropdown</span><span class="p">]</span>
+        <span class="n">display</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dashboard</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_general_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">change</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; A callable that is called when values of slider or dropdown widgets have been changed</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            The signature of this method should not be changed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">out</span><span class="p">:</span>
+            <span class="n">fig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_plot_factor_vectors</span><span class="p">()</span>
+            <span class="n">display</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+            <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_plot_factor_vectors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Plot selected factor vectors using selected plot functions</span>
+
+<span class="sd">        Values of slider widgets are used to determine which factor vectors to plot.</span>
+<span class="sd">        Values of dropdown widgets are used to determine which plot functions to use.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fig : matplotlib.figure.Figure</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dropdown_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">dropdown</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">dropdown</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dropdown</span><span class="p">]</span>
+        <span class="n">factor_vectors_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">slider</span><span class="o">.</span><span class="n">value</span> <span class="k">for</span> <span class="n">slider</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sliders</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tensor_rep</span><span class="p">,</span> <span class="n">TensorCPD</span><span class="p">):</span>
+            <span class="c1"># Since one slider is used to select factor vectors across all modes</span>
+            <span class="n">factor_vectors_list</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensor_rep</span><span class="o">.</span><span class="n">order</span>
+
+        <span class="n">n_rows</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">n_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensor_rep</span><span class="o">.</span><span class="n">order</span>
+        <span class="n">axis_width</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">axis_height</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">n_rows</span><span class="p">,</span>
+                                 <span class="n">ncols</span><span class="o">=</span><span class="n">n_cols</span><span class="p">,</span>
+                                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">n_cols</span> <span class="o">*</span> <span class="n">axis_width</span><span class="p">,</span> <span class="n">n_rows</span> <span class="o">*</span> <span class="n">axis_height</span><span class="p">)</span>
+                                 <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fmat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tensor_rep</span><span class="o">.</span><span class="n">fmat</span><span class="p">):</span>
+            <span class="n">factor</span> <span class="o">=</span> <span class="n">factor_vectors_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">plot_function</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">available_plots</span><span class="p">[</span><span class="n">dropdown_values</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+            <span class="n">plot_function</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axis</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                          <span class="n">data</span><span class="o">=</span><span class="n">fmat</span><span class="p">[:,</span> <span class="n">factor</span><span class="p">])</span>
+            <span class="n">axis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Factor matrix: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tensor_rep</span><span class="o">.</span><span class="n">mode_names</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">fig</span>
+
+<div class="viewcode-block" id="BaseComponentPlot.extend_available_plots"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots">[docs]</a>    <span class="k">def</span> <span class="nf">extend_available_plots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_plots</span><span class="p">,</span> <span class="n">modes</span><span class="o">=</span><span class="p">()):</span>
+        <span class="sd">&quot;&quot;&quot; Add custom plot functions available for representing factor vectors</span>
+
+<span class="sd">        This method can be used either for adding new ways of plotting of the</span>
+<span class="sd">        factor vectors or changing ones that have already been defined.</span>
+<span class="sd">        Despite of chosen option there are two main steps. First the internal dictionary</span>
+<span class="sd">        with plots (`self.available_plots`) is updated, then dropdown menus.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        custom_plots : dict[str, callable]</span>
+<span class="sd">            Dictionary with plot functions</span>
+<span class="sd">            Keys will be displayed in the dropdown menu.</span>
+<span class="sd">            Values will be used as plotting functions for factor vector</span>
+<span class="sd">            when the corresponding option from the dropdown menu is selected.</span>
+<span class="sd">        modes : list[int]</span>
+<span class="sd">            List of modes for which keys of `custom_plots` will be available in the dropdown.</span>
+<span class="sd">            If not specified then they will be available for all modes.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            1)  If key from `custom_plots` is already in ``self.available_plots.keys()``,</span>
+<span class="sd">                then the corresponding value will be updated anyway.</span>
+<span class="sd">            2)  When the options of dropdown menu are updated, then index of that dropdown</span>
+<span class="sd">                menu is also getting changed. Looks like it is always set to zero which could</span>
+<span class="sd">                change the value that is selected in the dropdown menu.</span>
+<span class="sd">            3)  Signature of plotting functions should contain two variables: `ax` and `data`</span>
+<span class="sd">                ::</span>
+
+<span class="sd">                    def my_line_plot(ax, data):</span>
+<span class="sd">                        ax.plot(data, &#39;r+&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_plots</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">custom_plots</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">modes</span><span class="p">:</span>
+            <span class="n">dropdown_update_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dropdown</span><span class="p">))]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">dropdown_update_list</span> <span class="o">=</span> <span class="n">modes</span>
+
+        <span class="c1"># Update dropdown menus, this will also reset their index</span>
+        <span class="n">new_options</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">custom_plots</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">dropdown_update_list</span><span class="p">:</span>
+            <span class="n">old_options</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dropdown</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">options</span><span class="p">]</span>
+            <span class="n">unique_options</span> <span class="o">=</span> <span class="p">{</span><span class="o">*</span><span class="n">old_options</span><span class="p">,</span> <span class="o">*</span><span class="n">new_options</span><span class="p">}</span>
+            <span class="n">updated_options</span> <span class="o">=</span> <span class="p">[</span><span class="n">option</span> <span class="k">for</span> <span class="n">option</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">available_plots</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">option</span> <span class="ow">in</span> <span class="n">unique_options</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dropdown</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">updated_options</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="ComponentPlotCPD"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.ComponentPlotCPD">[docs]</a><span class="k">class</span> <span class="nc">ComponentPlotCPD</span><span class="p">(</span><span class="n">BaseComponentPlot</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Constructor of the interactive dashboard for the `TensorCPD` objects</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tensor_rep : TensorCPD</span>
+<span class="sd">            Tensor represented in the kruskal form.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        1)  There is only one slider for selecting which factor vectors to plot.</span>
+<span class="sd">            This is due to the nature of the kruskal representation, i.e. one to</span>
+<span class="sd">            one relation between the factor vectors from factor matrices of different modes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ComponentPlotCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">tensor_rep</span><span class="o">=</span><span class="n">tensor_rep</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_create_fmat_sliders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Create slider widgets for selecting factor vectors</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        slider_list : list[IntSlider]</span>
+<span class="sd">            List of slider widgets for selecting factor vector to be plotted</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            Only one slider is required for selecting which factor vectors</span>
+<span class="sd">            will be plotted, i.e. ``len(slider_list) == 1``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">default_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                              <span class="nb">max</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tensor_rep</span><span class="o">.</span><span class="n">fmat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                              <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span>
+                              <span class="p">)</span>
+        <span class="n">slider_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">IntSlider</span><span class="p">(</span><span class="o">**</span><span class="n">default_params</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="n">slider_list</span></div>
+
+
+<div class="viewcode-block" id="ComponentPlotTKD"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.ComponentPlotTKD">[docs]</a><span class="k">class</span> <span class="nc">ComponentPlotTKD</span><span class="p">(</span><span class="n">BaseComponentPlot</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Constructor of the interactive dashboard for the `TensorTKD` objects</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tensor_rep : TensorTKD</span>
+<span class="sd">            Tensor represented in the tucker form.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        1)  There is one slider per mode for selecting which factor vector to plot.</span>
+<span class="sd">            This is due to the nature of the tucker representation, i.e. each factor</span>
+<span class="sd">            from one mode vector is related all factor vectors from all other modes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ComponentPlotTKD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">tensor_rep</span><span class="o">=</span><span class="n">tensor_rep</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_create_fmat_sliders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Create slider widgets for selecting factor vectors</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        slider_list : list[IntSlider]</span>
+<span class="sd">            List of slider widgets for selecting factor vector to be plotted</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">            There is one slider widgets per mode, i.e. ``len(slider_list) == self.tensor_rep.order``</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">default_params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                              <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                              <span class="n">continuous_update</span><span class="o">=</span><span class="kc">False</span>
+                              <span class="p">)</span>
+        <span class="n">slider_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">IntSlider</span><span class="p">(</span><span class="o">**</span><span class="n">default_params</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="p">(</span><span class="n">fmat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="k">for</span> <span class="n">fmat</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tensor_rep</span><span class="o">.</span><span class="n">fmat</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">slider_list</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2019, Ilya Kisil
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
