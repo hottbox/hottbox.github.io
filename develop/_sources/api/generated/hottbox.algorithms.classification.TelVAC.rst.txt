@@ -1,0 +1,18 @@
+TelVAC
+========================================
+
+::
+
+    # Import statement
+
+    from hottbox.algorithms.classification import TelVAC
+
+.. currentmodule:: hottbox.algorithms.classification
+
+.. autoclass:: TelVAC
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

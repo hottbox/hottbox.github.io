@@ -1,0 +1,16 @@
+hankel_matrix
+======================================
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import hankel_matrix
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: hankel_matrix
+
+.. raw:: html
+
+    <div class="clearer"></div>

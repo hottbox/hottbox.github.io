@@ -1,0 +1,18 @@
+TelVI
+=======================================
+
+::
+
+    # Import statement
+
+    from hottbox.algorithms.classification import TelVI
+
+.. currentmodule:: hottbox.algorithms.classification
+
+.. autoclass:: TelVI
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

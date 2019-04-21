@@ -1,0 +1,18 @@
+ComponentPlotTKD
+==============================================
+
+::
+
+    # Import statement
+
+    from hottbox.contrib.visualisation import ComponentPlotTKD
+
+.. currentmodule:: hottbox.contrib.visualisation
+
+.. autoclass:: ComponentPlotTKD
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

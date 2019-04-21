@@ -1,0 +1,18 @@
+StateError
+=========================
+
+::
+
+    # Import statement
+
+    from hottbox.errors import StateError
+
+.. currentmodule:: hottbox.errors
+
+.. autoclass:: StateError
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

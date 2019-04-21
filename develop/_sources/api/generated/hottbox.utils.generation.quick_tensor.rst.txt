@@ -1,0 +1,16 @@
+quick_tensor
+=====================================
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import quick_tensor
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: quick_tensor
+
+.. raw:: html
+
+    <div class="clearer"></div>

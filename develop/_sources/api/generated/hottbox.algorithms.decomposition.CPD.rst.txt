@@ -1,0 +1,18 @@
+CPD
+====================================
+
+::
+
+    # Import statement
+
+    from hottbox.algorithms.decomposition import CPD
+
+.. currentmodule:: hottbox.algorithms.decomposition
+
+.. autoclass:: CPD
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

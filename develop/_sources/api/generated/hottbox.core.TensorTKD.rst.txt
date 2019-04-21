@@ -1,0 +1,18 @@
+TensorTKD
+======================
+
+::
+
+    # Import statement
+
+    from hottbox.core import TensorTKD
+
+.. currentmodule:: hottbox.core
+
+.. autoclass:: TensorTKD
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

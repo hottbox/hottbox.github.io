@@ -1,0 +1,18 @@
+TensorCPD
+======================
+
+::
+
+    # Import statement
+
+    from hottbox.core import TensorCPD
+
+.. currentmodule:: hottbox.core
+
+.. autoclass:: TensorCPD
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

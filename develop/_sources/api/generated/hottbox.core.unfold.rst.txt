@@ -1,0 +1,16 @@
+unfold
+===================
+
+::
+
+    # Import statement
+
+    from hottbox.core import unfold
+
+.. currentmodule:: hottbox.core
+
+.. autofunction:: unfold
+
+.. raw:: html
+
+    <div class="clearer"></div>

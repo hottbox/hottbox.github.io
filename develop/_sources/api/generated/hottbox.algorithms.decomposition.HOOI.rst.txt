@@ -1,0 +1,18 @@
+HOOI
+=====================================
+
+::
+
+    # Import statement
+
+    from hottbox.algorithms.decomposition import HOOI
+
+.. currentmodule:: hottbox.algorithms.decomposition
+
+.. autoclass:: HOOI
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

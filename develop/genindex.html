@@ -14,6 +14,8 @@
 
   
   
+    <link rel="shortcut icon" href="_static/hottbox_favicon-48x48.ico"/>
+  
   
   
 
@@ -62,7 +64,7 @@
             
             
               <div class="version">
-                0.2.1
+                0.2.2
               </div>
             
           
@@ -94,37 +96,158 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="api/modules.html">HOTTBOX API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/hottbox.core.html">Core Structures and Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.Tensor.html">Tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.TensorCPD.html">TensorCPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.TensorTKD.html">TensorTKD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.TensorTT.html">TensorTT</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.unfold.html">unfold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.fold.html">fold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.kolda_unfold.html">kolda_unfold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.kolda_fold.html">kolda_fold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.mode_n_product.html">mode_n_product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.kronecker.html">kronecker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.hadamard.html">hadamard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.khatri_rao.html">khatri_rao</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.core.sampled_khatri_rao.html">sampled_khatri_rao</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/hottbox.algorithms.html">Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.algorithms.html#module-hottbox.algorithms.decomposition">Tensor Decomposition Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.algorithms.decomposition.CPD.html">CPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.algorithms.decomposition.RandomisedCPD.html">RandomisedCPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.algorithms.decomposition.HOSVD.html">HOSVD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.algorithms.decomposition.HOOI.html">HOOI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.algorithms.html#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.algorithms.classification.LSSTM.html">LSSTM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.algorithms.classification.TelVI.html">TelVI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.algorithms.classification.TelVAC.html">TelVAC</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.utils.html">Utility Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.rank.html">Rank Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.pdtools.html">Pandas Integration Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.pdtools.html#module-hottbox.pdtools">Conversion Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.pdtools.pd_to_tensor.html">pd_to_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.pdtools.tensor_to_pd.html">tensor_to_pd</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.metrics.html">Metrics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.metrics.html#module-hottbox.metrics">Approximation scores</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.metrics.mse.html">mse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.metrics.rmse.html">rmse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.metrics.mape.html">mape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.metrics.residual_rel_error.html">residual_rel_error</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.metrics.html#classification-scores">Classification scores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.rank.html">Multi-dimensional Rank</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.rank.html#module-hottbox.rank">Rank Estimation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.rank.rankest.html">rankest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.rank.mlrank.html">mlrank</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.datasets.html">Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.datasets.html#module-hottbox.datasets">Synthetic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.datasets.make_clusters.html">make_clusters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.errors.html">Custom Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.errors.html#module-hottbox.errors">Errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.errors.TensorStateError.html">TensorStateError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.errors.TensorModeError.html">TensorModeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.errors.TensorShapeError.html">TensorShapeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.errors.TensorTopologyError.html">TensorTopologyError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.errors.StateError.html">StateError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.errors.ModeError.html">ModeError</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/hottbox.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.utils.html#module-hottbox.utils.generation">Generation of N-dimensional arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.toeplitz_matrix.html">toeplitz_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.hankel_matrix.html">hankel_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.quick_tensor.html">quick_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.quick_tensorcpd.html">quick_tensorcpd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.quick_tensortkd.html">quick_tensortkd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.quick_tensortt.html">quick_tensortt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.dense_tensor.html">dense_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.super_diagonal_tensor.html">super_diagonal_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.super_symmetric_tensor.html">super_symmetric_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.sparse_tensor.html">sparse_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.super_diag_tensor.html">super_diag_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.residual_tensor.html">residual_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.generation.toeplitz_tensor.html">toeplitz_tensor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.utils.html#module-hottbox.utils.validation">Validation of N-dimensional arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.validation.is_toeplitz_matrix.html">is_toeplitz_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.validation.is_super_symmetric.html">is_super_symmetric</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/generated/hottbox.utils.validation.is_toeplitz_tensor.html">is_toeplitz_tensor</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="api/hottbox.contrib.html">Experimental features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.contrib.html#visualisation">Visualisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/hottbox.contrib.html#module-hottbox.contrib.visualisation">Visualisation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="api/hottbox.contrib.html#interactive-dashboards">Interactive dashboards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="api/hottbox.contrib.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">HOTTBOX Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#hottbox-v0-2-2-unreleased">[HOTTBOX v0.2.2 Unreleased]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#package-status-on-branch-develop">Package status on branch <code class="docutils literal notranslate"><span class="pre">develop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#removed">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#hottbox-v0-2-1-2019-03-22">HOTTBOX v0.2.1 (2019-03-22)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id1">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#hottbox-v0-1-3">HOTTBOX v0.1.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id2">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id3">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id4">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id5">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#hottbox-v0-1-2">HOTTBOX v0.1.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id6">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id7">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id8">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#hottbox-v0-1-1">HOTTBOX v0.1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html#id9">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="development_guide/index.html">Development guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="development_guide/how_to_contribute.html">How to contribute</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
@@ -211,14 +334,14 @@
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
            <div itemprop="articleBody">
             
 
 <h1 id="index">Index</h1>
 
 <div class="genindex-jumpbox">
- <a href="#_"><strong>_</strong></a>
- | <a href="#A"><strong>A</strong></a>
+ <a href="#A"><strong>A</strong></a>
  | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
@@ -233,6 +356,7 @@
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
@@ -241,50 +365,10 @@
  | <a href="#W"><strong>W</strong></a>
  
 </div>
-<h2 id="_">_</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD._core_values">_core_values (TensorCPD attribute)</a>
-
-      <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD._core_values">(TensorTKD attribute)</a>
-</li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT._core_values">(TensorTT attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor._data">_data (Tensor attribute)</a>
-</li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD._fmat">_fmat (TensorCPD attribute)</a>
-
-      <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD._fmat">(TensorTKD attribute)</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor._modes">_modes (Tensor attribute)</a>
-
-      <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD._modes">(TensorCPD attribute)</a>
-</li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD._modes">(TensorTKD attribute)</a>
-</li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT._modes">(TensorTT attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor._state">_state (Tensor attribute)</a>
-</li>
-  </ul></td>
-</tr></table>
-
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.access">access() (Tensor method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.available_plots">available_plots (BaseComponentPlot attribute)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.access">access() (Tensor method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -292,13 +376,7 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot">BaseComponentPlot (class in hottbox.contrib.visualisation)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.bias_">bias_ (LSSTM attribute)</a>
-</li>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.bias_history_">bias_history_ (LSSTM attribute)</a>
+      <li><a href="api/generated/hottbox.contrib.visualisation.BaseComponentPlot.html#hottbox.contrib.visualisation.BaseComponentPlot">BaseComponentPlot (class in hottbox.contrib.visualisation)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -306,67 +384,61 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.ComponentPlotCPD">ComponentPlotCPD (class in hottbox.contrib.visualisation)</a>
+      <li><a href="api/generated/hottbox.contrib.visualisation.ComponentPlotCPD.html#hottbox.contrib.visualisation.ComponentPlotCPD">ComponentPlotCPD (class in hottbox.contrib.visualisation)</a>
 </li>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.ComponentPlotTKD">ComponentPlotTKD (class in hottbox.contrib.visualisation)</a>
+      <li><a href="api/generated/hottbox.contrib.visualisation.ComponentPlotTKD.html#hottbox.contrib.visualisation.ComponentPlotTKD">ComponentPlotTKD (class in hottbox.contrib.visualisation)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.converged">converged (CPD attribute)</a>
+      <li><a href="api/generated/hottbox.algorithms.decomposition.CPD.html#hottbox.algorithms.decomposition.CPD.converged">converged (CPD attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.converged">(HOOI attribute)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.HOOI.html#hottbox.algorithms.decomposition.HOOI.converged">(HOOI attribute)</a>
 </li>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.converged">(HOSVD attribute)</a>
-</li>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.converged">(TTSVD attribute)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.RandomisedCPD.html#hottbox.algorithms.decomposition.RandomisedCPD.converged">(RandomisedCPD attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.copy">copy() (CPD method)</a>
+      <li><a href="api/generated/hottbox.algorithms.decomposition.CPD.html#hottbox.algorithms.decomposition.CPD.copy">copy() (CPD method)</a>
 
       <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.copy">(HOOI method)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.HOOI.html#hottbox.algorithms.decomposition.HOOI.copy">(HOOI method)</a>
 </li>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.copy">(HOSVD method)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.HOSVD.html#hottbox.algorithms.decomposition.HOSVD.copy">(HOSVD method)</a>
 </li>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.copy">(TTSVD method)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.RandomisedCPD.html#hottbox.algorithms.decomposition.RandomisedCPD.copy">(RandomisedCPD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.copy">(Tensor method)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.TTSVD.html#hottbox.algorithms.decomposition.TTSVD.copy">(TTSVD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.copy">(TensorCPD method)</a>
+        <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.copy">(Tensor method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.copy">(TensorTKD method)</a>
+        <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.copy">(TensorCPD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.copy">(TensorTT method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.copy">(TensorTKD method)</a>
+</li>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.copy">(TensorTT method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.copy_modes">copy_modes() (Tensor method)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.copy_modes">copy_modes() (Tensor method)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.copy_modes">(TensorCPD method)</a>
+        <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.copy_modes">(TensorCPD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.copy_modes">(TensorTKD method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.copy_modes">(TensorTKD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.copy_modes">(TensorTT method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.copy_modes">(TensorTT method)</a>
 </li>
       </ul></li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.core">core (TensorCPD attribute)</a>
+      <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.core">core (TensorCPD attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.core">(TensorTKD attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.core">(TensorTKD attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.core">core() (TensorTT method)</a>
+      <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.core">core() (TensorTT method)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.cores">cores (TensorTT attribute)</a>
+      <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.cores">cores (TensorTT attribute)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.cost">cost (CPD attribute)</a>
-
-      <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.cost">(HOOI attribute)</a>
-</li>
-      </ul></li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD">CPD (class in hottbox.algorithms.decomposition.cpd)</a>
+      <li><a href="api/generated/hottbox.algorithms.decomposition.CPD.html#hottbox.algorithms.decomposition.CPD">CPD (class in hottbox.algorithms.decomposition)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -374,25 +446,25 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.dashboard">dashboard (BaseComponentPlot attribute)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.data">data (Tensor attribute)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.data">data (Tensor attribute)</a>
-</li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.decompose">decompose() (CPD method)</a>
+      <li><a href="api/generated/hottbox.algorithms.decomposition.CPD.html#hottbox.algorithms.decomposition.CPD.decompose">decompose() (CPD method)</a>
 
       <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.decompose">(HOOI method)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.HOOI.html#hottbox.algorithms.decomposition.HOOI.decompose">(HOOI method)</a>
 </li>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.decompose">(HOSVD method)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.HOSVD.html#hottbox.algorithms.decomposition.HOSVD.decompose">(HOSVD method)</a>
 </li>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.decompose">(TTSVD method)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.RandomisedCPD.html#hottbox.algorithms.decomposition.RandomisedCPD.decompose">(RandomisedCPD method)</a>
+</li>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.TTSVD.html#hottbox.algorithms.decomposition.TTSVD.decompose">(TTSVD method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.describe">describe() (Tensor method)</a>
+      <li><a href="api/generated/hottbox.utils.generation.dense_tensor.html#hottbox.utils.generation.dense_tensor">dense_tensor() (in module hottbox.utils.generation)</a>
 </li>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.dropdown">dropdown (BaseComponentPlot attribute)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.describe">describe() (Tensor method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -400,11 +472,7 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.eta_history_">eta_history_ (LSSTM attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots">extend_available_plots() (BaseComponentPlot method)</a>
+      <li><a href="api/generated/hottbox.contrib.visualisation.BaseComponentPlot.html#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots">extend_available_plots() (BaseComponentPlot method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -412,32 +480,38 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.fit">fit() (LSSTM method)</a>
-</li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.fmat">fmat (TensorCPD attribute)</a>
+      <li><a href="api/generated/hottbox.algorithms.classification.LSSTM.html#hottbox.algorithms.classification.LSSTM.fit">fit() (LSSTM method)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.fmat">(TensorTKD attribute)</a>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVAC.html#hottbox.algorithms.classification.TelVAC.fit">(TelVAC method)</a>
+</li>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVI.html#hottbox.algorithms.classification.TelVI.fit">(TelVI method)</a>
 </li>
       </ul></li>
-      <li><a href="api/hottbox.core.html#hottbox.core.operations.fold">fold() (in module hottbox.core.operations)</a>
+      <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.fmat">fmat (TensorCPD attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.fold">(Tensor method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.fmat">(TensorTKD attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/generated/hottbox.core.fold.html#hottbox.core.fold">fold() (in module hottbox.core)</a>
+
+      <ul>
+        <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.fold">(Tensor method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.frob_norm">frob_norm (Tensor attribute)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.frob_norm">frob_norm (Tensor attribute)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.ft_shape">ft_shape (Tensor attribute)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.ft_shape">ft_shape (Tensor attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.ft_shape">(TensorCPD attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.ft_shape">(TensorCPD attribute)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.ft_shape">(TensorTKD attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.ft_shape">(TensorTKD attribute)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.ft_shape">(TensorTT attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.ft_shape">(TensorTT attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -446,63 +520,67 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.gen_test_data">gen_test_data() (in module hottbox.contrib.visualisation)</a>
+      <li><a href="api/generated/hottbox.contrib.visualisation.gen_test_data.html#hottbox.contrib.visualisation.gen_test_data">gen_test_data() (in module hottbox.contrib.visualisation)</a>
+</li>
+      <li><a href="api/generated/hottbox.contrib.visualisation.gen_test_tensor_cpd.html#hottbox.contrib.visualisation.gen_test_tensor_cpd">gen_test_tensor_cpd() (in module hottbox.contrib.visualisation)</a>
+</li>
+      <li><a href="api/generated/hottbox.algorithms.classification.LSSTM.html#hottbox.algorithms.classification.LSSTM.get_params">get_params() (LSSTM method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.gen_test_tensor_cpd">gen_test_tensor_cpd() (in module hottbox.contrib.visualisation)</a>
+      <li><a href="api/generated/hottbox.algorithms.classification.TelVAC.html#hottbox.algorithms.classification.TelVAC.get_params_base_clf">get_params_base_clf() (TelVAC method)</a>
+
+      <ul>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVI.html#hottbox.algorithms.classification.TelVI.get_params_base_clf">(TelVI method)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.get_params">get_params() (LSSTM method)</a>
+      </ul></li>
+      <li><a href="api/generated/hottbox.algorithms.classification.TelVAC.html#hottbox.algorithms.classification.TelVAC.grid_search">grid_search() (TelVAC method)</a>
+
+      <ul>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVI.html#hottbox.algorithms.classification.TelVI.grid_search">(TelVI method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.operations.hadamard">hadamard() (in module hottbox.core.operations)</a>
+      <li><a href="api/generated/hottbox.core.hadamard.html#hottbox.core.hadamard">hadamard() (in module hottbox.core)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI">HOOI (class in hottbox.algorithms.decomposition.tucker)</a>
+      <li><a href="api/generated/hottbox.utils.generation.hankel_matrix.html#hottbox.utils.generation.hankel_matrix">hankel_matrix() (in module hottbox.utils.generation)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD">HOSVD (class in hottbox.algorithms.decomposition.tucker)</a>
+      <li><a href="api/generated/hottbox.algorithms.decomposition.HOOI.html#hottbox.algorithms.decomposition.HOOI">HOOI (class in hottbox.algorithms.decomposition)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.html#module-hottbox.algorithms">hottbox.algorithms (module)</a>
+      <li><a href="api/generated/hottbox.algorithms.decomposition.HOSVD.html#hottbox.algorithms.decomposition.HOSVD">HOSVD (class in hottbox.algorithms.decomposition)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">hottbox.algorithms.classification (module)</a>
+      <li><a href="api/hottbox.algorithms.html#module-hottbox.algorithms.classification">hottbox.algorithms.classification (module)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">hottbox.algorithms.classification.stm (module)</a>
+      <li><a href="api/hottbox.algorithms.html#module-hottbox.algorithms.decomposition">hottbox.algorithms.decomposition (module)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">hottbox.algorithms.decomposition (module)</a>
+      <li><a href="api/hottbox.contrib.html#module-hottbox.contrib">hottbox.contrib (module)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">hottbox.algorithms.decomposition.cpd (module)</a>
-</li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">hottbox.algorithms.decomposition.tensor_train (module)</a>
-</li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">hottbox.algorithms.decomposition.tucker (module)</a>
+      <li><a href="api/hottbox.contrib.html#module-hottbox.contrib.visualisation">hottbox.contrib.visualisation (module)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.contrib.html#module-hottbox.contrib.visualisation">hottbox.contrib.visualisation (module)</a>
-</li>
-      <li><a href="api/hottbox.core.html#module-hottbox.core">hottbox.core (module)</a>
-</li>
       <li><a href="api/hottbox.core.html#module-hottbox.core.operations">hottbox.core.operations (module)</a>
 </li>
       <li><a href="api/hottbox.core.html#module-hottbox.core.structures">hottbox.core.structures (module)</a>
 </li>
-      <li><a href="api/hottbox.metrics.html#module-hottbox.metrics">hottbox.metrics (module)</a>
+      <li><a href="api/hottbox.datasets.html#module-hottbox.datasets">hottbox.datasets (module)</a>
 </li>
-      <li><a href="api/hottbox.metrics.html#module-hottbox.metrics.base">hottbox.metrics.base (module)</a>
+      <li><a href="api/hottbox.errors.html#module-hottbox.errors">hottbox.errors (module)</a>
+</li>
+      <li><a href="api/hottbox.metrics.html#module-hottbox.metrics">hottbox.metrics (module)</a>
 </li>
       <li><a href="api/hottbox.pdtools.html#module-hottbox.pdtools">hottbox.pdtools (module)</a>
 </li>
-      <li><a href="api/hottbox.pdtools.html#module-hottbox.pdtools.utils">hottbox.pdtools.utils (module)</a>
-</li>
       <li><a href="api/hottbox.rank.html#module-hottbox.rank">hottbox.rank (module)</a>
 </li>
-      <li><a href="api/hottbox.rank.html#module-hottbox.rank.rank_estimation">hottbox.rank.rank_estimation (module)</a>
+      <li><a href="api/hottbox.utils.html#module-hottbox.utils.generation">hottbox.utils.generation (module)</a>
 </li>
-      <li><a href="api/hottbox.utils.html#module-hottbox.utils">hottbox.utils (module)</a>
+      <li><a href="api/hottbox.utils.html#module-hottbox.utils.validation">hottbox.utils.validation (module)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -510,7 +588,15 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.in_normal_state">in_normal_state (Tensor attribute)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.in_normal_state">in_normal_state (Tensor attribute)</a>
+</li>
+      <li><a href="api/generated/hottbox.utils.validation.is_super_symmetric.html#hottbox.utils.validation.is_super_symmetric">is_super_symmetric() (in module hottbox.utils.validation)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/hottbox.utils.validation.is_toeplitz_matrix.html#hottbox.utils.validation.is_toeplitz_matrix">is_toeplitz_matrix() (in module hottbox.utils.validation)</a>
+</li>
+      <li><a href="api/generated/hottbox.utils.validation.is_toeplitz_tensor.html#hottbox.utils.validation.is_toeplitz_tensor">is_toeplitz_tensor() (in module hottbox.utils.validation)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -518,15 +604,15 @@
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.operations.khatri_rao">khatri_rao() (in module hottbox.core.operations)</a>
+      <li><a href="api/generated/hottbox.core.khatri_rao.html#hottbox.core.khatri_rao">khatri_rao() (in module hottbox.core)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.operations.kolda_fold">kolda_fold() (in module hottbox.core.operations)</a>
+      <li><a href="api/generated/hottbox.core.kolda_fold.html#hottbox.core.kolda_fold">kolda_fold() (in module hottbox.core)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.operations.kolda_unfold">kolda_unfold() (in module hottbox.core.operations)</a>
+      <li><a href="api/generated/hottbox.core.kolda_unfold.html#hottbox.core.kolda_unfold">kolda_unfold() (in module hottbox.core)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.operations.kronecker">kronecker() (in module hottbox.core.operations)</a>
+      <li><a href="api/generated/hottbox.core.kronecker.html#hottbox.core.kronecker">kronecker() (in module hottbox.core)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -534,7 +620,7 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM">LSSTM (class in hottbox.algorithms.classification.stm)</a>
+      <li><a href="api/generated/hottbox.algorithms.classification.LSSTM.html#hottbox.algorithms.classification.LSSTM">LSSTM (class in hottbox.algorithms.classification)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -542,39 +628,43 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.metrics.html#hottbox.metrics.base.mape">mape() (in module hottbox.metrics.base)</a>
+      <li><a href="api/generated/hottbox.datasets.make_clusters.html#hottbox.datasets.make_clusters">make_clusters() (in module hottbox.datasets)</a>
 </li>
-      <li><a href="api/hottbox.rank.html#hottbox.rank.rank_estimation.mlrank">mlrank() (in module hottbox.rank.rank_estimation)</a>
+      <li><a href="api/generated/hottbox.metrics.mape.html#hottbox.metrics.mape">mape() (in module hottbox.metrics)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.operations.mode_n_product">mode_n_product() (in module hottbox.core.operations)</a>
+      <li><a href="api/generated/hottbox.rank.mlrank.html#hottbox.rank.mlrank">mlrank() (in module hottbox.rank)</a>
+</li>
+      <li><a href="api/generated/hottbox.core.mode_n_product.html#hottbox.core.mode_n_product">mode_n_product() (in module hottbox.core)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.mode_n_product">(Tensor method)</a>
+        <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.mode_n_product">(Tensor method)</a>
 </li>
       </ul></li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.mode_names">mode_names (Tensor attribute)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.mode_names">mode_names (Tensor attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.mode_names">(TensorCPD attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.mode_names">(TensorCPD attribute)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.mode_names">(TensorTKD attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.mode_names">(TensorTKD attribute)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.mode_names">(TensorTT attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.mode_names">(TensorTT attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.modes">modes (Tensor attribute)</a>
+      <li><a href="api/generated/hottbox.errors.ModeError.html#hottbox.errors.ModeError">ModeError (class in hottbox.errors)</a>
+</li>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.modes">modes (Tensor attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.modes">(TensorCPD attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.modes">(TensorCPD attribute)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.modes">(TensorTKD attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.modes">(TensorTKD attribute)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.modes">(TensorTT attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.modes">(TensorTT attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api/hottbox.metrics.html#hottbox.metrics.base.mse">mse() (in module hottbox.metrics.base)</a>
+      <li><a href="api/generated/hottbox.metrics.mse.html#hottbox.metrics.mse">mse() (in module hottbox.metrics)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -582,14 +672,16 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.name">name (CPD attribute)</a>
+      <li><a href="api/generated/hottbox.algorithms.decomposition.CPD.html#hottbox.algorithms.decomposition.CPD.name">name (CPD attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.name">(HOOI attribute)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.HOOI.html#hottbox.algorithms.decomposition.HOOI.name">(HOOI attribute)</a>
 </li>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.name">(HOSVD attribute)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.HOSVD.html#hottbox.algorithms.decomposition.HOSVD.name">(HOSVD attribute)</a>
 </li>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.name">(TTSVD attribute)</a>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.RandomisedCPD.html#hottbox.algorithms.decomposition.RandomisedCPD.name">(RandomisedCPD attribute)</a>
+</li>
+        <li><a href="api/generated/hottbox.algorithms.decomposition.TTSVD.html#hottbox.algorithms.decomposition.TTSVD.name">(TTSVD attribute)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -598,43 +690,57 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.order">order (Tensor attribute)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.order">order (Tensor attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.order">(TensorCPD attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.order">(TensorCPD attribute)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.order">(TensorTKD attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.order">(TensorTKD attribute)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.order">(TensorTT attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.order">(TensorTT attribute)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.out">out (BaseComponentPlot attribute)</a>
-</li>
   </ul></td>
 </tr></table>
 
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.pdtools.html#hottbox.pdtools.utils.pd_to_tensor">pd_to_tensor() (in module hottbox.pdtools.utils)</a>
+      <li><a href="api/generated/hottbox.pdtools.pd_to_tensor.html#hottbox.pdtools.pd_to_tensor">pd_to_tensor() (in module hottbox.pdtools)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.cpd.CPD.plot">plot() (CPD method)</a>
+      <li><a href="api/generated/hottbox.algorithms.classification.LSSTM.html#hottbox.algorithms.classification.LSSTM.predict">predict() (LSSTM method)</a>
 
       <ul>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOOI.plot">(HOOI method)</a>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVAC.html#hottbox.algorithms.classification.TelVAC.predict">(TelVAC method)</a>
 </li>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tucker.HOSVD.plot">(HOSVD method)</a>
-</li>
-        <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD.plot">(TTSVD method)</a>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVI.html#hottbox.algorithms.classification.TelVI.predict">(TelVI method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.predict">predict() (LSSTM method)</a>
+      <li><a href="api/generated/hottbox.algorithms.classification.LSSTM.html#hottbox.algorithms.classification.LSSTM.predict_proba">predict_proba() (LSSTM method)</a>
+
+      <ul>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVAC.html#hottbox.algorithms.classification.TelVAC.predict_proba">(TelVAC method)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.predict_proba">predict_proba() (LSSTM method)</a>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVI.html#hottbox.algorithms.classification.TelVI.predict_proba">(TelVI method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/hottbox.utils.generation.quick_tensor.html#hottbox.utils.generation.quick_tensor">quick_tensor() (in module hottbox.utils.generation)</a>
+</li>
+      <li><a href="api/generated/hottbox.utils.generation.quick_tensorcpd.html#hottbox.utils.generation.quick_tensorcpd">quick_tensorcpd() (in module hottbox.utils.generation)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/generated/hottbox.utils.generation.quick_tensortkd.html#hottbox.utils.generation.quick_tensortkd">quick_tensortkd() (in module hottbox.utils.generation)</a>
+</li>
+      <li><a href="api/generated/hottbox.utils.generation.quick_tensortt.html#hottbox.utils.generation.quick_tensortt">quick_tensortt() (in module hottbox.utils.generation)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -642,53 +748,55 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.rank">rank (TensorCPD attribute)</a>
+      <li><a href="api/generated/hottbox.algorithms.decomposition.RandomisedCPD.html#hottbox.algorithms.decomposition.RandomisedCPD">RandomisedCPD (class in hottbox.algorithms.decomposition)</a>
+</li>
+      <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.rank">rank (TensorCPD attribute)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.rank">(TensorTKD attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.rank">(TensorTKD attribute)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.rank">(TensorTT attribute)</a>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.rank">(TensorTT attribute)</a>
 </li>
       </ul></li>
-      <li><a href="api/hottbox.rank.html#hottbox.rank.rank_estimation.rankest">rankest() (in module hottbox.rank.rank_estimation)</a>
+      <li><a href="api/generated/hottbox.rank.rankest.html#hottbox.rank.rankest">rankest() (in module hottbox.rank)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.reconstruct">reconstruct() (TensorCPD method)</a>
+      <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.reconstruct">reconstruct() (TensorCPD method)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.reconstruct">(TensorTKD method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.reconstruct">(TensorTKD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.reconstruct">(TensorTT method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.reconstruct">(TensorTT method)</a>
 </li>
       </ul></li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.reset_meta">reset_meta() (Tensor method)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.reset_meta">reset_meta() (Tensor method)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.reset_mode_index">reset_mode_index() (Tensor method)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.reset_mode_index">reset_mode_index() (Tensor method)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.reset_mode_index">(TensorCPD method)</a>
+        <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.reset_mode_index">(TensorCPD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.reset_mode_index">(TensorTKD method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.reset_mode_index">(TensorTKD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.reset_mode_index">(TensorTT method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.reset_mode_index">(TensorTT method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.reset_mode_name">reset_mode_name() (Tensor method)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.reset_mode_name">reset_mode_name() (Tensor method)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.reset_mode_name">(TensorCPD method)</a>
+        <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.reset_mode_name">(TensorCPD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.reset_mode_name">(TensorTKD method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.reset_mode_name">(TensorTKD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.reset_mode_name">(TensorTT method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.reset_mode_name">(TensorTT method)</a>
 </li>
       </ul></li>
-      <li><a href="api/hottbox.metrics.html#hottbox.metrics.base.residual_rel_error">residual_rel_error() (in module hottbox.metrics.base)</a>
+      <li><a href="api/generated/hottbox.metrics.residual_rel_error.html#hottbox.metrics.residual_rel_error">residual_rel_error() (in module hottbox.metrics)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.residual_tensor">residual_tensor() (in module hottbox.core.structures)</a>
+      <li><a href="api/generated/hottbox.utils.generation.residual_tensor.html#hottbox.utils.generation.residual_tensor">residual_tensor() (in module hottbox.utils.generation)</a>
 </li>
-      <li><a href="api/hottbox.metrics.html#hottbox.metrics.base.rmse">rmse() (in module hottbox.metrics.base)</a>
+      <li><a href="api/generated/hottbox.metrics.rmse.html#hottbox.metrics.rmse">rmse() (in module hottbox.metrics)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -696,41 +804,61 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.score">score() (LSSTM method)</a>
+      <li><a href="api/generated/hottbox.core.sampled_khatri_rao.html#hottbox.core.sampled_khatri_rao">sampled_khatri_rao() (in module hottbox.core)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.set_mode_index">set_mode_index() (Tensor method)</a>
+      <li><a href="api/generated/hottbox.algorithms.classification.LSSTM.html#hottbox.algorithms.classification.LSSTM.score">score() (LSSTM method)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.set_mode_index">(TensorCPD method)</a>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVAC.html#hottbox.algorithms.classification.TelVAC.score">(TelVAC method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.set_mode_index">(TensorTKD method)</a>
-</li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.set_mode_index">(TensorTT method)</a>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVI.html#hottbox.algorithms.classification.TelVI.score">(TelVI method)</a>
 </li>
       </ul></li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.set_mode_names">set_mode_names() (Tensor method)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.set_mode_index">set_mode_index() (Tensor method)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD.set_mode_names">(TensorCPD method)</a>
+        <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.set_mode_index">(TensorCPD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD.set_mode_names">(TensorTKD method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.set_mode_index">(TensorTKD method)</a>
 </li>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT.set_mode_names">(TensorTT method)</a>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.set_mode_index">(TensorTT method)</a>
+</li>
+      </ul></li>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.set_mode_names">set_mode_names() (Tensor method)</a>
+
+      <ul>
+        <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.set_mode_names">(TensorCPD method)</a>
+</li>
+        <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.set_mode_names">(TensorTKD method)</a>
+</li>
+        <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.set_mode_names">(TensorTT method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.set_params">set_params() (LSSTM method)</a>
+      <li><a href="api/generated/hottbox.algorithms.classification.LSSTM.html#hottbox.algorithms.classification.LSSTM.set_params">set_params() (LSSTM method)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.shape">shape (Tensor attribute)</a>
+      <li><a href="api/generated/hottbox.algorithms.classification.TelVAC.html#hottbox.algorithms.classification.TelVAC.set_params_base_clf">set_params_base_clf() (TelVAC method)</a>
+
+      <ul>
+        <li><a href="api/generated/hottbox.algorithms.classification.TelVI.html#hottbox.algorithms.classification.TelVI.set_params_base_clf">(TelVI method)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.show_state">show_state() (Tensor method)</a>
+      </ul></li>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.shape">shape (Tensor attribute)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.size">size (Tensor attribute)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.show_state">show_state() (Tensor method)</a>
 </li>
-      <li><a href="api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.sliders">sliders (BaseComponentPlot attribute)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.size">size (Tensor attribute)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.super_diag_tensor">super_diag_tensor() (in module hottbox.core.structures)</a>
+      <li><a href="api/generated/hottbox.utils.generation.sparse_tensor.html#hottbox.utils.generation.sparse_tensor">sparse_tensor() (in module hottbox.utils.generation)</a>
+</li>
+      <li><a href="api/generated/hottbox.errors.StateError.html#hottbox.errors.StateError">StateError (class in hottbox.errors)</a>
+</li>
+      <li><a href="api/generated/hottbox.utils.generation.super_diag_tensor.html#hottbox.utils.generation.super_diag_tensor">super_diag_tensor() (in module hottbox.utils.generation)</a>
+</li>
+      <li><a href="api/generated/hottbox.utils.generation.super_diagonal_tensor.html#hottbox.utils.generation.super_diagonal_tensor">super_diagonal_tensor() (in module hottbox.utils.generation)</a>
+</li>
+      <li><a href="api/generated/hottbox.utils.generation.super_symmetric_tensor.html#hottbox.utils.generation.super_symmetric_tensor">super_symmetric_tensor() (in module hottbox.utils.generation)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -738,19 +866,35 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor">Tensor (class in hottbox.core.structures)</a>
+      <li><a href="api/generated/hottbox.algorithms.classification.TelVAC.html#hottbox.algorithms.classification.TelVAC">TelVAC (class in hottbox.algorithms.classification)</a>
 </li>
-      <li><a href="api/hottbox.pdtools.html#hottbox.pdtools.utils.tensor_to_pd">tensor_to_pd() (in module hottbox.pdtools.utils)</a>
+      <li><a href="api/generated/hottbox.algorithms.classification.TelVI.html#hottbox.algorithms.classification.TelVI">TelVI (class in hottbox.algorithms.classification)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorCPD">TensorCPD (class in hottbox.core.structures)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor">Tensor (class in hottbox.core)</a>
+</li>
+      <li><a href="api/generated/hottbox.pdtools.tensor_to_pd.html#hottbox.pdtools.tensor_to_pd">tensor_to_pd() (in module hottbox.pdtools)</a>
+</li>
+      <li><a href="api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD">TensorCPD (class in hottbox.core)</a>
+</li>
+      <li><a href="api/generated/hottbox.errors.TensorModeError.html#hottbox.errors.TensorModeError">TensorModeError (class in hottbox.errors)</a>
+</li>
+      <li><a href="api/generated/hottbox.errors.TensorShapeError.html#hottbox.errors.TensorShapeError">TensorShapeError (class in hottbox.errors)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTKD">TensorTKD (class in hottbox.core.structures)</a>
+      <li><a href="api/generated/hottbox.errors.TensorStateError.html#hottbox.errors.TensorStateError">TensorStateError (class in hottbox.errors)</a>
 </li>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.TensorTT">TensorTT (class in hottbox.core.structures)</a>
+      <li><a href="api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD">TensorTKD (class in hottbox.core)</a>
 </li>
-      <li><a href="api/hottbox.algorithms.decomposition.html#hottbox.algorithms.decomposition.tensor_train.TTSVD">TTSVD (class in hottbox.algorithms.decomposition.tensor_train)</a>
+      <li><a href="api/generated/hottbox.errors.TensorTopologyError.html#hottbox.errors.TensorTopologyError">TensorTopologyError (class in hottbox.errors)</a>
+</li>
+      <li><a href="api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT">TensorTT (class in hottbox.core)</a>
+</li>
+      <li><a href="api/generated/hottbox.utils.generation.toeplitz_matrix.html#hottbox.utils.generation.toeplitz_matrix">toeplitz_matrix() (in module hottbox.utils.generation)</a>
+</li>
+      <li><a href="api/generated/hottbox.utils.generation.toeplitz_tensor.html#hottbox.utils.generation.toeplitz_tensor">toeplitz_tensor() (in module hottbox.utils.generation)</a>
+</li>
+      <li><a href="api/generated/hottbox.algorithms.decomposition.TTSVD.html#hottbox.algorithms.decomposition.TTSVD">TTSVD (class in hottbox.algorithms.decomposition)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -758,10 +902,10 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.operations.unfold">unfold() (in module hottbox.core.operations)</a>
+      <li><a href="api/generated/hottbox.core.unfold.html#hottbox.core.unfold">unfold() (in module hottbox.core)</a>
 
       <ul>
-        <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.unfold">(Tensor method)</a>
+        <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.unfold">(Tensor method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -770,7 +914,7 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.vectorise">vectorise() (Tensor method)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.vectorise">vectorise() (Tensor method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -778,11 +922,7 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.algorithms.classification.html#hottbox.algorithms.classification.stm.LSSTM.weights_">weights_ (LSSTM attribute)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api/hottbox.core.html#hottbox.core.structures.Tensor.write_subtensor">write_subtensor() (Tensor method)</a>
+      <li><a href="api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.write_subtensor">write_subtensor() (Tensor method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -792,6 +932,10 @@
            </div>
            
           </div>
+    <a href="https://github.com/hottbox/hottbox">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
+
           <footer>
   
 

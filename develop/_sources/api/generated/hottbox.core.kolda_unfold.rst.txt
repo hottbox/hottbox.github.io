@@ -1,0 +1,16 @@
+kolda_unfold
+=========================
+
+::
+
+    # Import statement
+
+    from hottbox.core import kolda_unfold
+
+.. currentmodule:: hottbox.core
+
+.. autofunction:: kolda_unfold
+
+.. raw:: html
+
+    <div class="clearer"></div>

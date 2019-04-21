@@ -1,0 +1,18 @@
+ComponentPlotCPD
+==============================================
+
+::
+
+    # Import statement
+
+    from hottbox.contrib.visualisation import ComponentPlotCPD
+
+.. currentmodule:: hottbox.contrib.visualisation
+
+.. autoclass:: ComponentPlotCPD
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

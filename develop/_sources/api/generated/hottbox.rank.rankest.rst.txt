@@ -1,0 +1,16 @@
+rankest
+====================
+
+::
+
+    # Import statement
+
+    from hottbox.rank import rankest
+
+.. currentmodule:: hottbox.rank
+
+.. autofunction:: rankest
+
+.. raw:: html
+
+    <div class="clearer"></div>

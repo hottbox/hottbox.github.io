@@ -13,6 +13,8 @@
 
   
   
+    <link rel="shortcut icon" href="../_static/hottbox_favicon-48x48.ico"/>
+  
   
   
 
@@ -35,8 +37,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tensor Decomposition Algorithms" href="hottbox.algorithms.decomposition.html" />
-    <link rel="prev" title="Core Structures and Operations" href="hottbox.core.html" /> 
+    <link rel="next" title="CPD" href="generated/hottbox.algorithms.decomposition.CPD.html" />
+    <link rel="prev" title="sampled_khatri_rao" href="generated/hottbox.core.sampled_khatri_rao.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -63,7 +65,7 @@
             
             
               <div class="version">
-                0.2.1
+                0.2.2
               </div>
             
           
@@ -95,37 +97,158 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">HOTTBOX API</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="hottbox.core.html">Core Structures and Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.Tensor.html">Tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.TensorCPD.html">TensorCPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.TensorTKD.html">TensorTKD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.TensorTT.html">TensorTT</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.unfold.html">unfold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.fold.html">fold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.kolda_unfold.html">kolda_unfold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.kolda_fold.html">kolda_fold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.mode_n_product.html">mode_n_product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.kronecker.html">kronecker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.hadamard.html">hadamard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.khatri_rao.html">khatri_rao</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.core.sampled_khatri_rao.html">sampled_khatri_rao</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-hottbox.algorithms.decomposition">Tensor Decomposition Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.algorithms.decomposition.CPD.html">CPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.algorithms.decomposition.RandomisedCPD.html">RandomisedCPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.algorithms.decomposition.HOSVD.html">HOSVD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.algorithms.decomposition.HOOI.html">HOOI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.algorithms.classification.LSSTM.html">LSSTM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.algorithms.classification.TelVI.html">TelVI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.algorithms.classification.TelVAC.html">TelVAC</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.pdtools.html">Pandas Integration Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.utils.html">Utility Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.rank.html">Rank Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.pdtools.html">Pandas Integration Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.pdtools.html#module-hottbox.pdtools">Conversion Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.pdtools.pd_to_tensor.html">pd_to_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.pdtools.tensor_to_pd.html">tensor_to_pd</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.metrics.html">Metrics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.metrics.html#module-hottbox.metrics">Approximation scores</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.metrics.mse.html">mse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.metrics.rmse.html">rmse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.metrics.mape.html">mape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.metrics.residual_rel_error.html">residual_rel_error</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.metrics.html#classification-scores">Classification scores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.rank.html">Multi-dimensional Rank</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.rank.html#module-hottbox.rank">Rank Estimation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.rank.rankest.html">rankest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.rank.mlrank.html">mlrank</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.datasets.html">Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.datasets.html#module-hottbox.datasets">Synthetic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.datasets.make_clusters.html">make_clusters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.errors.html">Custom Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.errors.html#module-hottbox.errors">Errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.errors.TensorStateError.html">TensorStateError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.errors.TensorModeError.html">TensorModeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.errors.TensorShapeError.html">TensorShapeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.errors.TensorTopologyError.html">TensorTopologyError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.errors.StateError.html">StateError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.errors.ModeError.html">ModeError</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hottbox.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.utils.html#module-hottbox.utils.generation">Generation of N-dimensional arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.toeplitz_matrix.html">toeplitz_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.hankel_matrix.html">hankel_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.quick_tensor.html">quick_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.quick_tensorcpd.html">quick_tensorcpd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.quick_tensortkd.html">quick_tensortkd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.quick_tensortt.html">quick_tensortt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.dense_tensor.html">dense_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.super_diagonal_tensor.html">super_diagonal_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.super_symmetric_tensor.html">super_symmetric_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.sparse_tensor.html">sparse_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.super_diag_tensor.html">super_diag_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.residual_tensor.html">residual_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.generation.toeplitz_tensor.html">toeplitz_tensor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.utils.html#module-hottbox.utils.validation">Validation of N-dimensional arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.validation.is_toeplitz_matrix.html">is_toeplitz_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.validation.is_super_symmetric.html">is_super_symmetric</a></li>
+<li class="toctree-l4"><a class="reference internal" href="generated/hottbox.utils.validation.is_toeplitz_tensor.html">is_toeplitz_tensor</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="hottbox.contrib.html">Experimental features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="hottbox.contrib.html#visualisation">Visualisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hottbox.contrib.html#module-hottbox.contrib.visualisation">Visualisation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.contrib.html#interactive-dashboards">Interactive dashboards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.contrib.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials.html">HOTTBOX Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#hottbox-v0-2-2-unreleased">[HOTTBOX v0.2.2 Unreleased]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#package-status-on-branch-develop">Package status on branch <code class="docutils literal notranslate"><span class="pre">develop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#removed">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#hottbox-v0-2-1-2019-03-22">HOTTBOX v0.2.1 (2019-03-22)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id1">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#hottbox-v0-1-3">HOTTBOX v0.1.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id2">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id3">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id4">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id5">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#hottbox-v0-1-2">HOTTBOX v0.1.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id6">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id7">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id8">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#hottbox-v0-1-1">HOTTBOX v0.1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../changelog.html#id9">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../development_guide/index.html">Development guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../development_guide/how_to_contribute.html">How to contribute</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
@@ -216,26 +339,62 @@
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
            <div itemprop="articleBody">
             
-  <div class="section" id="module-hottbox.algorithms">
-<span id="algorithms"></span><h1>Algorithms<a class="headerlink" href="#module-hottbox.algorithms" title="Permalink to this headline">¶</a></h1>
-<p>This module consist of methods and classes for various numerical algorithms</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="algorithms">
+<h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-hottbox.algorithms.decomposition">
+<span id="tensor-decomposition-algorithms"></span><h2>Tensor Decomposition Algorithms<a class="headerlink" href="#module-hottbox.algorithms.decomposition" title="Permalink to this headline">¶</a></h2>
+<p>Module for various algorithms of tensor decompositions</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/hottbox.algorithms.decomposition.CPD.html#hottbox.algorithms.decomposition.CPD" title="hottbox.algorithms.decomposition.CPD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CPD</span></code></a></p></td>
+<td><p>Canonical Polyadic Decomposition.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/hottbox.algorithms.decomposition.RandomisedCPD.html#hottbox.algorithms.decomposition.RandomisedCPD" title="hottbox.algorithms.decomposition.RandomisedCPD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RandomisedCPD</span></code></a></p></td>
+<td><p>Randomised Canonical Polyadic Decomposition.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/hottbox.algorithms.decomposition.HOSVD.html#hottbox.algorithms.decomposition.HOSVD" title="hottbox.algorithms.decomposition.HOSVD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HOSVD</span></code></a></p></td>
+<td><p>Higher Order Singular Value Decomposition.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/hottbox.algorithms.decomposition.HOOI.html#hottbox.algorithms.decomposition.HOOI" title="hottbox.algorithms.decomposition.HOOI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HOOI</span></code></a></p></td>
+<td><p>Higher Order Orthogonal Iteration Decomposition.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/hottbox.algorithms.decomposition.TTSVD.html#hottbox.algorithms.decomposition.TTSVD" title="hottbox.algorithms.decomposition.TTSVD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TTSVD</span></code></a></p></td>
+<td><p>Tensor Train Decomposition.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="module-hottbox.algorithms.classification">
+<span id="multi-linear-classification-algorithms"></span><h2>Multi-linear Classification Algorithms<a class="headerlink" href="#module-hottbox.algorithms.classification" title="Permalink to this headline">¶</a></h2>
+<p>This module contains various models for classification</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/hottbox.algorithms.classification.LSSTM.html#hottbox.algorithms.classification.LSSTM" title="hottbox.algorithms.classification.LSSTM"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LSSTM</span></code></a></p></td>
+<td><p>Least Squares Support Tensor Machine (LS-STM) for binary classification.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/hottbox.algorithms.classification.TelVI.html#hottbox.algorithms.classification.TelVI" title="hottbox.algorithms.classification.TelVI"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TelVI</span></code></a></p></td>
+<td><p>Tensor Ensemble Learning: Vectors Independently (TelVI)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/hottbox.algorithms.classification.TelVAC.html#hottbox.algorithms.classification.TelVAC" title="hottbox.algorithms.classification.TelVAC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TelVAC</span></code></a></p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -243,14 +402,18 @@
            </div>
            
           </div>
+    <a href="https://github.com/hottbox/hottbox">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
+
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hottbox.algorithms.decomposition.html" class="btn btn-neutral float-right" title="Tensor Decomposition Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="generated/hottbox.algorithms.decomposition.CPD.html" class="btn btn-neutral float-right" title="CPD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hottbox.core.html" class="btn btn-neutral float-left" title="Core Structures and Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="generated/hottbox.core.sampled_khatri_rao.html" class="btn btn-neutral float-left" title="sampled_khatri_rao" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

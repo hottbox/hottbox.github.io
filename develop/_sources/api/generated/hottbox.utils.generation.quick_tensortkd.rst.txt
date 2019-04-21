@@ -1,0 +1,16 @@
+quick_tensortkd
+========================================
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import quick_tensortkd
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: quick_tensortkd
+
+.. raw:: html
+
+    <div class="clearer"></div>

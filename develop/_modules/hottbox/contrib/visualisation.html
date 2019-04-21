@@ -13,6 +13,8 @@
 
   
   
+    <link rel="shortcut icon" href="../../../_static/hottbox_favicon-48x48.ico"/>
+  
   
   
 
@@ -61,7 +63,7 @@
             
             
               <div class="version">
-                0.2.1
+                0.2.2
               </div>
             
           
@@ -93,37 +95,158 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">HOTTBOX API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.Tensor.html">Tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.TensorCPD.html">TensorCPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.TensorTKD.html">TensorTKD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.TensorTT.html">TensorTT</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.unfold.html">unfold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.fold.html">fold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.kolda_unfold.html">kolda_unfold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.kolda_fold.html">kolda_fold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.mode_n_product.html">mode_n_product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.kronecker.html">kronecker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.hadamard.html">hadamard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.khatri_rao.html">khatri_rao</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.core.sampled_khatri_rao.html">sampled_khatri_rao</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.algorithms.html">Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.html#module-hottbox.algorithms.decomposition">Tensor Decomposition Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.decomposition.CPD.html">CPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.decomposition.RandomisedCPD.html">RandomisedCPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.decomposition.HOSVD.html">HOSVD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.decomposition.HOOI.html">HOOI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.html#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.classification.LSSTM.html">LSSTM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.classification.TelVI.html">TelVI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.classification.TelVAC.html">TelVAC</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.utils.html">Utility Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.rank.html">Rank Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.pdtools.html">Pandas Integration Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.pdtools.html#module-hottbox.pdtools">Conversion Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.pdtools.pd_to_tensor.html">pd_to_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.pdtools.tensor_to_pd.html">tensor_to_pd</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.metrics.html">Metrics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.metrics.html#module-hottbox.metrics">Approximation scores</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.metrics.mse.html">mse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.metrics.rmse.html">rmse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.metrics.mape.html">mape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.metrics.residual_rel_error.html">residual_rel_error</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.metrics.html#classification-scores">Classification scores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.rank.html">Multi-dimensional Rank</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.rank.html#module-hottbox.rank">Rank Estimation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.rank.rankest.html">rankest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.rank.mlrank.html">mlrank</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.datasets.html">Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.datasets.html#module-hottbox.datasets">Synthetic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.datasets.make_clusters.html">make_clusters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.errors.html">Custom Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.errors.html#module-hottbox.errors">Errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.errors.TensorStateError.html">TensorStateError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.errors.TensorModeError.html">TensorModeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.errors.TensorShapeError.html">TensorShapeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.errors.TensorTopologyError.html">TensorTopologyError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.errors.StateError.html">StateError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.errors.ModeError.html">ModeError</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.utils.html#module-hottbox.utils.generation">Generation of N-dimensional arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.toeplitz_matrix.html">toeplitz_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.hankel_matrix.html">hankel_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.quick_tensor.html">quick_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.quick_tensorcpd.html">quick_tensorcpd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.quick_tensortkd.html">quick_tensortkd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.quick_tensortt.html">quick_tensortt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.dense_tensor.html">dense_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.super_diagonal_tensor.html">super_diagonal_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.super_symmetric_tensor.html">super_symmetric_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.sparse_tensor.html">sparse_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.super_diag_tensor.html">super_diag_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.residual_tensor.html">residual_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.generation.toeplitz_tensor.html">toeplitz_tensor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.utils.html#module-hottbox.utils.validation">Validation of N-dimensional arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.validation.is_toeplitz_matrix.html">is_toeplitz_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.validation.is_super_symmetric.html">is_super_symmetric</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.utils.validation.is_toeplitz_tensor.html">is_toeplitz_tensor</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.contrib.html">Experimental features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.contrib.html#visualisation">Visualisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.contrib.html#module-hottbox.contrib.visualisation">Visualisation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.contrib.html#interactive-dashboards">Interactive dashboards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.contrib.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">HOTTBOX Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#hottbox-v0-2-2-unreleased">[HOTTBOX v0.2.2 Unreleased]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#package-status-on-branch-develop">Package status on branch <code class="docutils literal notranslate"><span class="pre">develop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#removed">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#hottbox-v0-2-1-2019-03-22">HOTTBOX v0.2.1 (2019-03-22)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id1">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#hottbox-v0-1-3">HOTTBOX v0.1.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id2">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id3">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id4">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id5">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#hottbox-v0-1-2">HOTTBOX v0.1.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id6">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id7">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id8">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../changelog.html#hottbox-v0-1-1">HOTTBOX v0.1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../changelog.html#id9">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../development_guide/index.html">Development guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../development_guide/how_to_contribute.html">How to contribute</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
@@ -210,6 +333,7 @@
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
            <div itemprop="articleBody">
             
   <h1>Source code for hottbox.contrib.visualisation</h1><div class="highlight"><pre>
@@ -217,12 +341,11 @@
 <span class="sd">This module is for EDA through interactive visualisation of the core structures:</span>
 <span class="sd">``TensorCPD``, ``TensorTKD`` etc.</span>
 
-<span class="sd">All its functionality should be used inside Jupyter Lab/ Jupyter Notebook.</span>
 
-<span class="sd">.. important::</span>
+<span class="sd">..  note::</span>
 
-<span class="sd">    The API provided by this module is experimental and requires additional</span>
-<span class="sd">    dependencies to be installed.</span>
+<span class="sd">    All functionality of this module is designed for the Jupyter Lab.</span>
+<span class="sd">    Thus, it is not guaranteed to work correctly within Jupyter Notebook.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -248,7 +371,7 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">50</span><span class="p">)</span>
 
 
-<div class="viewcode-block" id="gen_test_data"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.gen_test_data">[docs]</a><span class="k">def</span> <span class="nf">gen_test_data</span><span class="p">(</span><span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="gen_test_data"><a class="viewcode-back" href="../../../api/generated/hottbox.contrib.visualisation.gen_test_data.html#hottbox.contrib.visualisation.gen_test_data">[docs]</a><span class="k">def</span> <span class="nf">gen_test_data</span><span class="p">(</span><span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Generate factor matrices which components will be easy to differentiate from one another</span>
 
 <span class="sd">    Parameters</span>
@@ -290,7 +413,7 @@
     <span class="k">return</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span></div>
 
 
-<div class="viewcode-block" id="gen_test_tensor_cpd"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.gen_test_tensor_cpd">[docs]</a><span class="k">def</span> <span class="nf">gen_test_tensor_cpd</span><span class="p">():</span>
+<div class="viewcode-block" id="gen_test_tensor_cpd"><a class="viewcode-back" href="../../../api/generated/hottbox.contrib.visualisation.gen_test_tensor_cpd.html#hottbox.contrib.visualisation.gen_test_tensor_cpd">[docs]</a><span class="k">def</span> <span class="nf">gen_test_tensor_cpd</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot; Generate ``TensorCPD`` object for testing purposes</span>
 
 <span class="sd">    Returns</span>
@@ -331,7 +454,7 @@
                                  <span class="p">])</span>
 
 
-<div class="viewcode-block" id="BaseComponentPlot"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot">[docs]</a><span class="k">class</span> <span class="nc">BaseComponentPlot</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="BaseComponentPlot"><a class="viewcode-back" href="../../../api/generated/hottbox.contrib.visualisation.BaseComponentPlot.html#hottbox.contrib.visualisation.BaseComponentPlot">[docs]</a><span class="k">class</span> <span class="nc">BaseComponentPlot</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Dashboard for interactive visualisation of the factor vectors</span>
 
 <span class="sd">    Attributes</span>
@@ -459,7 +582,7 @@
         <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">fig</span>
 
-<div class="viewcode-block" id="BaseComponentPlot.extend_available_plots"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots">[docs]</a>    <span class="k">def</span> <span class="nf">extend_available_plots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_plots</span><span class="p">,</span> <span class="n">modes</span><span class="o">=</span><span class="p">()):</span>
+<div class="viewcode-block" id="BaseComponentPlot.extend_available_plots"><a class="viewcode-back" href="../../../api/generated/hottbox.contrib.visualisation.BaseComponentPlot.html#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots">[docs]</a>    <span class="k">def</span> <span class="nf">extend_available_plots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">custom_plots</span><span class="p">,</span> <span class="n">modes</span><span class="o">=</span><span class="p">()):</span>
         <span class="sd">&quot;&quot;&quot; Add custom plot functions available for representing factor vectors</span>
 
 <span class="sd">        This method can be used either for adding new ways of plotting of the</span>
@@ -508,7 +631,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">dropdown</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">options</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">updated_options</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="ComponentPlotCPD"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.ComponentPlotCPD">[docs]</a><span class="k">class</span> <span class="nc">ComponentPlotCPD</span><span class="p">(</span><span class="n">BaseComponentPlot</span><span class="p">):</span>
+<div class="viewcode-block" id="ComponentPlotCPD"><a class="viewcode-back" href="../../../api/generated/hottbox.contrib.visualisation.ComponentPlotCPD.html#hottbox.contrib.visualisation.ComponentPlotCPD">[docs]</a><span class="k">class</span> <span class="nc">ComponentPlotCPD</span><span class="p">(</span><span class="n">BaseComponentPlot</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Constructor of the interactive dashboard for the `TensorCPD` objects</span>
 
@@ -547,7 +670,7 @@
         <span class="k">return</span> <span class="n">slider_list</span></div>
 
 
-<div class="viewcode-block" id="ComponentPlotTKD"><a class="viewcode-back" href="../../../api/hottbox.contrib.html#hottbox.contrib.visualisation.ComponentPlotTKD">[docs]</a><span class="k">class</span> <span class="nc">ComponentPlotTKD</span><span class="p">(</span><span class="n">BaseComponentPlot</span><span class="p">):</span>
+<div class="viewcode-block" id="ComponentPlotTKD"><a class="viewcode-back" href="../../../api/generated/hottbox.contrib.visualisation.ComponentPlotTKD.html#hottbox.contrib.visualisation.ComponentPlotTKD">[docs]</a><span class="k">class</span> <span class="nc">ComponentPlotTKD</span><span class="p">(</span><span class="n">BaseComponentPlot</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Constructor of the interactive dashboard for the `TensorTKD` objects</span>
 
@@ -587,6 +710,10 @@
            </div>
            
           </div>
+    <a href="https://github.com/hottbox/hottbox">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
+
           <footer>
   
 

@@ -1,0 +1,16 @@
+quick_tensorcpd
+========================================
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import quick_tensorcpd
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: quick_tensorcpd
+
+.. raw:: html
+
+    <div class="clearer"></div>

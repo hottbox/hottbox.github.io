@@ -1,0 +1,18 @@
+LSSTM
+=======================================
+
+::
+
+    # Import statement
+
+    from hottbox.algorithms.classification import LSSTM
+
+.. currentmodule:: hottbox.algorithms.classification
+
+.. autoclass:: LSSTM
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

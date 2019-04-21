@@ -1,0 +1,16 @@
+is_toeplitz_tensor
+===========================================
+
+::
+
+    # Import statement
+
+    from hottbox.utils.validation import is_toeplitz_tensor
+
+.. currentmodule:: hottbox.utils.validation
+
+.. autofunction:: is_toeplitz_tensor
+
+.. raw:: html
+
+    <div class="clearer"></div>

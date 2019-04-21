@@ -1,0 +1,16 @@
+kolda_fold
+=======================
+
+::
+
+    # Import statement
+
+    from hottbox.core import kolda_fold
+
+.. currentmodule:: hottbox.core
+
+.. autofunction:: kolda_fold
+
+.. raw:: html
+
+    <div class="clearer"></div>

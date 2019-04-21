@@ -1,0 +1,18 @@
+RandomisedCPD
+==============================================
+
+::
+
+    # Import statement
+
+    from hottbox.algorithms.decomposition import RandomisedCPD
+
+.. currentmodule:: hottbox.algorithms.decomposition
+
+.. autoclass:: RandomisedCPD
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -1,0 +1,1022 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tensor &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/hottbox_favicon-48x48.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TensorCPD" href="hottbox.core.TensorCPD.html" />
+    <link rel="prev" title="Core Structures and Operations" href="../hottbox.core.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html">
+          
+
+          
+            
+            <img src="../../_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.2.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installing HOTTBOX</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#running-tests">Running tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">HOTTBOX API</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../hottbox.core.html">Core Structures and Operations</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.TensorCPD.html">TensorCPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.TensorTKD.html">TensorTKD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.TensorTT.html">TensorTT</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.unfold.html">unfold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.fold.html">fold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.kolda_unfold.html">kolda_unfold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.kolda_fold.html">kolda_fold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.mode_n_product.html">mode_n_product</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.kronecker.html">kronecker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.hadamard.html">hadamard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.khatri_rao.html">khatri_rao</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.sampled_khatri_rao.html">sampled_khatri_rao</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition">Tensor Decomposition Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.CPD.html">CPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.RandomisedCPD.html">RandomisedCPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.HOSVD.html">HOSVD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.HOOI.html">HOOI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.LSSTM.html">LSSTM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.TelVI.html">TelVI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.TelVAC.html">TelVAC</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.pdtools.html">Pandas Integration Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.pdtools.html#module-hottbox.pdtools">Conversion Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.pdtools.pd_to_tensor.html">pd_to_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.pdtools.tensor_to_pd.html">tensor_to_pd</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.metrics.html">Metrics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.metrics.html#module-hottbox.metrics">Approximation scores</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.metrics.mse.html">mse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.metrics.rmse.html">rmse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.metrics.mape.html">mape</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.metrics.residual_rel_error.html">residual_rel_error</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.metrics.html#classification-scores">Classification scores</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.rank.html">Multi-dimensional Rank</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.rank.html#module-hottbox.rank">Rank Estimation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.rank.rankest.html">rankest</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.rank.mlrank.html">mlrank</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.datasets.html">Datasets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.datasets.html#module-hottbox.datasets">Synthetic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.datasets.make_clusters.html">make_clusters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.errors.html">Custom Exceptions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.errors.html#module-hottbox.errors">Errors</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.errors.TensorStateError.html">TensorStateError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.errors.TensorModeError.html">TensorModeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.errors.TensorShapeError.html">TensorShapeError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.errors.TensorTopologyError.html">TensorTopologyError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.errors.StateError.html">StateError</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.errors.ModeError.html">ModeError</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.utils.html#module-hottbox.utils.generation">Generation of N-dimensional arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.toeplitz_matrix.html">toeplitz_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.hankel_matrix.html">hankel_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.quick_tensor.html">quick_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.quick_tensorcpd.html">quick_tensorcpd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.quick_tensortkd.html">quick_tensortkd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.quick_tensortt.html">quick_tensortt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.dense_tensor.html">dense_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.super_diagonal_tensor.html">super_diagonal_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.super_symmetric_tensor.html">super_symmetric_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.sparse_tensor.html">sparse_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.super_diag_tensor.html">super_diag_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.residual_tensor.html">residual_tensor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.toeplitz_tensor.html">toeplitz_tensor</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.utils.html#module-hottbox.utils.validation">Validation of N-dimensional arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.validation.is_toeplitz_matrix.html">is_toeplitz_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.validation.is_super_symmetric.html">is_super_symmetric</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.validation.is_toeplitz_tensor.html">is_toeplitz_tensor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.contrib.html">Experimental features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.contrib.html#module-hottbox.contrib.visualisation">Visualisation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../hottbox.contrib.html#interactive-dashboards">Interactive dashboards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../hottbox.contrib.html#helper-functions">Helper functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#hottbox-v0-2-2-unreleased">[HOTTBOX v0.2.2 Unreleased]</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#package-status-on-branch-develop">Package status on branch <code class="docutils literal notranslate"><span class="pre">develop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#removed">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#hottbox-v0-2-1-2019-03-22">HOTTBOX v0.2.1 (2019-03-22)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id1">Added</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#hottbox-v0-1-3">HOTTBOX v0.1.3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id2">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id3">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id4">Removed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id5">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#hottbox-v0-1-2">HOTTBOX v0.1.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id6">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id7">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id8">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#hottbox-v0-1-1">HOTTBOX v0.1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../changelog.html#id9">Added</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../development_guide/index.html">Development guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../development_guide/how_to_contribute.html">How to contribute</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../development_guide/before_pull_request.html">Before pull request</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../development_guide/before_pull_request.html#docker-validation">Docker validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../development_guide/git_branching_model.html">Master branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Our Team</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">hottbox</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../modules.html">HOTTBOX API</a> &raquo;</li>
+        
+          <li><a href="../hottbox.core.html">Core Structures and Operations</a> &raquo;</li>
+        
+      <li>Tensor</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api/generated/hottbox.core.Tensor.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tensor">
+<h1>Tensor<a class="headerlink" href="#tensor" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
+
+<span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">Tensor</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="hottbox.core.Tensor">
+<em class="property">class </em><code class="descname">Tensor</code><span class="sig-paren">(</span><em>array</em>, <em>custom_state=None</em>, <em>mode_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class describes multidimensional data.</p>
+<p>All its methods implement all common operation on a tensor alone</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>array</strong><span class="classifier">np.ndarray</span></dt><dd><p>N-dimensional array</p>
+</dd>
+<dt><strong>custom_state</strong><span class="classifier">dict</span></dt><dd><p>Provides flexibility to create a <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> object in folded, unfolded or rotated state. Use with caution.
+If provided, then should include only the following keys:</p>
+<blockquote>
+<div><p>‘mode_order’ -&gt; tuple of lists</p>
+<p>‘normal_shape’ -&gt; tuple</p>
+<p>‘rtype’ -&gt; str</p>
+</div></blockquote>
+</dd>
+<dt><strong>mode_names</strong><span class="classifier">list[str]</span></dt><dd><p>Description of the tensor modes.
+If nothing is specified then all modes of the created <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>
+get generic names ‘mode-0’, ‘mode-1’ etc.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference internal" href="#hottbox.core.Tensor.data" title="hottbox.core.Tensor.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a></dt><dd><p>N-dimensional array with data values</p>
+</dd>
+<dt><a class="reference internal" href="#hottbox.core.Tensor.frob_norm" title="hottbox.core.Tensor.frob_norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">frob_norm</span></code></a></dt><dd><p>Frobenious norm of a tensor</p>
+</dd>
+<dt><a class="reference internal" href="#hottbox.core.Tensor.ft_shape" title="hottbox.core.Tensor.ft_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ft_shape</span></code></a></dt><dd><p>Shape of the a tensor in normal format (without being in unfolded or folded state)</p>
+</dd>
+<dt><a class="reference internal" href="#hottbox.core.Tensor.in_normal_state" title="hottbox.core.Tensor.in_normal_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">in_normal_state</span></code></a></dt><dd><p>Checks state of a tensor</p>
+</dd>
+<dt><a class="reference internal" href="#hottbox.core.Tensor.mode_names" title="hottbox.core.Tensor.mode_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mode_names</span></code></a></dt><dd><p>Description of the tensor modes in current state</p>
+</dd>
+<dt><a class="reference internal" href="#hottbox.core.Tensor.modes" title="hottbox.core.Tensor.modes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">modes</span></code></a></dt><dd><p>Meta data for the modes of a tensor</p>
+</dd>
+<dt><a class="reference internal" href="#hottbox.core.Tensor.order" title="hottbox.core.Tensor.order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">order</span></code></a></dt><dd><p>Order of a tensor</p>
+</dd>
+<dt><a class="reference internal" href="#hottbox.core.Tensor.shape" title="hottbox.core.Tensor.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shape</span></code></a></dt><dd><p>Shape of a tensor in current state</p>
+</dd>
+<dt><a class="reference internal" href="#hottbox.core.Tensor.size" title="hottbox.core.Tensor.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">size</span></code></a></dt><dd><p>Number of elements in a tensor</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>TypeError</dt><dd><p>If parameter <code class="docutils literal notranslate"><span class="pre">array</span></code> is not of <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> type.</p>
+</dd>
+<dt>StateError</dt><dd><p>If parameter <code class="docutils literal notranslate"><span class="pre">custom_state</span></code> is inconsistent with provided <code class="docutils literal notranslate"><span class="pre">array</span></code>
+or does not meet requirements for creating <code class="docutils literal notranslate"><span class="pre">State</span></code> of the tensor.</p>
+</dd>
+<dt>ModeError</dt><dd><p>If parameter <code class="docutils literal notranslate"><span class="pre">mode_names</span></code> is inconsistent with provided <code class="docutils literal notranslate"><span class="pre">array</span></code> and <code class="docutils literal notranslate"><span class="pre">custom_state</span></code>
+or does not meet requirements for creating list of <code class="docutils literal notranslate"><span class="pre">Mode</span></code> of the tensor.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<ol class="arabic simple">
+<li><p>Creating a tensor with default parameters for meta data</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">Tensor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+<span class="go">    This tensor is of order 3 and consists of 24 elements.</span>
+<span class="go">    Sizes and names of its modes are (2, 3, 4) and [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;] respectively.</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Creating a tensor with custom mode names</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">Tensor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="s2">&quot;Day&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span><span class="o">.</span><span class="n">show_state</span><span class="p">()</span>
+<span class="go">    State(normal_shape=(2, 3, 4), rtype=&#39;Init&#39;, mode_order=([0], [1], [2]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+<span class="go">    This tensor is of order 3 and consists of 24 elements.</span>
+<span class="go">    Sizes and names of its modes are (2, 3, 4) and [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;] respectively.</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Creating a tensor in custom state</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">Tensor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">custom_state</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;normal_shape&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+<span class="gp">... </span>                                    <span class="s2">&quot;mode_order&quot;</span><span class="p">:</span> <span class="p">([</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+<span class="gp">... </span>                                    <span class="s2">&quot;rtype&quot;</span><span class="p">:</span> <span class="s2">&quot;T&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">    (2, 12)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">    (2, 12)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span><span class="o">.</span><span class="n">show_state</span><span class="p">()</span>
+<span class="go">    State(normal_shape=(2, 3, 4), rtype=&#39;T&#39;, mode_order=([0], [1, 2]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+<span class="go">    This tensor is of order 2 and consists of 24 elements.</span>
+<span class="go">    Sizes and names of its modes are (2, 12) and [&#39;mode-0&#39;, &#39;mode-1_mode-2&#39;] respectively.</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.Tensor.access" title="hottbox.core.Tensor.access"><code class="xref py py-obj docutils literal notranslate"><span class="pre">access</span></code></a>(self, inds, mode)</p></td>
+<td><p>Equivalent to multidimnesional slicing</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.core.Tensor.copy" title="hottbox.core.Tensor.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(self)</p></td>
+<td><p>Produces a copy of itself as a new object</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.Tensor.copy_modes" title="hottbox.core.Tensor.copy_modes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_modes</span></code></a>(self, tensor)</p></td>
+<td><p>Copy modes meta from tensor representation</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.core.Tensor.describe" title="hottbox.core.Tensor.describe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">describe</span></code></a>(self)</p></td>
+<td><p>Expose some metrics</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.Tensor.fold" title="hottbox.core.Tensor.fold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fold</span></code></a>(self[, inplace])</p></td>
+<td><p>Fold to the original shape</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.core.Tensor.mode_n_product" title="hottbox.core.Tensor.mode_n_product"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mode_n_product</span></code></a>(self, matrix, mode[, …])</p></td>
+<td><p>Mode-n product of a tensor with a matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.Tensor.reset_meta" title="hottbox.core.Tensor.reset_meta"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_meta</span></code></a>(self)</p></td>
+<td><p>Set all meta information with respect to the current shape of data array</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.core.Tensor.reset_mode_index" title="hottbox.core.Tensor.reset_mode_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_mode_index</span></code></a>(self[, mode])</p></td>
+<td><p>Drop index for the specified mode number</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.Tensor.reset_mode_name" title="hottbox.core.Tensor.reset_mode_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_mode_name</span></code></a>(self[, mode])</p></td>
+<td><p>Set default name for the specified mode number</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.core.Tensor.set_mode_index" title="hottbox.core.Tensor.set_mode_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mode_index</span></code></a>(self, mode_index)</p></td>
+<td><p>Set index for specified mode</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.Tensor.set_mode_names" title="hottbox.core.Tensor.set_mode_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mode_names</span></code></a>(self, mode_names)</p></td>
+<td><p>Rename modes of a tensor</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.core.Tensor.show_state" title="hottbox.core.Tensor.show_state"><code class="xref py py-obj docutils literal notranslate"><span class="pre">show_state</span></code></a>(self)</p></td>
+<td><p>Show the current state of the <code class="docutils literal notranslate"><span class="pre">Tensor</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.Tensor.unfold" title="hottbox.core.Tensor.unfold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unfold</span></code></a>(self, mode[, rtype, inplace])</p></td>
+<td><p>Perform mode-n unfolding to a matrix</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.core.Tensor.vectorise" title="hottbox.core.Tensor.vectorise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vectorise</span></code></a>(self[, rtype, inplace])</p></td>
+<td><p>Perform vectorisation of a tensor</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.Tensor.write_subtensor" title="hottbox.core.Tensor.write_subtensor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">write_subtensor</span></code></a>(self, inds, mode, overwrite)</p></td>
+<td><p>Works in the same way as <cite>access</cite> but permits changing of the tensor data</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="hottbox.core.Tensor.access">
+<code class="descname">access</code><span class="sig-paren">(</span><em>self</em>, <em>inds</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.access"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.access" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equivalent to multidimnesional slicing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>inds</strong><span class="classifier">int</span></dt><dd><p>The index of the axis. e.g [:,:,0] will be at mode=2, inds=0</p>
+</dd>
+<dt><strong>mode</strong><span class="classifier">int</span></dt><dd><p>The axis to access</p>
+</dd>
+<dt><strong>overwrite</strong><span class="classifier">Tensor</span></dt><dd><p>Overwrite slice with a subtensor</p>
+</dd>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd><p>Numpy array with the formulated subtensor</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Produces a copy of itself as a new object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>new_object</strong><span class="classifier">Tensor</span></dt><dd><p>New object of Tensor class with attributes having the same values, but no memory space is shared</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Only the last transformation will be copied if <cite>tensor</cite> is not in normal state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.copy_modes">
+<code class="descname">copy_modes</code><span class="sig-paren">(</span><em>self</em>, <em>tensor</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.copy_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.copy_modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy modes meta from tensor representation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>tensor</strong><span class="classifier">{Tensor, TensorCPD, TensorTKD, TensorTT}</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">Tensor</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.Tensor.data">
+<code class="descname">data</code><a class="headerlink" href="#hottbox.core.Tensor.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>N-dimensional array with data values</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>array</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.describe">
+<code class="descname">describe</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.describe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.describe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expose some metrics</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.fold">
+<code class="descname">fold</code><span class="sig-paren">(</span><em>self</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.fold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.fold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fold to the original shape</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>inplace</strong><span class="classifier">bool</span></dt><dd><p>If True, then modifies itself.
+If False, then creates new object (copy)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>tensor</strong><span class="classifier">Tensor</span></dt><dd><p>Tensor of original shape (<code class="docutils literal notranslate"><span class="pre">self.ft_shape</span></code>)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>TensorStateError</dt><dd><p>If tensor is in normal state: <code class="docutils literal notranslate"><span class="pre">self.in_normal_state</span> <span class="pre">is</span> <span class="pre">True</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Basically, this method can be called in order to undo both <code class="docutils literal notranslate"><span class="pre">self.unfold</span></code> and <code class="docutils literal notranslate"><span class="pre">self.vectorise</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.Tensor.frob_norm">
+<code class="descname">frob_norm</code><a class="headerlink" href="#hottbox.core.Tensor.frob_norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Frobenious norm of a tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>float</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.Tensor.ft_shape">
+<code class="descname">ft_shape</code><a class="headerlink" href="#hottbox.core.Tensor.ft_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape of the a tensor in normal format (without being in unfolded or folded state)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shape</strong><span class="classifier">tuple</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.Tensor.in_normal_state">
+<code class="descname">in_normal_state</code><a class="headerlink" href="#hottbox.core.Tensor.in_normal_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks state of a tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>bool</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>If returns <cite>True</cite>, then can call <code class="docutils literal notranslate"><span class="pre">unfold</span></code> and <code class="docutils literal notranslate"><span class="pre">mode_n_product</span></code>.</p>
+<p>If returns <cite>False</cite>, then can call <code class="docutils literal notranslate"><span class="pre">fold</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.mode_n_product">
+<code class="descname">mode_n_product</code><span class="sig-paren">(</span><em>self</em>, <em>matrix</em>, <em>mode</em>, <em>new_name=None</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.mode_n_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.mode_n_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mode-n product of a tensor with a matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>matrix</strong><span class="classifier">{Tensor, np.ndarray}</span></dt><dd><p>2D array</p>
+</dd>
+<dt><strong>mode</strong><span class="classifier">int</span></dt><dd><p>Specifies mode along which a tensor is multiplied by a <cite>matrix</cite></p>
+</dd>
+<dt><strong>inplace</strong><span class="classifier">bool</span></dt><dd><p>If True, then modifies itself.
+If False, then creates new object (copy)</p>
+</dd>
+<dt><strong>new_name</strong><span class="classifier">str</span></dt><dd><p>New name for the corresponding <cite>mode</cite> after computing this product.
+See Notes-3 for more info</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>tensor</strong><span class="classifier">Tensor</span></dt><dd><p>The result of the mode-n product of a tensor with a <cite>matrix</cite> along specified <cite>mode</cite>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>TensorStateError</dt><dd><p>If tensor is not in normal state: <code class="docutils literal notranslate"><span class="pre">self.in_normal_state</span> <span class="pre">is</span> <span class="pre">False</span></code>.</p>
+</dd>
+<dt>ModeError</dt><dd><p>If there is uncertainty with assigning new name for the <code class="docutils literal notranslate"><span class="pre">tensor.modes[mode]</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ol class="arabic simple">
+<li><p>Mode-n product operation changes the <code class="docutils literal notranslate"><span class="pre">self._state._normal_shape</span></code> attribute</p></li>
+<li><p>Remember that mode-n product changes the shape of the tensor. Presumably, it also changes
+the interpretation of that mode depending on the matrix</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">matrix</span></code> is an object of <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> class then you shouldn’t specify <code class="docutils literal notranslate"><span class="pre">new_name</span></code>, since
+it will be changed to <code class="docutils literal notranslate"><span class="pre">matrix.mode_names[0]</span></code></p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">matrix.mode_names[0]</span> <span class="pre">==</span> <span class="pre">&quot;mode-0&quot;</span></code> then no changes to <code class="docutils literal notranslate"><span class="pre">tensor.mode_names</span></code> will be made</p></li>
+</ol>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.Tensor.mode_names">
+<code class="descname">mode_names</code><a class="headerlink" href="#hottbox.core.Tensor.mode_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Description of the tensor modes in current state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>names</strong><span class="classifier">list[str]</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.Tensor.modes">
+<code class="descname">modes</code><a class="headerlink" href="#hottbox.core.Tensor.modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Meta data for the modes of a tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>list[Mode]</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.Tensor.order">
+<code class="descname">order</code><a class="headerlink" href="#hottbox.core.Tensor.order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Order of a tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>int</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.reset_meta">
+<code class="descname">reset_meta</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.reset_meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.reset_meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set all meta information with respect to the current shape of data array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">Tensor</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.reset_mode_index">
+<code class="descname">reset_mode_index</code><span class="sig-paren">(</span><em>self</em>, <em>mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.reset_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.reset_mode_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drop index for the specified mode number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mode</strong><span class="classifier">int</span></dt><dd><p>Mode number which index to be dropped
+By default resets all indices</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">Tensor</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.reset_mode_name">
+<code class="descname">reset_mode_name</code><span class="sig-paren">(</span><em>self</em>, <em>mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.reset_mode_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.reset_mode_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set default name for the specified mode number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mode</strong><span class="classifier">int</span></dt><dd><p>Mode number which name to be set to default value
+By default resets names of all modes</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">Tensor</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.set_mode_index">
+<code class="descname">set_mode_index</code><span class="sig-paren">(</span><em>self</em>, <em>mode_index</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.set_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.set_mode_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set index for specified mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mode_index</strong><span class="classifier">dict</span></dt><dd><p>New indices for the tensor modes in form of a dictionary.
+Key defines the mode whose index to be changed.
+Value contains a list of new indices for this mode.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">Tensor</span></dt><dd></dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ModeError</dt><dd><p>If parameter <code class="docutils literal notranslate"><span class="pre">mode_index</span></code> is inconsistent with <code class="docutils literal notranslate"><span class="pre">self.modes</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.set_mode_names">
+<code class="descname">set_mode_names</code><span class="sig-paren">(</span><em>self</em>, <em>mode_names</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.set_mode_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.set_mode_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename modes of a tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mode_names</strong><span class="classifier">dict</span></dt><dd><p>New names for the tensor modes in form of a dictionary
+The name of the mode defined by the Key of the dict will be renamed to the corresponding Value</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">Tensor</span></dt><dd><p>Return self so that methods could be chained</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ModeError</dt><dd><p>If parameter <code class="docutils literal notranslate"><span class="pre">mode_names</span></code> is inconsistent with <code class="docutils literal notranslate"><span class="pre">self.modes</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.Tensor.shape">
+<code class="descname">shape</code><a class="headerlink" href="#hottbox.core.Tensor.shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shape of a tensor in current state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>tuple</dt><dd><p>Sizes of all dimensions of a tensor</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.show_state">
+<code class="descname">show_state</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.show_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.show_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the current state of the <code class="docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.core.Tensor.size">
+<code class="descname">size</code><a class="headerlink" href="#hottbox.core.Tensor.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of elements in a tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>int</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.unfold">
+<code class="descname">unfold</code><span class="sig-paren">(</span><em>self</em>, <em>mode</em>, <em>rtype='T'</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.unfold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.unfold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform mode-n unfolding to a matrix</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mode</strong><span class="classifier">int</span></dt><dd><p>Specifies a mode along which a <cite>tensor</cite> will be unfolded</p>
+</dd>
+<dt><strong>rtype</strong><span class="classifier">str</span></dt><dd><p>Defines an unfolding convention.</p>
+</dd>
+<dt><strong>inplace</strong><span class="classifier">bool</span></dt><dd><p>If True, then modifies itself.
+If False, then creates new object (copy)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>tensor</strong><span class="classifier">Tensor</span></dt><dd><p>Unfolded version of a tensor</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>TensorStateError</dt><dd><p>If tensor is not in normal state: <code class="docutils literal notranslate"><span class="pre">self.in_normal_state</span> <span class="pre">is</span> <span class="pre">False</span></code>.</p>
+</dd>
+<dt>ValueError</dt><dd><p>If parameter <code class="docutils literal notranslate"><span class="pre">rtype</span></code> is not one of {‘T’, ‘K’}.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.vectorise">
+<code class="descname">vectorise</code><span class="sig-paren">(</span><em>self</em>, <em>rtype='T'</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.vectorise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.vectorise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform vectorisation of a tensor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>rtype</strong><span class="classifier">str</span></dt><dd><p>Defines a vectorisation convention.</p>
+</dd>
+<dt><strong>inplace</strong><span class="classifier">bool</span></dt><dd><p>If True, then modifies itself.
+If False, then creates new object (copy)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>tensor</strong><span class="classifier">Tensor</span></dt><dd><p>Vectorised version of a tensor</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>TensorStateError</dt><dd><p>If tensor is not in normal state: <code class="docutils literal notranslate"><span class="pre">self.in_normal_state</span> <span class="pre">is</span> <span class="pre">False</span></code>.</p>
+</dd>
+<dt>ValueError</dt><dd><p>If parameter <code class="docutils literal notranslate"><span class="pre">rtype</span></code> is not one of {‘T’, ‘K’}.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.core.Tensor.write_subtensor">
+<code class="descname">write_subtensor</code><span class="sig-paren">(</span><em>self</em>, <em>inds</em>, <em>mode</em>, <em>overwrite</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.write_subtensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.write_subtensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Works in the same way as <cite>access</cite> but permits changing of the tensor data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>inds</strong><span class="classifier">int</span></dt><dd><p>The index of the axis. e.g [:,:,0] will be at mode=2, inds=0</p>
+</dd>
+<dt><strong>mode</strong><span class="classifier">int</span></dt><dd><p>The axis to access</p>
+</dd>
+<dt><strong>overwrite</strong><span class="classifier">Tensor</span></dt><dd><p>Overwrite slice with a subtensor</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+           </div>
+           
+          </div>
+    <a href="https://github.com/hottbox/hottbox">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+    </a>
+
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="hottbox.core.TensorCPD.html" class="btn btn-neutral float-right" title="TensorCPD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../hottbox.core.html" class="btn btn-neutral float-left" title="Core Structures and Operations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017 - 2019, Ilya Kisil
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

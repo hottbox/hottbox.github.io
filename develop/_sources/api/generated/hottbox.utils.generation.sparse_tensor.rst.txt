@@ -1,0 +1,16 @@
+sparse_tensor
+======================================
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import sparse_tensor
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: sparse_tensor
+
+.. raw:: html
+
+    <div class="clearer"></div>

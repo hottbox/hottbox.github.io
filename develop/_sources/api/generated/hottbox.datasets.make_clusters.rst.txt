@@ -1,0 +1,16 @@
+make_clusters
+==============================
+
+::
+
+    # Import statement
+
+    from hottbox.datasets import make_clusters
+
+.. currentmodule:: hottbox.datasets
+
+.. autofunction:: make_clusters
+
+.. raw:: html
+
+    <div class="clearer"></div>

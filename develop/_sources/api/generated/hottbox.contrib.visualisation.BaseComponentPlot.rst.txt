@@ -1,0 +1,18 @@
+BaseComponentPlot
+===============================================
+
+::
+
+    # Import statement
+
+    from hottbox.contrib.visualisation import BaseComponentPlot
+
+.. currentmodule:: hottbox.contrib.visualisation
+
+.. autoclass:: BaseComponentPlot
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

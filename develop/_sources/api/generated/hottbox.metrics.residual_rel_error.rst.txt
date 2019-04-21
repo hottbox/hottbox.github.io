@@ -1,0 +1,16 @@
+residual_rel_error
+==================================
+
+::
+
+    # Import statement
+
+    from hottbox.metrics import residual_rel_error
+
+.. currentmodule:: hottbox.metrics
+
+.. autofunction:: residual_rel_error
+
+.. raw:: html
+
+    <div class="clearer"></div>

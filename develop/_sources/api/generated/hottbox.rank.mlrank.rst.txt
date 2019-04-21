@@ -1,0 +1,16 @@
+mlrank
+===================
+
+::
+
+    # Import statement
+
+    from hottbox.rank import mlrank
+
+.. currentmodule:: hottbox.rank
+
+.. autofunction:: mlrank
+
+.. raw:: html
+
+    <div class="clearer"></div>

@@ -1,0 +1,18 @@
+TensorStateError
+===============================
+
+::
+
+    # Import statement
+
+    from hottbox.errors import TensorStateError
+
+.. currentmodule:: hottbox.errors
+
+.. autoclass:: TensorStateError
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>
