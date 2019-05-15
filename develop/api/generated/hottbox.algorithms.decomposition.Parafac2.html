@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>quick_tensortkd &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  <title>Parafac2 &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="quick_tensortt" href="hottbox.utils.generation.quick_tensortt.html" />
-    <link rel="prev" title="quick_tensorcpd" href="hottbox.utils.generation.quick_tensorcpd.html" /> 
+    <link rel="next" title="HOSVD" href="hottbox.algorithms.decomposition.HOSVD.html" />
+    <link rel="prev" title="RandomisedCPD" href="hottbox.algorithms.decomposition.RandomisedCPD.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -118,11 +118,11 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../hottbox.algorithms.html">Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition">Tensor Decomposition Algorithms</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../hottbox.algorithms.html">Algorithms</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition">Tensor Decomposition Algorithms</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.CPD.html">CPD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.RandomisedCPD.html">RandomisedCPD</a></li>
-<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.Parafac2.html">Parafac2</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Parafac2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.HOSVD.html">HOSVD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.HOOI.html">HOOI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
@@ -182,13 +182,13 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="reference internal" href="../hottbox.utils.html">Utility Functions</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="../hottbox.utils.html#module-hottbox.utils.generation">Generation of N-dimensional arrays</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.utils.html">Utility Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.utils.html#module-hottbox.utils.generation">Generation of N-dimensional arrays</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.toeplitz_matrix.html">toeplitz_matrix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.hankel_matrix.html">hankel_matrix</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.quick_tensor.html">quick_tensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.quick_tensorcpd.html">quick_tensorcpd</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">quick_tensortkd</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.quick_tensortkd.html">quick_tensortkd</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.quick_tensortt.html">quick_tensortt</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.dense_tensor.html">dense_tensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.utils.generation.super_diagonal_tensor.html">super_diagonal_tensor</a></li>
@@ -323,15 +323,15 @@
         
           <li><a href="../modules.html">HOTTBOX API</a> &raquo;</li>
         
-          <li><a href="../hottbox.utils.html">Utility Functions</a> &raquo;</li>
+          <li><a href="../hottbox.algorithms.html">Algorithms</a> &raquo;</li>
         
-      <li>quick_tensortkd</li>
+      <li>Parafac2</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api/generated/hottbox.utils.generation.quick_tensortkd.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api/generated/hottbox.algorithms.decomposition.Parafac2.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -345,50 +345,132 @@
 
            <div itemprop="articleBody">
             
-  <div class="section" id="quick-tensortkd">
-<h1>quick_tensortkd<a class="headerlink" href="#quick-tensortkd" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="parafac2">
+<h1>Parafac2<a class="headerlink" href="#parafac2" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
 
-<span class="kn">from</span> <span class="nn">hottbox.utils.generation</span> <span class="k">import</span> <span class="n">quick_tensortkd</span>
+<span class="kn">from</span> <span class="nn">hottbox.algorithms.decomposition</span> <span class="k">import</span> <span class="n">Parafac2</span>
 </pre></div>
 </div>
-<dl class="function">
-<dt id="hottbox.utils.generation.quick_tensortkd">
-<code class="descname">quick_tensortkd</code><span class="sig-paren">(</span><em>full_shape</em>, <em>rank</em>, <em>base='arange'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/utils/generation/tensors.html#quick_tensortkd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.utils.generation.quick_tensortkd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Simplified creation of generic tensor in tucker form</p>
+<dl class="class">
+<dt id="hottbox.algorithms.decomposition.Parafac2">
+<em class="property">class </em><code class="descname">Parafac2</code><span class="sig-paren">(</span><em>max_iter=50</em>, <em>epsilon=0.01</em>, <em>tol=0.0001</em>, <em>random_state=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/cpd.html#Parafac2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.Parafac2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes PARAFAC2 for <code class="docutils literal notranslate"><span class="pre">tensors</span></code> of order three with respect to a specified <code class="docutils literal notranslate"><span class="pre">rank</span></code>.</p>
+<p>Computed via alternating least squares (ALS)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>full_shape</strong><span class="classifier">tuple</span></dt><dd><p>Desired shape of the tensor when it is reconstructed.
-Values specify the number of rows of the factor matrices.</p>
+<dt><strong>max_iter</strong><span class="classifier">int</span></dt><dd><p>Maximum number of iteration</p>
 </dd>
-<dt><strong>rank</strong><span class="classifier">tuple</span></dt><dd><p>Desired multi-linear rank of the tensor. Specifies the number of columns for all factor matrices.
-Should be of the same length as parameter <code class="docutils literal notranslate"><span class="pre">full_shape</span></code></p>
+<dt><strong>epsilon</strong><span class="classifier">float</span></dt><dd><p>Threshold for the relative error of approximation.</p>
 </dd>
-<dt><strong>base</strong><span class="classifier">str</span></dt><dd><p>Id of base function that generates values for the components of tucker tensor.
-If not one from <code class="docutils literal notranslate"><span class="pre">{&quot;arange&quot;,</span> <span class="pre">&quot;randn&quot;,</span> <span class="pre">&quot;rand&quot;,</span> <span class="pre">&quot;ones&quot;}</span></code> then <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> will be used.</p>
+<dt><strong>tol</strong><span class="classifier">float</span></dt><dd><p>Threshold for convergence of factor matrices</p>
+</dd>
+<dt><strong>random_state</strong><span class="classifier">int</span></dt><dd></dd>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If True, enable verbose output</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>cost</strong><span class="classifier">list</span></dt><dd><p>A list of relative approximation errors at each iteration of the algorithm.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets">1</span></dt>
+<dd><p>Kiers, H., ten Berge, J. and Bro, R. (1999). PARAFAC2 - Part I.
+A direct fitting algorithm for the PARAFAC2 model. Journal of Chemometrics,
+13(3-4), pp.275-294.</p>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-center">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.algorithms.decomposition.Parafac2.copy" title="hottbox.algorithms.decomposition.Parafac2.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(self)</p></td>
+<td><p>Copy of the CPD algorithm as a new object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.algorithms.decomposition.Parafac2.decompose" title="hottbox.algorithms.decomposition.Parafac2.decompose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompose</span></code></a>(self, tenl, rank)</p></td>
+<td><p>Performs Direct fitting using ALS on a list of tensors of order 2 with respect to the specified <code class="docutils literal notranslate"><span class="pre">rank</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 56%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>plot</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="hottbox.algorithms.decomposition.Parafac2.converged">
+<code class="descname">converged</code><a class="headerlink" href="#hottbox.algorithms.decomposition.Parafac2.converged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks convergence of the CPD-ALS algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>bool</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.Parafac2.copy">
+<code class="descname">copy</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/cpd.html#Parafac2.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.Parafac2.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy of the CPD algorithm as a new object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.Parafac2.decompose">
+<code class="descname">decompose</code><span class="sig-paren">(</span><em>self</em>, <em>tenl</em>, <em>rank</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/cpd.html#Parafac2.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.Parafac2.decompose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs Direct fitting using ALS on a list of tensors of order 2 with respect to the specified <code class="docutils literal notranslate"><span class="pre">rank</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>tenl</strong><span class="classifier">List(np.ndarray)</span></dt><dd><p>List of np.ndarray of dimension 2 to be decomposed</p>
+</dd>
+<dt><strong>rank</strong><span class="classifier">tuple</span></dt><dd><p>Desired Kruskal rank for the given <code class="docutils literal notranslate"><span class="pre">tensor</span></code>. Should contain only one value.
+If it is greater then any of dimensions then random initialisation is used</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>tensor_tkd</strong><span class="classifier">TensorTKD</span></dt><dd></dd>
+<dt><strong>fmat_u, fmat_s, fmat_v, reconstructed</strong><span class="classifier">Tuple(np.ndarray)</span></dt><dd><p>fmat_u,fmat_s,fmat_v are PARAFAC2 representation of list of tensors
+reconstructed is the reconstruction of the original tensor directly using fmat_u, fmat_s, fmat_v</p>
+</dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.utils.generation</span> <span class="k">import</span> <span class="n">quick_tensortkd</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">tensor_tkd</span> <span class="o">=</span> <span class="n">quick_tensortkd</span><span class="p">(</span><span class="n">full_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">rank</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">base</span><span class="o">=</span><span class="s2">&quot;ones&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor_tkd</span><span class="p">)</span>
-<span class="go">    Tucker representation of a tensor with multi-linear rank=(2,).</span>
-<span class="go">    Factor matrices represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
-<span class="go">    With corresponding latent components described by (5, 6, 7) features respectively.</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span> <span class="o">=</span> <span class="n">tensor_tkd</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
-<span class="go">    This tensor is of order 3 and consists of 210 elements.</span>
-<span class="go">    Sizes and names of its modes are (5, 6, 7) and [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;] respectively.</span>
-</pre></div>
-</div>
+<p class="rubric">Notes</p>
+<p>khatri-rao product should be of matrices in reversed order. But this will duplicate original data (e.g. images)
+Probably this has something to do with data ordering in Python and how it relates to kr product</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hottbox.algorithms.decomposition.Parafac2.name">
+<code class="descname">name</code><a class="headerlink" href="#hottbox.algorithms.decomposition.Parafac2.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the decomposition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>decomposition_name</strong><span class="classifier">str</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <div class="clearer"></div></div>
@@ -405,10 +487,10 @@ If not one from <code class="docutils literal notranslate"><span class="pre">{&q
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hottbox.utils.generation.quick_tensortt.html" class="btn btn-neutral float-right" title="quick_tensortt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hottbox.algorithms.decomposition.HOSVD.html" class="btn btn-neutral float-right" title="HOSVD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hottbox.utils.generation.quick_tensorcpd.html" class="btn btn-neutral float-left" title="quick_tensorcpd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="hottbox.algorithms.decomposition.RandomisedCPD.html" class="btn btn-neutral float-left" title="RandomisedCPD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

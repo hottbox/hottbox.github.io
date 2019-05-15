@@ -120,6 +120,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../../../api/hottbox.algorithms.html#module-hottbox.algorithms.decomposition">Tensor Decomposition Algorithms</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/generated/hottbox.algorithms.decomposition.CPD.html">CPD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/generated/hottbox.algorithms.decomposition.RandomisedCPD.html">RandomisedCPD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../../api/generated/hottbox.algorithms.decomposition.Parafac2.html">Parafac2</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/generated/hottbox.algorithms.decomposition.HOSVD.html">HOSVD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/generated/hottbox.algorithms.decomposition.HOOI.html">HOOI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../../api/generated/hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
@@ -406,18 +407,17 @@
 <span class="sd">        fmat : list[np.ndarray]</span>
 <span class="sd">            List of factor matrices</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Reset cost every time when method decompose is called</span>
         <span class="n">t_rank</span> <span class="o">=</span> <span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])]</span> <span class="o">*</span> <span class="n">tensor</span><span class="o">.</span><span class="n">order</span>
         <span class="c1"># Check if all dimensions are greater then kryskal rank</span>
         <span class="n">dim_check</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">t_rank</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="n">tensor</span><span class="o">.</span><span class="n">order</span>
         <span class="k">if</span> <span class="n">dim_check</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="ow">is</span> <span class="s1">&#39;svd&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="o">==</span> <span class="s1">&#39;svd&#39;</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">order</span><span class="p">):</span>
                     <span class="c1"># TODO: don&#39;t really like this implementation</span>
                     <span class="n">k</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
                     <span class="n">fmat</span><span class="p">[</span><span class="n">mode</span><span class="p">],</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">t_rank</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="ow">is</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="o">==</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span>
                 <span class="n">fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">mode_size</span><span class="p">,</span> <span class="n">t_rank</span><span class="p">)</span> <span class="k">for</span> <span class="n">mode_size</span> <span class="ow">in</span> <span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;The given initialization is not available&#39;</span><span class="p">)</span>
@@ -486,7 +486,7 @@
         <span class="n">decomposition_name</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">CPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
         <span class="k">return</span> <span class="n">decomposition_name</span>
 
-<div class="viewcode-block" id="CPD.decompose"><a class="viewcode-back" href="../../../../api/generated/hottbox.algorithms.decomposition.CPD.html#hottbox.algorithms.decomposition.CPD.decompose">[docs]</a>    <span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">keep_meta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">kr_reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="CPD.decompose"><a class="viewcode-back" href="../../../../api/generated/hottbox.algorithms.decomposition.CPD.html#hottbox.algorithms.decomposition.CPD.decompose">[docs]</a>    <span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">keep_meta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">kr_reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">factor_mat</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Performs CPD-ALS on the ``tensor`` with respect to the specified ``rank``</span>
 
 <span class="sd">        Parameters</span>
@@ -502,6 +502,9 @@
 <span class="sd">            1 - keep only mode names</span>
 <span class="sd">            2 - keep mode names and indices</span>
 <span class="sd">        kr_reverse : bool</span>
+<span class="sd">        factor_mat : list(np.ndarray)</span>
+<span class="sd">            Initial list of factor matrices.</span>
+<span class="sd">            Specifying this option will ignore ``init``.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -519,9 +522,22 @@
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `rank` should be passed as a tuple!&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Parameter `rank` should be tuple with only one value!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">factor_mat</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">fmat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_fmat</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">factor_mat</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `factor_mat` should be a list object&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">factor_mat</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `factor_mat` should be a list object of np.ndarray objects&quot;</span><span class="p">)</span>
+            <span class="c1"># Dimensionality checks</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">factor_mat</span><span class="p">)</span> <span class="o">!=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">order</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Parameter `factor_mat` should be of the same length as the tensor order&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">m</span><span class="p">,</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">factor_mat</span><span class="p">,</span> <span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Parameter `factor_mat` should have the shape [mode_n x r]. Incorrect shapes!&quot;</span><span class="p">)</span>
+            <span class="n">fmat</span> <span class="o">=</span> <span class="n">factor_mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Reset cost every time when method decompose is called</span>
         <span class="n">tensor_cpd</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="n">fmat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_fmat</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
         <span class="n">core_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]),</span> <span class="n">rank</span><span class="p">)</span>
         <span class="n">norm</span> <span class="o">=</span> <span class="n">tensor</span><span class="o">.</span><span class="n">frob_norm</span>
         <span class="k">for</span> <span class="n">n_iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">):</span>
@@ -585,7 +601,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;At the moment, `plot()` is not implemented for the </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span></div>
 
 
-<span class="c1">#TODO: Fix efficiency issues with this</span>
+<span class="c1"># TODO: Fix efficiency issues with this</span>
 <div class="viewcode-block" id="RandomisedCPD"><a class="viewcode-back" href="../../../../api/generated/hottbox.algorithms.decomposition.RandomisedCPD.html#hottbox.algorithms.decomposition.RandomisedCPD">[docs]</a><span class="k">class</span> <span class="nc">RandomisedCPD</span><span class="p">(</span><span class="n">BaseCPD</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; Randomised Canonical Polyadic Decomposition.</span>
 
@@ -679,6 +695,7 @@
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Parameter `rank` should be tuple with only one value!&quot;</span><span class="p">)</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Reset cost every time when method decompose is called</span>
         <span class="n">tensor_cpd</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="n">fmat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_fmat</span><span class="p">(</span><span class="n">tensor</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>
         <span class="n">core_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">]),</span> <span class="n">rank</span><span class="p">)</span>
@@ -690,11 +707,11 @@
             <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">lm</span><span class="p">:</span>
                 <span class="n">kr_result</span><span class="p">,</span> <span class="n">idxlist</span> <span class="o">=</span> <span class="n">sampled_khatri_rao</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="n">sample_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_size</span><span class="p">,</span> <span class="n">skip_matrix</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
                 <span class="n">lmodes</span> <span class="o">=</span> <span class="n">lm</span><span class="p">[:</span><span class="n">mode</span><span class="p">]</span> <span class="o">+</span> <span class="n">lm</span><span class="p">[</span><span class="n">mode</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
-                <span class="n">Xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">tensor</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">lmodes</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">idxlist</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">tolist</span><span class="p">()])</span>
+                <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">tensor</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">lmodes</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">idxlist</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">tolist</span><span class="p">()])</span>
 
-                <span class="c1"># Solve kr_result^-1 * Xs</span>
+                <span class="c1"># Solve kr_result^-1 * xs</span>
                 <span class="n">pos_def</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">kr_result</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">kr_result</span><span class="p">)</span>
-                <span class="n">corr_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">kr_result</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Xs</span><span class="p">)</span>
+                <span class="n">corr_term</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">kr_result</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">xs</span><span class="p">)</span>
                 <span class="n">min_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">pos_def</span><span class="p">,</span> <span class="n">corr_term</span><span class="p">)</span>
                 <span class="n">fmat</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">min_result</span><span class="o">.</span><span class="n">T</span>
 
@@ -742,6 +759,197 @@
         <span class="n">fmat</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">RandomisedCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_init_fmat</span><span class="p">(</span><span class="n">tensor</span><span class="o">=</span><span class="n">tensor</span><span class="p">,</span>
                                                      <span class="n">rank</span><span class="o">=</span><span class="n">rank</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">fmat</span>
+
+    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;At the moment, `plot()` is not implemented for the </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="Parafac2"><a class="viewcode-back" href="../../../../api/generated/hottbox.algorithms.decomposition.Parafac2.html#hottbox.algorithms.decomposition.Parafac2">[docs]</a><span class="k">class</span> <span class="nc">Parafac2</span><span class="p">(</span><span class="n">BaseCPD</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Computes PARAFAC2 for ``tensors`` of order three with respect to a specified ``rank``.</span>
+
+<span class="sd">    Computed via alternating least squares (ALS)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    max_iter : int</span>
+<span class="sd">        Maximum number of iteration</span>
+<span class="sd">    epsilon : float</span>
+<span class="sd">        Threshold for the relative error of approximation.</span>
+<span class="sd">    tol : float</span>
+<span class="sd">        Threshold for convergence of factor matrices</span>
+<span class="sd">    random_state : int</span>
+<span class="sd">    verbose : bool</span>
+<span class="sd">        If True, enable verbose output</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    cost : list</span>
+<span class="sd">        A list of relative approximation errors at each iteration of the algorithm.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+
+<span class="sd">    ..  [1] Kiers, H., ten Berge, J. and Bro, R. (1999). PARAFAC2 - Part I.</span>
+<span class="sd">        A direct fitting algorithm for the PARAFAC2 model. Journal of Chemometrics,</span>
+<span class="sd">        13(3-4), pp.275-294.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># TODO: change init use requiring a change in TensorCPD</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">10e-3</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">10e-5</span><span class="p">,</span>
+                 <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Parafac2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">init</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span>
+                                       <span class="n">max_iter</span><span class="o">=</span><span class="n">max_iter</span><span class="p">,</span>
+                                       <span class="n">epsilon</span><span class="o">=</span><span class="n">epsilon</span><span class="p">,</span>
+                                       <span class="n">tol</span><span class="o">=</span><span class="n">tol</span><span class="p">,</span>
+                                       <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">,</span>
+                                       <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Parafac2.copy"><a class="viewcode-back" href="../../../../api/generated/hottbox.algorithms.decomposition.Parafac2.html#hottbox.algorithms.decomposition.Parafac2.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Copy of the CPD algorithm as a new object &quot;&quot;&quot;</span>
+        <span class="n">new_object</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">Parafac2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">new_object</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="n">new_object</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Name of the decomposition</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        decomposition_name : str</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">decomposition_name</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">Parafac2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">return</span> <span class="n">decomposition_name</span>
+
+    <span class="c1"># TODO: Parameters differ to base class decomposed - fix</span>
+<div class="viewcode-block" id="Parafac2.decompose"><a class="viewcode-back" href="../../../../api/generated/hottbox.algorithms.decomposition.Parafac2.html#hottbox.algorithms.decomposition.Parafac2.decompose">[docs]</a>    <span class="k">def</span> <span class="nf">decompose</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tenl</span><span class="p">,</span> <span class="n">rank</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Performs Direct fitting using ALS on a list of tensors of order 2 with respect to the specified ``rank``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tenl : List(np.ndarray)</span>
+<span class="sd">            List of np.ndarray of dimension 2 to be decomposed</span>
+<span class="sd">        rank : tuple</span>
+<span class="sd">            Desired Kruskal rank for the given ``tensor``. Should contain only one value.</span>
+<span class="sd">            If it is greater then any of dimensions then random initialisation is used</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        fmat_u, fmat_s, fmat_v, reconstructed : Tuple(np.ndarray)</span>
+<span class="sd">            fmat_u,fmat_s,fmat_v are PARAFAC2 representation of list of tensors</span>
+<span class="sd">            reconstructed is the reconstruction of the original tensor directly using fmat_u, fmat_s, fmat_v</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        khatri-rao product should be of matrices in reversed order. But this will duplicate original data (e.g. images)</span>
+<span class="sd">        Probably this has something to do with data ordering in Python and how it relates to kr product</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tenl</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `tenl` should be a list of np.ndarray objects!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">tenl</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `tenl` should be a list of np.ndarray objects!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `rank` should be passed as a tuple!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Parameter `rank` should be tuple with only one value!&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Reset cost every time when method decompose is called</span>
+        <span class="n">sz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tenl</span><span class="p">])</span>
+        <span class="n">_m</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sz</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">_m</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="n">_m</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Tensors must be of shape I[k] x J&quot;</span><span class="p">)</span>
+        <span class="n">num_t</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sz</span><span class="p">)</span>
+        <span class="n">mode_b</span> <span class="o">=</span> <span class="n">_m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Initialisations</span>
+        <span class="n">cpd</span> <span class="o">=</span> <span class="n">CPD</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">fmat_h</span><span class="p">,</span> <span class="n">fmat_v</span><span class="p">,</span> <span class="n">fmat_s</span><span class="p">,</span> <span class="n">fmat_u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_fmat</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">sz</span><span class="p">)</span>
+        <span class="n">cpd_fmat</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">for</span> <span class="n">n_iter</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_t</span><span class="p">):</span>
+                <span class="n">p</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">q</span> <span class="o">=</span> <span class="n">svd</span><span class="p">(</span><span class="n">fmat_h</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fmat_s</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">])</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fmat_v</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">tenl</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">rank</span><span class="o">=</span><span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">fmat_u</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode_b</span><span class="p">,</span> <span class="n">num_t</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_t</span><span class="p">):</span>
+                <span class="n">y</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">fmat_u</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">tenl</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            <span class="n">fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">fmat_h</span><span class="p">,</span> <span class="n">fmat_v</span><span class="p">,</span> <span class="n">cpd_fmat</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">n_iter</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">fmat</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">decomposed_cpd</span> <span class="o">=</span> <span class="n">cpd</span><span class="o">.</span><span class="n">decompose</span><span class="p">(</span><span class="n">Tensor</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">rank</span><span class="p">,</span> <span class="n">factor_mat</span><span class="o">=</span><span class="n">fmat</span><span class="p">)</span>
+            <span class="n">fmat_h</span><span class="p">,</span> <span class="n">fmat_v</span><span class="p">,</span> <span class="n">cpd_fmat</span> <span class="o">=</span> <span class="n">decomposed_cpd</span><span class="o">.</span><span class="n">fmat</span>
+            <span class="n">cpd_fmat</span> <span class="o">=</span> <span class="n">cpd_fmat</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">decomposed_cpd</span><span class="o">.</span><span class="n">_core_values</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_t</span><span class="p">):</span>
+                <span class="n">fmat_s</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">cpd_fmat</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="p">:])</span>
+
+            <span class="n">reconstructed</span> <span class="o">=</span> <span class="p">[(</span><span class="n">fmat_u</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fmat_h</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fmat_s</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">]))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">fmat_v</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_t</span><span class="p">)]</span>
+            <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">tenl</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">reconstructed</span><span class="p">[</span><span class="n">k</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_t</span><span class="p">)])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Iter </span><span class="si">{}</span><span class="s1">: relative error of approximation = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_iter</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="c1"># Check termination conditions</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Relative error of approximation has reached the acceptable level: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">converged</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Converged in </span><span class="si">{}</span><span class="s1"> iteration(s)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">)))</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">converged</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">epsilon</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Maximum number of iterations (</span><span class="si">{}</span><span class="s1">) has been reached. &#39;</span>
+                  <span class="s1">&#39;Variation = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])))</span>
+
+        <span class="c1"># TODO: possibly make another structure</span>
+        <span class="k">return</span> <span class="n">fmat_u</span><span class="p">,</span> <span class="n">fmat_s</span><span class="p">,</span> <span class="n">fmat_v</span><span class="p">,</span> <span class="n">reconstructed</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">converged</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Checks convergence of the CPD-ALS algorithm.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>  <span class="c1"># This insures that the cost has been computed at least twice without checking number of iterations</span>
+            <span class="n">is_converged</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tol</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">is_converged</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="n">is_converged</span>
+
+    <span class="k">def</span> <span class="nf">_init_fmat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">modes</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Initialisation of matrices used in Parafac2</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        rank : tuple</span>
+<span class="sd">            Should be of shape (R,1), where R is the desired tensor rank. It should be passed as tuple for consistency.</span>
+<span class="sd">        modes : tuple</span>
+<span class="sd">            np.ndarray of the shapes of matrices</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        (fmat_h,fmat_v,fmat_s,fmat_u) : Tuple[np.ndarray]</span>
+<span class="sd">            Factor matrices used in Parafac2</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">mode_sz</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">modes</span><span class="p">)</span>
+        <span class="n">s_mode</span> <span class="o">=</span> <span class="n">modes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">modes</span> <span class="o">=</span> <span class="n">modes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">fmat_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">fmat_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">s_mode</span><span class="p">,</span> <span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">fmat_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mode_sz</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mode_sz</span><span class="p">):</span>
+            <span class="n">fmat_s</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">fmat_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mode_sz</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">modes</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">rank</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s2">&quot;Specified rank value is greater then one of the dimensions of a tensor (</span><span class="si">{}</span><span class="s2"> &gt; </span><span class="si">{}</span><span class="s2">).</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="s2">&quot;Factor matrices have been initialized randomly.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">modes</span><span class="p">),</span> <span class="ne">RuntimeWarning</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">fmat_h</span><span class="p">,</span> <span class="n">fmat_v</span><span class="p">,</span> <span class="n">fmat_s</span><span class="p">,</span> <span class="n">fmat_u</span>
 
     <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;At the moment, `plot()` is not implemented for the </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span></div>
