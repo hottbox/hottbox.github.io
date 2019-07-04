@@ -197,7 +197,11 @@ a try on <a class="reference external" href="https://mybinder.org/v2/gh/hottbox/
         $(".toggle .header").click(function() {
             $(this).parent().children().not(".header").toggle(400);
             $(this).parent().children(".header").toggleClass("open");
-        })
+        });
+
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
     });
 </script>
 

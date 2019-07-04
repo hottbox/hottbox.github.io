@@ -242,7 +242,11 @@ If empty, then all modes are processed in the consecutive ascending order.</p></
         $(".toggle .header").click(function() {
             $(this).parent().children().not(".header").toggle(400);
             $(this).parent().children(".header").toggleClass("open");
-        })
+        });
+
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
     });
 </script>
 

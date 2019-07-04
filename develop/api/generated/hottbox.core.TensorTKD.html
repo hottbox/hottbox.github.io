@@ -502,7 +502,11 @@ The name of the mode defined by the Key of the dict will be renamed to the corre
         $(".toggle .header").click(function() {
             $(this).parent().children().not(".header").toggle(400);
             $(this).parent().children(".header").toggleClass("open");
-        })
+        });
+
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
     });
 </script>
 

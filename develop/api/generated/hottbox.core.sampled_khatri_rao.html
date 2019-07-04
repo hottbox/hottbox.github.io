@@ -211,7 +211,11 @@ Decomposition. SIAM Journal on Matrix Analysis and Applications, 39(2), 876–90
         $(".toggle .header").click(function() {
             $(this).parent().children().not(".header").toggle(400);
             $(this).parent().children(".header").toggleClass("open");
-        })
+        });
+
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
     });
 </script>
 

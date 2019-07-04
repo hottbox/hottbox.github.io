@@ -273,7 +273,11 @@ Note, initialisation of a factor matrix that corresponds to the mode at the firs
         $(".toggle .header").click(function() {
             $(this).parent().children().not(".header").toggle(400);
             $(this).parent().children(".header").toggleClass("open");
-        })
+        });
+
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
     });
 </script>
 
