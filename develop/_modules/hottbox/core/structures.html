@@ -121,7 +121,24 @@
 
 
 <div class="viewcode-block" id="Tensor"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor">[docs]</a><span class="k">class</span> <span class="nc">Tensor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot; This class describes multidimensional data.</span>
+
+<span class="sd">    All its methods implement all common operation on a tensor alone</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    array : np.ndarray</span>
+<span class="sd">        N-dimensional array</span>
+<span class="sd">    custom_state : dict</span>
+<span class="sd">        Provides flexibility to create a ``Tensor`` object in folded, unfolded or rotated state. Use with caution.</span>
+<span class="sd">        If provided, then should include only the following keys:\n</span>
+<span class="sd">        &#39;mode_order&#39; -&gt; tuple of lists \n</span>
+<span class="sd">        &#39;normal_shape&#39; -&gt; tuple \n</span>
+<span class="sd">        &#39;rtype&#39; -&gt; str</span>
+<span class="sd">    mode_names : list[str]</span>
+<span class="sd">        Description of the tensor modes.</span>
+<span class="sd">        If nothing is specified then all modes of the created ``Tensor``</span>
+<span class="sd">        get generic names &#39;mode-0&#39;, &#39;mode-1&#39; etc.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -133,81 +150,62 @@
 <span class="sd">    _state : State</span>
 <span class="sd">        Reference to meta information about transformations applied to a tensor, such as unfolding, vectorising etc.</span>
 <span class="sd">        Meta information.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TypeError</span>
+<span class="sd">        If parameter ``array`` is not of ``np.ndarray`` type.</span>
+<span class="sd">    StateError</span>
+<span class="sd">        If parameter ``custom_state`` is inconsistent with provided ``array``</span>
+<span class="sd">        or does not meet requirements for creating ``State`` of the tensor.</span>
+<span class="sd">    ModeError</span>
+<span class="sd">        If parameter ``mode_names`` is inconsistent with provided ``array`` and ``custom_state``</span>
+<span class="sd">        or does not meet requirements for creating list of ``Mode`` of the tensor.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    1) Creating a tensor with default parameters for meta data</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import Tensor</span>
+<span class="sd">    &gt;&gt;&gt; data = np.arange(24).reshape(2, 3, 4)</span>
+<span class="sd">    &gt;&gt;&gt; tensor = Tensor(data)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor)</span>
+<span class="sd">        This tensor is of order 3 and consists of 24 elements.</span>
+<span class="sd">        Sizes and names of its modes are (2, 3, 4) and [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;] respectively.</span>
+
+<span class="sd">    2) Creating a tensor with custom mode names</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import Tensor</span>
+<span class="sd">    &gt;&gt;&gt; data = np.arange(24).reshape(2, 3, 4)</span>
+<span class="sd">    &gt;&gt;&gt; tensor = Tensor(data, mode_names=[&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;])</span>
+<span class="sd">    &gt;&gt;&gt; tensor.show_state()</span>
+<span class="sd">        State(normal_shape=(2, 3, 4), rtype=&#39;Init&#39;, mode_order=([0], [1], [2]))</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor)</span>
+<span class="sd">        This tensor is of order 3 and consists of 24 elements.</span>
+<span class="sd">        Sizes and names of its modes are (2, 3, 4) and [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;] respectively.</span>
+
+<span class="sd">    3) Creating a tensor in custom state</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import Tensor</span>
+<span class="sd">    &gt;&gt;&gt; data = np.arange(24).reshape(2, 3*4)</span>
+<span class="sd">    &gt;&gt;&gt; tensor = Tensor(data, custom_state={&quot;normal_shape&quot;: (2, 3, 4),</span>
+<span class="sd">    ...                                     &quot;mode_order&quot;: ([0], [1, 2]),</span>
+<span class="sd">    ...                                     &quot;rtype&quot;: &quot;T&quot;}</span>
+<span class="sd">    &gt;&gt;&gt; data.shape</span>
+<span class="sd">        (2, 12)</span>
+<span class="sd">    &gt;&gt;&gt; tensor.shape</span>
+<span class="sd">        (2, 12)</span>
+<span class="sd">    &gt;&gt;&gt; tensor.show_state()</span>
+<span class="sd">        State(normal_shape=(2, 3, 4), rtype=&#39;T&#39;, mode_order=([0], [1, 2]))</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor)</span>
+<span class="sd">        This tensor is of order 2 and consists of 24 elements.</span>
+<span class="sd">        Sizes and names of its modes are (2, 12) and [&#39;mode-0&#39;, &#39;mode-1_mode-2&#39;] respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">custom_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot; This class describes multidimensional data.</span>
-
-<span class="sd">        All its methods implement all common operation on a tensor alone</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        array : np.ndarray</span>
-<span class="sd">            N-dimensional array</span>
-<span class="sd">        custom_state : dict</span>
-<span class="sd">            Provides flexibility to create a ``Tensor`` object in folded, unfolded or rotated state. Use with caution.</span>
-<span class="sd">            If provided, then should include only the following keys:</span>
-<span class="sd">                &#39;mode_order&#39; -&gt; tuple of lists \n</span>
-<span class="sd">                &#39;normal_shape&#39; -&gt; tuple \n</span>
-<span class="sd">                &#39;rtype&#39; -&gt; str</span>
-<span class="sd">        mode_names : list[str]</span>
-<span class="sd">            Description of the tensor modes.</span>
-<span class="sd">            If nothing is specified then all modes of the created ``Tensor``</span>
-<span class="sd">            get generic names &#39;mode-0&#39;, &#39;mode-1&#39; etc.</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        TypeError</span>
-<span class="sd">            If parameter ``array`` is not of ``np.ndarray`` type.</span>
-<span class="sd">        StateError</span>
-<span class="sd">            If parameter ``custom_state`` is inconsistent with provided ``array``</span>
-<span class="sd">            or does not meet requirements for creating ``State`` of the tensor.</span>
-<span class="sd">        ModeError</span>
-<span class="sd">            If parameter ``mode_names`` is inconsistent with provided ``array`` and ``custom_state``</span>
-<span class="sd">            or does not meet requirements for creating list of ``Mode`` of the tensor.</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        1) Creating a tensor with default parameters for meta data</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import Tensor</span>
-<span class="sd">        &gt;&gt;&gt; data = np.arange(24).reshape(2, 3, 4)</span>
-<span class="sd">        &gt;&gt;&gt; tensor = Tensor(data)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor)</span>
-<span class="sd">            This tensor is of order 3 and consists of 24 elements.</span>
-<span class="sd">            Sizes and names of its modes are (2, 3, 4) and [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;] respectively.</span>
-
-<span class="sd">        2) Creating a tensor with custom mode names</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import Tensor</span>
-<span class="sd">        &gt;&gt;&gt; data = np.arange(24).reshape(2, 3, 4)</span>
-<span class="sd">        &gt;&gt;&gt; tensor = Tensor(data, mode_names=[&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;])</span>
-<span class="sd">        &gt;&gt;&gt; tensor.show_state()</span>
-<span class="sd">            State(normal_shape=(2, 3, 4), rtype=&#39;Init&#39;, mode_order=([0], [1], [2]))</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor)</span>
-<span class="sd">            This tensor is of order 3 and consists of 24 elements.</span>
-<span class="sd">            Sizes and names of its modes are (2, 3, 4) and [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;] respectively.</span>
-
-<span class="sd">        3) Creating a tensor in custom state</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import Tensor</span>
-<span class="sd">        &gt;&gt;&gt; data = np.arange(24).reshape(2, 3*4)</span>
-<span class="sd">        &gt;&gt;&gt; tensor = Tensor(data, custom_state={&quot;normal_shape&quot;: (2, 3, 4),</span>
-<span class="sd">        ...                                     &quot;mode_order&quot;: ([0], [1, 2]),</span>
-<span class="sd">        ...                                     &quot;rtype&quot;: &quot;T&quot;}</span>
-<span class="sd">        &gt;&gt;&gt; data.shape</span>
-<span class="sd">            (2, 12)</span>
-<span class="sd">        &gt;&gt;&gt; tensor.shape</span>
-<span class="sd">            (2, 12)</span>
-<span class="sd">        &gt;&gt;&gt; tensor.show_state()</span>
-<span class="sd">            State(normal_shape=(2, 3, 4), rtype=&#39;T&#39;, mode_order=([0], [1, 2]))</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor)</span>
-<span class="sd">            This tensor is of order 2 and consists of 24 elements.</span>
-<span class="sd">            Sizes and names of its modes are (2, 12) and [&#39;mode-0&#39;, &#39;mode-1_mode-2&#39;] respectively.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO: provide more details for raises section?</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">,</span> <span class="n">custom_state</span><span class="o">=</span><span class="n">custom_state</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -226,6 +224,7 @@
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        other : Tensor</span>
@@ -1142,7 +1141,16 @@
 
 
 <div class="viewcode-block" id="TensorCPD"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD">[docs]</a><span class="k">class</span> <span class="nc">TensorCPD</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Kruskal form (CPD).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fmat : list[np.ndarray]</span>
+<span class="sd">        List of factor matrices for the CP representation of a tensor</span>
+<span class="sd">    core_values : np.ndarray</span>
+<span class="sd">        Array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
+<span class="sd">    mode_names : list[str]</span>
+<span class="sd">        List of names for the factor matrices</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -1152,61 +1160,50 @@
 <span class="sd">        Placeholder for an array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
 <span class="sd">    _modes : list[Mode]</span>
 <span class="sd">        Description of the factor matrix for the corresponding mode</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TensorTopologyError</span>
+<span class="sd">        If there is inconsistency in shapes of factor matrices and core values</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    1) Create kruskal representation of a tensor with default meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorCPD</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7   # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R = 4               # Kruskal rank</span>
+<span class="sd">    &gt;&gt;&gt; A = np.ones((I, R))</span>
+<span class="sd">    &gt;&gt;&gt; B = np.ones((J, R))</span>
+<span class="sd">    &gt;&gt;&gt; C = np.ones((K, R))</span>
+<span class="sd">    &gt;&gt;&gt; fmat = [A, B , C]</span>
+<span class="sd">    &gt;&gt;&gt; core_values = np.arange(R)</span>
+<span class="sd">    &gt;&gt;&gt; tensor_cpd = TensorCPD(fmat, core_values)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_cpd)</span>
+<span class="sd">        Kruskal representation of a tensor with rank=(4,).</span>
+<span class="sd">        Factor matrices represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
+<span class="sd">        With corresponding latent components described by (5, 6, 7) features respectively.</span>
+
+<span class="sd">    2) Create kruskal representation of a tensor with custom meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorCPD</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7   # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R = 4               # Kruskal rank</span>
+<span class="sd">    &gt;&gt;&gt; A = np.ones((I, R))</span>
+<span class="sd">    &gt;&gt;&gt; B = np.ones((J, R))</span>
+<span class="sd">    &gt;&gt;&gt; C = np.ones((K, R))</span>
+<span class="sd">    &gt;&gt;&gt; fmat = [A, B , C]</span>
+<span class="sd">    &gt;&gt;&gt; core_values = np.arange(R)</span>
+<span class="sd">    &gt;&gt;&gt; mode_names = [&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
+<span class="sd">    &gt;&gt;&gt; tensor_cpd = TensorCPD(fmat, core_values, mode_names)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_cpd)</span>
+<span class="sd">        Kruskal representation of a tensor with rank=(4,).</span>
+<span class="sd">        Factor matrices represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
+<span class="sd">        With corresponding latent components described by (5, 6, 7) features respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Kruskal (CP) form.</span>
-<span class="sd">        </span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        fmat : list[np.ndarray]</span>
-<span class="sd">            List of factor matrices for the CP representation of a tensor</span>
-<span class="sd">        core_values : np.ndarray</span>
-<span class="sd">            Array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
-<span class="sd">        mode_names : list[str]</span>
-<span class="sd">            List of names for the factor matrices</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        TensorTopologyError</span>
-<span class="sd">            If there is inconsistency in shapes of factor matrices and core values</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        1) Create kruskal representation of a tensor with default meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorCPD</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7   # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R = 4               # Kruskal rank</span>
-<span class="sd">        &gt;&gt;&gt; A = np.ones((I, R))</span>
-<span class="sd">        &gt;&gt;&gt; B = np.ones((J, R))</span>
-<span class="sd">        &gt;&gt;&gt; C = np.ones((K, R))</span>
-<span class="sd">        &gt;&gt;&gt; fmat = [A, B , C]</span>
-<span class="sd">        &gt;&gt;&gt; core_values = np.arange(R)</span>
-<span class="sd">        &gt;&gt;&gt; tensor_cpd = TensorCPD(fmat, core_values)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_cpd)</span>
-<span class="sd">            Kruskal representation of a tensor with rank=(4,).</span>
-<span class="sd">            Factor matrices represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
-<span class="sd">            With corresponding latent components described by (5, 6, 7) features respectively.</span>
-
-<span class="sd">        2) Create kruskal representation of a tensor with custom meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorCPD</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7   # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R = 4               # Kruskal rank</span>
-<span class="sd">        &gt;&gt;&gt; A = np.ones((I, R))</span>
-<span class="sd">        &gt;&gt;&gt; B = np.ones((J, R))</span>
-<span class="sd">        &gt;&gt;&gt; C = np.ones((K, R))</span>
-<span class="sd">        &gt;&gt;&gt; fmat = [A, B , C]</span>
-<span class="sd">        &gt;&gt;&gt; core_values = np.arange(R)</span>
-<span class="sd">        &gt;&gt;&gt; mode_names = [&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
-<span class="sd">        &gt;&gt;&gt; tensor_cpd = TensorCPD(fmat, core_values, mode_names)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_cpd)</span>
-<span class="sd">            Kruskal representation of a tensor with rank=(4,).</span>
-<span class="sd">            Factor matrices represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
-<span class="sd">            With corresponding latent components described by (5, 6, 7) features respectively.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">]</span>
@@ -1215,6 +1212,7 @@
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        other : TensorCPD</span>
@@ -1530,7 +1528,16 @@
 
 
 <div class="viewcode-block" id="TensorTKD"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD">[docs]</a><span class="k">class</span> <span class="nc">TensorTKD</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Tucker form (TKD).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fmat : list[np.ndarray]</span>
+<span class="sd">        List of factor matrices for the Tucker representation of a tensor</span>
+<span class="sd">    core_values : np.ndarray</span>
+<span class="sd">        Core of the Tucker representation of a tensor</span>
+<span class="sd">    mode_names : list[str]</span>
+<span class="sd">        List of names for the factor matrices</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -1540,62 +1547,50 @@
 <span class="sd">        Placeholder for a core of the Tucker representation of a tensor</span>
 <span class="sd">    _modes : list[Mode]</span>
 <span class="sd">        Description of the factor matrix for the corresponding mode</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TensorTopologyError</span>
+<span class="sd">        If there is inconsistency in shapes of factor matrices and core values</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    1) Create tucker representation of a tensor with default meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorTKD</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7        # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R_1, R_2, R_3 = 2, 3, 4  # multi-linear rank</span>
+<span class="sd">    &gt;&gt;&gt; A = np.ones((I, R_1))</span>
+<span class="sd">    &gt;&gt;&gt; B = np.ones((J, R_2))</span>
+<span class="sd">    &gt;&gt;&gt; C = np.ones((K, R_3))</span>
+<span class="sd">    &gt;&gt;&gt; fmat = [A, B , C]</span>
+<span class="sd">    &gt;&gt;&gt; core_values = np.ones((R_1, R_2, R_3))</span>
+<span class="sd">    &gt;&gt;&gt; tensor_tkd = TensorTKD(fmat, core_values)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_tkd)</span>
+<span class="sd">        Tucker representation of a tensor with multi-linear rank=(2, 3, 4).</span>
+<span class="sd">        Factor matrices represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
+<span class="sd">        With corresponding latent components described by (5, 6, 7) features respectively.</span>
+
+<span class="sd">    2) Create tucker representation of a tensor with custom meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorTKD</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7        # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R_1, R_2, R_3 = 2, 3, 4  # multi-linear rank</span>
+<span class="sd">    &gt;&gt;&gt; A = np.ones((I, R_1))</span>
+<span class="sd">    &gt;&gt;&gt; B = np.ones((J, R_2))</span>
+<span class="sd">    &gt;&gt;&gt; C = np.ones((K, R_3))</span>
+<span class="sd">    &gt;&gt;&gt; fmat = [A, B , C]</span>
+<span class="sd">    &gt;&gt;&gt; core_values=np.ones((R_1, R_2, R_3))</span>
+<span class="sd">    &gt;&gt;&gt; mode_names=[&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
+<span class="sd">    &gt;&gt;&gt; tensor_tkd = TensorTKD(fmat, core_values, mode_names)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_tkd)</span>
+<span class="sd">        Tucker representation of a tensor with multi-linear rank=(2, 3, 4).</span>
+<span class="sd">        Factor matrices represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
+<span class="sd">        With corresponding latent components described by (5, 6, 7) features respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Tucker form.</span>
-<span class="sd">        </span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        fmat : list[np.ndarray]</span>
-<span class="sd">            List of factor matrices for the Tucker representation of a tensor</span>
-<span class="sd">        core_values : np.ndarray</span>
-<span class="sd">            Core of the Tucker representation of a tensor</span>
-<span class="sd">        mode_names : list[str]</span>
-<span class="sd">            List of names for the factor matrices</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        TensorTopologyError</span>
-<span class="sd">            If there is inconsistency in shapes of factor matrices and core values</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        1) Create tucker representation of a tensor with default meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorTKD</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7        # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R_1, R_2, R_3 = 2, 3, 4  # multi-linear rank</span>
-<span class="sd">        &gt;&gt;&gt; A = np.ones((I, R_1))</span>
-<span class="sd">        &gt;&gt;&gt; B = np.ones((J, R_2))</span>
-<span class="sd">        &gt;&gt;&gt; C = np.ones((K, R_3))</span>
-<span class="sd">        &gt;&gt;&gt; fmat = [A, B , C]</span>
-<span class="sd">        &gt;&gt;&gt; core_values = np.ones((R_1, R_2, R_3))</span>
-<span class="sd">        &gt;&gt;&gt; tensor_tkd = TensorTKD(fmat, core_values)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_tkd)</span>
-<span class="sd">            Tucker representation of a tensor with multi-linear rank=(2, 3, 4).</span>
-<span class="sd">            Factor matrices represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
-<span class="sd">            With corresponding latent components described by (5, 6, 7) features respectively.</span>
-
-<span class="sd">        2) Create tucker representation of a tensor with custom meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorTKD</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7        # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R_1, R_2, R_3 = 2, 3, 4  # multi-linear rank</span>
-<span class="sd">        &gt;&gt;&gt; A = np.ones((I, R_1))</span>
-<span class="sd">        &gt;&gt;&gt; B = np.ones((J, R_2))</span>
-<span class="sd">        &gt;&gt;&gt; C = np.ones((K, R_3))</span>
-<span class="sd">        &gt;&gt;&gt; fmat = [A, B , C]</span>
-<span class="sd">        &gt;&gt;&gt; core_values=np.ones((R_1, R_2, R_3))</span>
-<span class="sd">        &gt;&gt;&gt; mode_names=[&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
-<span class="sd">        &gt;&gt;&gt; tensor_tkd = TensorTKD(fmat, core_values, mode_names)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_tkd)</span>
-<span class="sd">            Tucker representation of a tensor with multi-linear rank=(2, 3, 4).</span>
-<span class="sd">            Factor matrices represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
-<span class="sd">            With corresponding latent components described by (5, 6, 7) features respectively.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTKD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">]</span>
@@ -1604,6 +1599,7 @@
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        other : TensorTKD</span>
@@ -1944,7 +1940,15 @@
 
 
 <div class="viewcode-block" id="TensorTT"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT">[docs]</a><span class="k">class</span> <span class="nc">TensorTT</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Representation of a tensor in the TT form.</span>
+    <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Tensor Train form  (TT).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    core_values : list[np.ndarray]</span>
+<span class="sd">        List of cores for the Tensor Train representation of a tensor.</span>
+<span class="sd">    mode_names : list[str]</span>
+<span class="sd">        List of names for the physical modes</span>
+
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -1952,58 +1956,48 @@
 <span class="sd">        Placeholder for a list of cores for the Tensor Train representation of a tensor.</span>
 <span class="sd">    _modes : list[Mode]</span>
 <span class="sd">        Description of the physical modes</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TensorTopologyError</span>
+<span class="sd">        If there is inconsistency in shapes of core values</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    1) Create tensor train representation of a tensor with default meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorTT</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7          # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R_1, R_2 = 3, 4            # tt-rank</span>
+<span class="sd">    &gt;&gt;&gt; core_0 = np.ones((I, R_1))</span>
+<span class="sd">    &gt;&gt;&gt; core_1 = np.ones((R1, J, R2))</span>
+<span class="sd">    &gt;&gt;&gt; core_2 = np.ones((R2, K))</span>
+<span class="sd">    &gt;&gt;&gt; core_values = [core_0, core_1, core_2]</span>
+<span class="sd">    &gt;&gt;&gt; tensor_tt = TensorTT(core_values)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_tt)</span>
+<span class="sd">        Tensor train representation of a tensor with tt-rank=(3, 4).</span>
+<span class="sd">        Shape of this representation in the full format is (5, 6, 7).</span>
+<span class="sd">        Physical modes of its cores represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
+
+<span class="sd">    2) Create tensor train representation of a tensor with custom meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorTT</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7  # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R_1, R_2 = 3, 4    # tt-rank</span>
+<span class="sd">    &gt;&gt;&gt; core_0 = np.ones((I, R_1))</span>
+<span class="sd">    &gt;&gt;&gt; core_1 = np.ones((R_1, J, R_2))</span>
+<span class="sd">    &gt;&gt;&gt; core_2 = np.ones((R_2, K))</span>
+<span class="sd">    &gt;&gt;&gt; core_values = [core_0, core_1, core_2]</span>
+<span class="sd">    &gt;&gt;&gt; mode_names = [&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
+<span class="sd">    &gt;&gt;&gt; tensor_tt = TensorTT(core_values, mode_names)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_tt)</span>
+<span class="sd">        Tensor train representation of a tensor with tt-rank=(3, 4).</span>
+<span class="sd">        Shape of this representation in the full format is (5, 6, 7).</span>
+<span class="sd">        Physical modes of its cores represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Tensor Train (TT) form.</span>
-<span class="sd">        </span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        core_values : list[np.ndarray]</span>
-<span class="sd">            List of cores for the Tensor Train representation of a tensor.</span>
-<span class="sd">        mode_names : list[str]</span>
-<span class="sd">            List of names for the physical modes</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        TensorTopologyError</span>
-<span class="sd">            If there is inconsistency in shapes of core values</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        1) Create tensor train representation of a tensor with default meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorTT</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7          # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R_1, R_2 = 3, 4            # tt-rank</span>
-<span class="sd">        &gt;&gt;&gt; core_0 = np.ones((I, R_1))</span>
-<span class="sd">        &gt;&gt;&gt; core_1 = np.ones((R1, J, R2))</span>
-<span class="sd">        &gt;&gt;&gt; core_2 = np.ones((R2, K))</span>
-<span class="sd">        &gt;&gt;&gt; core_values = [core_0, core_1, core_2]</span>
-<span class="sd">        &gt;&gt;&gt; tensor_tt = TensorTT(core_values)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_tt)</span>
-<span class="sd">            Tensor train representation of a tensor with tt-rank=(3, 4).</span>
-<span class="sd">            Shape of this representation in the full format is (5, 6, 7).</span>
-<span class="sd">            Physical modes of its cores represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
-
-<span class="sd">        2) Create tensor train representation of a tensor with custom meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorTT</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7  # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R_1, R_2 = 3, 4    # tt-rank</span>
-<span class="sd">        &gt;&gt;&gt; core_0 = np.ones((I, R_1))</span>
-<span class="sd">        &gt;&gt;&gt; core_1 = np.ones((R_1, J, R_2))</span>
-<span class="sd">        &gt;&gt;&gt; core_2 = np.ones((R_2, K))</span>
-<span class="sd">        &gt;&gt;&gt; core_values = [core_0, core_1, core_2]</span>
-<span class="sd">        &gt;&gt;&gt; mode_names = [&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
-<span class="sd">        &gt;&gt;&gt; tensor_tt = TensorTT(core_values, mode_names)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_tt)</span>
-<span class="sd">            Tensor train representation of a tensor with tt-rank=(3, 4).</span>
-<span class="sd">            Shape of this representation in the full format is (5, 6, 7).</span>
-<span class="sd">            Physical modes of its cores represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="n">core_values</span><span class="p">]</span>
@@ -2011,6 +2005,7 @@
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        other : TensorTT</span>

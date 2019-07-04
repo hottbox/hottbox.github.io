@@ -139,7 +139,25 @@
 <dl class="class">
 <dt id="hottbox.core.Tensor">
 <em class="property">class </em><code class="sig-name descname">Tensor</code><span class="sig-paren">(</span><em class="sig-param">array</em>, <em class="sig-param">custom_state=None</em>, <em class="sig-param">mode_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
+<dd><p>This class describes multidimensional data.</p>
+<p>All its methods implement all common operation on a tensor alone</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> (<em>np.ndarray</em>) – N-dimensional array</p></li>
+<li><p><strong>custom_state</strong> (<em>dict</em>) – <p>Provides flexibility to create a <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> object in folded, unfolded or rotated state. Use with caution.
+If provided, then should include only the following keys:</p>
+<p>’mode_order’ -&gt; tuple of lists</p>
+<p>’normal_shape’ -&gt; tuple</p>
+<p>’rtype’ -&gt; str</p>
+</p></li>
+<li><p><strong>mode_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Description of the tensor modes.
+If nothing is specified then all modes of the created <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>
+get generic names ‘mode-0’, ‘mode-1’ etc.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
 <dt id="hottbox.core.Tensor._data">
 <code class="sig-name descname">_data</code><a class="headerlink" href="#hottbox.core.Tensor._data" title="Permalink to this definition">¶</a></dt>
 <dd><p>N-dimensional array.</p>
@@ -174,27 +192,9 @@ Meta information.</p>
 </dl>
 </dd></dl>
 
-<p>This class describes multidimensional data.</p>
-<p>All its methods implement all common operation on a tensor alone</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Raises</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>array</strong> (<em>np.ndarray</em>) – N-dimensional array</p></li>
-<li><p><strong>custom_state</strong> (<em>dict</em>) – <p>Provides flexibility to create a <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> object in folded, unfolded or rotated state. Use with caution.
-If provided, then should include only the following keys:</p>
-<blockquote>
-<div><p>’mode_order’ -&gt; tuple of lists</p>
-<p>’normal_shape’ -&gt; tuple</p>
-<p>’rtype’ -&gt; str</p>
-</div></blockquote>
-</p></li>
-<li><p><strong>mode_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – Description of the tensor modes.
-If nothing is specified then all modes of the created <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>
-get generic names ‘mode-0’, ‘mode-1’ etc.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
 <li><p><strong>TypeError</strong> – If parameter <code class="docutils literal notranslate"><span class="pre">array</span></code> is not of <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> type.</p></li>
 <li><p><a class="reference internal" href="hottbox.errors.StateError.html#hottbox.errors.StateError" title="hottbox.errors.StateError"><strong>StateError</strong></a> – If parameter <code class="docutils literal notranslate"><span class="pre">custom_state</span></code> is inconsistent with provided <code class="docutils literal notranslate"><span class="pre">array</span></code>
     or does not meet requirements for creating <code class="docutils literal notranslate"><span class="pre">State</span></code> of the tensor.</p></li>

@@ -139,7 +139,17 @@
 <dl class="class">
 <dt id="hottbox.core.TensorTKD">
 <em class="property">class </em><code class="sig-name descname">TensorTKD</code><span class="sig-paren">(</span><em class="sig-param">fmat</em>, <em class="sig-param">core_values</em>, <em class="sig-param">mode_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="attribute">
+<dd><p>Representation of a tensor in the Tucker form (TKD).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fmat</strong> (<em>list</em><em>[</em><em>np.ndarray</em><em>]</em>) – List of factor matrices for the Tucker representation of a tensor</p></li>
+<li><p><strong>core_values</strong> (<em>np.ndarray</em>) – Core of the Tucker representation of a tensor</p></li>
+<li><p><strong>mode_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of names for the factor matrices</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
 <dt id="hottbox.core.TensorTKD._fmat">
 <code class="sig-name descname">_fmat</code><a class="headerlink" href="#hottbox.core.TensorTKD._fmat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Placeholder for a list of factor matrices for the Tucker representation of a tensor</p>
@@ -172,17 +182,9 @@
 </dl>
 </dd></dl>
 
-<p>Representation of a tensor in the Tucker form.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fmat</strong> (<em>list</em><em>[</em><em>np.ndarray</em><em>]</em>) – List of factor matrices for the Tucker representation of a tensor</p></li>
-<li><p><strong>core_values</strong> (<em>np.ndarray</em>) – Core of the Tucker representation of a tensor</p></li>
-<li><p><strong>mode_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of names for the factor matrices</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="hottbox.errors.TensorTopologyError.html#hottbox.errors.TensorTopologyError" title="hottbox.errors.TensorTopologyError"><strong>TensorTopologyError</strong></a> – If there is inconsistency in shapes of factor matrices and core values</p>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="hottbox.errors.TensorTopologyError.html#hottbox.errors.TensorTopologyError" title="hottbox.errors.TensorTopologyError"><strong>TensorTopologyError</strong></a> – If there is inconsistency in shapes of factor matrices and core values</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>

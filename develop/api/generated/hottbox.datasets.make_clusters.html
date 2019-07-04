@@ -139,25 +139,23 @@
 <dl class="function">
 <dt id="hottbox.datasets.make_clusters">
 <code class="sig-name descname">make_clusters</code><span class="sig-paren">(</span><em class="sig-param">dims</em>, <em class="sig-param">centers=5</em>, <em class="sig-param">n_samples=1000</em>, <em class="sig-param">center_bounds=(-10.0</em>, <em class="sig-param">10.0)</em>, <em class="sig-param">std=0.5</em>, <em class="sig-param">return_centers=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/datasets/synthetic.html#make_clusters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.datasets.make_clusters" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates a tensor of any dimension with isotropic gaussian blobs as clusters
-:param dims: specifies the order of the tensor
-:type dims: int
-:param n_samples: Specifies the size of each clusters
-:type n_samples: int or list(int)
-:param centers: The number of clusters in the dataset and their size (can be a list)
-:type centers: int or list(tuples)
-:param center_bounds: Specifies the bound (min, max) for generating the centers
-:type center_bounds: tuple(float, float)
-:param std: The standard deviation of each of the generated clusters
-:type std: float
-:param return_centers: Returns the positions of the centroids
-:type return_centers: bool</p>
+<dd><p>Generates a tensor of any dimension with isotropic gaussian blobs as clusters</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>tensor</strong> – Generated tensor according to the parameters specified</p>
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dims</strong> (<em>int</em>) – specifies the order of the tensor</p></li>
+<li><p><strong>n_samples</strong> (<em>int</em><em> or </em><em>list</em><em>(</em><em>int</em><em>)</em>) – Specifies the size of each clusters</p></li>
+<li><p><strong>centers</strong> (<em>int</em><em> or </em><em>list</em><em>(</em><em>tuples</em><em>)</em>) – The number of clusters in the dataset and their size (can be a list)</p></li>
+<li><p><strong>center_bounds</strong> (<em>tuple</em><em>(</em><em>float</em><em>, </em><em>float</em><em>)</em>) – Specifies the bound (min, max) for generating the centers</p></li>
+<li><p><strong>std</strong> (<em>float</em>) – The standard deviation of each of the generated clusters</p></li>
+<li><p><strong>return_centers</strong> (<em>bool</em>) – Returns the positions of the centroids</p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="hottbox.core.Tensor.html#hottbox.core.Tensor" title="hottbox.core.Tensor">Tensor</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tensor</strong> – Generated tensor according to the parameters specified</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="hottbox.core.Tensor.html#hottbox.core.Tensor" title="hottbox.core.Tensor">Tensor</a></p>
 </dd>
 </dl>
 </dd></dl>

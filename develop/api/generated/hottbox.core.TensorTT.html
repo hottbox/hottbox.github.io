@@ -139,7 +139,15 @@
 <dl class="class">
 <dt id="hottbox.core.TensorTT">
 <em class="property">class </em><code class="sig-name descname">TensorTT</code><span class="sig-paren">(</span><em class="sig-param">core_values</em>, <em class="sig-param">mode_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTT"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTT" title="Permalink to this definition">¶</a></dt>
-<dd><p>Representation of a tensor in the TT form.</p>
+<dd><p>Representation of a tensor in the Tensor Train form  (TT).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>core_values</strong> (<em>list</em><em>[</em><em>np.ndarray</em><em>]</em>) – List of cores for the Tensor Train representation of a tensor.</p></li>
+<li><p><strong>mode_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of names for the physical modes</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="attribute">
 <dt id="hottbox.core.TensorTT._core_values">
 <code class="sig-name descname">_core_values</code><a class="headerlink" href="#hottbox.core.TensorTT._core_values" title="Permalink to this definition">¶</a></dt>
@@ -162,16 +170,9 @@
 </dl>
 </dd></dl>
 
-<p>Representation of a tensor in the Tensor Train (TT) form.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>core_values</strong> (<em>list</em><em>[</em><em>np.ndarray</em><em>]</em>) – List of cores for the Tensor Train representation of a tensor.</p></li>
-<li><p><strong>mode_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of names for the physical modes</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="hottbox.errors.TensorTopologyError.html#hottbox.errors.TensorTopologyError" title="hottbox.errors.TensorTopologyError"><strong>TensorTopologyError</strong></a> – If there is inconsistency in shapes of core values</p>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><a class="reference internal" href="hottbox.errors.TensorTopologyError.html#hottbox.errors.TensorTopologyError" title="hottbox.errors.TensorTopologyError"><strong>TensorTopologyError</strong></a> – If there is inconsistency in shapes of core values</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
