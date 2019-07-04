@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="LSSTM" href="hottbox.algorithms.classification.LSSTM.html" />
+    <link rel="next" title="CMTF" href="hottbox.algorithms.decomposition.fusion.CMTF.html" />
     <link rel="prev" title="HOOI" href="hottbox.algorithms.decomposition.HOOI.html" /> 
 </head>
 
@@ -126,6 +126,10 @@
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.HOSVD.html">HOSVD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.HOOI.html">HOOI</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">TTSVD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition.fusion">Data Fusion Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.fusion.CMTF.html">CMTF</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul>
@@ -354,7 +358,7 @@
 </div>
 <dl class="class">
 <dt id="hottbox.algorithms.decomposition.TTSVD">
-<em class="property">class </em><code class="descname">TTSVD</code><span class="sig-paren">(</span><em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">TTSVD</code><span class="sig-paren">(</span><em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tensor Train Decomposition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -371,7 +375,7 @@
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -385,7 +389,7 @@
 </tr>
 </tbody>
 </table>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 44%" />
 <col style="width: 56%" />
@@ -398,13 +402,13 @@
 </table>
 <dl class="method">
 <dt id="hottbox.algorithms.decomposition.TTSVD.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy of the Decomposition as a new object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.decomposition.TTSVD.decompose">
-<code class="descname">decompose</code><span class="sig-paren">(</span><em>self</em>, <em>tensor</em>, <em>rank</em>, <em>keep_meta=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD.decompose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">decompose</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">tensor</em>, <em class="sig-param">rank</em>, <em class="sig-param">keep_meta=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD.decompose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs TT-SVD on the <cite>tensor</cite> with respect to the specified <cite>rank</cite></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -433,9 +437,9 @@ with the MATLAB implementation by Oseledets. This doesn’t really matter (apart
 as long as we do exactly the opposite for the reconstruction</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.algorithms.decomposition.TTSVD.name">
-<code class="descname">name</code><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD.name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Name of the decomposition</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -462,7 +466,7 @@ as long as we do exactly the opposite for the reconstruction</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hottbox.algorithms.classification.LSSTM.html" class="btn btn-neutral float-right" title="LSSTM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hottbox.algorithms.decomposition.fusion.CMTF.html" class="btn btn-neutral float-right" title="CMTF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="hottbox.algorithms.decomposition.HOOI.html" class="btn btn-neutral float-left" title="HOOI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

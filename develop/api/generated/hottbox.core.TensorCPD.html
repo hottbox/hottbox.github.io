@@ -128,6 +128,10 @@
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition.fusion">Data Fusion Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.fusion.CMTF.html">CMTF</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.LSSTM.html">LSSTM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.TelVI.html">TelVI</a></li>
@@ -354,7 +358,7 @@
 </div>
 <dl class="class">
 <dt id="hottbox.core.TensorCPD">
-<em class="property">class </em><code class="descname">TensorCPD</code><span class="sig-paren">(</span><em>fmat</em>, <em>core_values</em>, <em>mode_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">TensorCPD</code><span class="sig-paren">(</span><em class="sig-param">fmat</em>, <em class="sig-param">core_values</em>, <em class="sig-param">mode_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Representation of a tensor in the Kruskal (CP) form.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -436,7 +440,7 @@
 </pre></div>
 </div>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -465,7 +469,7 @@
 </tr>
 </tbody>
 </table>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 64%" />
 <col style="width: 36%" />
@@ -484,7 +488,7 @@
 </table>
 <dl class="method">
 <dt id="hottbox.core.TensorCPD.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces a copy of itself as a new object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -497,7 +501,7 @@
 
 <dl class="method">
 <dt id="hottbox.core.TensorCPD.copy_modes">
-<code class="descname">copy_modes</code><span class="sig-paren">(</span><em>self</em>, <em>tensor</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.copy_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.copy_modes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy_modes</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">tensor</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.copy_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.copy_modes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy modes meta from tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -515,9 +519,9 @@
 <p>Most of the time this method should only be used by the decomposition algorithms</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.TensorCPD.core">
-<code class="descname">core</code><a class="headerlink" href="#hottbox.core.TensorCPD.core" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">core</code><a class="headerlink" href="#hottbox.core.TensorCPD.core" title="Permalink to this definition">¶</a></dt>
 <dd><p>Core tensor of the CP representation of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -528,9 +532,9 @@
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.TensorCPD.fmat">
-<code class="descname">fmat</code><a class="headerlink" href="#hottbox.core.TensorCPD.fmat" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">fmat</code><a class="headerlink" href="#hottbox.core.TensorCPD.fmat" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of factor matrices for the CP representation of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -541,9 +545,9 @@
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.TensorCPD.ft_shape">
-<code class="descname">ft_shape</code><a class="headerlink" href="#hottbox.core.TensorCPD.ft_shape" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">ft_shape</code><a class="headerlink" href="#hottbox.core.TensorCPD.ft_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shape of a <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code> in the full format</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -554,9 +558,9 @@
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.TensorCPD.mode_names">
-<code class="descname">mode_names</code><a class="headerlink" href="#hottbox.core.TensorCPD.mode_names" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">mode_names</code><a class="headerlink" href="#hottbox.core.TensorCPD.mode_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Description of the physical modes for a <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -567,9 +571,9 @@
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.TensorCPD.modes">
-<code class="descname">modes</code><a class="headerlink" href="#hottbox.core.TensorCPD.modes" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">modes</code><a class="headerlink" href="#hottbox.core.TensorCPD.modes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Meta data for the factor matrices</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -580,9 +584,9 @@
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.TensorCPD.order">
-<code class="descname">order</code><a class="headerlink" href="#hottbox.core.TensorCPD.order" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">order</code><a class="headerlink" href="#hottbox.core.TensorCPD.order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Order of a tensor represented through the CPD</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -593,9 +597,9 @@
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.TensorCPD.rank">
-<code class="descname">rank</code><a class="headerlink" href="#hottbox.core.TensorCPD.rank" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">rank</code><a class="headerlink" href="#hottbox.core.TensorCPD.rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rank of the CP representation of a tensor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -610,7 +614,7 @@
 
 <dl class="method">
 <dt id="hottbox.core.TensorCPD.reconstruct">
-<code class="descname">reconstruct</code><span class="sig-paren">(</span><em>self</em>, <em>keep_meta=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.reconstruct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.reconstruct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reconstruct</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">keep_meta=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.reconstruct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.reconstruct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts the CP representation of a tensor into a full tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -632,7 +636,7 @@
 
 <dl class="method">
 <dt id="hottbox.core.TensorCPD.reset_mode_index">
-<code class="descname">reset_mode_index</code><span class="sig-paren">(</span><em>self</em>, <em>mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.reset_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.reset_mode_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset_mode_index</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.reset_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.reset_mode_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Drop index for the specified mode number</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -652,7 +656,7 @@ By default resets all indices</p>
 
 <dl class="method">
 <dt id="hottbox.core.TensorCPD.reset_mode_name">
-<code class="descname">reset_mode_name</code><span class="sig-paren">(</span><em>self</em>, <em>mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.reset_mode_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.reset_mode_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset_mode_name</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.reset_mode_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.reset_mode_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set default name for the specified mode number</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -672,7 +676,7 @@ By default resets names of all modes</p>
 
 <dl class="method">
 <dt id="hottbox.core.TensorCPD.set_mode_index">
-<code class="descname">set_mode_index</code><span class="sig-paren">(</span><em>self</em>, <em>mode_index</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.set_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.set_mode_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_mode_index</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode_index</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.set_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.set_mode_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set index for specified mode</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -693,7 +697,7 @@ Value contains a list of new indices for this mode.</p>
 
 <dl class="method">
 <dt id="hottbox.core.TensorCPD.set_mode_names">
-<code class="descname">set_mode_names</code><span class="sig-paren">(</span><em>self</em>, <em>mode_names</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.set_mode_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.set_mode_names" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_mode_names</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode_names</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorCPD.set_mode_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorCPD.set_mode_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rename modes of a tensor representation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

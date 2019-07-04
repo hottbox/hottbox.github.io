@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>fold &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
+  <title>CMTF &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="kolda_unfold" href="hottbox.core.kolda_unfold.html" />
-    <link rel="prev" title="unfold" href="hottbox.core.unfold.html" /> 
+    <link rel="next" title="LSSTM" href="hottbox.algorithms.classification.LSSTM.html" />
+    <link rel="prev" title="TTSVD" href="hottbox.algorithms.decomposition.TTSVD.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,7 +96,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../modules.html">HOTTBOX API</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../hottbox.core.html">Core Structures and Operations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.core.html">Core Structures and Operations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.core.Tensor.html">Tensor</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.core.TensorCPD.html">TensorCPD</a></li>
@@ -104,9 +104,9 @@
 <li class="toctree-l4"><a class="reference internal" href="hottbox.core.TensorTT.html">TensorTT</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="reference internal" href="../hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.core.unfold.html">unfold</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">fold</a></li>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.core.fold.html">fold</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.core.kolda_unfold.html">kolda_unfold</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.core.kolda_fold.html">kolda_fold</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.core.mode_n_product.html">mode_n_product</a></li>
@@ -118,7 +118,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../hottbox.algorithms.html">Algorithms</a><ul>
+<li class="toctree-l2 current"><a class="reference internal" href="../hottbox.algorithms.html">Algorithms</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition">Tensor Decomposition Algorithms</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.CPD.html">CPD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.RandomisedCPD.html">RandomisedCPD</a></li>
@@ -128,8 +128,8 @@
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition.fusion">Data Fusion Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.fusion.CMTF.html">CMTF</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition.fusion">Data Fusion Algorithms</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">CMTF</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul>
@@ -327,15 +327,15 @@
         
           <li><a href="../modules.html">HOTTBOX API</a> &raquo;</li>
         
-          <li><a href="../hottbox.core.html">Core Structures and Operations</a> &raquo;</li>
+          <li><a href="../hottbox.algorithms.html">Algorithms</a> &raquo;</li>
         
-      <li>fold</li>
+      <li>CMTF</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api/generated/hottbox.core.fold.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api/generated/hottbox.algorithms.decomposition.fusion.CMTF.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -349,37 +349,135 @@
 
            <div itemprop="articleBody">
             
-  <div class="section" id="fold">
-<h1>fold<a class="headerlink" href="#fold" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cmtf">
+<h1>CMTF<a class="headerlink" href="#cmtf" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
 
-<span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">fold</span>
+<span class="kn">from</span> <span class="nn">hottbox.algorithms.decomposition.fusion</span> <span class="k">import</span> <span class="n">CMTF</span>
 </pre></div>
 </div>
-<dl class="function">
-<dt id="hottbox.core.fold">
-<code class="sig-name descname">fold</code><span class="sig-paren">(</span><em class="sig-param">matrix</em>, <em class="sig-param">mode</em>, <em class="sig-param">shape</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/operations.html#fold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.fold" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fold a 2D array into a N-dimensional array.</p>
+<dl class="class">
+<dt id="hottbox.algorithms.decomposition.fusion.CMTF">
+<em class="property">class </em><code class="sig-name descname">CMTF</code><span class="sig-paren">(</span><em class="sig-param">max_iter=50</em>, <em class="sig-param">epsilon=0.01</em>, <em class="sig-param">tol=0.0001</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/fusion/cmtf.html#CMTF"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.fusion.CMTF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coupled Matrix and Tensor factorization for two <code class="docutils literal notranslate"><span class="pre">Tensors</span></code> of order n and 2 with respect to a specified <cite>rank</cite>.</p>
+<p>Computed via alternating least squares (ALS)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>matrix</strong><span class="classifier">np.ndarray</span></dt><dd><p>Unfolded version of a tensor</p>
+<dt><strong>max_iter</strong><span class="classifier">int</span></dt><dd><p>Maximum number of iteration</p>
 </dd>
-<dt><strong>mode</strong><span class="classifier">int</span></dt><dd><p>A mode along which original tensor was unfolded into a <cite>matrix</cite></p>
+<dt><strong>epsilon</strong><span class="classifier">float</span></dt><dd><p>Threshold for the relative error of approximation.</p>
 </dd>
-<dt><strong>shape</strong><span class="classifier">tuple</span></dt><dd><p>Shape of the original tensor before it was unfolded</p>
+<dt><strong>tol</strong><span class="classifier">float</span></dt><dd><p>Threshold for convergence of factor matrices</p>
+</dd>
+<dt><strong>random_state</strong><span class="classifier">int</span></dt><dd></dd>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If True, enable verbose output</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>cost</strong><span class="classifier">list</span></dt><dd><p>A list of relative approximation errors at each iteration of the algorithm.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets">1</span></dt>
+<dd><p>Acar, Evrim, Evangelos E. Papalexakis, Gozde Gurdeniz, Morten A. Rasmussen,
+Anders J. Lawaetz, Mathias Nilsson and Rasmus Bro.
+“Structure-revealing data fusion.” BMC Bioinformatics (2013).</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">2</span></dt>
+<dd><p>Jeon, Byungsoo &amp; Jeon, Inah &amp; Sael, Lee &amp; Kang, U. (2016).
+SCouT: Scalable coupled matrix-tensor factorization—Algorithm and discoveries.
+Int. Conf. Data Eng.. 811-822. 10.1109/ICDE.2016.7498292.</p>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.algorithms.decomposition.fusion.CMTF.copy" title="hottbox.algorithms.decomposition.fusion.CMTF.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(self)</p></td>
+<td><p>Copy of the CPD algorithm as a new object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.algorithms.decomposition.fusion.CMTF.decompose" title="hottbox.algorithms.decomposition.fusion.CMTF.decompose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompose</span></code></a>(self, tensor, mlst, rank)</p></td>
+<td><p>Performs factorisation using ALS on the two instances of <code class="docutils literal notranslate"><span class="pre">tensor</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 56%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>plot</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.fusion.CMTF.converged">
+<em class="property">property </em><code class="sig-name descname">converged</code><a class="headerlink" href="#hottbox.algorithms.decomposition.fusion.CMTF.converged" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks convergence of the CPD-ALS algorithm.
+Returns
+——-
+bool</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.fusion.CMTF.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/fusion/cmtf.html#CMTF.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.fusion.CMTF.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy of the CPD algorithm as a new object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.fusion.CMTF.decompose">
+<code class="sig-name descname">decompose</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">tensor</em>, <em class="sig-param">mlst</em>, <em class="sig-param">rank</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/fusion/cmtf.html#CMTF.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.fusion.CMTF.decompose" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Performs factorisation using ALS on the two instances of <code class="docutils literal notranslate"><span class="pre">tensor</span></code></dt><dd><p>with respect to the specified <code class="docutils literal notranslate"><span class="pre">rank</span></code></p>
+</dd>
+</dl>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>tensor</strong><span class="classifier">Tensor</span></dt><dd><p>Multi-dimensional data to be decomposed</p>
+</dd>
+<dt><strong>mlst</strong><span class="classifier">List of <cite>Tensor</cite></span></dt><dd><p>List of two-dimensional <cite>Tensor</cite> to be decomposed</p>
+</dd>
+<dt><strong>rank</strong><span class="classifier">tuple</span></dt><dd><p>Desired Kruskal rank for the given <code class="docutils literal notranslate"><span class="pre">tensor</span></code>. Should contain only one value.
+If it is greater then any of dimensions then random initialisation is used</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>tensor</strong><span class="classifier">np.ndarray</span></dt><dd><p>N-dimensional array of the original shape</p>
+<dt><strong>(fmat_a, fmat_b, t_recon, m_recon)</strong><span class="classifier">List(np.ndarray) or np.ndarray</span></dt><dd><p>fmat_a, fmat_b are the list of components obtained by applying CMTF
+t_recon, m_recon : The reconstructed tensor and list of matrices</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
-<p>At the moment it reverts unfolding operation (<code class="docutils literal notranslate"><span class="pre">unfold</span></code>). Will be generalised in a future</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.fusion.CMTF.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#hottbox.algorithms.decomposition.fusion.CMTF.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the decomposition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>decomposition_name</strong><span class="classifier">str</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <div class="clearer"></div></div>
@@ -396,10 +494,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="hottbox.core.kolda_unfold.html" class="btn btn-neutral float-right" title="kolda_unfold" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="hottbox.algorithms.classification.LSSTM.html" class="btn btn-neutral float-right" title="LSSTM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hottbox.core.unfold.html" class="btn btn-neutral float-left" title="unfold" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="hottbox.algorithms.decomposition.TTSVD.html" class="btn btn-neutral float-left" title="TTSVD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

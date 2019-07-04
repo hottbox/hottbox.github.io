@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="TelVI" href="hottbox.algorithms.classification.TelVI.html" />
-    <link rel="prev" title="TTSVD" href="hottbox.algorithms.decomposition.TTSVD.html" /> 
+    <link rel="prev" title="CMTF" href="hottbox.algorithms.decomposition.fusion.CMTF.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -126,6 +126,10 @@
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.HOSVD.html">HOSVD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.HOOI.html">HOOI</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition.fusion">Data Fusion Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.fusion.CMTF.html">CMTF</a></li>
 </ul>
 </li>
 <li class="toctree-l3 current"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul class="current">
@@ -354,7 +358,7 @@
 </div>
 <dl class="class">
 <dt id="hottbox.algorithms.classification.LSSTM">
-<em class="property">class </em><code class="descname">LSSTM</code><span class="sig-paren">(</span><em>C=1</em>, <em>tol=0.001</em>, <em>max_iter=100</em>, <em>probability=False</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">LSSTM</code><span class="sig-paren">(</span><em class="sig-param">C=1</em>, <em class="sig-param">tol=0.001</em>, <em class="sig-param">max_iter=100</em>, <em class="sig-param">probability=False</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Least Squares Support Tensor Machine (LS-STM) for binary classification.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -390,7 +394,7 @@ Part 2 applications and future perspectives.” Foundations and Trends in Machin
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -418,7 +422,7 @@ Part 2 applications and future perspectives.” Foundations and Trends in Machin
 </table>
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.fit">
-<code class="descname">fit</code><span class="sig-paren">(</span><em>self</em>, <em>X</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit the LS-STM model according to the given data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -439,7 +443,7 @@ Part 2 applications and future perspectives.” Foundations and Trends in Machin
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.get_params">
-<code class="descname">get_params</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.get_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.get_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -453,7 +457,7 @@ Part 2 applications and future perspectives.” Foundations and Trends in Machin
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.predict">
-<code class="descname">predict</code><span class="sig-paren">(</span><em>self</em>, <em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.predict" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predict the class labels for the provided data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -473,13 +477,13 @@ Part 2 applications and future perspectives.” Foundations and Trends in Machin
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.predict_proba">
-<code class="descname">predict_proba</code><span class="sig-paren">(</span><em>self</em>, <em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.predict_proba" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">predict_proba</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.predict_proba" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute probabilities of possible outcomes for samples in the provided data.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.score">
-<code class="descname">score</code><span class="sig-paren">(</span><em>self</em>, <em>X</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.score" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the mean accuracy on the given test data and labels.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -501,7 +505,7 @@ Part 2 applications and future perspectives.” Foundations and Trends in Machin
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.set_params">
-<code class="descname">set_params</code><span class="sig-paren">(</span><em>self</em>, <em>**params</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.set_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.set_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -531,7 +535,7 @@ Part 2 applications and future perspectives.” Foundations and Trends in Machin
         <a href="hottbox.algorithms.classification.TelVI.html" class="btn btn-neutral float-right" title="TelVI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="hottbox.algorithms.decomposition.TTSVD.html" class="btn btn-neutral float-left" title="TTSVD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="hottbox.algorithms.decomposition.fusion.CMTF.html" class="btn btn-neutral float-left" title="CMTF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

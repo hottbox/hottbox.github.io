@@ -126,6 +126,10 @@
 <li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.html#module-hottbox.algorithms.decomposition.fusion">Data Fusion Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.decomposition.fusion.CMTF.html">CMTF</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.html#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.classification.LSSTM.html">LSSTM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../../api/generated/hottbox.algorithms.classification.TelVI.html">TelVI</a></li>
@@ -343,6 +347,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">reduce</span>
 <span class="kn">from</span> <span class="nn">.operations</span> <span class="k">import</span> <span class="n">unfold</span><span class="p">,</span> <span class="n">kolda_unfold</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">kolda_fold</span><span class="p">,</span> <span class="n">mode_n_product</span>
 <span class="kn">from</span> <span class="nn">._meta</span> <span class="k">import</span> <span class="n">Mode</span><span class="p">,</span> <span class="n">State</span>

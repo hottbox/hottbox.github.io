@@ -128,6 +128,10 @@
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition.fusion">Data Fusion Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.fusion.CMTF.html">CMTF</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.LSSTM.html">LSSTM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.TelVI.html">TelVI</a></li>
@@ -354,7 +358,7 @@
 </div>
 <dl class="class">
 <dt id="hottbox.algorithms.decomposition.RandomisedCPD">
-<em class="property">class </em><code class="descname">RandomisedCPD</code><span class="sig-paren">(</span><em>init='svd'</em>, <em>sample_size=None</em>, <em>max_iter=50</em>, <em>epsilon=0.01</em>, <em>tol=0.0001</em>, <em>random_state=None</em>, <em>verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/cpd.html#RandomisedCPD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.RandomisedCPD" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">RandomisedCPD</code><span class="sig-paren">(</span><em class="sig-param">init='svd'</em>, <em class="sig-param">sample_size=None</em>, <em class="sig-param">max_iter=50</em>, <em class="sig-param">epsilon=0.01</em>, <em class="sig-param">tol=0.0001</em>, <em class="sig-param">random_state=None</em>, <em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/cpd.html#RandomisedCPD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.RandomisedCPD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Randomised Canonical Polyadic Decomposition.</p>
 <p>Computed via sampled alternating least squares (ALS)</p>
 <dl class="field-list simple">
@@ -389,7 +393,7 @@ Decomposition. SIAM Journal on Matrix Analysis and Applications, 39(2), 876–90
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -403,7 +407,7 @@ Decomposition. SIAM Journal on Matrix Analysis and Applications, 39(2), 876–90
 </tr>
 </tbody>
 </table>
-<table class="docutils align-center">
+<table class="docutils align-default">
 <colgroup>
 <col style="width: 44%" />
 <col style="width: 56%" />
@@ -414,9 +418,9 @@ Decomposition. SIAM Journal on Matrix Analysis and Applications, 39(2), 876–90
 </tr>
 </tbody>
 </table>
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.algorithms.decomposition.RandomisedCPD.converged">
-<code class="descname">converged</code><a class="headerlink" href="#hottbox.algorithms.decomposition.RandomisedCPD.converged" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">converged</code><a class="headerlink" href="#hottbox.algorithms.decomposition.RandomisedCPD.converged" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks convergence of the Randomised CPD-ALS algorithm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -429,13 +433,13 @@ Decomposition. SIAM Journal on Matrix Analysis and Applications, 39(2), 876–90
 
 <dl class="method">
 <dt id="hottbox.algorithms.decomposition.RandomisedCPD.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/cpd.html#RandomisedCPD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.RandomisedCPD.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/cpd.html#RandomisedCPD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.RandomisedCPD.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy of the CPD algorithm as a new object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.decomposition.RandomisedCPD.decompose">
-<code class="descname">decompose</code><span class="sig-paren">(</span><em>self</em>, <em>tensor</em>, <em>rank</em>, <em>keep_meta=0</em>, <em>kr_reverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/cpd.html#RandomisedCPD.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.RandomisedCPD.decompose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">decompose</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">tensor</em>, <em class="sig-param">rank</em>, <em class="sig-param">keep_meta=0</em>, <em class="sig-param">kr_reverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/cpd.html#RandomisedCPD.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.RandomisedCPD.decompose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs CPD-ALS on the <code class="docutils literal notranslate"><span class="pre">tensor</span></code> with respect to the specified <code class="docutils literal notranslate"><span class="pre">rank</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -465,9 +469,9 @@ If it is greater then any of dimensions then random initialisation is used</p>
 Probably this has something to do with data ordering in Python and how it relates to kr product</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.algorithms.decomposition.RandomisedCPD.name">
-<code class="descname">name</code><a class="headerlink" href="#hottbox.algorithms.decomposition.RandomisedCPD.name" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#hottbox.algorithms.decomposition.RandomisedCPD.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Name of the decomposition</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

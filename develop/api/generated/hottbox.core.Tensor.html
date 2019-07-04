@@ -128,6 +128,10 @@
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.TTSVD.html">TTSVD</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.decomposition.fusion">Data Fusion Algorithms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.decomposition.fusion.CMTF.html">CMTF</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../hottbox.algorithms.html#module-hottbox.algorithms.classification">Multi-linear Classification Algorithms</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.LSSTM.html">LSSTM</a></li>
 <li class="toctree-l4"><a class="reference internal" href="hottbox.algorithms.classification.TelVI.html">TelVI</a></li>
@@ -354,7 +358,7 @@
 </div>
 <dl class="class">
 <dt id="hottbox.core.Tensor">
-<em class="property">class </em><code class="descname">Tensor</code><span class="sig-paren">(</span><em>array</em>, <em>custom_state=None</em>, <em>mode_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-name descname">Tensor</code><span class="sig-paren">(</span><em class="sig-param">array</em>, <em class="sig-param">custom_state=None</em>, <em class="sig-param">mode_names=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class describes multidimensional data.</p>
 <p>All its methods implement all common operation on a tensor alone</p>
 <dl class="field-list">
@@ -459,7 +463,7 @@ or does not meet requirements for creating list of <code class="docutils literal
 </pre></div>
 </div>
 <p class="rubric">Methods</p>
-<table class="longtable docutils align-center">
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -514,7 +518,7 @@ or does not meet requirements for creating list of <code class="docutils literal
 </table>
 <dl class="method">
 <dt id="hottbox.core.Tensor.access">
-<code class="descname">access</code><span class="sig-paren">(</span><em>self</em>, <em>inds</em>, <em>mode</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.access"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.access" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">access</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inds</em>, <em class="sig-param">mode</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.access"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.access" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equivalent to multidimnesional slicing</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -535,7 +539,7 @@ or does not meet requirements for creating list of <code class="docutils literal
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.copy">
-<code class="descname">copy</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces a copy of itself as a new object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -551,7 +555,7 @@ or does not meet requirements for creating list of <code class="docutils literal
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.copy_modes">
-<code class="descname">copy_modes</code><span class="sig-paren">(</span><em>self</em>, <em>tensor</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.copy_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.copy_modes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy_modes</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">tensor</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.copy_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.copy_modes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy modes meta from tensor representation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -567,9 +571,9 @@ or does not meet requirements for creating list of <code class="docutils literal
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.Tensor.data">
-<code class="descname">data</code><a class="headerlink" href="#hottbox.core.Tensor.data" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">data</code><a class="headerlink" href="#hottbox.core.Tensor.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>N-dimensional array with data values</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -582,13 +586,13 @@ or does not meet requirements for creating list of <code class="docutils literal
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.describe">
-<code class="descname">describe</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.describe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.describe" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">describe</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.describe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.describe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Expose some metrics</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.fold">
-<code class="descname">fold</code><span class="sig-paren">(</span><em>self</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.fold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.fold" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fold</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.fold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.fold" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fold to the original shape</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -615,9 +619,9 @@ If False, then creates new object (copy)</p>
 <p>Basically, this method can be called in order to undo both <code class="docutils literal notranslate"><span class="pre">self.unfold</span></code> and <code class="docutils literal notranslate"><span class="pre">self.vectorise</span></code></p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.Tensor.frob_norm">
-<code class="descname">frob_norm</code><a class="headerlink" href="#hottbox.core.Tensor.frob_norm" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">frob_norm</code><a class="headerlink" href="#hottbox.core.Tensor.frob_norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Frobenious norm of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -628,9 +632,9 @@ If False, then creates new object (copy)</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.Tensor.ft_shape">
-<code class="descname">ft_shape</code><a class="headerlink" href="#hottbox.core.Tensor.ft_shape" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">ft_shape</code><a class="headerlink" href="#hottbox.core.Tensor.ft_shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shape of the a tensor in normal format (without being in unfolded or folded state)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -641,9 +645,9 @@ If False, then creates new object (copy)</p>
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.Tensor.in_normal_state">
-<code class="descname">in_normal_state</code><a class="headerlink" href="#hottbox.core.Tensor.in_normal_state" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">in_normal_state</code><a class="headerlink" href="#hottbox.core.Tensor.in_normal_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks state of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -659,7 +663,7 @@ If False, then creates new object (copy)</p>
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.mode_n_product">
-<code class="descname">mode_n_product</code><span class="sig-paren">(</span><em>self</em>, <em>matrix</em>, <em>mode</em>, <em>new_name=None</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.mode_n_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.mode_n_product" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">mode_n_product</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">matrix</em>, <em class="sig-param">mode</em>, <em class="sig-param">new_name=None</em>, <em class="sig-param">inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.mode_n_product"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.mode_n_product" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mode-n product of a tensor with a matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -702,9 +706,9 @@ it will be changed to <code class="docutils literal notranslate"><span class="pr
 </ol>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.Tensor.mode_names">
-<code class="descname">mode_names</code><a class="headerlink" href="#hottbox.core.Tensor.mode_names" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">mode_names</code><a class="headerlink" href="#hottbox.core.Tensor.mode_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Description of the tensor modes in current state</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -715,9 +719,9 @@ it will be changed to <code class="docutils literal notranslate"><span class="pr
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.Tensor.modes">
-<code class="descname">modes</code><a class="headerlink" href="#hottbox.core.Tensor.modes" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">modes</code><a class="headerlink" href="#hottbox.core.Tensor.modes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Meta data for the modes of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -728,9 +732,9 @@ it will be changed to <code class="docutils literal notranslate"><span class="pr
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.Tensor.order">
-<code class="descname">order</code><a class="headerlink" href="#hottbox.core.Tensor.order" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">order</code><a class="headerlink" href="#hottbox.core.Tensor.order" title="Permalink to this definition">¶</a></dt>
 <dd><p>Order of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -743,7 +747,7 @@ it will be changed to <code class="docutils literal notranslate"><span class="pr
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.reset_meta">
-<code class="descname">reset_meta</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.reset_meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.reset_meta" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset_meta</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.reset_meta"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.reset_meta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set all meta information with respect to the current shape of data array</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -756,7 +760,7 @@ it will be changed to <code class="docutils literal notranslate"><span class="pr
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.reset_mode_index">
-<code class="descname">reset_mode_index</code><span class="sig-paren">(</span><em>self</em>, <em>mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.reset_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.reset_mode_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset_mode_index</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.reset_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.reset_mode_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Drop index for the specified mode number</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -776,7 +780,7 @@ By default resets all indices</p>
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.reset_mode_name">
-<code class="descname">reset_mode_name</code><span class="sig-paren">(</span><em>self</em>, <em>mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.reset_mode_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.reset_mode_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset_mode_name</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.reset_mode_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.reset_mode_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set default name for the specified mode number</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -796,7 +800,7 @@ By default resets names of all modes</p>
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.set_mode_index">
-<code class="descname">set_mode_index</code><span class="sig-paren">(</span><em>self</em>, <em>mode_index</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.set_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.set_mode_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_mode_index</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode_index</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.set_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.set_mode_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set index for specified mode</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -823,7 +827,7 @@ Value contains a list of new indices for this mode.</p>
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.set_mode_names">
-<code class="descname">set_mode_names</code><span class="sig-paren">(</span><em>self</em>, <em>mode_names</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.set_mode_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.set_mode_names" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_mode_names</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode_names</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.set_mode_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.set_mode_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rename modes of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -848,9 +852,9 @@ The name of the mode defined by the Key of the dict will be renamed to the corre
 </dl>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.Tensor.shape">
-<code class="descname">shape</code><a class="headerlink" href="#hottbox.core.Tensor.shape" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#hottbox.core.Tensor.shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shape of a tensor in current state</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -864,13 +868,13 @@ The name of the mode defined by the Key of the dict will be renamed to the corre
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.show_state">
-<code class="descname">show_state</code><span class="sig-paren">(</span><em>self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.show_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.show_state" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">show_state</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.show_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.show_state" title="Permalink to this definition">¶</a></dt>
 <dd><p>Show the current state of the <code class="docutils literal notranslate"><span class="pre">Tensor</span></code></p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="method">
 <dt id="hottbox.core.Tensor.size">
-<code class="descname">size</code><a class="headerlink" href="#hottbox.core.Tensor.size" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">size</code><a class="headerlink" href="#hottbox.core.Tensor.size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of elements in a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -883,7 +887,7 @@ The name of the mode defined by the Key of the dict will be renamed to the corre
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.unfold">
-<code class="descname">unfold</code><span class="sig-paren">(</span><em>self</em>, <em>mode</em>, <em>rtype='T'</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.unfold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.unfold" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">unfold</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode</em>, <em class="sig-param">rtype='T'</em>, <em class="sig-param">inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.unfold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.unfold" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform mode-n unfolding to a matrix</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -916,7 +920,7 @@ If False, then creates new object (copy)</p>
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.vectorise">
-<code class="descname">vectorise</code><span class="sig-paren">(</span><em>self</em>, <em>rtype='T'</em>, <em>inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.vectorise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.vectorise" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">vectorise</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">rtype='T'</em>, <em class="sig-param">inplace=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.vectorise"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.vectorise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform vectorisation of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -947,7 +951,7 @@ If False, then creates new object (copy)</p>
 
 <dl class="method">
 <dt id="hottbox.core.Tensor.write_subtensor">
-<code class="descname">write_subtensor</code><span class="sig-paren">(</span><em>self</em>, <em>inds</em>, <em>mode</em>, <em>overwrite</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.write_subtensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.write_subtensor" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">write_subtensor</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">inds</em>, <em class="sig-param">mode</em>, <em class="sig-param">overwrite</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#Tensor.write_subtensor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.Tensor.write_subtensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Works in the same way as <cite>access</cite> but permits changing of the tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
