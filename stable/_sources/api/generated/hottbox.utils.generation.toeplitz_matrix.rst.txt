@@ -1,0 +1,16 @@
+toeplitz_matrix
+===============
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import toeplitz_matrix
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: toeplitz_matrix
+
+.. raw:: html
+
+    <div class="clearer"></div>

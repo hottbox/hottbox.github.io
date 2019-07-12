@@ -1,0 +1,16 @@
+is_toeplitz_matrix
+==================
+
+::
+
+    # Import statement
+
+    from hottbox.utils.validation import is_toeplitz_matrix
+
+.. currentmodule:: hottbox.utils.validation
+
+.. autofunction:: is_toeplitz_matrix
+
+.. raw:: html
+
+    <div class="clearer"></div>

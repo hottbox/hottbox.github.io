@@ -1,0 +1,16 @@
+khatri_rao
+==========
+
+::
+
+    # Import statement
+
+    from hottbox.core import khatri_rao
+
+.. currentmodule:: hottbox.core
+
+.. autofunction:: khatri_rao
+
+.. raw:: html
+
+    <div class="clearer"></div>

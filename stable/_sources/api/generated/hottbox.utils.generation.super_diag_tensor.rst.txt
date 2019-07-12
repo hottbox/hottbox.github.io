@@ -1,0 +1,16 @@
+super_diag_tensor
+=================
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import super_diag_tensor
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: super_diag_tensor
+
+.. raw:: html
+
+    <div class="clearer"></div>

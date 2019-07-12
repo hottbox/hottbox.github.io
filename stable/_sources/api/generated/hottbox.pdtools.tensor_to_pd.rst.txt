@@ -1,0 +1,16 @@
+tensor_to_pd
+============
+
+::
+
+    # Import statement
+
+    from hottbox.pdtools import tensor_to_pd
+
+.. currentmodule:: hottbox.pdtools
+
+.. autofunction:: tensor_to_pd
+
+.. raw:: html
+
+    <div class="clearer"></div>

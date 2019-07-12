@@ -1,0 +1,18 @@
+Tensor
+======
+
+::
+
+    # Import statement
+
+    from hottbox.core import Tensor
+
+.. currentmodule:: hottbox.core
+
+.. autoclass:: Tensor
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

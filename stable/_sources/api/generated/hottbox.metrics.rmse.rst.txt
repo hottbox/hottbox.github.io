@@ -1,0 +1,16 @@
+rmse
+====
+
+::
+
+    # Import statement
+
+    from hottbox.metrics import rmse
+
+.. currentmodule:: hottbox.metrics
+
+.. autofunction:: rmse
+
+.. raw:: html
+
+    <div class="clearer"></div>

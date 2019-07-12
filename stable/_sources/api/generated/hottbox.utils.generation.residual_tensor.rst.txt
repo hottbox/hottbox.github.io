@@ -1,0 +1,16 @@
+residual_tensor
+===============
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import residual_tensor
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: residual_tensor
+
+.. raw:: html
+
+    <div class="clearer"></div>

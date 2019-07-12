@@ -1,0 +1,16 @@
+toeplitz_tensor
+===============
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import toeplitz_tensor
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: toeplitz_tensor
+
+.. raw:: html
+
+    <div class="clearer"></div>

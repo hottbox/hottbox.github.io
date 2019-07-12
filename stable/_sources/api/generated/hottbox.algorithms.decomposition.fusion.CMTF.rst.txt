@@ -1,0 +1,18 @@
+CMTF
+====
+
+::
+
+    # Import statement
+
+    from hottbox.algorithms.decomposition.fusion import CMTF
+
+.. currentmodule:: hottbox.algorithms.decomposition.fusion
+
+.. autoclass:: CMTF
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

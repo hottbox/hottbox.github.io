@@ -1,0 +1,16 @@
+super_symmetric_tensor
+======================
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import super_symmetric_tensor
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: super_symmetric_tensor
+
+.. raw:: html
+
+    <div class="clearer"></div>

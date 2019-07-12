@@ -1,0 +1,16 @@
+hadamard
+========
+
+::
+
+    # Import statement
+
+    from hottbox.core import hadamard
+
+.. currentmodule:: hottbox.core
+
+.. autofunction:: hadamard
+
+.. raw:: html
+
+    <div class="clearer"></div>

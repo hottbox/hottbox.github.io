@@ -1,0 +1,16 @@
+gen_test_tensor_cpd
+===================
+
+::
+
+    # Import statement
+
+    from hottbox.contrib.visualisation import gen_test_tensor_cpd
+
+.. currentmodule:: hottbox.contrib.visualisation
+
+.. autofunction:: gen_test_tensor_cpd
+
+.. raw:: html
+
+    <div class="clearer"></div>

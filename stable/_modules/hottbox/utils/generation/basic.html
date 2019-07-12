@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>hottbox.utils.generation.basic &#8212; HOTTBOX 0.3.1 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/hottbox_favicon-48x48.ico"/>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>
+      <a href="https://github.com/hottbox/hottbox"><i class="fab fa-github fa-lg"></i> Fork me on GitHub</a>
+    </h2>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../api/modules.html">HOTTBOX API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../development_guide/index.html">Development guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../authors.html">Our Team</a></li>
+</ul>
+
+    
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../../../index.html">Docs</a></li>
+              
+                <li><a href="../../../index.html">Module code</a></li>
+              
+              <li>hottbox.utils.generation.basic</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <h1>Source code for hottbox.utils.generation.basic</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">hottbox.core.structures</span> <span class="k">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">BaseTensorTD</span>
+
+
+<span class="k">def</span> <span class="nf">_predefined_distr</span><span class="p">(</span><span class="n">distr</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    distr : str</span>
+<span class="sd">    shape : tuple</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">distrlist</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uniform&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">),</span>
+                 <span class="s1">&#39;normal&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">),</span>
+                 <span class="s1">&#39;triangular&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">),</span>
+                 <span class="s1">&#39;standard-t&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_t</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">),</span>
+                 <span class="s1">&#39;ones&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span>
+                 <span class="s1">&#39;zeros&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)}</span>
+    <span class="k">if</span> <span class="n">distr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">distrlist</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">&quot;The distribution </span><span class="si">{}</span><span class="s2"> is not an available one. &quot;</span>
+                        <span class="s2">&quot;Please refer to the list of implementations: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">distr</span><span class="p">,</span> <span class="n">distrlist</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+    <span class="k">return</span> <span class="n">distrlist</span><span class="p">[</span><span class="n">distr</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="dense_tensor"><a class="viewcode-back" href="../../../../api/generated/hottbox.utils.generation.dense_tensor.html#hottbox.utils.generation.dense_tensor">[docs]</a><span class="k">def</span> <span class="nf">dense_tensor</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">distr</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">distr_type</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fxdind</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generates a dense tensor of any dimension and fills it accordingly</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape : tuple</span>
+<span class="sd">        Specifies the dimensions of the tensor</span>
+<span class="sd">    distr : str, optional</span>
+<span class="sd">        Specifies the random generation using a class of the numpy.random module</span>
+<span class="sd">    distr_type : int, optional</span>
+<span class="sd">        Number of indices to not fix. 0 will be applied globally, 1 will apply to fibers, 2 to slices, etc.</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Tensor</span>
+<span class="sd">        Generated tensor according to the parameters specified</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># fxdind: fixed indices</span>
+    <span class="k">if</span> <span class="n">distr_type</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">_predefined_distr</span><span class="p">(</span><span class="n">distr</span><span class="p">,</span> <span class="n">shape</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in dataset (basic) class&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="sparse_tensor"><a class="viewcode-back" href="../../../../api/generated/hottbox.utils.generation.sparse_tensor.html#hottbox.utils.generation.sparse_tensor">[docs]</a><span class="k">def</span> <span class="nf">sparse_tensor</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">distr</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="n">distr_type</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">fxdind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pct</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generates a sparse tensor of any dimension and fills it accordingly</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape : tuple</span>
+<span class="sd">        Specifies the dimensions of the tensor</span>
+<span class="sd">    distr : str, optional</span>
+<span class="sd">        Specifies the random generation using a class of the numpy.random module</span>
+<span class="sd">    distr_type : int, optional</span>
+<span class="sd">        Number of indices to not fix. 0 will be applied globally, 1 will apply to fibers, 2 to slices, etc.</span>
+<span class="sd">    pct : float, optional</span>
+<span class="sd">        Percentage of the dataset to be filled</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Tensor</span>
+<span class="sd">        Generated tensor according to the parameters specified</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">distr_type</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">number_non_zero_values</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_size</span> <span class="o">*</span> <span class="n">pct</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">data_size</span><span class="p">)</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="n">data_size</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">number_non_zero_values</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">_predefined_distr</span><span class="p">(</span><span class="n">distr</span><span class="p">,</span> <span class="n">number_non_zero_values</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Not implemented in dataset (basic) class&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="super_diagonal_tensor"><a class="viewcode-back" href="../../../../api/generated/hottbox.utils.generation.super_diagonal_tensor.html#hottbox.utils.generation.super_diagonal_tensor">[docs]</a><span class="k">def</span> <span class="nf">super_diagonal_tensor</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">distr</span><span class="o">=</span><span class="s1">&#39;ones&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generates a tensor of any dimension with random or specified numbers across the super-diagonal and zeros elsewhere</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape : tuple</span>
+<span class="sd">        Specifies the dimensions of the tensor</span>
+<span class="sd">        ``len(shape)`` defines the order of the tensor, whereas its values specify sizes of dimensions of the tensor.</span>
+<span class="sd">    distr : str, optional</span>
+<span class="sd">        Specifies the random generation using a class of the numpy.random module</span>
+<span class="sd">    values : list</span>
+<span class="sd">        Array of values on the super-diagonal of a tensor</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Tensor</span>
+<span class="sd">        Generated tensor according to the parameters specified</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `shape` should be passed as a tuple!&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All values in `shape` should have the same value!&quot;</span><span class="p">)</span>
+    <span class="n">inds</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">_predefined_distr</span><span class="p">(</span><span class="n">distr</span><span class="p">,</span> <span class="n">inds</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">!=</span> <span class="n">inds</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch! The specified values do not match &quot;</span>
+                         <span class="s2">&quot;the specified shape of the tensor provided (</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">),</span> <span class="n">inds</span><span class="p">))</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="super_diag_tensor"><a class="viewcode-back" href="../../../../api/generated/hottbox.utils.generation.super_diag_tensor.html#hottbox.utils.generation.super_diag_tensor">[docs]</a><span class="k">def</span> <span class="nf">super_diag_tensor</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Super-diagonal tensor of the specified `order`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape : tuple</span>
+<span class="sd">        Desired shape of the tensor.</span>
+<span class="sd">        ``len(shape)`` defines the order of the tensor, whereas its values specify sizes of dimensions of the tensor.</span>
+<span class="sd">    values : np.ndarray</span>
+<span class="sd">        Array of values on the super-diagonal of a tensor. By default contains only ones.</span>
+<span class="sd">        Length of this vector defines Kryskal rank which is equal to ``shape[0]``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tensor : Tensor</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">rank</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `shape` should be passed as a tuple!&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode_size</span> <span class="o">==</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">mode_size</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All values in `shape` should have the same value!&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span>  <span class="c1"># set default values</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The `values` should be 1-dimensional numpy array!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="n">rank</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch! Not enough or too many `values` for the specified `shape`:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2"> (values.size != shape[0])&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">rank</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The `values` should be passed as a numpy array!&quot;</span><span class="p">)</span>
+
+    <span class="n">core</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">core</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">diag_indices</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">order</span><span class="p">)]</span> <span class="o">=</span> <span class="n">values</span>
+    <span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">core</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tensor</span></div>
+
+
+<div class="viewcode-block" id="super_symmetric_tensor"><a class="viewcode-back" href="../../../../api/generated/hottbox.utils.generation.super_symmetric_tensor.html#hottbox.utils.generation.super_symmetric_tensor">[docs]</a><span class="k">def</span> <span class="nf">super_symmetric_tensor</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">tensor</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generates a tensor of equal dimensions with random or specified numbers, with a specified tensor.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape : tuple</span>
+<span class="sd">        Specifies the dimensions of the tensor</span>
+<span class="sd">        ``len(shape)`` defines the order of the tensor, whereas its values specify sizes of dimensions of the tensor.</span>
+<span class="sd">    tensor : Tensor, optional</span>
+<span class="sd">        Input tensor to be symmetricised</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Tensor</span>
+<span class="sd">        Generated tensor according to the parameters specified</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">dims</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">inds</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">permutations</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">dims</span><span class="p">))</span>
+    <span class="n">inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">inds</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">tensor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">tensor</span> <span class="o">=</span> <span class="n">dense_tensor</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">inds</span><span class="p">):</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">inds</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]))</span>
+    <span class="k">return</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="residual_tensor"><a class="viewcode-back" href="../../../../api/generated/hottbox.utils.generation.residual_tensor.html#hottbox.utils.generation.residual_tensor">[docs]</a><span class="k">def</span> <span class="nf">residual_tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="p">,</span> <span class="n">tensor_approx</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Residual tensor</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tensor_orig : Tensor</span>
+<span class="sd">    tensor_approx : {Tensor, TensorCPD, TensorTKD, TensorTT}</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    residual : Tensor</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_orig</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unknown data type of original tensor.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                        <span class="s2">&quot;The available type for `tensor_A` is `Tensor`&quot;</span><span class="p">)</span>
+    <span class="c1"># TODO: make use of direct subtraction of tensors</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">BaseTensorTD</span><span class="p">):</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unknown data type of the approximation tensor!</span><span class="se">\n</span><span class="s2">&quot;</span>
+                        <span class="s2">&quot;The available types for `tensor_B` are `Tensor`,  `TensorCPD`,  `TensorTKD`,  `TensorTT`&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">residual</span></div>
+</pre></div>
+
+          </div>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        });
+
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
+    });
+</script>
+
+  </body>
+</html>

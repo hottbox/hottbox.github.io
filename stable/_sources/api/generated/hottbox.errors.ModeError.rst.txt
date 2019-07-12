@@ -1,0 +1,18 @@
+ModeError
+=========
+
+::
+
+    # Import statement
+
+    from hottbox.errors import ModeError
+
+.. currentmodule:: hottbox.errors
+
+.. autoclass:: ModeError
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

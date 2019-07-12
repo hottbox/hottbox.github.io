@@ -1,214 +1,111 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
   
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>hottbox.core.structures &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <title>hottbox.core.structures &#8212; HOTTBOX 0.3.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" /> 
-
+    <link rel="search" title="Search" href="../../../search.html" />
   
-  <script src="../../../_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
    
-  <div class="wy-grid-for-nav">
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
 
-          
-            <a href="../../../index.html">
-          
-
-          
-            
-            <img src="../../../_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.2.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
         </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing HOTTBOX</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../installation.html#running-tests">Running tests</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">HOTTBOX API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.core.html">Core Structures and Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.algorithms.html">Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.utils.html">Utility Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.rank.html">Rank Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../api/hottbox.contrib.html">Experimental features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../api/hottbox.contrib.html#visualisation">Visualisation</a></li>
-</ul>
-</li>
-</ul>
-</li>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>
+      <a href="https://github.com/hottbox/hottbox"><i class="fab fa-github fa-lg"></i> Fork me on GitHub</a>
+    </h2>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">HOTTBOX API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">HOTTBOX Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../development_guide/index.html">Development guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/how_to_contribute.html">How to contribute</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/before_pull_request.html">Before pull request</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/before_pull_request.html#docker-validation">Docker validation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../../development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html">Master branch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../../development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development_guide/index.html">Development guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Our Team</a></li>
 </ul>
 
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../index.html">hottbox</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
     
-      <li><a href="../../../index.html">Docs</a> &raquo;</li>
-        
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-        
-      <li>hottbox.core.structures</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../../index.html">Docs</a></li>
+              
+                <li><a href="../../index.html">Module code</a></li>
+              
+              <li>hottbox.core.structures</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
             
   <h1>Source code for hottbox.core.structures</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -216,16 +113,32 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">reduce</span>
 <span class="kn">from</span> <span class="nn">.operations</span> <span class="k">import</span> <span class="n">unfold</span><span class="p">,</span> <span class="n">kolda_unfold</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">kolda_fold</span><span class="p">,</span> <span class="n">mode_n_product</span>
 <span class="kn">from</span> <span class="nn">._meta</span> <span class="k">import</span> <span class="n">Mode</span><span class="p">,</span> <span class="n">State</span>
 <span class="kn">from</span> <span class="nn">..errors</span> <span class="k">import</span> <span class="n">TensorModeError</span><span class="p">,</span> <span class="n">TensorShapeError</span><span class="p">,</span> <span class="n">TensorStateError</span><span class="p">,</span> <span class="n">TensorTopologyError</span><span class="p">,</span> <span class="n">ModeError</span><span class="p">,</span> <span class="n">StateError</span>
 
 
-<div class="viewcode-block" id="Tensor"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor">[docs]</a><span class="k">class</span> <span class="nc">Tensor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor">[docs]</a><span class="k">class</span> <span class="nc">Tensor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot; This class describes multidimensional data.</span>
 
 <span class="sd">    All its methods implement all common operation on a tensor alone</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    array : np.ndarray</span>
+<span class="sd">        N-dimensional array</span>
+<span class="sd">    custom_state : dict</span>
+<span class="sd">        Provides flexibility to create a ``Tensor`` object in folded, unfolded or rotated state. Use with caution.</span>
+<span class="sd">        If provided, then should include only the following keys:\n</span>
+<span class="sd">        &#39;mode_order&#39; -&gt; tuple of lists \n</span>
+<span class="sd">        &#39;normal_shape&#39; -&gt; tuple \n</span>
+<span class="sd">        &#39;rtype&#39; -&gt; str</span>
+<span class="sd">    mode_names : list[str]</span>
+<span class="sd">        Description of the tensor modes.</span>
+<span class="sd">        If nothing is specified then all modes of the created ``Tensor``</span>
+<span class="sd">        get generic names &#39;mode-0&#39;, &#39;mode-1&#39; etc.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -237,79 +150,62 @@
 <span class="sd">    _state : State</span>
 <span class="sd">        Reference to meta information about transformations applied to a tensor, such as unfolding, vectorising etc.</span>
 <span class="sd">        Meta information.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TypeError</span>
+<span class="sd">        If parameter ``array`` is not of ``np.ndarray`` type.</span>
+<span class="sd">    StateError</span>
+<span class="sd">        If parameter ``custom_state`` is inconsistent with provided ``array``</span>
+<span class="sd">        or does not meet requirements for creating ``State`` of the tensor.</span>
+<span class="sd">    ModeError</span>
+<span class="sd">        If parameter ``mode_names`` is inconsistent with provided ``array`` and ``custom_state``</span>
+<span class="sd">        or does not meet requirements for creating list of ``Mode`` of the tensor.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    1) Creating a tensor with default parameters for meta data</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import Tensor</span>
+<span class="sd">    &gt;&gt;&gt; data = np.arange(24).reshape(2, 3, 4)</span>
+<span class="sd">    &gt;&gt;&gt; tensor = Tensor(data)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor)</span>
+<span class="sd">        This tensor is of order 3 and consists of 24 elements.</span>
+<span class="sd">        Sizes and names of its modes are (2, 3, 4) and [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;] respectively.</span>
+
+<span class="sd">    2) Creating a tensor with custom mode names</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import Tensor</span>
+<span class="sd">    &gt;&gt;&gt; data = np.arange(24).reshape(2, 3, 4)</span>
+<span class="sd">    &gt;&gt;&gt; tensor = Tensor(data, mode_names=[&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;])</span>
+<span class="sd">    &gt;&gt;&gt; tensor.show_state()</span>
+<span class="sd">        State(normal_shape=(2, 3, 4), rtype=&#39;Init&#39;, mode_order=([0], [1], [2]))</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor)</span>
+<span class="sd">        This tensor is of order 3 and consists of 24 elements.</span>
+<span class="sd">        Sizes and names of its modes are (2, 3, 4) and [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;] respectively.</span>
+
+<span class="sd">    3) Creating a tensor in custom state</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import Tensor</span>
+<span class="sd">    &gt;&gt;&gt; data = np.arange(24).reshape(2, 3*4)</span>
+<span class="sd">    &gt;&gt;&gt; tensor = Tensor(data, custom_state={&quot;normal_shape&quot;: (2, 3, 4),</span>
+<span class="sd">    ...                                     &quot;mode_order&quot;: ([0], [1, 2]),</span>
+<span class="sd">    ...                                     &quot;rtype&quot;: &quot;T&quot;}</span>
+<span class="sd">    &gt;&gt;&gt; data.shape</span>
+<span class="sd">        (2, 12)</span>
+<span class="sd">    &gt;&gt;&gt; tensor.shape</span>
+<span class="sd">        (2, 12)</span>
+<span class="sd">    &gt;&gt;&gt; tensor.show_state()</span>
+<span class="sd">        State(normal_shape=(2, 3, 4), rtype=&#39;T&#39;, mode_order=([0], [1, 2]))</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor)</span>
+<span class="sd">        This tensor is of order 2 and consists of 24 elements.</span>
+<span class="sd">        Sizes and names of its modes are (2, 12) and [&#39;mode-0&#39;, &#39;mode-1_mode-2&#39;] respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">custom_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot; Create object of ``Tensor`` class</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        array : np.ndarray</span>
-<span class="sd">            N-dimensional array</span>
-<span class="sd">        custom_state : dict</span>
-<span class="sd">            Provides flexibility to create a ``Tensor`` object in folded, unfolded or rotated state. Use with caution.</span>
-<span class="sd">            If provided, then should include only the following keys:</span>
-<span class="sd">                &#39;mode_order&#39; -&gt; tuple of lists \n</span>
-<span class="sd">                &#39;normal_shape&#39; -&gt; tuple \n</span>
-<span class="sd">                &#39;rtype&#39; -&gt; str</span>
-<span class="sd">        mode_names : list[str]</span>
-<span class="sd">            Description of the tensor modes.</span>
-<span class="sd">            If nothing is specified then all modes of the created ``Tensor``</span>
-<span class="sd">            get generic names &#39;mode-0&#39;, &#39;mode-1&#39; etc.</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        TypeError</span>
-<span class="sd">            If parameter ``array`` is not of ``np.ndarray`` type.</span>
-<span class="sd">        StateError</span>
-<span class="sd">            If parameter ``custom_state`` is inconsistent with provided ``array``</span>
-<span class="sd">            or does not meet requirements for creating ``State`` of the tensor.</span>
-<span class="sd">        ModeError</span>
-<span class="sd">            If parameter ``mode_names`` is inconsistent with provided ``array`` and ``custom_state``</span>
-<span class="sd">            or does not meet requirements for creating list of ``Mode`` of the tensor.</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        1) Creating a tensor with default parameters for meta data</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import Tensor</span>
-<span class="sd">        &gt;&gt;&gt; data = np.arange(24).reshape(2, 3, 4)</span>
-<span class="sd">        &gt;&gt;&gt; tensor = Tensor(data)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor)</span>
-<span class="sd">            This tensor is of order 3 and consists of 24 elements.</span>
-<span class="sd">            Sizes and names of its modes are (2, 3, 4) and [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;] respectively.</span>
-
-<span class="sd">        2) Creating a tensor with custom mode names</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import Tensor</span>
-<span class="sd">        &gt;&gt;&gt; data = np.arange(24).reshape(2, 3, 4)</span>
-<span class="sd">        &gt;&gt;&gt; tensor = Tensor(data, mode_names=[&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;])</span>
-<span class="sd">        &gt;&gt;&gt; tensor.show_state()</span>
-<span class="sd">            State(normal_shape=(2, 3, 4), rtype=&#39;Init&#39;, mode_order=([0], [1], [2]))</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor)</span>
-<span class="sd">            This tensor is of order 3 and consists of 24 elements.</span>
-<span class="sd">            Sizes and names of its modes are (2, 3, 4) and [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;] respectively.</span>
-
-<span class="sd">        3) Creating a tensor in custom state</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import Tensor</span>
-<span class="sd">        &gt;&gt;&gt; data = np.arange(24).reshape(2, 3*4)</span>
-<span class="sd">        &gt;&gt;&gt; tensor = Tensor(data, custom_state={&quot;normal_shape&quot;: (2, 3, 4),</span>
-<span class="sd">        ...                                     &quot;mode_order&quot;: ([0], [1, 2]),</span>
-<span class="sd">        ...                                     &quot;rtype&quot;: &quot;T&quot;}</span>
-<span class="sd">        &gt;&gt;&gt; data.shape</span>
-<span class="sd">            (2, 12)</span>
-<span class="sd">        &gt;&gt;&gt; tensor.shape</span>
-<span class="sd">            (2, 12)</span>
-<span class="sd">        &gt;&gt;&gt; tensor.show_state()</span>
-<span class="sd">            State(normal_shape=(2, 3, 4), rtype=&#39;T&#39;, mode_order=([0], [1, 2]))</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor)</span>
-<span class="sd">            This tensor is of order 2 and consists of 24 elements.</span>
-<span class="sd">            Sizes and names of its modes are (2, 12) and [&#39;mode-0&#39;, &#39;mode-1_mode-2&#39;] respectively.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO: provide more details for raises section?</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">,</span> <span class="n">custom_state</span><span class="o">=</span><span class="n">custom_state</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -317,8 +213,18 @@
                                                      <span class="n">custom_state</span><span class="o">=</span><span class="n">custom_state</span><span class="p">,</span>
                                                      <span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        other : Tensor</span>
@@ -380,9 +286,6 @@
         <span class="k">return</span> <span class="s2">&quot;This tensor is of order </span><span class="si">{}</span><span class="s2"> and consists of </span><span class="si">{}</span><span class="s2"> elements.</span><span class="se">\n</span><span class="s2">&quot;</span> \
                <span class="s2">&quot;Sizes and names of its modes are </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2"> respectively.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
                                                                                  <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode_names</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_validate_init_data</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">,</span> <span class="n">custom_state</span><span class="p">):</span>
@@ -544,7 +447,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="o">.</span><span class="n">is_normal</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Tensor.show_state"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.show_state">[docs]</a>    <span class="k">def</span> <span class="nf">show_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.show_state"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.show_state">[docs]</a>    <span class="k">def</span> <span class="nf">show_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Show the current state of the ``Tensor`` &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="p">)</span></div>
 
@@ -607,7 +510,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">size</span>
 
-<div class="viewcode-block" id="Tensor.copy"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.copy"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Produces a copy of itself as a new object</span>
 
 <span class="sd">        Returns</span>
@@ -632,7 +535,7 @@
         <span class="n">new_object</span><span class="o">.</span><span class="n">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">new_object</span></div>
 
-<div class="viewcode-block" id="Tensor.copy_modes"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.copy_modes">[docs]</a>    <span class="k">def</span> <span class="nf">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.copy_modes"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.copy_modes">[docs]</a>    <span class="k">def</span> <span class="nf">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Copy modes meta from tensor representation</span>
 
 <span class="sd">        Parameters</span>
@@ -646,7 +549,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_modes</span> <span class="o">=</span> <span class="p">[</span><span class="n">mode</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">tensor</span><span class="o">.</span><span class="n">modes</span><span class="p">]</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Tensor.reset_meta"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.reset_meta">[docs]</a>    <span class="k">def</span> <span class="nf">reset_meta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.reset_meta"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.reset_meta">[docs]</a>    <span class="k">def</span> <span class="nf">reset_meta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Set all meta information with respect to the current shape of data array</span>
 
 <span class="sd">        Returns</span>
@@ -658,7 +561,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Tensor.set_mode_names"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.set_mode_names">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.set_mode_names"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.set_mode_names">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Rename modes of a tensor</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters</span>
@@ -691,7 +594,7 @@
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Tensor.reset_mode_name"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.reset_mode_name">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.reset_mode_name"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.reset_mode_name">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Set default name for the specified mode number</span>
 
 <span class="sd">        Parameters</span>
@@ -713,7 +616,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span><span class="o">.</span><span class="n">set_name</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">default_name</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Tensor.set_mode_index"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.set_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_index</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.set_mode_index"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.set_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_index</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Set index for specified mode</span>
 
 <span class="sd">        Parameters</span>
@@ -748,7 +651,7 @@
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Tensor.reset_mode_index"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.reset_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.reset_mode_index"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.reset_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Drop index for the specified mode number</span>
 
 <span class="sd">        Parameters</span>
@@ -768,11 +671,11 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Tensor.describe"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.describe">[docs]</a>    <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.describe"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.describe">[docs]</a>    <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Expose some metrics &quot;&quot;&quot;</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In the future this call will print out some statistics about the tensor&quot;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="Tensor.unfold"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.unfold">[docs]</a>    <span class="k">def</span> <span class="nf">unfold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">rtype</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.unfold"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.unfold">[docs]</a>    <span class="k">def</span> <span class="nf">unfold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">rtype</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Perform mode-n unfolding to a matrix</span>
 
 <span class="sd">        Parameters</span>
@@ -818,7 +721,7 @@
         <span class="n">tensor</span><span class="o">.</span><span class="n">_state</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">rtype</span><span class="o">=</span><span class="n">rtype</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">tensor</span></div>
 
-<div class="viewcode-block" id="Tensor.vectorise"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.vectorise">[docs]</a>    <span class="k">def</span> <span class="nf">vectorise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rtype</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.vectorise"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.vectorise">[docs]</a>    <span class="k">def</span> <span class="nf">vectorise</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rtype</span><span class="o">=</span><span class="s2">&quot;T&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Perform vectorisation of a tensor</span>
 
 <span class="sd">        Parameters</span>
@@ -862,7 +765,7 @@
         <span class="n">tensor</span><span class="o">.</span><span class="n">_state</span><span class="o">.</span><span class="n">vectorise</span><span class="p">(</span><span class="n">rtype</span><span class="o">=</span><span class="n">rtype</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">tensor</span></div>
 
-<div class="viewcode-block" id="Tensor.fold"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.fold">[docs]</a>    <span class="k">def</span> <span class="nf">fold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.fold"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.fold">[docs]</a>    <span class="k">def</span> <span class="nf">fold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Fold to the original shape</span>
 
 <span class="sd">        Parameters</span>
@@ -916,7 +819,7 @@
         <span class="n">tensor</span><span class="o">.</span><span class="n">_state</span><span class="o">.</span><span class="n">fold</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">tensor</span></div>
 
-<div class="viewcode-block" id="Tensor.mode_n_product"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.Tensor.mode_n_product">[docs]</a>    <span class="k">def</span> <span class="nf">mode_n_product</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">new_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="Tensor.mode_n_product"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.mode_n_product">[docs]</a>    <span class="k">def</span> <span class="nf">mode_n_product</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">matrix</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">new_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Mode-n product of a tensor with a matrix</span>
 
 <span class="sd">        Parameters</span>
@@ -985,7 +888,49 @@
             <span class="n">new_mode_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">mode</span><span class="p">:</span> <span class="n">new_name</span><span class="p">}</span>
             <span class="n">tensor</span><span class="o">.</span><span class="n">set_mode_names</span><span class="p">(</span><span class="n">mode_names</span><span class="o">=</span><span class="n">new_mode_names</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">tensor</span></div></div>
+        <span class="k">return</span> <span class="n">tensor</span></div>
+
+<div class="viewcode-block" id="Tensor.access"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.access">[docs]</a>    <span class="k">def</span> <span class="nf">access</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Equivalent to multidimnesional slicing</span>
+<span class="sd">    </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inds : int</span>
+<span class="sd">            The index of the axis. e.g [:,:,0] will be at mode=2, inds=0</span>
+<span class="sd">        mode : int</span>
+<span class="sd">            The axis to access</span>
+<span class="sd">        overwrite : Tensor</span>
+<span class="sd">            Overwrite slice with a subtensor</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            Numpy array with the formulated subtensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
+        <span class="n">tensl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">tensor</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+        <span class="n">tensl</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">inds</span>
+        <span class="n">tensl</span> <span class="o">=</span> <span class="n">tensl</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">tensor</span><span class="p">[</span><span class="n">tensl</span><span class="p">]</span></div>
+   
+    <span class="c1"># TODO: add some checks to overwite</span>
+<div class="viewcode-block" id="Tensor.write_subtensor"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.write_subtensor">[docs]</a>    <span class="k">def</span> <span class="nf">write_subtensor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Works in the same way as `access` but permits changing of the tensor data    </span>
+<span class="sd">        </span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inds : int</span>
+<span class="sd">            The index of the axis. e.g [:,:,0] will be at mode=2, inds=0</span>
+<span class="sd">        mode : int</span>
+<span class="sd">            The axis to access</span>
+<span class="sd">        overwrite : Tensor</span>
+<span class="sd">            Overwrite slice with a subtensor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
+        <span class="n">tensl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">tensor</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
+        <span class="n">tensl</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">inds</span>
+        <span class="n">tensl</span> <span class="o">=</span> <span class="n">tensl</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">tensor</span><span class="p">[</span><span class="n">tensl</span><span class="p">]</span> <span class="o">=</span> <span class="n">overwrite</span>
+        <span class="k">return</span></div></div>
+
 
 <span class="c1"># TODO: add validation of `mode_names`</span>
 <span class="k">class</span> <span class="nc">BaseTensorTD</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -1195,8 +1140,17 @@
         <span class="k">return</span> <span class="bp">self</span>
 
 
-<div class="viewcode-block" id="TensorCPD"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorCPD">[docs]</a><span class="k">class</span> <span class="nc">TensorCPD</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Kruskal (CP) form.</span>
+<div class="viewcode-block" id="TensorCPD"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD">[docs]</a><span class="k">class</span> <span class="nc">TensorCPD</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Kruskal form (CPD).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fmat : list[np.ndarray]</span>
+<span class="sd">        List of factor matrices for the CP representation of a tensor</span>
+<span class="sd">    core_values : np.ndarray</span>
+<span class="sd">        Array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
+<span class="sd">    mode_names : list[str]</span>
+<span class="sd">        List of names for the factor matrices</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -1206,61 +1160,50 @@
 <span class="sd">        Placeholder for an array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
 <span class="sd">    _modes : list[Mode]</span>
 <span class="sd">        Description of the factor matrix for the corresponding mode</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TensorTopologyError</span>
+<span class="sd">        If there is inconsistency in shapes of factor matrices and core values</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    1) Create kruskal representation of a tensor with default meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorCPD</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7   # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R = 4               # Kruskal rank</span>
+<span class="sd">    &gt;&gt;&gt; A = np.ones((I, R))</span>
+<span class="sd">    &gt;&gt;&gt; B = np.ones((J, R))</span>
+<span class="sd">    &gt;&gt;&gt; C = np.ones((K, R))</span>
+<span class="sd">    &gt;&gt;&gt; fmat = [A, B , C]</span>
+<span class="sd">    &gt;&gt;&gt; core_values = np.arange(R)</span>
+<span class="sd">    &gt;&gt;&gt; tensor_cpd = TensorCPD(fmat, core_values)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_cpd)</span>
+<span class="sd">        Kruskal representation of a tensor with rank=(4,).</span>
+<span class="sd">        Factor matrices represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
+<span class="sd">        With corresponding latent components described by (5, 6, 7) features respectively.</span>
+
+<span class="sd">    2) Create kruskal representation of a tensor with custom meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorCPD</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7   # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R = 4               # Kruskal rank</span>
+<span class="sd">    &gt;&gt;&gt; A = np.ones((I, R))</span>
+<span class="sd">    &gt;&gt;&gt; B = np.ones((J, R))</span>
+<span class="sd">    &gt;&gt;&gt; C = np.ones((K, R))</span>
+<span class="sd">    &gt;&gt;&gt; fmat = [A, B , C]</span>
+<span class="sd">    &gt;&gt;&gt; core_values = np.arange(R)</span>
+<span class="sd">    &gt;&gt;&gt; mode_names = [&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
+<span class="sd">    &gt;&gt;&gt; tensor_cpd = TensorCPD(fmat, core_values, mode_names)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_cpd)</span>
+<span class="sd">        Kruskal representation of a tensor with rank=(4,).</span>
+<span class="sd">        Factor matrices represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
+<span class="sd">        With corresponding latent components described by (5, 6, 7) features respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Create object of ``TensorCPD`` class</span>
-<span class="sd">        </span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        fmat : list[np.ndarray]</span>
-<span class="sd">            List of factor matrices for the CP representation of a tensor</span>
-<span class="sd">        core_values : np.ndarray</span>
-<span class="sd">            Array of coefficients on the super-diagonal of a core for the CP representation of a tensor</span>
-<span class="sd">        mode_names : list[str]</span>
-<span class="sd">            List of names for the factor matrices</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        TensorTopologyError</span>
-<span class="sd">            If there is inconsistency in shapes of factor matrices and core values</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        1) Create kruskal representation of a tensor with default meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorCPD</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7   # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R = 4               # Kruskal rank</span>
-<span class="sd">        &gt;&gt;&gt; A = np.ones((I, R))</span>
-<span class="sd">        &gt;&gt;&gt; B = np.ones((J, R))</span>
-<span class="sd">        &gt;&gt;&gt; C = np.ones((K, R))</span>
-<span class="sd">        &gt;&gt;&gt; fmat = [A, B , C]</span>
-<span class="sd">        &gt;&gt;&gt; core_values = np.arange(R)</span>
-<span class="sd">        &gt;&gt;&gt; tensor_cpd = TensorCPD(fmat, core_values)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_cpd)</span>
-<span class="sd">            Kruskal representation of a tensor with rank=(4,).</span>
-<span class="sd">            Factor matrices represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
-<span class="sd">            With corresponding latent components described by (5, 6, 7) features respectively.</span>
-
-<span class="sd">        2) Create kruskal representation of a tensor with custom meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorCPD</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7   # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R = 4               # Kruskal rank</span>
-<span class="sd">        &gt;&gt;&gt; A = np.ones((I, R))</span>
-<span class="sd">        &gt;&gt;&gt; B = np.ones((J, R))</span>
-<span class="sd">        &gt;&gt;&gt; C = np.ones((K, R))</span>
-<span class="sd">        &gt;&gt;&gt; fmat = [A, B , C]</span>
-<span class="sd">        &gt;&gt;&gt; core_values = np.arange(R)</span>
-<span class="sd">        &gt;&gt;&gt; mode_names = [&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
-<span class="sd">        &gt;&gt;&gt; tensor_cpd = TensorCPD(fmat, core_values, mode_names)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_cpd)</span>
-<span class="sd">            Kruskal representation of a tensor with rank=(4,).</span>
-<span class="sd">            Factor matrices represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
-<span class="sd">            With corresponding latent components described by (5, 6, 7) features respectively.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">]</span>
@@ -1269,6 +1212,7 @@
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        other : TensorCPD</span>
@@ -1284,7 +1228,8 @@
         <span class="n">equal</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">ft_shape</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">rank</span><span class="p">:</span>
-                <span class="n">fmat_equal</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">fmat</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>  <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span> <span class="n">equal_nan</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fmat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmat</span><span class="p">)])</span>
+                <span class="n">fmat_equal</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">fmat</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>  <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span> <span class="n">equal_nan</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+                                  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fmat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmat</span><span class="p">)])</span>
                 <span class="n">core_equal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">core</span>
                 <span class="n">modes_equal</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">mode</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">)])</span>
                 <span class="n">equal</span> <span class="o">=</span> <span class="n">fmat_equal</span> <span class="ow">and</span> <span class="n">core_equal</span> <span class="ow">and</span> <span class="n">modes_equal</span>
@@ -1379,6 +1324,8 @@
 <span class="sd">        -------</span>
 <span class="sd">        core_tensor : Tensor</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">hottbox.utils.generation</span> <span class="k">import</span> <span class="n">super_diag_tensor</span>
+
         <span class="n">core_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span>
         <span class="n">core_tensor</span> <span class="o">=</span> <span class="n">super_diag_tensor</span><span class="p">(</span><span class="n">core_shape</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">core_tensor</span>
@@ -1452,7 +1399,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">TensorCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">mode_names</span>
 
-<div class="viewcode-block" id="TensorCPD.reconstruct"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorCPD.reconstruct">[docs]</a>    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keep_meta</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorCPD.reconstruct"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.reconstruct">[docs]</a>    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keep_meta</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Converts the CP representation of a tensor into a full tensor</span>
 
 <span class="sd">        Parameters</span>
@@ -1470,7 +1417,7 @@
         <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span>
         <span class="k">for</span> <span class="n">mode</span><span class="p">,</span> <span class="n">fmat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmat</span><span class="p">):</span>
             <span class="n">tensor</span><span class="o">.</span><span class="n">mode_n_product</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
+        
         <span class="k">if</span> <span class="n">keep_meta</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">mode_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">mode</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">)}</span>
             <span class="n">tensor</span><span class="o">.</span><span class="n">set_mode_names</span><span class="p">(</span><span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">)</span>
@@ -1481,7 +1428,7 @@
 
         <span class="k">return</span> <span class="n">tensor</span></div>
 
-<div class="viewcode-block" id="TensorCPD.copy"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorCPD.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorCPD.copy"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Produces a copy of itself as a new object</span>
 
 <span class="sd">        Returns</span>
@@ -1494,7 +1441,7 @@
         <span class="n">new_object</span><span class="o">.</span><span class="n">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">new_object</span></div>
 
-<div class="viewcode-block" id="TensorCPD.copy_modes"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorCPD.copy_modes">[docs]</a>    <span class="k">def</span> <span class="nf">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorCPD.copy_modes"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.copy_modes">[docs]</a>    <span class="k">def</span> <span class="nf">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Copy modes meta from tensor</span>
 
 <span class="sd">        Parameters</span>
@@ -1513,7 +1460,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">copy_modes</span><span class="p">(</span><span class="n">tensor</span><span class="o">=</span><span class="n">tensor</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorCPD.set_mode_names"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorCPD.set_mode_names">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorCPD.set_mode_names"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.set_mode_names">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Rename modes of a tensor representation</span>
 
 <span class="sd">        Parameters</span>
@@ -1530,7 +1477,7 @@
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorCPD.reset_mode_name"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorCPD.reset_mode_name">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorCPD.reset_mode_name"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.reset_mode_name">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Set default name for the specified mode number</span>
 
 <span class="sd">        Parameters</span>
@@ -1546,7 +1493,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">reset_mode_name</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorCPD.set_mode_index"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorCPD.set_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_index</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorCPD.set_mode_index"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.set_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_index</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Set index for specified mode</span>
 
 <span class="sd">        Parameters</span>
@@ -1563,7 +1510,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">set_mode_index</span><span class="p">(</span><span class="n">mode_index</span><span class="o">=</span><span class="n">mode_index</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorCPD.reset_mode_index"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorCPD.reset_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorCPD.reset_mode_index"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorCPD.html#hottbox.core.TensorCPD.reset_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Drop index for the specified mode number</span>
 
 <span class="sd">        Parameters</span>
@@ -1580,8 +1527,17 @@
         <span class="k">return</span> <span class="bp">self</span></div></div>
 
 
-<div class="viewcode-block" id="TensorTKD"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTKD">[docs]</a><span class="k">class</span> <span class="nc">TensorTKD</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Tucker form.</span>
+<div class="viewcode-block" id="TensorTKD"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD">[docs]</a><span class="k">class</span> <span class="nc">TensorTKD</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Tucker form (TKD).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fmat : list[np.ndarray]</span>
+<span class="sd">        List of factor matrices for the Tucker representation of a tensor</span>
+<span class="sd">    core_values : np.ndarray</span>
+<span class="sd">        Core of the Tucker representation of a tensor</span>
+<span class="sd">    mode_names : list[str]</span>
+<span class="sd">        List of names for the factor matrices</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -1591,62 +1547,50 @@
 <span class="sd">        Placeholder for a core of the Tucker representation of a tensor</span>
 <span class="sd">    _modes : list[Mode]</span>
 <span class="sd">        Description of the factor matrix for the corresponding mode</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TensorTopologyError</span>
+<span class="sd">        If there is inconsistency in shapes of factor matrices and core values</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    1) Create tucker representation of a tensor with default meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorTKD</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7        # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R_1, R_2, R_3 = 2, 3, 4  # multi-linear rank</span>
+<span class="sd">    &gt;&gt;&gt; A = np.ones((I, R_1))</span>
+<span class="sd">    &gt;&gt;&gt; B = np.ones((J, R_2))</span>
+<span class="sd">    &gt;&gt;&gt; C = np.ones((K, R_3))</span>
+<span class="sd">    &gt;&gt;&gt; fmat = [A, B , C]</span>
+<span class="sd">    &gt;&gt;&gt; core_values = np.ones((R_1, R_2, R_3))</span>
+<span class="sd">    &gt;&gt;&gt; tensor_tkd = TensorTKD(fmat, core_values)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_tkd)</span>
+<span class="sd">        Tucker representation of a tensor with multi-linear rank=(2, 3, 4).</span>
+<span class="sd">        Factor matrices represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
+<span class="sd">        With corresponding latent components described by (5, 6, 7) features respectively.</span>
+
+<span class="sd">    2) Create tucker representation of a tensor with custom meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorTKD</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7        # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R_1, R_2, R_3 = 2, 3, 4  # multi-linear rank</span>
+<span class="sd">    &gt;&gt;&gt; A = np.ones((I, R_1))</span>
+<span class="sd">    &gt;&gt;&gt; B = np.ones((J, R_2))</span>
+<span class="sd">    &gt;&gt;&gt; C = np.ones((K, R_3))</span>
+<span class="sd">    &gt;&gt;&gt; fmat = [A, B , C]</span>
+<span class="sd">    &gt;&gt;&gt; core_values=np.ones((R_1, R_2, R_3))</span>
+<span class="sd">    &gt;&gt;&gt; mode_names=[&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
+<span class="sd">    &gt;&gt;&gt; tensor_tkd = TensorTKD(fmat, core_values, mode_names)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_tkd)</span>
+<span class="sd">        Tucker representation of a tensor with multi-linear rank=(2, 3, 4).</span>
+<span class="sd">        Factor matrices represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
+<span class="sd">        With corresponding latent components described by (5, 6, 7) features respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Create object of ``TensorTKD`` class</span>
-<span class="sd">        </span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        fmat : list[np.ndarray]</span>
-<span class="sd">            List of factor matrices for the Tucker representation of a tensor</span>
-<span class="sd">        core_values : np.ndarray</span>
-<span class="sd">            Core of the Tucker representation of a tensor</span>
-<span class="sd">        mode_names : list[str]</span>
-<span class="sd">            List of names for the factor matrices</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        TensorTopologyError</span>
-<span class="sd">            If there is inconsistency in shapes of factor matrices and core values</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        1) Create tucker representation of a tensor with default meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorTKD</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7        # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R_1, R_2, R_3 = 2, 3, 4  # multi-linear rank</span>
-<span class="sd">        &gt;&gt;&gt; A = np.ones((I, R_1))</span>
-<span class="sd">        &gt;&gt;&gt; B = np.ones((J, R_2))</span>
-<span class="sd">        &gt;&gt;&gt; C = np.ones((K, R_3))</span>
-<span class="sd">        &gt;&gt;&gt; fmat = [A, B , C]</span>
-<span class="sd">        &gt;&gt;&gt; core_values = np.ones((R_1, R_2, R_3))</span>
-<span class="sd">        &gt;&gt;&gt; tensor_tkd = TensorTKD(fmat, core_values)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_tkd)</span>
-<span class="sd">            Tucker representation of a tensor with multi-linear rank=(2, 3, 4).</span>
-<span class="sd">            Factor matrices represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
-<span class="sd">            With corresponding latent components described by (5, 6, 7) features respectively.</span>
-
-<span class="sd">        2) Create tucker representation of a tensor with custom meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorTKD</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7        # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R_1, R_2, R_3 = 2, 3, 4  # multi-linear rank</span>
-<span class="sd">        &gt;&gt;&gt; A = np.ones((I, R_1))</span>
-<span class="sd">        &gt;&gt;&gt; B = np.ones((J, R_2))</span>
-<span class="sd">        &gt;&gt;&gt; C = np.ones((K, R_3))</span>
-<span class="sd">        &gt;&gt;&gt; fmat = [A, B , C]</span>
-<span class="sd">        &gt;&gt;&gt; core_values=np.ones((R_1, R_2, R_3))</span>
-<span class="sd">        &gt;&gt;&gt; mode_names=[&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
-<span class="sd">        &gt;&gt;&gt; tensor_tkd = TensorTKD(fmat, core_values, mode_names)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_tkd)</span>
-<span class="sd">            Tucker representation of a tensor with multi-linear rank=(2, 3, 4).</span>
-<span class="sd">            Factor matrices represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
-<span class="sd">            With corresponding latent components described by (5, 6, 7) features respectively.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTKD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">]</span>
@@ -1655,6 +1599,7 @@
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        other : TensorTKD</span>
@@ -1670,7 +1615,8 @@
         <span class="n">equal</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">ft_shape</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">rank</span><span class="p">:</span>
-                <span class="n">fmat_equal</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">fmat</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>  <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span> <span class="n">equal_nan</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fmat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmat</span><span class="p">)])</span>
+                <span class="n">fmat_equal</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">fmat</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>  <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span> <span class="n">equal_nan</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                                  <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fmat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmat</span><span class="p">)])</span>
                 <span class="n">core_equal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">core</span>
                 <span class="n">modes_equal</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">mode</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">)])</span>
                 <span class="n">equal</span> <span class="o">=</span> <span class="n">fmat_equal</span> <span class="ow">and</span> <span class="n">core_equal</span> <span class="ow">and</span> <span class="n">modes_equal</span>
@@ -1865,7 +1811,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">TensorTKD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">mode_names</span>
 
-<div class="viewcode-block" id="TensorTKD.reconstruct"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTKD.reconstruct">[docs]</a>    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keep_meta</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTKD.reconstruct"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.reconstruct">[docs]</a>    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keep_meta</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Converts the Tucker representation of a tensor into a full tensor</span>
 
 <span class="sd">        Parameters</span>
@@ -1894,7 +1840,7 @@
 
         <span class="k">return</span> <span class="n">tensor</span></div>
 
-<div class="viewcode-block" id="TensorTKD.copy"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTKD.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTKD.copy"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Produces a copy of itself as a new object</span>
 
 <span class="sd">        Returns</span>
@@ -1907,7 +1853,7 @@
         <span class="n">new_object</span><span class="o">.</span><span class="n">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">new_object</span></div>
 
-<div class="viewcode-block" id="TensorTKD.copy_modes"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTKD.copy_modes">[docs]</a>    <span class="k">def</span> <span class="nf">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTKD.copy_modes"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.copy_modes">[docs]</a>    <span class="k">def</span> <span class="nf">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Copy modes meta from tensor</span>
 
 <span class="sd">        Parameters</span>
@@ -1926,7 +1872,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTKD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">copy_modes</span><span class="p">(</span><span class="n">tensor</span><span class="o">=</span><span class="n">tensor</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorTKD.set_mode_names"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTKD.set_mode_names">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTKD.set_mode_names"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.set_mode_names">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Rename modes of a tensor representation</span>
 
 <span class="sd">        Parameters</span>
@@ -1943,7 +1889,7 @@
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorTKD.reset_mode_name"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTKD.reset_mode_name">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTKD.reset_mode_name"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.reset_mode_name">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Set default name for the specified mode number</span>
 
 <span class="sd">        Parameters</span>
@@ -1959,7 +1905,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTKD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">reset_mode_name</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorTKD.set_mode_index"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTKD.set_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_index</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTKD.set_mode_index"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.set_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_index</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Set index for specified mode</span>
 
 <span class="sd">        Parameters</span>
@@ -1976,7 +1922,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTKD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">set_mode_index</span><span class="p">(</span><span class="n">mode_index</span><span class="o">=</span><span class="n">mode_index</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorTKD.reset_mode_index"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTKD.reset_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTKD.reset_mode_index"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTKD.html#hottbox.core.TensorTKD.reset_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Drop index for the specified mode number</span>
 
 <span class="sd">        Parameters</span>
@@ -1993,8 +1939,16 @@
         <span class="k">return</span> <span class="bp">self</span></div></div>
 
 
-<div class="viewcode-block" id="TensorTT"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT">[docs]</a><span class="k">class</span> <span class="nc">TensorTT</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Representation of a tensor in the TT form.</span>
+<div class="viewcode-block" id="TensorTT"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT">[docs]</a><span class="k">class</span> <span class="nc">TensorTT</span><span class="p">(</span><span class="n">BaseTensorTD</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Representation of a tensor in the Tensor Train form  (TT).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    core_values : list[np.ndarray]</span>
+<span class="sd">        List of cores for the Tensor Train representation of a tensor.</span>
+<span class="sd">    mode_names : list[str]</span>
+<span class="sd">        List of names for the physical modes</span>
+
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -2002,58 +1956,48 @@
 <span class="sd">        Placeholder for a list of cores for the Tensor Train representation of a tensor.</span>
 <span class="sd">    _modes : list[Mode]</span>
 <span class="sd">        Description of the physical modes</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    TensorTopologyError</span>
+<span class="sd">        If there is inconsistency in shapes of core values</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    1) Create tensor train representation of a tensor with default meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorTT</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7          # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R_1, R_2 = 3, 4            # tt-rank</span>
+<span class="sd">    &gt;&gt;&gt; core_0 = np.ones((I, R_1))</span>
+<span class="sd">    &gt;&gt;&gt; core_1 = np.ones((R1, J, R2))</span>
+<span class="sd">    &gt;&gt;&gt; core_2 = np.ones((R2, K))</span>
+<span class="sd">    &gt;&gt;&gt; core_values = [core_0, core_1, core_2]</span>
+<span class="sd">    &gt;&gt;&gt; tensor_tt = TensorTT(core_values)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_tt)</span>
+<span class="sd">        Tensor train representation of a tensor with tt-rank=(3, 4).</span>
+<span class="sd">        Shape of this representation in the full format is (5, 6, 7).</span>
+<span class="sd">        Physical modes of its cores represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
+
+<span class="sd">    2) Create tensor train representation of a tensor with custom meta information</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; from hottbox.core import TensorTT</span>
+<span class="sd">    &gt;&gt;&gt; I, J, K = 5, 6, 7  # shape of the tensor in full form</span>
+<span class="sd">    &gt;&gt;&gt; R_1, R_2 = 3, 4    # tt-rank</span>
+<span class="sd">    &gt;&gt;&gt; core_0 = np.ones((I, R_1))</span>
+<span class="sd">    &gt;&gt;&gt; core_1 = np.ones((R_1, J, R_2))</span>
+<span class="sd">    &gt;&gt;&gt; core_2 = np.ones((R_2, K))</span>
+<span class="sd">    &gt;&gt;&gt; core_values = [core_0, core_1, core_2]</span>
+<span class="sd">    &gt;&gt;&gt; mode_names = [&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
+<span class="sd">    &gt;&gt;&gt; tensor_tt = TensorTT(core_values, mode_names)</span>
+<span class="sd">    &gt;&gt;&gt; print(tensor_tt)</span>
+<span class="sd">        Tensor train representation of a tensor with tt-rank=(3, 4).</span>
+<span class="sd">        Shape of this representation in the full format is (5, 6, 7).</span>
+<span class="sd">        Physical modes of its cores represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Create object of ``TensorTT`` class</span>
-<span class="sd">        </span>
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        core_values : list[np.ndarray]</span>
-<span class="sd">            List of cores for the Tensor Train representation of a tensor.</span>
-<span class="sd">        mode_names : list[str]</span>
-<span class="sd">            List of names for the physical modes</span>
-
-<span class="sd">        Raises</span>
-<span class="sd">        ------</span>
-<span class="sd">        TensorTopologyError</span>
-<span class="sd">            If there is inconsistency in shapes of core values</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        1) Create tensor train representation of a tensor with default meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorTT</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7          # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R_1, R_2 = 3, 4            # tt-rank</span>
-<span class="sd">        &gt;&gt;&gt; core_0 = np.ones((I, R_1))</span>
-<span class="sd">        &gt;&gt;&gt; core_1 = np.ones((R1, J, R2))</span>
-<span class="sd">        &gt;&gt;&gt; core_2 = np.ones((R2, K))</span>
-<span class="sd">        &gt;&gt;&gt; core_values = [core_0, core_1, core_2]</span>
-<span class="sd">        &gt;&gt;&gt; tensor_tt = TensorTT(core_values)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_tt)</span>
-<span class="sd">            Tensor train representation of a tensor with tt-rank=(3, 4).</span>
-<span class="sd">            Shape of this representation in the full format is (5, 6, 7).</span>
-<span class="sd">            Physical modes of its cores represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
-
-<span class="sd">        2) Create tensor train representation of a tensor with custom meta information</span>
-
-<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
-<span class="sd">        &gt;&gt;&gt; from hottbox.core import TensorTT</span>
-<span class="sd">        &gt;&gt;&gt; I, J, K = 5, 6, 7  # shape of the tensor in full form</span>
-<span class="sd">        &gt;&gt;&gt; R_1, R_2 = 3, 4    # tt-rank</span>
-<span class="sd">        &gt;&gt;&gt; core_0 = np.ones((I, R_1))</span>
-<span class="sd">        &gt;&gt;&gt; core_1 = np.ones((R_1, J, R_2))</span>
-<span class="sd">        &gt;&gt;&gt; core_2 = np.ones((R_2, K))</span>
-<span class="sd">        &gt;&gt;&gt; core_values = [core_0, core_1, core_2]</span>
-<span class="sd">        &gt;&gt;&gt; mode_names = [&quot;Year&quot;, &quot;Month&quot;, &quot;Day&quot;]</span>
-<span class="sd">        &gt;&gt;&gt; tensor_tt = TensorTT(core_values, mode_names)</span>
-<span class="sd">        &gt;&gt;&gt; print(tensor_tt)</span>
-<span class="sd">            Tensor train representation of a tensor with tt-rank=(3, 4).</span>
-<span class="sd">            Shape of this representation in the full format is (5, 6, 7).</span>
-<span class="sd">            Physical modes of its cores represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="n">core_values</span><span class="p">]</span>
@@ -2061,6 +2005,7 @@
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        other : TensorTT</span>
@@ -2135,7 +2080,7 @@
         <span class="n">modes</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">TensorTT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">_create_modes</span><span class="p">(</span><span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">modes</span>
 
-<div class="viewcode-block" id="TensorTT.copy"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTT.copy"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Produces a copy of itself as a new object</span>
 
 <span class="sd">        Returns</span>
@@ -2147,7 +2092,7 @@
         <span class="n">new_object</span><span class="o">.</span><span class="n">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">new_object</span></div>
 
-<div class="viewcode-block" id="TensorTT.core"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.core">[docs]</a>    <span class="k">def</span> <span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTT.core"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.core">[docs]</a>    <span class="k">def</span> <span class="nf">core</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Specific core of the TensorTT representation</span>
 
 <span class="sd">        Parameters</span>
@@ -2236,7 +2181,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">TensorTT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">mode_names</span>
 
-<div class="viewcode-block" id="TensorTT.reconstruct"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.reconstruct">[docs]</a>    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keep_meta</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTT.reconstruct"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.reconstruct">[docs]</a>    <span class="k">def</span> <span class="nf">reconstruct</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keep_meta</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Converts the TT representation of a tensor into a full tensor</span>
 
 <span class="sd">        Parameters</span>
@@ -2272,7 +2217,7 @@
 
         <span class="k">return</span> <span class="n">tensor</span></div>
 
-<div class="viewcode-block" id="TensorTT.copy_modes"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.copy_modes">[docs]</a>    <span class="k">def</span> <span class="nf">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTT.copy_modes"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.copy_modes">[docs]</a>    <span class="k">def</span> <span class="nf">copy_modes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Copy modes meta from tensor</span>
 
 <span class="sd">        Parameters</span>
@@ -2291,7 +2236,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">copy_modes</span><span class="p">(</span><span class="n">tensor</span><span class="o">=</span><span class="n">tensor</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorTT.set_mode_names"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.set_mode_names">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTT.set_mode_names"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.set_mode_names">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Rename modes of a tensor representation</span>
 
 <span class="sd">        Parameters</span>
@@ -2308,7 +2253,7 @@
 
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorTT.reset_mode_name"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.reset_mode_name">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTT.reset_mode_name"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.reset_mode_name">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Set default name for the specified mode number</span>
 
 <span class="sd">        Parameters</span>
@@ -2324,7 +2269,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">reset_mode_name</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorTT.set_mode_index"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.set_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_index</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTT.set_mode_index"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.set_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_index</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Set index for specified mode</span>
 
 <span class="sd">        Parameters</span>
@@ -2341,7 +2286,7 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">set_mode_index</span><span class="p">(</span><span class="n">mode_index</span><span class="o">=</span><span class="n">mode_index</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="TensorTT.reset_mode_index"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.TensorTT.reset_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="TensorTT.reset_mode_index"><a class="viewcode-back" href="../../../api/generated/hottbox.core.TensorTT.html#hottbox.core.TensorTT.reset_mode_index">[docs]</a>    <span class="k">def</span> <span class="nf">reset_mode_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Drop index for the specified mode number</span>
 
 <span class="sd">        Parameters</span>
@@ -2356,121 +2301,40 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">reset_mode_index</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span></div></div>
-
-
-<div class="viewcode-block" id="super_diag_tensor"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.super_diag_tensor">[docs]</a><span class="k">def</span> <span class="nf">super_diag_tensor</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Super-diagonal tensor of the specified `order`.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    shape : tuple</span>
-<span class="sd">        Desired shape of the tensor.</span>
-<span class="sd">        ``len(shape)`` defines the order of the tensor, whereas its values specify sizes of dimensions of the tensor.</span>
-<span class="sd">    values : np.ndarray</span>
-<span class="sd">        Array of values on the super-diagonal of a tensor. By default contains only ones.</span>
-<span class="sd">        Length of this vector defines Kryskal rank which is equal to ``shape[0]``.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    tensor : Tensor</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">order</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
-    <span class="n">rank</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Parameter `shape` should be passed as a tuple!&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">mode_size</span> <span class="o">==</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">mode_size</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;All values in `shape` should have the same value!&quot;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">values</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">rank</span><span class="p">)</span>  <span class="c1"># set default values</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The `values` should be 1-dimensional numpy array!&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">values</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="n">rank</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Dimension mismatch! Not enough or too many `values` for the specified `shape`:</span><span class="se">\n</span><span class="s2">&quot;</span>
-                             <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> != </span><span class="si">{}</span><span class="s2"> (values.size != shape[0])&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">rank</span><span class="p">))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;The `values` should be passed as a numpy array!&quot;</span><span class="p">)</span>
-
-    <span class="n">core</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
-    <span class="n">core</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">diag_indices</span><span class="p">(</span><span class="n">rank</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">order</span><span class="p">)]</span> <span class="o">=</span> <span class="n">values</span>
-    <span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">core</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">tensor</span></div>
-
-
-<div class="viewcode-block" id="residual_tensor"><a class="viewcode-back" href="../../../api/hottbox.core.html#hottbox.core.structures.residual_tensor">[docs]</a><span class="k">def</span> <span class="nf">residual_tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="p">,</span> <span class="n">tensor_approx</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Residual tensor</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    tensor_orig : Tensor</span>
-<span class="sd">    tensor_approx : {Tensor, TensorCPD, TensorTKD, TensorTT}</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    residual : Tensor</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_orig</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unknown data type of original tensor.</span><span class="se">\n</span><span class="s2">&quot;</span>
-                        <span class="s2">&quot;The available type for `tensor_A` is `Tensor`&quot;</span><span class="p">)</span>
-    <span class="c1"># TODO: make use of direct subtraction of tensors</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">):</span>
-        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tensor_approx</span><span class="p">,</span> <span class="n">BaseTensorTD</span><span class="p">):</span>
-        <span class="n">residual</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">tensor_orig</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">tensor_approx</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Unknown data type of the approximation tensor!</span><span class="se">\n</span><span class="s2">&quot;</span>
-                        <span class="s2">&quot;The available types for `tensor_B` are `Tensor`,  `TensorCPD`,  `TensorTKD`,  `TensorTT`&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">residual</span></div>
 </pre></div>
 
-           </div>
-           
           </div>
-          <footer>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2017 - 2019, Ilya Kisil
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
+            
         </div>
-      </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        });
 
-    </section>
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
+    });
+</script>
 
-  </div>
-  
-
-
-  
-
-    
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    
-
-  
-
-  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
-
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>

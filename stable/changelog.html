@@ -1,285 +1,346 @@
 
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
   
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; HOTTBOX: Higher Order Tensors ToolBox</title>
-  
-
-  
-  
-  
-  
-
-  
-
-  
-  
-    
-
-  
-
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <title>Changelog &#8212; HOTTBOX 0.3.1 documentation</title>
+    <link rel="stylesheet" href="_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Development guide" href="development_guide/index.html" />
-    <link rel="prev" title="HOTTBOX Tutorials" href="tutorials.html" /> 
-
+    <link rel="prev" title="HOTTBOX Tutorials" href="tutorials.html" />
   
-  <script src="_static/js/modernizr.min.js"></script>
-
-</head>
-
-<body class="wy-body-for-nav">
-
    
-  <div class="wy-grid-for-nav">
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
-          
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="development_guide/index.html" title="Development guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tutorials.html" title="HOTTBOX Tutorials"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
 
-          
-            <a href="index.html">
-          
-
-          
-            
-            <img src="_static/hottbox_logo_2.png" class="logo" alt="Logo"/>
-          
-          </a>
-
-          
-            
-            
-              <div class="version">
-                0.2.1
-              </div>
-            
-          
-
-          
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-
-          
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
         </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing HOTTBOX</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#running-tests">Running tests</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api/modules.html">HOTTBOX API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.core.html">Core Structures and Operations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.core.html#module-hottbox.core.structures">Tensor Representations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.core.html#module-hottbox.core.operations">Multi-linear Operations</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.algorithms.html">Algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html">Tensor Decomposition Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition">Module contents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.cpd">Canonical Polyadic Decomposition (CPD)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tucker">Tucker Decomposition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.decomposition.html#module-hottbox.algorithms.decomposition.tensor_train">Tensor Train Decomposition (TT)</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.algorithms.classification.html">Multi-linear Classification Algorithms</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification">Module contents</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/hottbox.algorithms.classification.html#module-hottbox.algorithms.classification.stm">Support Tensor Machine (STM)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.pdtools.html">Pandas Integration Tools</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.utils.html">Utility Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.metrics.html">Metrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.rank.html">Rank Estimation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/hottbox.contrib.html">Experimental features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/hottbox.contrib.html#visualisation">Visualisation</a></li>
-</ul>
-</li>
-</ul>
-</li>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>
+      <a href="https://github.com/hottbox/hottbox"><i class="fab fa-github fa-lg"></i> Fork me on GitHub</a>
+    </h2>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">HOTTBOX API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">HOTTBOX Tutorials</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="development_guide/index.html">Development guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="development_guide/how_to_contribute.html">How to contribute</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="development_guide/how_to_contribute.html#initial-setup-for-your-development">Initial setup for your development</a></li>
-<li class="toctree-l3"><a class="reference internal" href="development_guide/how_to_contribute.html#getting-up-to-date-with-the-main-project">Getting up to date with the main project</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hottbox-v0-3-2-unreleased">[HOTTBOX v0.3.2 Unreleased]</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hottbox-v0-3-1-2019-07-12">HOTTBOX v0.3.1 (2019-07-12)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hottbox-v0-2-1-2019-03-22">HOTTBOX v0.2.1 (2019-03-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hottbox-v0-1-3">HOTTBOX v0.1.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hottbox-v0-1-2">HOTTBOX v0.1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hottbox-v0-1-1">HOTTBOX v0.1.1</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide/before_pull_request.html">Before pull request</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="development_guide/before_pull_request.html#if-it-isnt-tested-its-broken">If it isn’t tested, it’s broken</a></li>
-<li class="toctree-l3"><a class="reference internal" href="development_guide/before_pull_request.html#document-your-code">Document your code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="development_guide/before_pull_request.html#docker-validation">Docker validation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="development_guide/general_guidelines_and_workflow.html">General guidelines and advices</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="development_guide/general_guidelines_and_workflow.html#coding-guidelines">Coding guidelines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="development_guide/general_guidelines_and_workflow.html#apis-of-hottbox-objects">APIs of hottbox objects</a></li>
-<li class="toctree-l3"><a class="reference internal" href="development_guide/general_guidelines_and_workflow.html#advised-git-branching-model">Advised git branching model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="development_guide/git_branching_model.html">Master branch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="development_guide/git_branching_model.html#develop-branch">Develop branch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="development_guide/git_branching_model.html#supporting-branches">Supporting branches</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="development_guide/index.html">Development guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Our Team</a></li>
 </ul>
 
-            
-          
-        </div>
-      </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">hottbox</a>
-        
-      </nav>
-
-
-      <div class="wy-nav-content">
-        
-        <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
-  <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Changelog</li>
-    
-    
-      <li class="wy-breadcrumbs-aside">
-        
-            
-            <a href="_sources/changelog.rst.txt" rel="nofollow"> View page source</a>
-          
-        
-      </li>
-    
-  </ul>
-
-  
-  <hr/>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Docs</a></li>
+              
+              <li>Changelog</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
             
-  <div class="section" id="changelog">
-<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
-<p>All notable changes to this project, that have been officially released,
-can be found in the <a class="reference external" href="https://github.com/hottbox/hottbox/blob/master/CHANGELOG.md">CHANGELOG file</a>
-on <strong>master</strong> branch of our GitHub repository.</p>
+  <div class="admonition note">
+<p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">hottbox</span></code> is under active development, therefore, if you want to have a look
 at the list of provisional changes for the next official release, visit
 <a class="reference external" href="https://github.com/hottbox/hottbox/blob/develop/CHANGELOG.md">CHANGELOG on develop</a> branch.</p>
 </div>
+<div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p>All notable changes to this project will be documented in this file.</p>
+<p>The format is based on <a class="reference external" href="http://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>
+and this project adheres to <a class="reference external" href="http://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+<div class="section" id="hottbox-v0-3-2-unreleased">
+<h2>[HOTTBOX v0.3.2 Unreleased]<a class="headerlink" href="#hottbox-v0-3-2-unreleased" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="package-status-on-branch-develop">
+<h3>Package status on branch <code class="docutils literal notranslate"><span class="pre">develop</span></code><a class="headerlink" href="#package-status-on-branch-develop" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="https://travis-ci.org/hottbox/hottbox/"><img alt="Travis status" src="https://img.shields.io/travis/hottbox/hottbox/develop.svg?label=TravisCI" /></a>
+<a class="reference external image-reference" href="https://ci.appveyor.com/project/IlyaKisil/hottbox-6jq6a/branch/develop"><img alt="Appveyor status" src="https://ci.appveyor.com/api/projects/status/2ct6ku31v351s3d3/branch/develop?svg=true" /></a>
+<a class="reference external image-reference" href="https://coveralls.io/github/hottbox/hottbox?branch=develop"><img alt="Coveralls status" src="https://coveralls.io/repos/github/hottbox/hottbox/badge.svg?branch=develop" /></a>
+</div>
+<div class="section" id="added">
+<h3>Added<a class="headerlink" href="#added" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[ ]</p></li>
+</ul>
+</div>
+<div class="section" id="changed">
+<h3>Changed<a class="headerlink" href="#changed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[ ]</p></li>
+</ul>
+</div>
+<div class="section" id="removed">
+<h3>Removed<a class="headerlink" href="#removed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[ ]</p></li>
+</ul>
+</div>
+<div class="section" id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[ ]</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="hottbox-v0-3-1-2019-07-12">
+<h2>HOTTBOX v0.3.1 (2019-07-12)<a class="headerlink" href="#hottbox-v0-3-1-2019-07-12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Added<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[x] <code class="docutils literal notranslate"><span class="pre">CMTF</span></code> - An algorithm for Coupled Matrix and Tensor factorization for two <code class="docutils literal notranslate"><span class="pre">Tensors</span></code> of order n and 2 with respect to a specified <code class="docutils literal notranslate"><span class="pre">rank</span></code></p></li>
+<li><p>[x] <code class="docutils literal notranslate"><span class="pre">RandomisedCPD</span></code> - An algorithm for Randomised Canonical Polyadic Decomposition.</p></li>
+<li><p>[x] <code class="docutils literal notranslate"><span class="pre">Parafac2</span></code> - An algorithm for PARAFAC2 model computed via ALS</p></li>
+<li><p>[x] <code class="docutils literal notranslate"><span class="pre">TelVI</span></code> and <code class="docutils literal notranslate"><span class="pre">TelVAC</span></code> - Algorithms under Tensor Ensemble Learning (TEL) framework</p></li>
+<li><p>[x] Various utils for generations and validation of multi-dimensional arrays</p></li>
+<li><p>[x] Toggle button into code examples in API documentation. It hides python prompts and output, making copying samples much easier.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Changed<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[x] New look of our documentation page which is now based on <cite>``guzzle_sphinx_theme`</cite> &lt;<a class="reference external" href="https://github.com/guzzle/guzzle_sphinx_theme">https://github.com/guzzle/guzzle_sphinx_theme</a>&gt;`_</p></li>
+<li><p>[x] New structure of documentation, each method or class resides in a separate webpage (thanks to sphinx templating).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="hottbox-v0-2-1-2019-03-22">
+<h2>HOTTBOX v0.2.1 (2019-03-22)<a class="headerlink" href="#hottbox-v0-2-1-2019-03-22" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3>Added<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[x] Custom Exceptions that are more appropriate for the structure of <code class="docutils literal notranslate"><span class="pre">hottbox</span></code></p></li>
+<li><p>[x] LS-STM (least squares support tensor machine) for classification</p></li>
+<li><p>[x] Auto deployment of the documentation that reflects source code at the <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch</p></li>
+<li><p>[x] Source files and utils to that make setup of development environment easier</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="hottbox-v0-1-3">
+<h2>HOTTBOX v0.1.3<a class="headerlink" href="#hottbox-v0-1-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3>Added<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[x] Tools to convert multi-index pandas dataframe into a <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> and vise versa.</p></li>
+<li><p>[x] Quick construction of generic objects of <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> and <code class="docutils literal notranslate"><span class="pre">TensorTT</span></code> classes.</p></li>
+<li><p>[x] Class <code class="docutils literal notranslate"><span class="pre">Mode</span></code> for meta information about data modes of for tensor representations. It is stored in <code class="docutils literal notranslate"><span class="pre">_modes</span></code> as list.</p></li>
+<li><p>[x] Class <code class="docutils literal notranslate"><span class="pre">State</span></code> that tracks data manipulation operation applied to <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>. It is stored in <code class="docutils literal notranslate"><span class="pre">_state</span></code>.</p></li>
+<li><p>[x] Option for creating a <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> in the unfolded form.</p></li>
+<li><p>[x] Methods for (re)setting mode names and the corresponding indices for <code class="docutils literal notranslate"><span class="pre">Tensor</span></code></p></li>
+<li><p>[x] Mode description (and the corresponding methods) for <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> and <code class="docutils literal notranslate"><span class="pre">TensorTT</span></code> classes by analogy with the <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> class</p></li>
+<li><p>[x] Parameter <code class="docutils literal notranslate"><span class="pre">keep_meta</span></code> to <code class="docutils literal notranslate"><span class="pre">decompose</span></code> methods for the cpd and tucker type decompositions. Based on its value, meta information of the modes of <code class="docutils literal notranslate"><span class="pre">tensor</span></code> to be decomposed can be extracted and assigned to the <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code> and <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> respectively.</p></li>
+<li><p>[x] Direct summation and comparison of <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> objects (redefined <code class="docutils literal notranslate"><span class="pre">__add__</span></code>, <code class="docutils literal notranslate"><span class="pre">__eq__</span></code>)</p></li>
+<li><p>[x] Direct summation and comparison of <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code> and <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> object (redefined <code class="docutils literal notranslate"><span class="pre">__add__</span></code>, <code class="docutils literal notranslate"><span class="pre">__eq__</span></code>)</p></li>
+<li><p>[x] Defined <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> for  <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> and <code class="docutils literal notranslate"><span class="pre">TensorTT</span></code></p></li>
+<li><p>[x] Defined <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> for tensor decomposition algorithms.</p></li>
+<li><p>[x] Kolda folding and unfolding</p></li>
+<li><p>[x] Vectorisation method for a <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> class</p></li>
+<li><p>[x] Restrictions on methods <code class="docutils literal notranslate"><span class="pre">fold</span></code>, <code class="docutils literal notranslate"><span class="pre">unfold</span></code> and <code class="docutils literal notranslate"><span class="pre">mode_n_product</span></code> of <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>. Whether they can be called is determined by the current state of the <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> object.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Changed<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[x] Each mode of a <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> there is characterised by a corresponding <code class="docutils literal notranslate"><span class="pre">Mode</span></code> object with meta information</p></li>
+<li><p>[x] Mode names for the <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> constructor should be passed as list instead of OrderedDict. These names are used to create <code class="docutils literal notranslate"><span class="pre">Mode</span></code> objects which are stored in a  list <code class="docutils literal notranslate"><span class="pre">Tensor._modes</span></code></p></li>
+<li><p>[x] Property <code class="docutils literal notranslate"><span class="pre">reconstruct</span></code> of <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> and <code class="docutils literal notranslate"><span class="pre">TensorTT</span></code> classes is now a method (should have been in the first place). Also it take optional parameter <code class="docutils literal notranslate"><span class="pre">keep_mata</span></code> for extraction of meta information about modes</p></li>
+<li><p>[x] <code class="docutils literal notranslate"><span class="pre">describe</span></code> functionality is now implemented by <code class="docutils literal notranslate"><span class="pre">__str__</span></code>. Instead, <code class="docutils literal notranslate"><span class="pre">describe</span></code> provides some statistics of the <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> by analogy with <code class="docutils literal notranslate"><span class="pre">pandas</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>Removed<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[x] Parameter <code class="docutils literal notranslate"><span class="pre">ft_shape</span></code> from the <code class="docutils literal notranslate"><span class="pre">TensorTT</span></code> constructor</p></li>
+<li><p>[x] Parameter <code class="docutils literal notranslate"><span class="pre">ft_shape</span></code> and the corresponding attribute from the <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> constructor.</p></li>
+<li><p>[x] Parameter <code class="docutils literal notranslate"><span class="pre">mode_description</span></code> from constructors for all tensor decomposition algorithms</p></li>
+<li><p>[x] Attribute <code class="docutils literal notranslate"><span class="pre">_mode_names</span></code> from the <code class="docutils literal notranslate"><span class="pre">Tensor</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>Fixed<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>[x] Fix copy methods for <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code> and <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> due to new attributes</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="hottbox-v0-1-2">
+<h2>HOTTBOX v0.1.2<a class="headerlink" href="#hottbox-v0-1-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id8">
+<h3>Added<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">copy</span></code> method for the core tensor structures</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">describe</span></code> method that describes an instance of <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> class</p></li>
+<li><p>Mode descriptions for the modes of <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> through the use of OrderedDict. Modes can also be renamed</p></li>
+<li><p>Input validation for constructors for <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTT</span></code></p></li>
+<li><p>Input validation for input data for <code class="docutils literal notranslate"><span class="pre">decompose</span></code> method for all tensor decomposition algorithms</p></li>
+<li><p>Setup CI using Travis, AppVeyor and Coveralls</p></li>
+<li><p>Unit tests using pytest for all available modules</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>Changed<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Objects of <code class="docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTT</span></code> classes can only be created from numpy arrays</p></li>
+<li><p>For all tensor representation all their data values can (should) only be accessed through corresponding properties.</p></li>
+<li><p>The original shape of the tensor can be defined during object creation of <code class="docutils literal notranslate"><span class="pre">Tensor</span></code> class</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">super_diag_tensor</span></code> requires to pass a shape of desired tensor instead of its order</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>Fixed<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reconstruct</span></code> was changing the original core so it was not possible to call it several times in a row</p></li>
+<li><p>Incorrect size of a produced factor matrix when its computation is skipped in <code class="docutils literal notranslate"><span class="pre">decompose</span></code> for <code class="docutils literal notranslate"><span class="pre">HOSVD</span></code> and <code class="docutils literal notranslate"><span class="pre">HOOI</span></code> classes</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="hottbox-v0-1-1">
+<h2>HOTTBOX v0.1.1<a class="headerlink" href="#hottbox-v0-1-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h3>Added<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Core operations of tensor algebra</p></li>
+<li><p>Classes for different tensor representations (<code class="docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorCPD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code>, <code class="docutils literal notranslate"><span class="pre">TensorTT</span></code>)</p></li>
+<li><p>Functions for computing special types of tensors (<code class="docutils literal notranslate"><span class="pre">super_diag_tensor</span></code>, <code class="docutils literal notranslate"><span class="pre">residual_tensor</span></code>)</p></li>
+<li><p>Implementation of the most fundamental tensor decompositions (<code class="docutils literal notranslate"><span class="pre">CPD</span></code>, <code class="docutils literal notranslate"><span class="pre">HOSVD</span></code>, <code class="docutils literal notranslate"><span class="pre">HOOI</span></code>,<code class="docutils literal notranslate"><span class="pre">TTSVD</span></code>)</p></li>
+<li><p>Several methods for computing metrics of tensor decompositions</p></li>
+<li><p>Functions for estimating optimal Kruskal rank and computing multi-linear rank of a <code class="docutils literal notranslate"><span class="pre">Tensor</span></code></p></li>
+</ul>
+</div>
+</div>
+</div>
 
 
-           </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="development_guide/index.html" class="btn btn-neutral float-right" title="Development guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="tutorials.html" class="btn btn-neutral" title="HOTTBOX Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>
-        &copy; Copyright 2017 - 2019, Ilya Kisil
-
-    </p>
-  </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
-
-</footer>
-
-        </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="tutorials.html" title="previous chapter (use the left arrow)">HOTTBOX Tutorials</a>
       </div>
-
-    </section>
-
-  </div>
-  
-
-
-  
-
     
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-    
-
+      <div class="pull-right">
+        <a class="btn btn-default" href="development_guide/index.html" title="next chapter (use the right arrow)">Development guide</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
   
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="development_guide/index.html" title="Development guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tutorials.html" title="HOTTBOX Tutorials"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        });
 
-  <script type="text/javascript" src="_static/js/theme.js"></script>
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
+    });
+</script>
 
-  <script type="text/javascript">
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </body>
 </html>

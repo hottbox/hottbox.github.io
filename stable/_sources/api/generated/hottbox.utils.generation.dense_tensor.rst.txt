@@ -1,0 +1,16 @@
+dense_tensor
+============
+
+::
+
+    # Import statement
+
+    from hottbox.utils.generation import dense_tensor
+
+.. currentmodule:: hottbox.utils.generation
+
+.. autofunction:: dense_tensor
+
+.. raw:: html
+
+    <div class="clearer"></div>

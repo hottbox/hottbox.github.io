@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>hottbox.datasets.synthetic &#8212; HOTTBOX 0.3.1 documentation</title>
+    <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../../_static/hottbox_favicon-48x48.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>
+      <a href="https://github.com/hottbox/hottbox"><i class="fab fa-github fa-lg"></i> Fork me on GitHub</a>
+    </h2>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">HOTTBOX API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../development_guide/index.html">Development guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../authors.html">Our Team</a></li>
+</ul>
+
+    
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../../index.html">Docs</a></li>
+              
+                <li><a href="../../index.html">Module code</a></li>
+              
+              <li>hottbox.datasets.synthetic</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <h1>Source code for hottbox.datasets.synthetic</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">..core.structures</span> <span class="k">import</span> <span class="n">Tensor</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+
+<span class="k">def</span> <span class="nf">_predefined_distr</span><span class="p">(</span><span class="n">distr</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    distr :</span>
+<span class="sd">    shape :</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">distrlist</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uniform&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">),</span>
+                 <span class="s1">&#39;normal&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">),</span>
+                 <span class="s1">&#39;triangular&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">triangular</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">),</span>
+                 <span class="s1">&#39;standard-t&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">standard_t</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">shape</span><span class="p">),</span>
+                 <span class="s1">&#39;ones&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="p">),</span>
+                 <span class="s1">&#39;zeros&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">)}</span>
+    <span class="k">if</span> <span class="n">distr</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">distrlist</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s2">&quot;The distribution </span><span class="si">{}</span><span class="s2"> is not an available one.</span><span class="se">\</span>
+<span class="s2">         Please refer to the list of implementations: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">distr</span><span class="p">,</span> <span class="n">distrlist</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+    <span class="k">return</span> <span class="n">distrlist</span><span class="p">[</span><span class="n">distr</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="make_clusters"><a class="viewcode-back" href="../../../api/generated/hottbox.datasets.make_clusters.html#hottbox.datasets.make_clusters">[docs]</a><span class="k">def</span> <span class="nf">make_clusters</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">center_bounds</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">),</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">return_centers</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Generates a tensor of any dimension with isotropic gaussian blobs as clusters</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dims : int</span>
+<span class="sd">        specifies the order of the tensor</span>
+<span class="sd">    n_samples : int or list(int)</span>
+<span class="sd">        Specifies the size of each clusters</span>
+<span class="sd">    centers : int or list(tuples)</span>
+<span class="sd">        The number of clusters in the dataset and their size (can be a list)</span>
+<span class="sd">    center_bounds : tuple(float, float)</span>
+<span class="sd">        Specifies the bound (min, max) for generating the centers</span>
+<span class="sd">    std : float</span>
+<span class="sd">        The standard deviation of each of the generated clusters</span>
+<span class="sd">    return_centers : bool</span>
+<span class="sd">        Returns the positions of the centroids</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tensor: Tensor</span>
+<span class="sd">        Generated tensor according to the parameters specified</span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+
+    <span class="n">tensor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dims</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="n">centroids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">*</span><span class="n">center_bounds</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dims</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">centroids</span> <span class="o">=</span> <span class="n">centers</span> 
+    
+    <span class="n">n_cent</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">centroids</span><span class="p">)</span> 
+    
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n_samples</span> <span class="o">%</span> <span class="n">n_cent</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;The number of samples is not divisible by the number of centers - Truncating&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="p">[</span><span class="n">n_samples</span><span class="o">//</span><span class="n">n_cent</span><span class="p">]</span><span class="o">*</span><span class="n">n_cent</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="n">n_samples</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span> <span class="o">!=</span> <span class="n">n_cent</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The number of samples specified do not match the number &quot;</span> <span class="o">+</span>
+                         <span class="s2">&quot;of centers&quot;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">s_size</span><span class="p">,</span> <span class="n">center</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">samples</span><span class="p">,</span> <span class="n">centroids</span><span class="p">):</span>
+        <span class="n">cl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">center</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">std</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">s_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dims</span><span class="p">))</span>
+        <span class="n">tensor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">tensor</span><span class="p">,</span> <span class="n">cl</span><span class="p">))</span>
+
+    <span class="n">tensor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">return_centers</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">tensor</span><span class="p">),</span> <span class="n">centroids</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">tensor</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+            
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        });
+
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
+    });
+</script>
+
+  </body>
+</html>

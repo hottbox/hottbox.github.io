@@ -1,0 +1,16 @@
+mape
+====
+
+::
+
+    # Import statement
+
+    from hottbox.metrics import mape
+
+.. currentmodule:: hottbox.metrics
+
+.. autofunction:: mape
+
+.. raw:: html
+
+    <div class="clearer"></div>

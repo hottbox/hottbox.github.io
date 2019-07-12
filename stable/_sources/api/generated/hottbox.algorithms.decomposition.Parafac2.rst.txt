@@ -1,0 +1,18 @@
+Parafac2
+========
+
+::
+
+    # Import statement
+
+    from hottbox.algorithms.decomposition import Parafac2
+
+.. currentmodule:: hottbox.algorithms.decomposition
+
+.. autoclass:: Parafac2
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

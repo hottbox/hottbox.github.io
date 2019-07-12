@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>TTSVD &#8212; HOTTBOX 0.3.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/hottbox_favicon-48x48.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CMTF" href="hottbox.algorithms.decomposition.fusion.CMTF.html" />
+    <link rel="prev" title="HOOI" href="hottbox.algorithms.decomposition.HOOI.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="hottbox.algorithms.decomposition.fusion.CMTF.html" title="CMTF"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hottbox.algorithms.decomposition.HOOI.html" title="HOOI"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../hottbox.algorithms.html" accesskey="U">Algorithms</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>
+      <a href="https://github.com/hottbox/hottbox"><i class="fab fa-github fa-lg"></i> Fork me on GitHub</a>
+    </h2>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">HOTTBOX API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.core.html">Core Structures and Operations</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../hottbox.algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.rank.html">Multi-dimensional Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.errors.html">Custom Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.utils.html">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.contrib.html">Experimental features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development_guide/index.html">Development guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Our Team</a></li>
+</ul>
+
+    
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../index.html">Docs</a></li>
+              
+                <li><a href="../modules.html">HOTTBOX API</a></li>
+              
+                <li><a href="../hottbox.algorithms.html">Algorithms</a></li>
+              
+              <li>TTSVD</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="ttsvd">
+<h1>TTSVD<a class="headerlink" href="#ttsvd" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
+
+<span class="kn">from</span> <span class="nn">hottbox.algorithms.decomposition</span> <span class="k">import</span> <span class="n">TTSVD</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="hottbox.algorithms.decomposition.TTSVD">
+<em class="property">class </em><code class="sig-name descname">TTSVD</code><span class="sig-paren">(</span><em class="sig-param">verbose=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tensor Train Decomposition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>verbose</strong> (<em>bool</em>) – </p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.TTSVD.copy">
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy of the Decomposition as a new object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.TTSVD.decompose">
+<code class="sig-name descname">decompose</code><span class="sig-paren">(</span><em class="sig-param">tensor</em>, <em class="sig-param">rank</em>, <em class="sig-param">keep_meta=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tensor_train.html#TTSVD.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD.decompose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs TT-SVD on the <cite>tensor</cite> with respect to the specified <cite>rank</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.Tensor.html#hottbox.core.Tensor" title="hottbox.core.Tensor"><em>Tensor</em></a>) – Multidimensional data to be decomposed</p></li>
+<li><p><strong>rank</strong> (<em>tuple</em>) – Desired tt-rank for the given <cite>tensor</cite></p></li>
+<li><p><strong>keep_meta</strong> (<em>int</em>) – Keep meta information about modes of the given <cite>tensor</cite>.
+0 - the output will have default values for the meta data
+1 - keep only mode names
+2 - keep mode names and indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tensor_tt</strong> – Tensor train representation of the <cite>tensor</cite></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="hottbox.core.TensorTT.html#hottbox.core.TensorTT" title="hottbox.core.TensorTT">TensorTT</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Reshaping of the data is performed with respect to the FORTRAN ordering. This makes it easy to compare results
+with the MATLAB implementation by Oseledets. This doesn’t really matter (apart from time it takes to compute),
+as long as we do exactly the opposite for the reconstruction</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hottbox.algorithms.decomposition.TTSVD.name">
+<em class="property">property </em><code class="sig-name descname">name</code><a class="headerlink" href="#hottbox.algorithms.decomposition.TTSVD.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the decomposition</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>decomposition_name</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="hottbox.algorithms.decomposition.HOOI.html" title="previous chapter (use the left arrow)">HOOI</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="hottbox.algorithms.decomposition.fusion.CMTF.html" title="next chapter (use the right arrow)">CMTF</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="hottbox.algorithms.decomposition.fusion.CMTF.html" title="CMTF"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hottbox.algorithms.decomposition.HOOI.html" title="HOOI"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../hottbox.algorithms.html" >Algorithms</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        });
+
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
+    });
+</script>
+
+  </body>
+</html>

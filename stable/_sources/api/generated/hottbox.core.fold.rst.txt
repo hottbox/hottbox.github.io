@@ -1,0 +1,16 @@
+fold
+====
+
+::
+
+    # Import statement
+
+    from hottbox.core import fold
+
+.. currentmodule:: hottbox.core
+
+.. autofunction:: fold
+
+.. raw:: html
+
+    <div class="clearer"></div>

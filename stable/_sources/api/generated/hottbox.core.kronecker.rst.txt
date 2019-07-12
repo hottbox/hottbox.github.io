@@ -1,0 +1,16 @@
+kronecker
+=========
+
+::
+
+    # Import statement
+
+    from hottbox.core import kronecker
+
+.. currentmodule:: hottbox.core
+
+.. autofunction:: kronecker
+
+.. raw:: html
+
+    <div class="clearer"></div>

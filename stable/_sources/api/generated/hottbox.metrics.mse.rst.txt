@@ -1,0 +1,16 @@
+mse
+===
+
+::
+
+    # Import statement
+
+    from hottbox.metrics import mse
+
+.. currentmodule:: hottbox.metrics
+
+.. autofunction:: mse
+
+.. raw:: html
+
+    <div class="clearer"></div>

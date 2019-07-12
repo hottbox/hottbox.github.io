@@ -1,0 +1,16 @@
+mode_n_product
+==============
+
+::
+
+    # Import statement
+
+    from hottbox.core import mode_n_product
+
+.. currentmodule:: hottbox.core
+
+.. autofunction:: mode_n_product
+
+.. raw:: html
+
+    <div class="clearer"></div>

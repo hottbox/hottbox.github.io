@@ -1,0 +1,18 @@
+TensorTopologyError
+===================
+
+::
+
+    # Import statement
+
+    from hottbox.errors import TensorTopologyError
+
+.. currentmodule:: hottbox.errors
+
+.. autoclass:: TensorTopologyError
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>

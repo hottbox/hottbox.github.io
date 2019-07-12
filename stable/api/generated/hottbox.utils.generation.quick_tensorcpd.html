@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  
+  <!-- Licensed under the Apache 2.0 License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/open-sans/stylesheet.css" />
+  <!-- Licensed under the SIL Open Font License -->
+  <link rel="stylesheet" type="text/css" href="../../_static/fonts/source-serif-pro/source-serif-pro.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <title>quick_tensorcpd &#8212; HOTTBOX 0.3.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <link rel="shortcut icon" href="../../_static/hottbox_favicon-48x48.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="quick_tensortkd" href="hottbox.utils.generation.quick_tensortkd.html" />
+    <link rel="prev" title="quick_tensor" href="hottbox.utils.generation.quick_tensor.html" />
+  
+   
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="hottbox.utils.generation.quick_tensortkd.html" title="quick_tensortkd"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="hottbox.utils.generation.quick_tensor.html" title="quick_tensor"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../hottbox.utils.html" accesskey="U">Utility Functions</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="container-wrapper">
+
+      <div id="mobile-toggle">
+        <a href="#"><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></a>
+      </div>
+  <div id="left-column">
+    <div class="sphinxsidebar"><a href="
+    ../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <div id="main-search">
+      <form class="form-inline" action="../../search.html" method="GET" role="form">
+        <div class="input-group">
+          <input name="q" type="text" class="form-control" placeholder="Search...">
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>
+      <a href="https://github.com/hottbox/hottbox"><i class="fab fa-github fa-lg"></i> Fork me on GitHub</a>
+    </h2>
+  </div>
+</div>
+<div class="sidebar-block">
+  <div class="sidebar-wrapper">
+    <h2>Table Of Contents</h2>
+  </div>
+  <div class="sidebar-toc">
+    
+    
+      <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installing HOTTBOX</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">HOTTBOX API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.core.html">Core Structures and Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.algorithms.html">Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.pdtools.html">Pandas Integration Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.metrics.html">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.rank.html">Multi-dimensional Rank</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.datasets.html">Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.errors.html">Custom Exceptions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../hottbox.utils.html">Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hottbox.contrib.html">Experimental features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">HOTTBOX Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../development_guide/index.html">Development guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Our Team</a></li>
+</ul>
+
+    
+  </div>
+</div>
+      
+    </div>
+  </div>
+        <div id="right-column">
+          
+          <div role="navigation" aria-label="breadcrumbs navigation">
+            <ol class="breadcrumb">
+              <li><a href="../../index.html">Docs</a></li>
+              
+                <li><a href="../modules.html">HOTTBOX API</a></li>
+              
+                <li><a href="../hottbox.utils.html">Utility Functions</a></li>
+              
+              <li>quick_tensorcpd</li>
+            </ol>
+          </div>
+          
+          <div class="document clearer body">
+            
+  <div class="section" id="quick-tensorcpd">
+<h1>quick_tensorcpd<a class="headerlink" href="#quick-tensorcpd" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
+
+<span class="kn">from</span> <span class="nn">hottbox.utils.generation</span> <span class="k">import</span> <span class="n">quick_tensorcpd</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="hottbox.utils.generation.quick_tensorcpd">
+<code class="sig-name descname">quick_tensorcpd</code><span class="sig-paren">(</span><em class="sig-param">full_shape</em>, <em class="sig-param">rank</em>, <em class="sig-param">base='arange'</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/utils/generation/tensors.html#quick_tensorcpd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.utils.generation.quick_tensorcpd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simplified creation of generic tensor in kruskal form</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>full_shape</strong> (<em>tuple</em>) – Desired shape of the tensor when it is reconstructed.
+Values specify the number of rows of the factor matrices.</p></li>
+<li><p><strong>rank</strong> (<em>tuple</em>) – Desired kruskal rank of the tensor. Specifies the number of columns for all factor matrices.
+In order to be consistent with the rest of <code class="docutils literal notranslate"><span class="pre">hottbox</span></code> should be in form of <code class="docutils literal notranslate"><span class="pre">(value,)</span></code></p></li>
+<li><p><strong>base</strong> (<em>str</em>) – Id of base function that generates values for the components of kruskal tensor.
+If not one from <code class="docutils literal notranslate"><span class="pre">{&quot;arange&quot;,</span> <span class="pre">&quot;randn&quot;,</span> <span class="pre">&quot;rand&quot;,</span> <span class="pre">&quot;ones&quot;}</span></code> then <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> will be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tensor_cpd</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="hottbox.core.TensorCPD.html#hottbox.core.TensorCPD" title="hottbox.core.TensorCPD">TensorCPD</a></p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.utils.generation</span> <span class="k">import</span> <span class="n">quick_tensorcpd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tensor_cpd</span> <span class="o">=</span> <span class="n">quick_tensorcpd</span><span class="p">(</span><span class="n">full_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">rank</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span> <span class="n">base</span><span class="o">=</span><span class="s2">&quot;ones&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor_cpd</span><span class="p">)</span>
+<span class="go">    Kruskal representation of a tensor with rank=(2,).</span>
+<span class="go">    Factor matrices represent properties: [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;]</span>
+<span class="go">    With corresponding latent components described by (3, 4, 5) features respectively.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span> <span class="o">=</span> <span class="n">tensor_cpd</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="p">)</span>
+<span class="go">    This tensor is of order 3 and consists of 60 elements.</span>
+<span class="go">    Sizes and names of its modes are (3, 4, 5) and [&#39;mode-0&#39;, &#39;mode-1&#39;, &#39;mode-2&#39;] respectively.</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="clearer"></div></div>
+
+
+          </div>
+            
+  <div class="footer-relations">
+    
+      <div class="pull-left">
+        <a class="btn btn-default" href="hottbox.utils.generation.quick_tensor.html" title="previous chapter (use the left arrow)">quick_tensor</a>
+      </div>
+    
+      <div class="pull-right">
+        <a class="btn btn-default" href="hottbox.utils.generation.quick_tensortkd.html" title="next chapter (use the right arrow)">quick_tensortkd</a>
+      </div>
+    </div>
+    <div class="clearer"></div>
+  
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="hottbox.utils.generation.quick_tensortkd.html" title="quick_tensortkd"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="hottbox.utils.generation.quick_tensor.html" title="quick_tensor"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../hottbox.utils.html" >Utility Functions</a> &#187;</li> 
+      </ul>
+    </div>
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        });
+
+        $("#mobile-toggle a").click(function () {
+           $("#left-column").toggle();
+       })
+    });
+</script>
+
+  </body>
+</html>

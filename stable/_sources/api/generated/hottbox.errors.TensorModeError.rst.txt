@@ -1,0 +1,18 @@
+TensorModeError
+===============
+
+::
+
+    # Import statement
+
+    from hottbox.errors import TensorModeError
+
+.. currentmodule:: hottbox.errors
+
+.. autoclass:: TensorModeError
+    :members:
+    :no-inherited-members:
+
+.. raw:: html
+
+    <div class="clearer"></div>
