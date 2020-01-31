@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>tensor_to_pd &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>tensor_to_pd &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_header_rst_container.js"></script>
     <link rel="shortcut icon" href="../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -47,7 +50,7 @@
         <li class="right" >
           <a href="hottbox.pdtools.pd_to_tensor.html" title="pd_to_tensor"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.pdtools.html" accesskey="U">Pandas Integration Tools</a> &#187;</li> 
       </ul>
@@ -59,7 +62,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -133,7 +136,7 @@
 <h1>tensor_to_pd<a class="headerlink" href="#tensor-to-pd" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
 
-<span class="kn">from</span> <span class="nn">hottbox.pdtools</span> <span class="k">import</span> <span class="n">tensor_to_pd</span>
+<span class="kn">from</span> <span class="nn">hottbox.pdtools</span> <span class="kn">import</span> <span class="n">tensor_to_pd</span>
 </pre></div>
 </div>
 <dl class="function">
@@ -142,28 +145,33 @@
 <dd><p>Represent tensor as a multi-index pandas dataframe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.Tensor.html#hottbox.core.Tensor" title="hottbox.core.Tensor"><em>Tensor</em></a>) – Tensor to be represented as a multi-index dataframe</p></li>
-<li><p><strong>col_name</strong> (<em>str</em>) – Column label to use for resulting dataframe</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>tensor</strong><span class="classifier">Tensor</span></dt><dd><p>Tensor to be represented as a multi-index dataframe</p>
+</dd>
+<dt><strong>col_name</strong><span class="classifier">str</span></dt><dd><p>Column label to use for resulting dataframe</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>df</strong> – Multi-index data frame</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>df</strong><span class="classifier">pd.DataFrame</span></dt><dd><p>Multi-index data frame</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>pd.DataFrame</p>
+</dl>
 </dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><p><a class="reference internal" href="hottbox.errors.TensorStateError.html#hottbox.errors.TensorStateError" title="hottbox.errors.TensorStateError"><strong>TensorStateError</strong></a> – If <code class="docutils literal notranslate"><span class="pre">tensor</span></code> is not in normal state: <code class="docutils literal notranslate"><span class="pre">tensor.in_normal_state</span> <span class="pre">is</span> <span class="pre">False</span></code>.</p>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>TensorStateError</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">tensor</span></code> is not in normal state: <code class="docutils literal notranslate"><span class="pre">tensor.in_normal_state</span> <span class="pre">is</span> <span class="pre">False</span></code>.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
 <ol class="arabic simple">
 <li><p>Conversion of a tensor with default meta information</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">Tensor</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.pdtools</span> <span class="k">import</span> <span class="n">tensor_to_pd</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="kn">import</span> <span class="n">Tensor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.pdtools</span> <span class="kn">import</span> <span class="n">tensor_to_pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -192,9 +200,9 @@
 <ol class="arabic simple" start="2">
 <li><p>Conversion of a tensor with specified mode names</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">Tensor</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.pdtools</span> <span class="k">import</span> <span class="n">tensor_to_pd</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="kn">import</span> <span class="n">Tensor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.pdtools</span> <span class="kn">import</span> <span class="n">tensor_to_pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span> <span class="o">=</span> <span class="n">Tensor</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">,</span> <span class="s2">&quot;Month&quot;</span><span class="p">,</span> <span class="s2">&quot;Day&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -223,9 +231,9 @@
 <ol class="arabic simple" start="3">
 <li><p>Conversion of a tensor with specified mode names and mode index</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">Tensor</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.pdtools</span> <span class="k">import</span> <span class="n">tensor_to_pd</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="kn">import</span> <span class="n">Tensor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.pdtools</span> <span class="kn">import</span> <span class="n">tensor_to_pd</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mode_index</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">2010</span><span class="p">],</span>
 <span class="gp">... </span>              <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Jan&quot;</span><span class="p">,</span> <span class="s2">&quot;Feb&quot;</span><span class="p">],</span>
@@ -305,25 +313,19 @@
         <li class="right" >
           <a href="hottbox.pdtools.pd_to_tensor.html" title="pd_to_tensor"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.pdtools.html" >Pandas Integration Tools</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

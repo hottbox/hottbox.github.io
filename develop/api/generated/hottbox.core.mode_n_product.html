@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>mode_n_product &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>mode_n_product &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_header_rst_container.js"></script>
     <link rel="shortcut icon" href="../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -47,7 +50,7 @@
         <li class="right" >
           <a href="hottbox.core.kolda_fold.html" title="kolda_fold"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.core.html" accesskey="U">Core Structures and Operations</a> &#187;</li> 
       </ul>
@@ -59,7 +62,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -133,7 +136,7 @@
 <h1>mode_n_product<a class="headerlink" href="#mode-n-product" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
 
-<span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">mode_n_product</span>
+<span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="kn">import</span> <span class="n">mode_n_product</span>
 </pre></div>
 </div>
 <dl class="function">
@@ -142,18 +145,21 @@
 <dd><p>Mode-n product of a N-dimensional array with a matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tensor</strong> (<em>np.ndarray</em>) – N-dimensional array</p></li>
-<li><p><strong>matrix</strong> (<em>np.ndarray</em>) – 2D array</p></li>
-<li><p><strong>mode</strong> (<em>int</em>) – Specifies mode along which a <cite>tensor</cite> is multiplied by a <cite>matrix</cite>. The size of a <cite>tensor</cite> along this <cite>mode</cite>
-should be equal to the number of columns of the <cite>matrix</cite>. That is: <code class="docutils literal notranslate"><span class="pre">tensor.shape[mode]</span> <span class="pre">=</span> <span class="pre">matrix.shape[1]</span></code></p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>tensor</strong><span class="classifier">np.ndarray</span></dt><dd><p>N-dimensional array</p>
+</dd>
+<dt><strong>matrix</strong><span class="classifier">np.ndarray</span></dt><dd><p>2D array</p>
+</dd>
+<dt><strong>mode</strong><span class="classifier">int</span></dt><dd><p>Specifies mode along which a <cite>tensor</cite> is multiplied by a <cite>matrix</cite>. The size of a <cite>tensor</cite> along this <cite>mode</cite>
+should be equal to the number of columns of the <cite>matrix</cite>. That is: <code class="docutils literal notranslate"><span class="pre">tensor.shape[mode]</span> <span class="pre">=</span> <span class="pre">matrix.shape[1]</span></code></p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>result</strong> – The result of the mode-n product of a <cite>tensor</cite> with a <cite>matrix</cite> along specified <cite>mode</cite>.</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>result</strong><span class="classifier">np.ndarray</span></dt><dd><p>The result of the mode-n product of a <cite>tensor</cite> with a <cite>matrix</cite> along specified <cite>mode</cite>.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
@@ -196,25 +202,19 @@ as long as folding and unfolding operations belong to the same convention.</p>
         <li class="right" >
           <a href="hottbox.core.kolda_fold.html" title="kolda_fold"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.core.html" >Core Structures and Operations</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

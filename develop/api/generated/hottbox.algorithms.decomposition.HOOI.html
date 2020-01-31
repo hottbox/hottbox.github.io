@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>HOOI &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>HOOI &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_header_rst_container.js"></script>
     <link rel="shortcut icon" href="../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -47,7 +50,7 @@
         <li class="right" >
           <a href="hottbox.algorithms.decomposition.HOSVD.html" title="HOSVD"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.algorithms.html" accesskey="U">Algorithms</a> &#187;</li> 
       </ul>
@@ -59,7 +62,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -133,7 +136,7 @@
 <h1>HOOI<a class="headerlink" href="#hooi" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
 
-<span class="kn">from</span> <span class="nn">hottbox.algorithms.decomposition</span> <span class="k">import</span> <span class="n">HOOI</span>
+<span class="kn">from</span> <span class="nn">hottbox.algorithms.decomposition</span> <span class="kn">import</span> <span class="n">HOOI</span>
 </pre></div>
 </div>
 <dl class="class">
@@ -142,70 +145,105 @@
 <dd><p>Higher Order Orthogonal Iteration Decomposition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>init</strong> (<em>str</em>) – Type of factor matrix initialisation. Available options are <cite>hosvd</cite>.</p></li>
-<li><p><strong>process</strong> (<em>tuple</em>) – Specifies the order of modes to be processed. The factor matrices for the missing modes will be set to identity.
+<dd class="field-odd"><dl class="simple">
+<dt><strong>init</strong><span class="classifier">str</span></dt><dd><p>Type of factor matrix initialisation. Available options are <cite>hosvd</cite>.</p>
+</dd>
+<dt><strong>process</strong><span class="classifier">tuple</span></dt><dd><p>Specifies the order of modes to be processed. The factor matrices for the missing modes will be set to identity.
 If empty, then all modes are processed in the consecutive ascending order.
-Note, initialisation of a factor matrix that corresponds to the mode at the first position is skipped.</p></li>
-<li><p><strong>max_iter</strong> (<em>int</em>) – Maximum number of iteration</p></li>
-<li><p><strong>epsilon</strong> (<em>float</em>) – Threshold for the relative error of approximation.</p></li>
-<li><p><strong>tol</strong> (<em>float</em>) – Threshold for convergence of factor matrices</p></li>
-<li><p><strong>random_state</strong> (<em>int</em>) – </p></li>
-<li><p><strong>verbose</strong> (<em>bool</em>) – If True, enable verbose output</p></li>
-</ul>
+Note, initialisation of a factor matrix that corresponds to the mode at the first position is skipped.</p>
+</dd>
+<dt><strong>max_iter</strong><span class="classifier">int</span></dt><dd><p>Maximum number of iteration</p>
+</dd>
+<dt><strong>epsilon</strong><span class="classifier">float</span></dt><dd><p>Threshold for the relative error of approximation.</p>
+</dd>
+<dt><strong>tol</strong><span class="classifier">float</span></dt><dd><p>Threshold for convergence of factor matrices</p>
+</dd>
+<dt><strong>random_state</strong><span class="classifier">int</span></dt><dd></dd>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If True, enable verbose output</p>
 </dd>
 </dl>
-<dl class="attribute">
-<dt id="hottbox.algorithms.decomposition.HOOI.cost">
-<code class="sig-name descname">cost</code><a class="headerlink" href="#hottbox.algorithms.decomposition.HOOI.cost" title="Permalink to this definition">¶</a></dt>
-<dd><p>A list of relative approximation errors at each iteration of the algorithms.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>list</p>
 </dd>
 </dl>
-</dd></dl>
-
+<p class="rubric">Attributes</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 91%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>cost</strong></p></td>
+<td><p>(list) A list of relative approximation errors at each iteration of the algorithms.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.algorithms.decomposition.HOOI.copy" title="hottbox.algorithms.decomposition.HOOI.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(self)</p></td>
+<td><p>Copy of the HOSVD algorithm as a new object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.algorithms.decomposition.HOOI.decompose" title="hottbox.algorithms.decomposition.HOOI.decompose"><code class="xref py py-obj docutils literal notranslate"><span class="pre">decompose</span></code></a>(self, tensor, rank[, keep_meta])</p></td>
+<td><p>Performs tucker decomposition via Higher Order Orthogonal Iteration (HOOI)</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 56%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>plot</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="hottbox.algorithms.decomposition.HOOI.converged">
 <em class="property">property </em><code class="sig-name descname">converged</code><a class="headerlink" href="#hottbox.algorithms.decomposition.HOOI.converged" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks convergence of the HOOI algorithm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>bool</p>
+<dd class="field-odd"><dl class="simple">
+<dt>bool</dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.decomposition.HOOI.copy">
-<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tucker.html#HOOI.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.HOOI.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tucker.html#HOOI.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.HOOI.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy of the HOSVD algorithm as a new object</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.decomposition.HOOI.decompose">
-<code class="sig-name descname">decompose</code><span class="sig-paren">(</span><em class="sig-param">tensor</em>, <em class="sig-param">rank</em>, <em class="sig-param">keep_meta=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tucker.html#HOOI.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.HOOI.decompose" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">decompose</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">tensor</em>, <em class="sig-param">rank</em>, <em class="sig-param">keep_meta=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/decomposition/tucker.html#HOOI.decompose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.decomposition.HOOI.decompose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs tucker decomposition via Higher Order Orthogonal Iteration (HOOI)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>tensor</strong> (<a class="reference internal" href="hottbox.core.Tensor.html#hottbox.core.Tensor" title="hottbox.core.Tensor"><em>Tensor</em></a>) – Multidimensional data to be decomposed</p></li>
-<li><p><strong>rank</strong> (<em>tuple</em>) – Desired multilinear rank for the given <cite>tensor</cite></p></li>
-<li><p><strong>keep_meta</strong> (<em>int</em>) – Keep meta information about modes of the given <cite>tensor</cite>.
+<dd class="field-odd"><dl class="simple">
+<dt><strong>tensor</strong><span class="classifier">Tensor</span></dt><dd><p>Multidimensional data to be decomposed</p>
+</dd>
+<dt><strong>rank</strong><span class="classifier">tuple</span></dt><dd><p>Desired multilinear rank for the given <cite>tensor</cite></p>
+</dd>
+<dt><strong>keep_meta</strong><span class="classifier">int</span></dt><dd><p>Keep meta information about modes of the given <cite>tensor</cite>.
 0 - the output will have default values for the meta data
 1 - keep only mode names
-2 - keep mode names and indices</p></li>
-</ul>
+2 - keep mode names and indices</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>tensor_tkd</strong> – Tucker representation of the <cite>tensor</cite></p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>tensor_tkd</strong><span class="classifier">TensorTKD</span></dt><dd><p>Tucker representation of the <cite>tensor</cite></p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="hottbox.core.TensorTKD.html#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD">TensorTKD</a></p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -216,10 +254,9 @@ Note, initialisation of a factor matrix that corresponds to the mode at the firs
 <dd><p>Name of the decomposition</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>decomposition_name</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>decomposition_name</strong><span class="classifier">str</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -261,25 +298,19 @@ Note, initialisation of a factor matrix that corresponds to the mode at the firs
         <li class="right" >
           <a href="hottbox.algorithms.decomposition.HOSVD.html" title="HOSVD"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.algorithms.html" >Algorithms</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

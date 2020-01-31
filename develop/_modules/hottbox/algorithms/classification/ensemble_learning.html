@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>hottbox.algorithms.classification.ensemble_learning &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>hottbox.algorithms.classification.ensemble_learning &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../../../../_static/js/toggle_header_rst_container.js"></script>
     <link rel="shortcut icon" href="../../../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -39,7 +42,7 @@
         <li class="right" >
           <a href="../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -50,7 +53,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../../../../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -110,11 +113,11 @@
   <h1>Source code for hottbox.algorithms.classification.ensemble_learning</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">StratifiedShuffleSplit</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">accuracy_score</span>
-<span class="kn">from</span> <span class="nn">...core.structures</span> <span class="k">import</span> <span class="n">BaseTensorTD</span><span class="p">,</span> <span class="n">TensorCPD</span><span class="p">,</span> <span class="n">TensorTKD</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">StratifiedShuffleSplit</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">...core.structures</span> <span class="kn">import</span> <span class="n">BaseTensorTD</span><span class="p">,</span> <span class="n">TensorCPD</span><span class="p">,</span> <span class="n">TensorTKD</span>
 
-<span class="kn">from</span> <span class="nn">.base</span> <span class="k">import</span> <span class="n">Classifier</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">Classifier</span>
 
 
 <span class="k">class</span> <span class="nc">BaseTensorEnsembleClassifier</span><span class="p">(</span><span class="n">Classifier</span><span class="p">):</span>
@@ -132,20 +135,20 @@
 <span class="sd">        Enable verbose output.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_clf</span><span class="p">,</span> <span class="n">probability</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_clf</span><span class="p">,</span> <span class="n">probability</span><span class="p">,</span> <span class="n">verbose</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_input_params</span><span class="p">(</span><span class="n">base_clf</span><span class="o">=</span><span class="n">base_clf</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="n">probability</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sync_base_clf_probability</span><span class="p">(</span><span class="n">base_clf</span><span class="o">=</span><span class="n">base_clf</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="n">probability</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">BaseTensorEnsembleClassifier</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">probability</span><span class="o">=</span><span class="n">probability</span><span class="p">,</span>
                                                            <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">base_clf</span> <span class="o">=</span> <span class="n">base_clf</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">self_as_string</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">(base_clf=</span><span class="si">{}</span><span class="s2">, probability=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
                                                                  <span class="bp">self</span><span class="o">.</span><span class="n">name_base_clf</span><span class="p">,</span>
                                                                  <span class="bp">self</span><span class="o">.</span><span class="n">probability</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">self_as_string</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
@@ -492,7 +495,7 @@
 <span class="sd">    -   Ilia Kisil, Ahmad Moniri, Danilo P. Mandic. &quot;Tensor Ensemble Learning for Multidimensional Data.&quot;</span>
 <span class="sd">        In 2018 IEEE Global Conference on Signal and Information Processing (GlobalSIP), pp. 1358-1362. IEEE, 2018.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_clf</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_clf</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TelVI</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_clf</span><span class="o">=</span><span class="n">base_clf</span><span class="p">,</span>
                                     <span class="n">probability</span><span class="o">=</span><span class="n">probability</span><span class="p">,</span>
                                     <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
@@ -674,7 +677,7 @@
 
 
 <div class="viewcode-block" id="TelVAC"><a class="viewcode-back" href="../../../../api/generated/hottbox.algorithms.classification.TelVAC.html#hottbox.algorithms.classification.TelVAC">[docs]</a><span class="k">class</span> <span class="nc">TelVAC</span><span class="p">(</span><span class="n">BaseTensorEnsembleClassifier</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_clf</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base_clf</span><span class="p">,</span> <span class="n">probability</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TelVAC</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">base_clf</span><span class="o">=</span><span class="n">base_clf</span><span class="p">,</span>
                                      <span class="n">probability</span><span class="o">=</span><span class="n">probability</span><span class="p">,</span>
                                      <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
@@ -889,24 +892,18 @@
         <li class="right" >
           <a href="../../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../../../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

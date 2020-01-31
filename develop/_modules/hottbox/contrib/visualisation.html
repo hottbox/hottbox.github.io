@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>hottbox.contrib.visualisation &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>hottbox.contrib.visualisation &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../../../_static/js/toggle_header_rst_container.js"></script>
     <link rel="shortcut icon" href="../../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -39,7 +42,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -50,7 +53,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../../../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -120,15 +123,15 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">OrderedDict</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">signal</span>  <span class="c1"># for generating testing data and can be removed</span>
-<span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">TensorCPD</span><span class="p">,</span> <span class="n">TensorTKD</span>  <span class="c1"># for type hinting</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>  <span class="c1"># for generating testing data and can be removed</span>
+<span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="kn">import</span> <span class="n">TensorCPD</span><span class="p">,</span> <span class="n">TensorTKD</span>  <span class="c1"># for type hinting</span>
 
 
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-    <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">Dropdown</span><span class="p">,</span> <span class="n">Output</span>
-    <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+    <span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">IntSlider</span><span class="p">,</span> <span class="n">VBox</span><span class="p">,</span> <span class="n">HBox</span><span class="p">,</span> <span class="n">Dropdown</span><span class="p">,</span> <span class="n">Output</span>
+    <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
 <span class="k">except</span> <span class="n">ModuleNotFoundError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
     <span class="n">extra_required</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span>
                       <span class="s2">&quot;ipywidgets&quot;</span><span class="p">,</span>
@@ -244,7 +247,7 @@
 <span class="sd">        of how and what is going to be displayed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Constructor of the interactive dashboard</span>
 
 <span class="sd">        Parameters</span>
@@ -403,7 +406,7 @@
 
 
 <div class="viewcode-block" id="ComponentPlotCPD"><a class="viewcode-back" href="../../../api/generated/hottbox.contrib.visualisation.ComponentPlotCPD.html#hottbox.contrib.visualisation.ComponentPlotCPD">[docs]</a><span class="k">class</span> <span class="nc">ComponentPlotCPD</span><span class="p">(</span><span class="n">BaseComponentPlot</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Constructor of the interactive dashboard for the `TensorCPD` objects</span>
 
 <span class="sd">        Parameters</span>
@@ -442,7 +445,7 @@
 
 
 <div class="viewcode-block" id="ComponentPlotTKD"><a class="viewcode-back" href="../../../api/generated/hottbox.contrib.visualisation.ComponentPlotTKD.html#hottbox.contrib.visualisation.ComponentPlotTKD">[docs]</a><span class="k">class</span> <span class="nc">ComponentPlotTKD</span><span class="p">(</span><span class="n">BaseComponentPlot</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tensor_rep</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Constructor of the interactive dashboard for the `TensorTKD` objects</span>
 
 <span class="sd">        Parameters</span>
@@ -492,24 +495,18 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

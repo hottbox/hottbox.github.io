@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>BaseComponentPlot &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>BaseComponentPlot &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_header_rst_container.js"></script>
     <link rel="shortcut icon" href="../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -47,7 +50,7 @@
         <li class="right" >
           <a href="../hottbox.contrib.html" title="Experimental features"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.contrib.html" accesskey="U">Experimental features</a> &#187;</li> 
       </ul>
@@ -59,7 +62,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -133,79 +136,72 @@
 <h1>BaseComponentPlot<a class="headerlink" href="#basecomponentplot" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
 
-<span class="kn">from</span> <span class="nn">hottbox.contrib.visualisation</span> <span class="k">import</span> <span class="n">BaseComponentPlot</span>
+<span class="kn">from</span> <span class="nn">hottbox.contrib.visualisation</span> <span class="kn">import</span> <span class="n">BaseComponentPlot</span>
 </pre></div>
 </div>
 <dl class="class">
 <dt id="hottbox.contrib.visualisation.BaseComponentPlot">
 <em class="property">class </em><code class="sig-name descname">BaseComponentPlot</code><span class="sig-paren">(</span><em class="sig-param">tensor_rep</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/contrib/visualisation.html#BaseComponentPlot"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dashboard for interactive visualisation of the factor vectors</p>
-<dl class="attribute">
-<dt id="hottbox.contrib.visualisation.BaseComponentPlot.available_plots">
-<code class="sig-name descname">available_plots</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.available_plots" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ordered dictionary with all available plot functions for the factor vectors</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>dict[str, callable]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hottbox.contrib.visualisation.BaseComponentPlot.out">
-<code class="sig-name descname">out</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.out" title="Permalink to this definition">¶</a></dt>
-<dd><p>Widget used as a context manager to display output.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>Output</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hottbox.contrib.visualisation.BaseComponentPlot.sliders">
-<code class="sig-name descname">sliders</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.sliders" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of slider widgets each of which allows to select factor vector to be plotted.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>list[IntSlider]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hottbox.contrib.visualisation.BaseComponentPlot.dropdown">
-<code class="sig-name descname">dropdown</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.dropdown" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of dropdown widgets each of which allows to select type of plot
-for the factor vector selected by the corresponding slider.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>list[Dropdown]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hottbox.contrib.visualisation.BaseComponentPlot.dashboard">
-<code class="sig-name descname">dashboard</code><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.dashboard" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dashboard with visualisations of the factor vectors and widgets for selection
-of how and what is going to be displayed.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>VBox</p>
-</dd>
-</dl>
-</dd></dl>
-
+<p class="rubric">Attributes</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 88%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>available_plots</strong></p></td>
+<td><p>(dict[str, callable]) Ordered dictionary with all available plot functions for the factor vectors</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>out</strong></p></td>
+<td><p>(Output) Widget used as a context manager to display output.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>sliders</strong></p></td>
+<td><p>(list[IntSlider]) List of slider widgets each of which allows to select factor vector to be plotted.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>dropdown</strong></p></td>
+<td><p>(list[Dropdown]) List of dropdown widgets each of which allows to select type of plot for the factor vector selected by the corresponding slider.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>dashboard</strong></p></td>
+<td><p>(VBox) Dashboard with visualisations of the factor vectors and widgets for selection of how and what is going to be displayed.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots" title="hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extend_available_plots</span></code></a>(self, custom_plots[, …])</p></td>
+<td><p>Add custom plot functions available for representing factor vectors</p></td>
+</tr>
+</tbody>
+</table>
 <p>Constructor of the interactive dashboard</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>tensor_rep</strong> (<em>{TensorCPD</em><em>, </em><em>TensorTKD}</em>) – </p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>tensor_rep</strong><span class="classifier">{TensorCPD, TensorTKD}</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots" title="hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extend_available_plots</span></code></a>(self, custom_plots[, …])</p></td>
+<td><p>Add custom plot functions available for representing factor vectors</p></td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots">
-<code class="sig-name descname">extend_available_plots</code><span class="sig-paren">(</span><em class="sig-param">custom_plots</em>, <em class="sig-param">modes=()</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/contrib/visualisation.html#BaseComponentPlot.extend_available_plots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">extend_available_plots</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">custom_plots</em>, <em class="sig-param">modes=()</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/contrib/visualisation.html#BaseComponentPlot.extend_available_plots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.contrib.visualisation.BaseComponentPlot.extend_available_plots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add custom plot functions available for representing factor vectors</p>
 <p>This method can be used either for adding new ways of plotting of the
 factor vectors or changing ones that have already been defined.
@@ -213,14 +209,16 @@ Despite of chosen option there are two main steps. First the internal dictionary
 with plots (<cite>self.available_plots</cite>) is updated, then dropdown menus.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>custom_plots</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>callable</em><em>]</em>) – Dictionary with plot functions
+<dd class="field-odd"><dl class="simple">
+<dt><strong>custom_plots</strong><span class="classifier">dict[str, callable]</span></dt><dd><p>Dictionary with plot functions
 Keys will be displayed in the dropdown menu.
 Values will be used as plotting functions for factor vector
-when the corresponding option from the dropdown menu is selected.</p></li>
-<li><p><strong>modes</strong> (<em>list</em><em>[</em><em>int</em><em>]</em>) – List of modes for which keys of <cite>custom_plots</cite> will be available in the dropdown.
-If not specified then they will be available for all modes.</p></li>
-</ul>
+when the corresponding option from the dropdown menu is selected.</p>
+</dd>
+<dt><strong>modes</strong><span class="classifier">list[int]</span></dt><dd><p>List of modes for which keys of <cite>custom_plots</cite> will be available in the dropdown.
+If not specified then they will be available for all modes.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
@@ -276,25 +274,19 @@ change the value that is selected in the dropdown menu.</p></li>
         <li class="right" >
           <a href="../hottbox.contrib.html" title="Experimental features"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.contrib.html" >Experimental features</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>
