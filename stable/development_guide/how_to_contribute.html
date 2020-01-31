@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>How to contribute &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>How to contribute &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../_static/js/toggle_header_rst_container.js"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
     <link rel="shortcut icon" href="../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -47,7 +50,7 @@
         <li class="right" >
           <a href="index.html" title="Development guide"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Development guide</a> &#187;</li> 
       </ul>
     </div>
@@ -58,7 +61,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -122,8 +125,15 @@
             
   <div class="section" id="how-to-contribute">
 <h1>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#initial-setup-for-your-development" id="id1">Initial setup for your development</a></p></li>
+<li><p><a class="reference internal" href="#getting-up-to-date-with-the-main-project" id="id2">Getting up to date with the main project</a></p></li>
+</ul>
+</div>
 <div class="section" id="initial-setup-for-your-development">
-<h2>Initial setup for your development<a class="headerlink" href="#initial-setup-for-your-development" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">Initial setup for your development</a><a class="headerlink" href="#initial-setup-for-your-development" title="Permalink to this headline">¶</a></h2>
 <p>The preferred way to contribute to <code class="docutils literal notranslate"><span class="pre">hottbox</span></code> is to fork the main repository on GitHub,
 work on your feature and then submit a PR. The outline of this process should be as follows:</p>
 <ol class="arabic">
@@ -131,13 +141,14 @@ work on your feature and then submit a PR. The outline of this process should be
 This creates a copy of the code under your account on the GitHub server.
 For more details on how to fork a repository see <a class="reference external" href="https://help.github.com/articles/fork-a-repo/">this guide</a>.</p></li>
 <li><p>Clone this copy to your local disk</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:__YourGitHubLogin__/hottbox.git
-$ cd hottbox
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:__YourGitHubLogin__/hottbox.git
+<span class="nb">cd</span> hottbox
 </pre></div>
 </div>
 </li>
 <li><p>Install <code class="docutils literal notranslate"><span class="pre">hottbox</span></code> package (in editable mode) and additional development tools</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -e &#39;.[tests, docs]&#39;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pipenv --python <span class="m">3</span>.7
+pipenv install -e <span class="s1">&#39;.[tests, docs]&#39;</span>
 </pre></div>
 </div>
 <p>This basically builds the extension in place and creates a link to the development directory</p>
@@ -146,18 +157,18 @@ $ cd hottbox
 ready state of the code. In case of <code class="docutils literal notranslate"><span class="pre">hottbox</span></code>, this corresponds to the version available on
 <a class="reference external" href="https://pypi.org/project/hottbox/">pypi.org</a>. Therefore, all development is taking place on
 <code class="docutils literal notranslate"><span class="pre">develop</span></code> branch and for each new feature we advise to create a new branch that stems from <code class="docutils literal notranslate"><span class="pre">develop</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout develop
-$ git checkout -b my-feature
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git checkout develop
+git checkout -b my-feature
 </pre></div>
 </div>
 </li>
 <li><p>Work on this copy, on your computer, using Git to do the version control. In order to record your changes in Git, do</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git add modified_files
-$ git commit -m &quot;**Concise but meaningful description**&quot;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add modified_files
+git commit -m <span class="s2">&quot;**Concise but meaningful description**&quot;</span>
 </pre></div>
 </div>
 <p>When you’re done with changes, then push them to GitHub with</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push -u origin my-feature
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push -u origin my-feature
 </pre></div>
 </div>
 </li>
@@ -170,41 +181,40 @@ you should almost always select <code class="docutils literal notranslate"><span
 </div>
 </div>
 <div class="section" id="getting-up-to-date-with-the-main-project">
-<h2>Getting up to date with the main project<a class="headerlink" href="#getting-up-to-date-with-the-main-project" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Getting up to date with the main project</a><a class="headerlink" href="#getting-up-to-date-with-the-main-project" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
-<li><p>Add a remote that points to the the Git repo (<a class="reference external" href="https://github.com/hottbox/hottbox">main hottbox repo</a>) from which you want to get the latest changes.
-Conventionally it is referred to as <strong>upstream</strong>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote add upstream https://github.com/hottbox/hottbox.git
+<li><p>Add a remote that points to the the Git repo (<a class="reference external" href="https://github.com/hottbox/hottbox">main hottbox repo</a>) from which you want to get the latest changes. Conventionally it is referred to as <strong>upstream</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote add upstream https://github.com/hottbox/hottbox.git
 </pre></div>
 </div>
 <p>Verify new remote by executing this command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git remote -v
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git remote -v
 
 ...
-upstream  https://github.com/hottbox/hottbox.git (fetch)  # &lt;--- should see this
-upstream  https://github.com/hottbox/hottbox.git (push)   # &lt;--- should see this
+upstream  https://github.com/hottbox/hottbox.git <span class="o">(</span>fetch<span class="o">)</span>  <span class="c1"># &lt;--- should see this</span>
+upstream  https://github.com/hottbox/hottbox.git <span class="o">(</span>push<span class="o">)</span>   <span class="c1"># &lt;--- should see this</span>
 ...
 </pre></div>
 </div>
 </li>
 <li><p>Next, you need to bring the latest commits from this upstream and merge them
 in order to be in sync with the upstream:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># bring the latest commits
-$ git fetch upstream
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># bring the latest commits</span>
+git fetch upstream
 
-# sync your master and develop branches
-$ git checkout master
+<span class="c1"># sync your master and develop branches</span>
+git checkout master
 
-$ git merge upstream/master
+git merge upstream/master
 
-$ git checkout develop
+git checkout develop
 
-$ git merge upstream/develop
+git merge upstream/develop
 </pre></div>
 </div>
 </li>
 <li><p>Finally, your can update your own GitHub repo:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git push
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git push
 </pre></div>
 </div>
 </li>
@@ -248,24 +258,18 @@ on stackoverflow.</p>
         <li class="right" >
           <a href="index.html" title="Development guide"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Development guide</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

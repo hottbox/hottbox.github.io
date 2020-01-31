@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>LSSTM &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>LSSTM &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_header_rst_container.js"></script>
+    <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -47,7 +50,7 @@
         <li class="right" >
           <a href="hottbox.algorithms.decomposition.fusion.CMTF.html" title="CMTF"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.algorithms.html" accesskey="U">Algorithms</a> &#187;</li> 
       </ul>
@@ -59,7 +62,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -133,7 +136,7 @@
 <h1>LSSTM<a class="headerlink" href="#lsstm" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
 
-<span class="kn">from</span> <span class="nn">hottbox.algorithms.classification</span> <span class="k">import</span> <span class="n">LSSTM</span>
+<span class="kn">from</span> <span class="nn">hottbox.algorithms.classification</span> <span class="kn">import</span> <span class="n">LSSTM</span>
 </pre></div>
 </div>
 <dl class="class">
@@ -142,149 +145,166 @@
 <dd><p>Least Squares Support Tensor Machine (LS-STM) for binary classification.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>C</strong> (<em>float</em>) – Penalty parameter of the error term.</p></li>
-<li><p><strong>tol</strong> (<em>float</em>) – Tolerance for stopping criterion.</p></li>
-<li><p><strong>max_iter</strong> (<em>int</em>) – Hard limit on iterations within solver.</p></li>
-<li><p><strong>probability</strong> (<em>bool</em>) – Whether to enable probability estimates. This must be enabled prior
-to calling <code class="docutils literal notranslate"><span class="pre">fit</span></code>, and will slow down that method.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em>) – Enable verbose output.</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>C</strong><span class="classifier">float</span></dt><dd><p>Penalty parameter of the error term.</p>
+</dd>
+<dt><strong>tol</strong><span class="classifier">float</span></dt><dd><p>Tolerance for stopping criterion.</p>
+</dd>
+<dt><strong>max_iter</strong><span class="classifier">int</span></dt><dd><p>Hard limit on iterations within solver.</p>
+</dd>
+<dt><strong>probability</strong><span class="classifier">bool</span></dt><dd><p>Whether to enable probability estimates. This must be enabled prior
+to calling <code class="docutils literal notranslate"><span class="pre">fit</span></code>, and will slow down that method.</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>Enable verbose output.</p>
 </dd>
 </dl>
-<dl class="attribute">
-<dt id="hottbox.algorithms.classification.LSSTM.weights_">
-<code class="sig-name descname">weights_</code><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.weights_" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of weights for each mode of the training data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>list[np.ndarray]</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hottbox.algorithms.classification.LSSTM.bias_">
-<code class="sig-name descname">bias_</code><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.bias_" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>np.float64</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hottbox.algorithms.classification.LSSTM.eta_history_">
-<code class="sig-name descname">eta_history_</code><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.eta_history_" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hottbox.algorithms.classification.LSSTM.bias_history_">
-<code class="sig-name descname">bias_history_</code><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.bias_history_" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
+<p class="rubric">Attributes</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>weights_</strong></p></td>
+<td><p>(list[np.ndarray]) List of weights for each mode of the training data.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>bias_</strong></p></td>
+<td><p>(np.float64)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>eta_history_</strong></p></td>
+<td><p>(np.ndarray)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>bias_history_</strong></p></td>
+<td><p>(np.ndarray)</p></td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">References</p>
 <ul class="simple">
 <li><p>Cichocki, Andrzej, et al. “Tensor networks for dimensionality reduction and large-scale optimization:
 Part 2 applications and future perspectives.” Foundations and Trends in Machine Learning 9.6 (2017): 431-673.</p></li>
 </ul>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.LSSTM.fit" title="hottbox.algorithms.classification.LSSTM.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(self, X, y)</p></td>
+<td><p>Fit the LS-STM model according to the given data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.LSSTM.get_params" title="hottbox.algorithms.classification.LSSTM.get_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params</span></code></a>(self)</p></td>
+<td><p>Get parameters for this estimator.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.LSSTM.predict" title="hottbox.algorithms.classification.LSSTM.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(self, X)</p></td>
+<td><p>Predict the class labels for the provided data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.LSSTM.predict_proba" title="hottbox.algorithms.classification.LSSTM.predict_proba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict_proba</span></code></a>(self, X)</p></td>
+<td><p>Compute probabilities of possible outcomes for samples in the provided data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.LSSTM.score" title="hottbox.algorithms.classification.LSSTM.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(self, X, y)</p></td>
+<td><p>Returns the mean accuracy on the given test data and labels.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.LSSTM.set_params" title="hottbox.algorithms.classification.LSSTM.set_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params</span></code></a>(self, \*\*params)</p></td>
+<td><p>Set the parameters of this estimator.</p></td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit the LS-STM model according to the given data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.Tensor.html#hottbox.core.Tensor" title="hottbox.core.Tensor"><em>Tensor</em></a><em>]</em>) – List of training samples of the same order and size.</p></li>
-<li><p><strong>y</strong> (<em>np.ndarray</em>) – Target values relative to X for classification.</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">list[Tensor]</span></dt><dd><p>List of training samples of the same order and size.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray</span></dt><dd><p>Target values relative to X for classification.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>self</p>
+<dd class="field-even"><dl class="simple">
+<dt>self</dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.get_params">
-<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.get_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.get_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.get_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.get_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters for this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>params</strong> – Dictionary of parameter names mapped to their values.</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Dictionary of parameter names mapped to their values.</p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>dict</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.predict" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Predict the class labels for the provided data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.Tensor.html#hottbox.core.Tensor" title="hottbox.core.Tensor"><em>Tensor</em></a><em>]</em>) – List of test samples.</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">list[Tensor]</span></dt><dd><p>List of test samples.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>y_pred</strong> – Class labels for samples in X.</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y_pred</strong><span class="classifier">np.ndarray</span></dt><dd><p>Class labels for samples in X.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.predict_proba">
-<code class="sig-name descname">predict_proba</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.predict_proba" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">predict_proba</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.predict_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.predict_proba" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute probabilities of possible outcomes for samples in the provided data.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.score">
-<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.score" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the mean accuracy on the given test data and labels.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>list</em><em>[</em><a class="reference internal" href="hottbox.core.Tensor.html#hottbox.core.Tensor" title="hottbox.core.Tensor"><em>Tensor</em></a><em>]</em>) – List of test samples.</p></li>
-<li><p><strong>y</strong> (<em>np.ndarray</em>) – True labels for test samples.</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">list[Tensor]</span></dt><dd><p>List of test samples.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray</span></dt><dd><p>True labels for test samples.</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>acc</strong> – Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> with respect to <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>acc</strong><span class="classifier">np.float64</span></dt><dd><p>Mean accuracy of <code class="docutils literal notranslate"><span class="pre">self.predict(X)</span></code> with respect to <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.float64</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.LSSTM.set_params">
-<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.set_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.set_params" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**params</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/stm.html#LSSTM.set_params"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.LSSTM.set_params" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the parameters of this estimator.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>self</p>
+<dd class="field-odd"><dl class="simple">
+<dt>self</dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -326,25 +346,19 @@ Part 2 applications and future perspectives.” Foundations and Trends in Machin
         <li class="right" >
           <a href="hottbox.algorithms.decomposition.fusion.CMTF.html" title="CMTF"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.algorithms.html" >Algorithms</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

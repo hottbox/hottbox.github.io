@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>Before pull request &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>Before pull request &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../_static/js/toggle_header_rst_container.js"></script>
+    <script type="text/javascript" src="../_static/js/copybutton.js"></script>
     <link rel="shortcut icon" href="../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -47,7 +50,7 @@
         <li class="right" >
           <a href="how_to_contribute.html" title="How to contribute"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Development guide</a> &#187;</li> 
       </ul>
     </div>
@@ -58,7 +61,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -122,24 +125,32 @@
             
   <div class="section" id="before-pull-request">
 <h1>Before pull request<a class="headerlink" href="#before-pull-request" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#if-it-isnt-tested-its-broken" id="id1">If it isn’t tested, it’s broken</a></p></li>
+<li><p><a class="reference internal" href="#document-your-code" id="id2">Document your code</a></p></li>
+<li><p><a class="reference internal" href="#docker-validation-optional" id="id3">Docker validation (optional)</a></p></li>
+</ul>
+</div>
 <div class="section" id="if-it-isnt-tested-its-broken">
-<h2>If it isn’t tested, it’s broken<a class="headerlink" href="#if-it-isnt-tested-its-broken" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id1">If it isn’t tested, it’s broken</a><a class="headerlink" href="#if-it-isnt-tested-its-broken" title="Permalink to this headline">¶</a></h2>
 <p>Unit tests are crucial part of this library.
 Before submitting a pull request, make sure that all new functions and classes come with tests that completely
 cover new features. We use tools provided by the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> package to verify that all statements perform as expected.</p>
 <p>First, you will need to install some additional software:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -e &#39;.[tests]&#39;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -e <span class="s1">&#39;.[tests]&#39;</span>
 </pre></div>
 </div>
 <p>To run test, simply execute inside the directory(ies) with your changes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pytest -v --cov . --cov-branch --cov-report term-missing
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest -v --cov . --cov-branch --cov-report term-missing
 </pre></div>
 </div>
 <p>Here is a <a class="reference external" href="https://www.youtube.com/watch?v=ixqeebhUa-w&amp;t=831s">youtube video</a> that could help you
 if you have never been dealing with this side of software development.</p>
 </div>
 <div class="section" id="document-your-code">
-<h2>Document your code<a class="headerlink" href="#document-your-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Document your code</a><a class="headerlink" href="#document-your-code" title="Permalink to this headline">¶</a></h2>
 <p>Documentation is a crucial part of this library.
 All functions and classes should come with useful docstrings.
 For these, we use the <strong>numpy style</strong> docstrings.
@@ -149,34 +160,39 @@ Also you can have a look at the <a class="reference external" href="http://sphin
 Can be useful to read introduction to structuring documentation of your module <a class="reference external" href="https://pythonhosted.org/an_example_pypi_project/sphinx.html">using Sphinx</a>.</p>
 <p>It is advised to check you documentation after you have edited the source code.
 You can edit the documentation using any text editor and then generate the HTML output by typing <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">html</span></code>
-from the docs/ directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd docs
-$ make clean
-$ make html
+from the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> directory</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> docs
+
+<span class="c1"># Clean autogenerated files</span>
+make clean
+
+<span class="c1"># Build html</span>
+make html
 </pre></div>
 </div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Building the documentation requires additional packages, e.g. <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, <code class="docutils literal notranslate"><span class="pre">guzzle_sphinx_theme</span></code>, <code class="docutils literal notranslate"><span class="pre">m2r</span></code>, so you can use extra option during installation</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pip install -e &#39;.[docs]&#39;
+<p>Open <code class="docutils literal notranslate"><span class="pre">docs/build/html/index.html</span></code> in a web-browser in order to see the generated HTML output</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Building the documentation requires additional packages, e.g. <code class="docutils literal notranslate"><span class="pre">sphinx</span></code>, <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code>, <code class="docutils literal notranslate"><span class="pre">guzzle_sphinx_theme</span></code> and <code class="docutils literal notranslate"><span class="pre">m2r</span></code>, so you can use extra option during installation</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install -e <span class="s1">&#39;.[docs]&#39;</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="docker-validation">
-<h2>Docker validation<a class="headerlink" href="#docker-validation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="docker-validation-optional">
+<h2><a class="toc-backref" href="#id3">Docker validation (optional)</a><a class="headerlink" href="#docker-validation-optional" title="Permalink to this headline">¶</a></h2>
 <p>Optionally, you can use <a class="reference external" href="https://youtube.com/watch?v=JprTjTViaEA">Docker</a> and corresponding
 utilities from the <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>, in order to ensure that there are no local dependecies.
-Specificaitons for the Docker image can be found in corresponding under <code class="docutils literal notranslate"><span class="pre">docker/</span></code> directory:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Create docker image with installation of local state of &#39;hottbox&#39;
-$ make dev-image  # Size 850MB; built on top of conda/miniconda3
+Specificaitons for the Docker image can be found in corresponding under <code class="docutils literal notranslate"><span class="pre">docker/</span></code> directory</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create docker image with installation of local state of &#39;hottbox&#39;</span>
+make dev-image  <span class="c1"># Size 850MB; built on top of conda/miniconda3</span>
 
-# Start docker container of the image from previous step
-$ make dev-container
+<span class="c1"># Start docker container of the image from previous step</span>
+make dev-container
 
-# Inside docker container; Should finish without errors
-$ make test-cov     # performs unit tests with coverage
-$ make html         # builds documentation
+<span class="c1"># Inside docker container; Should finish without errors</span>
+make test-cov     <span class="c1"># performs unit tests with coverage</span>
+make html         <span class="c1"># builds documentation</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -219,24 +235,18 @@ $ make html         # builds documentation
         <li class="right" >
           <a href="how_to_contribute.html" title="How to contribute"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Development guide</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

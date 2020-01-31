@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>TelVI &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>TelVI &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_header_rst_container.js"></script>
+    <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -47,7 +50,7 @@
         <li class="right" >
           <a href="hottbox.algorithms.classification.LSSTM.html" title="LSSTM"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.algorithms.html" accesskey="U">Algorithms</a> &#187;</li> 
       </ul>
@@ -59,7 +62,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -133,7 +136,7 @@
 <h1>TelVI<a class="headerlink" href="#telvi" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
 
-<span class="kn">from</span> <span class="nn">hottbox.algorithms.classification</span> <span class="k">import</span> <span class="n">TelVI</span>
+<span class="kn">from</span> <span class="nn">hottbox.algorithms.classification</span> <span class="kn">import</span> <span class="n">TelVI</span>
 </pre></div>
 </div>
 <dl class="class">
@@ -142,16 +145,19 @@
 <dd><p>Tensor Ensemble Learning: Vectors Independently (TelVI)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>base_clf</strong> (<em>list</em><em>[</em><em>SklearnClassifier</em><em>]</em>) – List of classifiers that will be used for the corresponding collection of the factor vectors of the tensor
+<dd class="field-odd"><dl class="simple">
+<dt><strong>base_clf</strong><span class="classifier">list[SklearnClassifier]</span></dt><dd><p>List of classifiers that will be used for the corresponding collection of the factor vectors of the tensor
 decomposition. This list does not have to be heterogeneous. However, all classifiers should support sklearn API.
 Length of this list should be equal to the number of collection of the factor vectors, otherwise an exception
 will be thrown. This is checked after the data have been splitted inside <cite>decomp_to_array</cite> method (called from
-<cite>fit</cite>, <cite>predict</cite>, <cite>predict_proba</cite>, <cite>grid_search_base_clf</cite>)</p></li>
-<li><p><strong>probability</strong> (<em>bool</em>) – Whether to enable probability estimates. This must be enabled prior
-to calling <cite>fit</cite>, and will slow down that method.</p></li>
-<li><p><strong>verbose</strong> (<em>bool</em>) – Enable verbose output.</p></li>
-</ul>
+<cite>fit</cite>, <cite>predict</cite>, <cite>predict_proba</cite>, <cite>grid_search_base_clf</cite>)</p>
+</dd>
+<dt><strong>probability</strong><span class="classifier">bool</span></dt><dd><p>Whether to enable probability estimates. This must be enabled prior
+to calling <cite>fit</cite>, and will slow down that method.</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>Enable verbose output.</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">References</p>
@@ -159,141 +165,200 @@ to calling <cite>fit</cite>, and will slow down that method.</p></li>
 <li><p>Ilia Kisil, Ahmad Moniri, Danilo P. Mandic. “Tensor Ensemble Learning for Multidimensional Data.”
 In 2018 IEEE Global Conference on Signal and Information Processing (GlobalSIP), pp. 1358-1362. IEEE, 2018.</p></li>
 </ul>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.TelVI.fit" title="hottbox.algorithms.classification.TelVI.fit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit</span></code></a>(self, X, y)</p></td>
+<td><p>Fit specified classification models according to the given training data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.TelVI.get_params_base_clf" title="hottbox.algorithms.classification.TelVI.get_params_base_clf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_params_base_clf</span></code></a>(self[, i])</p></td>
+<td><p>Get parameters of employed base classifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.TelVI.grid_search" title="hottbox.algorithms.classification.TelVI.grid_search"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_search</span></code></a>(self, X, y, search_params[, …])</p></td>
+<td><p>Perform hyper parameter search with cross-validation for all base classifiers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.TelVI.predict" title="hottbox.algorithms.classification.TelVI.predict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict</span></code></a>(self, X)</p></td>
+<td><p>Perform classification on samples in X.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.TelVI.predict_proba" title="hottbox.algorithms.classification.TelVI.predict_proba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">predict_proba</span></code></a>(self, X)</p></td>
+<td><p>Compute probabilities of possible outcomes for samples in X.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.TelVI.score" title="hottbox.algorithms.classification.TelVI.score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">score</span></code></a>(self, X, y)</p></td>
+<td><p>Returns the mean accuracy on the given test data and labels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.algorithms.classification.TelVI.set_params_base_clf" title="hottbox.algorithms.classification.TelVI.set_params_base_clf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_params_base_clf</span></code></a>(self, params, i)</p></td>
+<td><p>Set parameters for the specified base classifier</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 66%" />
+<col style="width: 34%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>decomp_to_array</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="hottbox.algorithms.classification.TelVI.fit">
-<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.fit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit specified classification models according to the given training data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>{list</em><em>[</em><a class="reference internal" href="hottbox.core.TensorCPD.html#hottbox.core.TensorCPD" title="hottbox.core.TensorCPD"><em>TensorCPD</em></a><em>]</em><em>, </em><em>list</em><em>[</em><a class="reference internal" href="hottbox.core.TensorTKD.html#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD"><em>TensorTKD</em></a><em>]</em><em>}</em>) – List of training samples each of which is represented through a tensor factorisation</p></li>
-<li><p><strong>y</strong> (<em>np.ndarray</em>) – Target relative to X for classification</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{list[TensorCPD], list[TensorTKD]}</span></dt><dd><p>List of training samples each of which is represented through a tensor factorisation</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray</span></dt><dd><p>Target relative to X for classification</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>self</strong></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>object</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">object</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.TelVI.get_params_base_clf">
-<code class="sig-name descname">get_params_base_clf</code><span class="sig-paren">(</span><em class="sig-param">i=-1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.get_params_base_clf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.get_params_base_clf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_params_base_clf</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">i=-1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.get_params_base_clf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.get_params_base_clf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get parameters of employed base classifier</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>i</strong> (<em>int</em>) – Positional number of the base classifier. By default outputs parameters for all base classifiers</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>i</strong><span class="classifier">int</span></dt><dd><p>Positional number of the base classifier. By default outputs parameters for all base classifiers</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Union[list[dict], dict]</p>
+<dd class="field-even"><dl class="simple">
+<dt>Union[list[dict], dict]</dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.TelVI.grid_search">
-<code class="sig-name descname">grid_search</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">search_params</em>, <em class="sig-param">cv_params=None</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">n_jobs=-1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.grid_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.grid_search" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">grid_search</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em>, <em class="sig-param">search_params</em>, <em class="sig-param">cv_params=None</em>, <em class="sig-param">inplace=True</em>, <em class="sig-param">n_jobs=-1</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.grid_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.grid_search" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform hyper parameter search with cross-validation for all base classifiers. Parameter setting that gave
 the best results on the hold out data are assigned to the base classifiers</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>{list</em><em>[</em><a class="reference internal" href="hottbox.core.TensorCPD.html#hottbox.core.TensorCPD" title="hottbox.core.TensorCPD"><em>TensorCPD</em></a><em>]</em><em>, </em><em>list</em><em>[</em><a class="reference internal" href="hottbox.core.TensorTKD.html#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD"><em>TensorTKD</em></a><em>]</em><em>}</em>) – List of training samples each of which is represented through a tensor factorisation</p></li>
-<li><p><strong>y</strong> (<em>np.ndarray</em>) – Target relative to X for classification</p></li>
-<li><p><strong>search_params</strong> (<em>list</em><em>[</em><em>dict</em><em>]</em>) – List of dictionaries with parameters names (string) as keys and lists of parameter settings to try as values</p></li>
-<li><p><strong>cv_params</strong> (<em>dict</em>) – Dictionary with kwargs that determine the cross-validation splitting strategy.</p></li>
-<li><p><strong>inplace</strong> (<em>bool</em>) – If True, assign parameter setting that gave the best results on the hold out data to the base classifier</p></li>
-<li><p><strong>n_jobs</strong> (<em>int</em>) – Number of jobs to run in parallel</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{list[TensorCPD], list[TensorTKD]}</span></dt><dd><p>List of training samples each of which is represented through a tensor factorisation</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray</span></dt><dd><p>Target relative to X for classification</p>
+</dd>
+<dt><strong>search_params</strong><span class="classifier">list[dict]</span></dt><dd><p>List of dictionaries with parameters names (string) as keys and lists of parameter settings to try as values</p>
+</dd>
+<dt><strong>cv_params</strong><span class="classifier">dict</span></dt><dd><p>Dictionary with kwargs that determine the cross-validation splitting strategy.</p>
+</dd>
+<dt><strong>inplace</strong><span class="classifier">bool</span></dt><dd><p>If True, assign parameter setting that gave the best results on the hold out data to the base classifier</p>
+</dd>
+<dt><strong>n_jobs</strong><span class="classifier">int</span></dt><dd><p>Number of jobs to run in parallel</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>best_params</strong> – List of parameter setting that gave the best results on the hold out data for the corresponding classifier</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>best_params</strong><span class="classifier">list[dict]</span></dt><dd><p>List of parameter setting that gave the best results on the hold out data for the corresponding classifier</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>list[dict]</p>
+</dl>
 </dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>TypeError</strong> – If the searching parameters are not provided as a list</p></li>
-<li><p><strong>ValueError</strong> – If the searching parameters are not provided for each of the base classifier (lists length comparison)
-    Note: All elements of <cite>search_params</cite> must contain only valid parameters for the respective base classifiers</p></li>
-</ul>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>TypeError</dt><dd><p>If the searching parameters are not provided as a list</p>
+</dd>
+<dt>ValueError</dt><dd><p>If the searching parameters are not provided for each of the base classifier (lists length comparison)
+Note: All elements of <cite>search_params</cite> must contain only valid parameters for the respective base classifiers</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.TelVI.predict">
-<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.predict" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">predict</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.predict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.predict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform classification on samples in X.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>{list</em><em>[</em><a class="reference internal" href="hottbox.core.TensorCPD.html#hottbox.core.TensorCPD" title="hottbox.core.TensorCPD"><em>TensorCPD</em></a><em>]</em><em>, </em><em>list</em><em>[</em><a class="reference internal" href="hottbox.core.TensorTKD.html#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD"><em>TensorTKD</em></a><em>]</em><em>}</em>) – List of training samples each of which is represented through a tensor factorisation</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{list[TensorCPD], list[TensorTKD]}</span></dt><dd><p>List of training samples each of which is represented through a tensor factorisation</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>y_pred</strong> – Class labels for samples in X.</p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y_pred</strong><span class="classifier">np.ndarray</span></dt><dd><p>Class labels for samples in X.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.TelVI.predict_proba">
-<code class="sig-name descname">predict_proba</code><span class="sig-paren">(</span><em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.predict_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.predict_proba" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">predict_proba</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.predict_proba"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.predict_proba" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute probabilities of possible outcomes for samples in X.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>X</strong> (<em>{list</em><em>[</em><a class="reference internal" href="hottbox.core.TensorCPD.html#hottbox.core.TensorCPD" title="hottbox.core.TensorCPD"><em>TensorCPD</em></a><em>]</em><em>, </em><em>list</em><em>[</em><a class="reference internal" href="hottbox.core.TensorTKD.html#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD"><em>TensorTKD</em></a><em>]</em><em>}</em>) – List of training samples each of which is represented through a tensor factorisation</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">{list[TensorCPD], list[TensorTKD]}</span></dt><dd><p>List of training samples each of which is represented through a tensor factorisation</p>
+</dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>y_pred_proba</strong> – Returns the probability of the sample for each class in
+<dd class="field-even"><dl class="simple">
+<dt><strong>y_pred_proba</strong><span class="classifier">np.ndarray</span></dt><dd><p>Returns the probability of the sample for each class in
 the model. The columns correspond to the classes in sorted
 order, as they appear in the attribute <cite>base_clf[i].classes_</cite>.</p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.TelVI.score">
-<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.score" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">score</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">X</em>, <em class="sig-param">y</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.score"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the mean accuracy on the given test data and labels.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>X</strong> (<em>list</em><em>[</em><em>BaseTensorTD</em><em>]</em>) – </p></li>
-<li><p><strong>y</strong> (<em>np.ndarray</em>) – </p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>X</strong><span class="classifier">list[BaseTensorTD]</span></dt><dd></dd>
+<dt><strong>y</strong><span class="classifier">np.ndarray</span></dt><dd></dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>acc = np.ndarray</p>
+<dd class="field-even"><dl class="simple">
+<dt>acc = np.ndarray</dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.algorithms.classification.TelVI.set_params_base_clf">
-<code class="sig-name descname">set_params_base_clf</code><span class="sig-paren">(</span><em class="sig-param">params</em>, <em class="sig-param">i</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.set_params_base_clf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.set_params_base_clf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_params_base_clf</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">params</em>, <em class="sig-param">i</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/algorithms/classification/ensemble_learning.html#TelVI.set_params_base_clf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.algorithms.classification.TelVI.set_params_base_clf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameters for the specified base classifier</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>i</strong> (<em>int</em>) – Positional number of the base classifier.</p></li>
-<li><p><strong>params</strong> (<em>dict</em>) – Dictionary with parameters for the base classifier</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>i</strong><span class="classifier">int</span></dt><dd><p>Positional number of the base classifier.</p>
+</dd>
+<dt><strong>params</strong><span class="classifier">dict</span></dt><dd><p>Dictionary with parameters for the base classifier</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -335,25 +400,19 @@ order, as they appear in the attribute <cite>base_clf[i].classes_</cite>.</p>
         <li class="right" >
           <a href="hottbox.algorithms.classification.LSSTM.html" title="LSSTM"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.algorithms.html" >Algorithms</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>TensorTKD &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>TensorTKD &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../../_static/js/toggle_header_rst_container.js"></script>
+    <script type="text/javascript" src="../../_static/js/copybutton.js"></script>
     <link rel="shortcut icon" href="../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -47,7 +50,7 @@
         <li class="right" >
           <a href="hottbox.core.TensorCPD.html" title="TensorCPD"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.core.html" accesskey="U">Core Structures and Operations</a> &#187;</li> 
       </ul>
@@ -59,7 +62,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -133,7 +136,7 @@
 <h1>TensorTKD<a class="headerlink" href="#tensortkd" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import statement</span>
 
-<span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">TensorTKD</span>
+<span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="kn">import</span> <span class="n">TensorTKD</span>
 </pre></div>
 </div>
 <dl class="class">
@@ -142,57 +145,48 @@
 <dd><p>Representation of a tensor in the Tucker form (TKD).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>fmat</strong> (<em>list</em><em>[</em><em>np.ndarray</em><em>]</em>) – List of factor matrices for the Tucker representation of a tensor</p></li>
-<li><p><strong>core_values</strong> (<em>np.ndarray</em>) – Core of the Tucker representation of a tensor</p></li>
-<li><p><strong>mode_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – List of names for the factor matrices</p></li>
-</ul>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fmat</strong><span class="classifier">list[np.ndarray]</span></dt><dd><p>List of factor matrices for the Tucker representation of a tensor</p>
+</dd>
+<dt><strong>core_values</strong><span class="classifier">np.ndarray</span></dt><dd><p>Core of the Tucker representation of a tensor</p>
+</dd>
+<dt><strong>mode_names</strong><span class="classifier">list[str]</span></dt><dd><p>List of names for the factor matrices</p>
 </dd>
 </dl>
-<dl class="attribute">
-<dt id="hottbox.core.TensorTKD._fmat">
-<code class="sig-name descname">_fmat</code><a class="headerlink" href="#hottbox.core.TensorTKD._fmat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Placeholder for a list of factor matrices for the Tucker representation of a tensor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>list[np.ndarray]</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hottbox.core.TensorTKD._core_values">
-<code class="sig-name descname">_core_values</code><a class="headerlink" href="#hottbox.core.TensorTKD._core_values" title="Permalink to this definition">¶</a></dt>
-<dd><p>Placeholder for a core of the Tucker representation of a tensor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="hottbox.core.TensorTKD._modes">
-<code class="sig-name descname">_modes</code><a class="headerlink" href="#hottbox.core.TensorTKD._modes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Description of the factor matrix for the corresponding mode</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>list[Mode]</p>
-</dd>
-</dl>
-</dd></dl>
-
+<p class="rubric">Attributes</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>_fmat</strong></p></td>
+<td><p>(list[np.ndarray]) Placeholder for a list of factor matrices for the Tucker representation of a tensor</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>_core_values</strong></p></td>
+<td><p>(np.ndarray) Placeholder for a core of the Tucker representation of a tensor</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>_modes</strong></p></td>
+<td><p>(list[Mode]) Description of the factor matrix for the corresponding mode</p></td>
+</tr>
+</tbody>
+</table>
 <dl class="field-list simple">
 <dt class="field-odd">Raises</dt>
-<dd class="field-odd"><p><a class="reference internal" href="hottbox.errors.TensorTopologyError.html#hottbox.errors.TensorTopologyError" title="hottbox.errors.TensorTopologyError"><strong>TensorTopologyError</strong></a> – If there is inconsistency in shapes of factor matrices and core values</p>
+<dd class="field-odd"><dl class="simple">
+<dt>TensorTopologyError</dt><dd><p>If there is inconsistency in shapes of factor matrices and core values</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
 <ol class="arabic simple">
 <li><p>Create tucker representation of a tensor with default meta information</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">TensorTKD</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="kn">import</span> <span class="n">TensorTKD</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span>        <span class="c1"># shape of the tensor in full form</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">R_1</span><span class="p">,</span> <span class="n">R_2</span><span class="p">,</span> <span class="n">R_3</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>  <span class="c1"># multi-linear rank</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">I</span><span class="p">,</span> <span class="n">R_1</span><span class="p">))</span>
@@ -210,8 +204,8 @@
 <ol class="arabic simple" start="2">
 <li><p>Create tucker representation of a tensor with custom meta information</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="k">import</span> <span class="n">TensorTKD</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">hottbox.core</span> <span class="kn">import</span> <span class="n">TensorTKD</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span>        <span class="c1"># shape of the tensor in full form</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">R_1</span><span class="p">,</span> <span class="n">R_2</span><span class="p">,</span> <span class="n">R_3</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span>  <span class="c1"># multi-linear rank</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">I</span><span class="p">,</span> <span class="n">R_1</span><span class="p">))</span>
@@ -227,33 +221,63 @@
 <span class="go">    With corresponding latent components described by (5, 6, 7) features respectively.</span>
 </pre></div>
 </div>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.TensorTKD.copy" title="hottbox.core.TensorTKD.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a>(self)</p></td>
+<td><p>Produces a copy of itself as a new object</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.core.TensorTKD.copy_modes" title="hottbox.core.TensorTKD.copy_modes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy_modes</span></code></a>(self, tensor)</p></td>
+<td><p>Copy modes meta from tensor</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.TensorTKD.reconstruct" title="hottbox.core.TensorTKD.reconstruct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reconstruct</span></code></a>(self[, keep_meta])</p></td>
+<td><p>Converts the Tucker representation of a tensor into a full tensor</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.core.TensorTKD.reset_mode_index" title="hottbox.core.TensorTKD.reset_mode_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_mode_index</span></code></a>(self[, mode])</p></td>
+<td><p>Drop index for the specified mode number</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.TensorTKD.reset_mode_name" title="hottbox.core.TensorTKD.reset_mode_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">reset_mode_name</span></code></a>(self[, mode])</p></td>
+<td><p>Set default name for the specified mode number</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#hottbox.core.TensorTKD.set_mode_index" title="hottbox.core.TensorTKD.set_mode_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mode_index</span></code></a>(self, mode_index)</p></td>
+<td><p>Set index for specified mode</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#hottbox.core.TensorTKD.set_mode_names" title="hottbox.core.TensorTKD.set_mode_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_mode_names</span></code></a>(self, mode_names)</p></td>
+<td><p>Rename modes of a tensor representation</p></td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
 <dt id="hottbox.core.TensorTKD.copy">
-<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.copy" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.copy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Produces a copy of itself as a new object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>new_object</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD">TensorTKD</a></p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>new_object</strong><span class="classifier">TensorTKD</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.core.TensorTKD.copy_modes">
-<code class="sig-name descname">copy_modes</code><span class="sig-paren">(</span><em class="sig-param">tensor</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.copy_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.copy_modes" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">copy_modes</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">tensor</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.copy_modes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.copy_modes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Copy modes meta from tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>tensor</strong> (<em>{Tensor</em><em>, </em><a class="reference internal" href="hottbox.core.TensorCPD.html#hottbox.core.TensorCPD" title="hottbox.core.TensorCPD"><em>TensorCPD</em></a><em>, </em><a class="reference internal" href="#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD"><em>TensorTKD</em></a><em>, </em><em>TensorTT}</em>) – </p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>tensor</strong><span class="classifier">{Tensor, TensorCPD, TensorTKD, TensorTT}</span></dt><dd></dd>
+</dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>self</strong></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD">TensorTKD</a></p>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">TensorTKD</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
@@ -266,10 +290,9 @@
 <dd><p>Core tensor of the Tucker representation of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>core_tensor</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="hottbox.core.Tensor.html#hottbox.core.Tensor" title="hottbox.core.Tensor">Tensor</a></p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>core_tensor</strong><span class="classifier">Tensor</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -280,10 +303,9 @@
 <dd><p>List of factor matrices for the Tucker representation of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>factor_matrices</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>list[np.ndarray]</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>factor_matrices</strong><span class="classifier">list[np.ndarray]</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -294,10 +316,9 @@
 <dd><p>Shape of a <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code> in the full format</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>full_shape</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>tuple</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>full_shape</strong><span class="classifier">tuple</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -308,10 +329,9 @@
 <dd><p>Description of the physical modes for a <code class="docutils literal notranslate"><span class="pre">TensorTKD</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>list[str]</p>
+<dd class="field-odd"><dl class="simple">
+<dt>list[str]</dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -322,10 +342,9 @@
 <dd><p>Meta data for the factor matrices</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>list[Mode]</p>
+<dd class="field-odd"><dl class="simple">
+<dt>list[Mode]</dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -336,10 +355,9 @@
 <dd><p>Order of a tensor represented through the TKD</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>order</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>int</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>order</strong><span class="classifier">int</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -350,10 +368,9 @@
 <dd><p>Multi-linear rank of the Tucker representation of a tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>rank</strong></p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>tuple</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>rank</strong><span class="classifier">tuple</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
@@ -362,93 +379,103 @@
 
 <dl class="method">
 <dt id="hottbox.core.TensorTKD.reconstruct">
-<code class="sig-name descname">reconstruct</code><span class="sig-paren">(</span><em class="sig-param">keep_meta=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.reconstruct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.reconstruct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reconstruct</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">keep_meta=0</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.reconstruct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.reconstruct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts the Tucker representation of a tensor into a full tensor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>keep_meta</strong> (<em>int</em>) – Keep meta information about modes of the given <cite>tensor</cite>.
+<dd class="field-odd"><dl class="simple">
+<dt><strong>keep_meta</strong><span class="classifier">int</span></dt><dd><p>Keep meta information about modes of the given <cite>tensor</cite>.
 0 - the output will have default values for the meta data
 1 - keep only mode names
 2 - keep mode names and indices</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>tensor</strong></p>
+</dl>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="hottbox.core.Tensor.html#hottbox.core.Tensor" title="hottbox.core.Tensor">Tensor</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>tensor</strong><span class="classifier">Tensor</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.core.TensorTKD.reset_mode_index">
-<code class="sig-name descname">reset_mode_index</code><span class="sig-paren">(</span><em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.reset_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.reset_mode_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset_mode_index</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.reset_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.reset_mode_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Drop index for the specified mode number</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mode</strong> (<em>int</em>) – Mode number which index to be dropped
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mode</strong><span class="classifier">int</span></dt><dd><p>Mode number which index to be dropped
 By default resets all indices</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>self</strong></p>
+</dl>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD">TensorTKD</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">TensorTKD</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.core.TensorTKD.reset_mode_name">
-<code class="sig-name descname">reset_mode_name</code><span class="sig-paren">(</span><em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.reset_mode_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.reset_mode_name" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">reset_mode_name</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.reset_mode_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.reset_mode_name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set default name for the specified mode number</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mode</strong> (<em>int</em>) – Mode number which name to be set to default value
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mode</strong><span class="classifier">int</span></dt><dd><p>Mode number which name to be set to default value
 By default resets names of all modes</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>self</strong></p>
+</dl>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD">TensorTKD</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">TensorTKD</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.core.TensorTKD.set_mode_index">
-<code class="sig-name descname">set_mode_index</code><span class="sig-paren">(</span><em class="sig-param">mode_index</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.set_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.set_mode_index" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_mode_index</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode_index</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.set_mode_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.set_mode_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set index for specified mode</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mode_index</strong> (<em>dict</em>) – New indices for the factor matrices in form of a dictionary.
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mode_index</strong><span class="classifier">dict</span></dt><dd><p>New indices for the factor matrices in form of a dictionary.
 Key defines the mode whose index to be changed.
 Value contains a list of new indices for this mode.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>self</strong></p>
+</dl>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD">TensorTKD</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">TensorTKD</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="hottbox.core.TensorTKD.set_mode_names">
-<code class="sig-name descname">set_mode_names</code><span class="sig-paren">(</span><em class="sig-param">mode_names</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.set_mode_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.set_mode_names" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">set_mode_names</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mode_names</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/hottbox/core/structures.html#TensorTKD.set_mode_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#hottbox.core.TensorTKD.set_mode_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rename modes of a tensor representation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>mode_names</strong> (<em>dict</em>) – New names for the tensor modes in form of a dictionary
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mode_names</strong><span class="classifier">dict</span></dt><dd><p>New names for the tensor modes in form of a dictionary
 The name of the mode defined by the Key of the dict will be renamed to the corresponding Value</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>self</strong></p>
+</dl>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#hottbox.core.TensorTKD" title="hottbox.core.TensorTKD">TensorTKD</a></p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>self</strong><span class="classifier">TensorTKD</span></dt><dd></dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
@@ -490,25 +517,19 @@ The name of the mode defined by the Key of the dict will be renamed to the corre
         <li class="right" >
           <a href="hottbox.core.TensorCPD.html" title="TensorCPD"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../modules.html" >HOTTBOX API</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../hottbox.core.html" >Core Structures and Operations</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>

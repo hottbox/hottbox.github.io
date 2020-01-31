@@ -13,16 +13,19 @@
   <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap-theme.min.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    <title>hottbox.core.structures &#8212; HOTTBOX 0.3.1 documentation</title>
+    <title>hottbox.core.structures &#8212; HOTTBOX 0.3.2 documentation</title>
     <link rel="stylesheet" href="../../../_static/guzzle.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/custom.css" />
     <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../../../_static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/toggle_navbar.js"></script>
+    <script type="text/javascript" src="../../../_static/js/toggle_header_rst_container.js"></script>
+    <script type="text/javascript" src="../../../_static/js/copybutton.js"></script>
     <link rel="shortcut icon" href="../../../_static/hottbox_favicon-48x48.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -39,7 +42,7 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -50,7 +53,7 @@
       </div>
   <div id="left-column">
     <div class="sphinxsidebar"><a href="
-    ../../../index.html" class="text-logo">HOTTBOX 0.3.1 documentation</a>
+    ../../../index.html" class="text-logo">HOTTBOX 0.3.2 documentation</a>
 <div class="sidebar-block">
   <div class="sidebar-wrapper">
     <div id="main-search">
@@ -114,10 +117,10 @@
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">reduce</span>
-<span class="kn">from</span> <span class="nn">.operations</span> <span class="k">import</span> <span class="n">unfold</span><span class="p">,</span> <span class="n">kolda_unfold</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">kolda_fold</span><span class="p">,</span> <span class="n">mode_n_product</span>
-<span class="kn">from</span> <span class="nn">._meta</span> <span class="k">import</span> <span class="n">Mode</span><span class="p">,</span> <span class="n">State</span>
-<span class="kn">from</span> <span class="nn">..errors</span> <span class="k">import</span> <span class="n">TensorModeError</span><span class="p">,</span> <span class="n">TensorShapeError</span><span class="p">,</span> <span class="n">TensorStateError</span><span class="p">,</span> <span class="n">TensorTopologyError</span><span class="p">,</span> <span class="n">ModeError</span><span class="p">,</span> <span class="n">StateError</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+<span class="kn">from</span> <span class="nn">.operations</span> <span class="kn">import</span> <span class="n">unfold</span><span class="p">,</span> <span class="n">kolda_unfold</span><span class="p">,</span> <span class="n">fold</span><span class="p">,</span> <span class="n">kolda_fold</span><span class="p">,</span> <span class="n">mode_n_product</span>
+<span class="kn">from</span> <span class="nn">._meta</span> <span class="kn">import</span> <span class="n">Mode</span><span class="p">,</span> <span class="n">State</span>
+<span class="kn">from</span> <span class="nn">..errors</span> <span class="kn">import</span> <span class="n">TensorModeError</span><span class="p">,</span> <span class="n">TensorShapeError</span><span class="p">,</span> <span class="n">TensorStateError</span><span class="p">,</span> <span class="n">TensorTopologyError</span><span class="p">,</span> <span class="n">ModeError</span><span class="p">,</span> <span class="n">StateError</span>
 
 
 <div class="viewcode-block" id="Tensor"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor">[docs]</a><span class="k">class</span> <span class="nc">Tensor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -205,7 +208,7 @@
 <span class="sd">        Sizes and names of its modes are (2, 12) and [&#39;mode-0&#39;, &#39;mode-1_mode-2&#39;] respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">custom_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">custom_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="c1"># TODO: provide more details for raises section?</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">array</span><span class="o">=</span><span class="n">array</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">,</span> <span class="n">custom_state</span><span class="o">=</span><span class="n">custom_state</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -213,16 +216,16 @@
                                                      <span class="n">custom_state</span><span class="o">=</span><span class="n">custom_state</span><span class="p">,</span>
                                                      <span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Parameters</span>
@@ -245,7 +248,7 @@
                 <span class="n">equal</span> <span class="o">=</span> <span class="n">data_equal</span> <span class="ow">and</span> <span class="n">modes_equal</span>
         <span class="k">return</span> <span class="n">equal</span>
 
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Summation of objects of ``Tensor`` class</span>
 
 <span class="sd">        Parameters</span>
@@ -281,7 +284,7 @@
                 <span class="n">tensor</span><span class="o">.</span><span class="n">reset_mode_name</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">tensor</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Provides general information about this instance.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;This tensor is of order </span><span class="si">{}</span><span class="s2"> and consists of </span><span class="si">{}</span><span class="s2"> elements.</span><span class="se">\n</span><span class="s2">&quot;</span> \
                <span class="s2">&quot;Sizes and names of its modes are </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2"> respectively.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
@@ -403,7 +406,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; N-dimensional array with data values</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        array : np.ndarray</span>
@@ -563,7 +566,7 @@
 
 <div class="viewcode-block" id="Tensor.set_mode_names"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.set_mode_names">[docs]</a>    <span class="k">def</span> <span class="nf">set_mode_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode_names</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Rename modes of a tensor</span>
-<span class="sd">        </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        mode_names : dict</span>
@@ -892,7 +895,7 @@
 
 <div class="viewcode-block" id="Tensor.access"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.access">[docs]</a>    <span class="k">def</span> <span class="nf">access</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Equivalent to multidimnesional slicing</span>
-<span class="sd">    </span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        inds : int</span>
@@ -908,13 +911,13 @@
         <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
         <span class="n">tensl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">tensor</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
         <span class="n">tensl</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">inds</span>
-        <span class="n">tensl</span> <span class="o">=</span> <span class="n">tensl</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">tensl</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">tensl</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
         <span class="k">return</span> <span class="n">tensor</span><span class="p">[</span><span class="n">tensl</span><span class="p">]</span></div>
-   
+
     <span class="c1"># TODO: add some checks to overwite</span>
 <div class="viewcode-block" id="Tensor.write_subtensor"><a class="viewcode-back" href="../../../api/generated/hottbox.core.Tensor.html#hottbox.core.Tensor.write_subtensor">[docs]</a>    <span class="k">def</span> <span class="nf">write_subtensor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inds</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Works in the same way as `access` but permits changing of the tensor data    </span>
-<span class="sd">        </span>
+        <span class="sd">&quot;&quot;&quot; Works in the same way as `access` but permits changing of the tensor data</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        inds : int</span>
@@ -927,7 +930,7 @@
         <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
         <span class="n">tensl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)]</span> <span class="o">*</span> <span class="n">tensor</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
         <span class="n">tensl</span><span class="p">[</span><span class="n">mode</span><span class="p">]</span> <span class="o">=</span> <span class="n">inds</span>
-        <span class="n">tensl</span> <span class="o">=</span> <span class="n">tensl</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">tensl</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">tensl</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
         <span class="n">tensor</span><span class="p">[</span><span class="n">tensl</span><span class="p">]</span> <span class="o">=</span> <span class="n">overwrite</span>
         <span class="k">return</span></div></div>
 
@@ -937,7 +940,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This class provides a general interface for a tensor represented through a tensor decomposition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span>
 
     <span class="nd">@staticmethod</span>
@@ -1203,14 +1206,14 @@
 <span class="sd">        Factor matrices represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
 <span class="sd">        With corresponding latent components described by (5, 6, 7) features respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorCPD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span> <span class="o">=</span> <span class="n">core_values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_modes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_modes</span><span class="p">(</span><span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Parameters</span>
@@ -1228,14 +1231,14 @@
         <span class="n">equal</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="vm">__class__</span><span class="p">):</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">ft_shape</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">rank</span><span class="p">:</span>
-                <span class="n">fmat_equal</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">fmat</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>  <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span> <span class="n">equal_nan</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+                <span class="n">fmat_equal</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">fmat</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>  <span class="n">rtol</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">1e-08</span><span class="p">,</span> <span class="n">equal_nan</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                                   <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fmat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmat</span><span class="p">)])</span>
                 <span class="n">core_equal</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">core</span>
                 <span class="n">modes_equal</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span><span class="n">mode</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">)])</span>
                 <span class="n">equal</span> <span class="o">=</span> <span class="n">fmat_equal</span> <span class="ow">and</span> <span class="n">core_equal</span> <span class="ow">and</span> <span class="n">modes_equal</span>
         <span class="k">return</span> <span class="n">equal</span>
 
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Summation of objects of ``TensorCPD`` class</span>
 
 <span class="sd">        Parameters</span>
@@ -1265,7 +1268,7 @@
                 <span class="n">tensor_cpd</span><span class="o">.</span><span class="n">reset_mode_name</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">tensor_cpd</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Provides general information about this instance.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;Kruskal representation of a tensor with rank=</span><span class="si">{}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span> \
                <span class="s2">&quot;Factor matrices represent properties: </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span> \
@@ -1273,7 +1276,7 @@
                                                                                                     <span class="bp">self</span><span class="o">.</span><span class="n">mode_names</span><span class="p">,</span>
                                                                                                     <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
@@ -1324,7 +1327,7 @@
 <span class="sd">        -------</span>
 <span class="sd">        core_tensor : Tensor</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">from</span> <span class="nn">hottbox.utils.generation</span> <span class="k">import</span> <span class="n">super_diag_tensor</span>
+        <span class="kn">from</span> <span class="nn">hottbox.utils.generation</span> <span class="kn">import</span> <span class="n">super_diag_tensor</span>
 
         <span class="n">core_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span>
         <span class="n">core_tensor</span> <span class="o">=</span> <span class="n">super_diag_tensor</span><span class="p">(</span><span class="n">core_shape</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span><span class="p">)</span>
@@ -1333,7 +1336,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">fmat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; List of factor matrices for the CP representation of a tensor</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        factor_matrices : list[np.ndarray]</span>
@@ -1417,7 +1420,7 @@
         <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core</span>
         <span class="k">for</span> <span class="n">mode</span><span class="p">,</span> <span class="n">fmat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fmat</span><span class="p">):</span>
             <span class="n">tensor</span><span class="o">.</span><span class="n">mode_n_product</span><span class="p">(</span><span class="n">fmat</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        
+
         <span class="k">if</span> <span class="n">keep_meta</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">mode_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">mode</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mode</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">modes</span><span class="p">)}</span>
             <span class="n">tensor</span><span class="o">.</span><span class="n">set_mode_names</span><span class="p">(</span><span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">)</span>
@@ -1590,14 +1593,14 @@
 <span class="sd">        Factor matrices represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
 <span class="sd">        With corresponding latent components described by (5, 6, 7) features respectively.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTKD</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">fmat</span><span class="o">=</span><span class="n">fmat</span><span class="p">,</span> <span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_fmat</span> <span class="o">=</span> <span class="p">[</span><span class="n">mat</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">mat</span> <span class="ow">in</span> <span class="n">fmat</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span> <span class="o">=</span> <span class="n">core_values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_modes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_modes</span><span class="p">(</span><span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Parameters</span>
@@ -1622,7 +1625,7 @@
                 <span class="n">equal</span> <span class="o">=</span> <span class="n">fmat_equal</span> <span class="ow">and</span> <span class="n">core_equal</span> <span class="ow">and</span> <span class="n">modes_equal</span>
         <span class="k">return</span> <span class="n">equal</span>
 
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Summation of objects of ``TensorTKD`` class</span>
 
 <span class="sd">        Parameters</span>
@@ -1674,7 +1677,7 @@
                 <span class="n">tensor_tkd</span><span class="o">.</span><span class="n">reset_mode_name</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">tensor_tkd</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Provides general information about this instance.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;Tucker representation of a tensor with multi-linear rank=</span><span class="si">{}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span> \
                <span class="s2">&quot;Factor matrices represent properties: </span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span> \
@@ -1682,7 +1685,7 @@
                                                                                                     <span class="bp">self</span><span class="o">.</span><span class="n">mode_names</span><span class="p">,</span>
                                                                                                     <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
@@ -1746,7 +1749,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">fmat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; List of factor matrices for the Tucker representation of a tensor</span>
-<span class="sd">        </span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        factor_matrices : list[np.ndarray]</span>
@@ -1997,13 +2000,13 @@
 <span class="sd">        Shape of this representation in the full format is (5, 6, 7).</span>
 <span class="sd">        Physical modes of its cores represent properties: [&#39;Year&#39;, &#39;Month&#39;, &#39;Day&#39;]</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_values</span><span class="p">,</span> <span class="n">mode_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TensorTT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_validate_init_data</span><span class="p">(</span><span class="n">core_values</span><span class="o">=</span><span class="n">core_values</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_core_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">core</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">core</span> <span class="ow">in</span> <span class="n">core_values</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_modes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_modes</span><span class="p">(</span><span class="n">mode_names</span><span class="o">=</span><span class="n">mode_names</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">        Parameters</span>
@@ -2026,7 +2029,7 @@
                 <span class="n">equal</span> <span class="o">=</span> <span class="n">cores_equal</span> <span class="ow">and</span> <span class="n">modes_equal</span>
         <span class="k">return</span> <span class="n">equal</span>
 
-    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot; Provides general information about this instance.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s2">&quot;Tensor train representation of a tensor with tt-rank=</span><span class="si">{}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span> \
                <span class="s2">&quot;Shape of this representation in the full format is </span><span class="si">{}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span> \
@@ -2034,7 +2037,7 @@
                                                                                <span class="bp">self</span><span class="o">.</span><span class="n">ft_shape</span><span class="p">,</span>
                                                                                <span class="bp">self</span><span class="o">.</span><span class="n">mode_names</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_validate_init_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">core_values</span><span class="p">):</span>
@@ -2317,24 +2320,18 @@
         <li class="right" >
           <a href="../../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">HOTTBOX 0.3.2 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>
- <script type="text/javascript">
-    $(document).ready(function() {
-        $(".toggle > *").hide();
-        $(".toggle .header").show();
-        $(".toggle .header").click(function() {
-            $(this).parent().children().not(".header").toggle(400);
-            $(this).parent().children(".header").toggleClass("open");
-        });
-
-        $("#mobile-toggle a").click(function () {
-           $("#left-column").toggle();
-       })
-    });
+<script type="text/javascript">
+  $("#mobile-toggle a").click(function () {
+    $("#left-column").toggle();
+  });
 </script>
-
+<script type="text/javascript" src="../../../_static/js/bootstrap.js"></script>
+  <div class="footer">
+    &copy; Copyright 2017 - 2020, Ilya Kisil. Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+  </div>
   </body>
 </html>
